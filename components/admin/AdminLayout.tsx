@@ -1,0 +1,110 @@
+'use client'
+
+import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
+import {
+  LayoutDashboard, FileText, MessageSquare, Users, BarChart2,
+  Mail, BrainCircuit, Settings, ArrowLeft, Menu, X
+} from 'lucide-react'
+import { cn } from '@/lib/utils/cn'
+
+const NAV = [
+  { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
+  { key: 'posts', href: '/admin/posts', icon: FileText },
+  { key: 'comments', href: '/admin/comments', icon: MessageSquare },
+  { key: 'users', href: '/admin/users', icon: Users },
+  { key: 'analytics', href: '/admin/analytics', icon: BarChart2 },
+  { key: 'contactMessages', href: '/admin/contact-messages', icon: Mail },
+  { key: 'aiDrafts', href: '/admin/ai-drafts', icon: BrainCircuit },
+  { key: 'settings', href: '/admin/settings', icon: Settings },
+]
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const t = useTranslations('admin')
+  const pathname = usePathname()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  const isActive = (href: string) => {
+    if (href === '/admin') return pathname === '/admin' || pathname === '/en/admin'
+    return pathname.includes(href.replace('/admin', ''))
+  }
+
+  const SidebarContent = () => (
+    <>
+      <div className="px-6 py-5 border-b border-[#E5E7EB]">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded-lg gradient-navy flex items-center justify-center">
+            <span className="text-white text-xs font-bold">H</span>
+          </div>
+          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
+        </div>
+      </div>
+      <nav className="px-3 py-4 flex-1">
+        {NAV.map(({ key, href, icon: Icon }) => (
+          <Link
+            key={key}
+            href={href}
+            onClick={() => setSidebarOpen(false)}
+            className={cn(
+              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-1 transition-all',
+              isActive(href)
+                ? 'bg-[#0F172A] text-white'
+                : 'text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A]'
+            )}
+          >
+            <Icon size={16} />
+            {t(key as keyof typeof t)}
+          </Link>
+        ))}
+      </nav>
+      <div className="px-3 py-4 border-t border-[#E5E7EB]">
+        <Link
+          href="/"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-all"
+        >
+          <ArrowLeft size={16} /> Back to Site
+        </Link>
+      </div>
+    </>
+  )
+
+  return (
+    <div className="flex min-h-screen bg-[#F8FAFC]">
+      {/* Sidebar desktop */}
+      <aside className="hidden lg:flex flex-col w-56 bg-white border-r border-[#E5E7EB] fixed h-full z-30">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div className="lg:hidden fixed inset-0 z-40 bg-black/40" onClick={() => setSidebarOpen(false)} />
+      )}
+      {/* Mobile sidebar */}
+      <aside className={cn(
+        'lg:hidden fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-[#E5E7EB] z-50 flex flex-col transition-transform duration-200',
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+      )}>
+        <div className="flex items-center justify-between px-4 py-4 border-b border-[#E5E7EB]">
+          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
+          <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg hover:bg-[#F8FAFC]">
+            <X size={18} />
+          </button>
+        </div>
+        <SidebarContent />
+      </aside>
+
+      {/* Main content */}
+      <div className="flex-1 lg:ml-56">
+        {/* Mobile header */}
+        <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-white border-b border-[#E5E7EB] sticky top-0 z-20">
+          <button onClick={() => setSidebarOpen(true)} className="p-2 rounded-lg hover:bg-[#F8FAFC]">
+            <Menu size={18} />
+          </button>
+          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
+        </div>
+        <main className="p-6">{children}</main>
+      </div>
+    </div>
+  )
+}
