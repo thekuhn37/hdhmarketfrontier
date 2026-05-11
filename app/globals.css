@@ -200,7 +200,147 @@ body {
   margin: 1.5rem 0;
 }
 
-/* Category colors */
+/* ─── TipTap Rich Editor prose styles ───────────────────────────────────── */
+.tiptap-prose {
+  outline: none;
+  min-height: 500px;
+  padding: 2rem 2.5rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #111827;
+}
+.tiptap-prose > * + * { margin-top: 0.85em; }
+.tiptap-prose p { margin: 0.85rem 0; }
+.tiptap-prose h1 {
+  font-size: 2rem; font-weight: 800; color: #0F172A;
+  margin: 2.5rem 0 0.75rem; letter-spacing: -0.03em; line-height: 1.2;
+}
+.tiptap-prose h2 {
+  font-size: 1.5rem; font-weight: 700; color: #0F172A;
+  margin: 2rem 0 0.75rem; letter-spacing: -0.02em; line-height: 1.3;
+}
+.tiptap-prose h3 {
+  font-size: 1.25rem; font-weight: 600; color: #0F172A;
+  margin: 1.75rem 0 0.5rem; line-height: 1.35;
+}
+.tiptap-prose h4 {
+  font-size: 1.125rem; font-weight: 600; color: #0F172A;
+  margin: 1.5rem 0 0.5rem;
+}
+.tiptap-prose ul, .tiptap-prose ol {
+  padding-left: 1.75rem; margin: 0.85rem 0;
+}
+.tiptap-prose ul { list-style-type: disc; }
+.tiptap-prose ol { list-style-type: decimal; }
+.tiptap-prose li { margin: 0.35rem 0; line-height: 1.75; }
+
+/* Task list */
+.tiptap-prose ul[data-type="taskList"] {
+  list-style: none; padding-left: 0.25rem;
+}
+.tiptap-prose ul[data-type="taskList"] > li {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+}
+.tiptap-prose ul[data-type="taskList"] > li > label {
+  flex-shrink: 0; cursor: pointer; margin-top: 0.2rem;
+}
+.tiptap-prose ul[data-type="taskList"] > li > div { flex: 1; }
+
+.tiptap-prose blockquote {
+  border-left: 3px solid #38BDF8;
+  padding: 0.125rem 0 0.125rem 1.25rem;
+  margin: 1.5rem 0;
+  color: #4B5563;
+  font-style: italic;
+}
+.tiptap-prose code:not(pre code) {
+  background: #F1F5F9;
+  padding: 0.125rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: #0F172A;
+}
+.tiptap-prose pre {
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+.tiptap-prose pre code {
+  background: none; padding: 0; color: inherit; font-size: inherit;
+}
+.tiptap-prose a { color: #0EA5E9; text-decoration: underline; cursor: pointer; }
+.tiptap-prose a:hover { color: #0F172A; }
+.tiptap-prose img {
+  border-radius: 12px; max-width: 100%; height: auto;
+  margin: 1.5rem 0; display: block;
+}
+.tiptap-prose mark {
+  background: rgba(253, 224, 71, 0.4); border-radius: 3px; padding: 0 2px;
+}
+.tiptap-prose hr { border: none; border-top: 1px solid #E5E7EB; margin: 2rem 0; }
+
+/* Tables */
+.tiptap-prose table {
+  border-collapse: collapse; width: 100%; margin: 1.5rem 0; table-layout: fixed;
+}
+.tiptap-prose th, .tiptap-prose td {
+  border: 1px solid #E5E7EB;
+  padding: 0.5rem 0.875rem;
+  text-align: left;
+  font-size: 0.875rem;
+  vertical-align: top;
+}
+.tiptap-prose th { background: #F8FAFC; font-weight: 600; color: #0F172A; }
+.tiptap-prose td { color: #374151; }
+.tiptap-prose .selectedCell { position: relative; }
+.tiptap-prose .selectedCell::after {
+  background: rgba(56, 189, 248, 0.12);
+  content: '';
+  left: 0; right: 0; top: 0; bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+/* Placeholder */
+.tiptap-prose p.is-empty::before,
+.tiptap-prose p.is-editor-empty:first-child::before {
+  color: #9CA3AF;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Lowlight / highlight.js token colors (dark background) */
+.tiptap-prose .hljs-comment,
+.tiptap-prose .hljs-quote         { color: #94A3B8; }
+.tiptap-prose .hljs-keyword,
+.tiptap-prose .hljs-selector-tag,
+.tiptap-prose .hljs-built_in,
+.tiptap-prose .hljs-name          { color: #38BDF8; }
+.tiptap-prose .hljs-string,
+.tiptap-prose .hljs-addition,
+.tiptap-prose .hljs-attr          { color: #86EFAC; }
+.tiptap-prose .hljs-number,
+.tiptap-prose .hljs-literal,
+.tiptap-prose .hljs-deletion      { color: #FCA5A5; }
+.tiptap-prose .hljs-function,
+.tiptap-prose .hljs-title         { color: #C084FC; }
+.tiptap-prose .hljs-variable,
+.tiptap-prose .hljs-template-variable { color: #FCD34D; }
+.tiptap-prose .hljs-type,
+.tiptap-prose .hljs-class         { color: #67E8F9; }
+.tiptap-prose .hljs-meta          { color: #F9A8D4; }
+.tiptap-prose .hljs-tag           { color: #FCA5A5; }
+
+/* ─── Category colors ────────────────────────────────────────────────────── */
 .cat-markets { color: #0F172A; background: rgba(15, 23, 42, 0.06); }
 .cat-data { color: #1E3A5F; background: rgba(30, 58, 95, 0.06); }
 .cat-infrastructure { color: #0369A1; background: rgba(3, 105, 161, 0.06); }
