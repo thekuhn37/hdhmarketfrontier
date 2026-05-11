@@ -13,6 +13,15 @@ export interface Profile {
   avatar_url: string | null
   role: UserRole
   provider: string | null
+  country: string | null
+  company: string | null
+  job_title: string | null
+  industry_types: string[]
+  interests: string[]
+  discovery_source: string | null
+  privacy_consent: boolean
+  analytics_consent: boolean
+  onboarding_completed: boolean
   created_at: string
   updated_at: string
 }
@@ -145,6 +154,15 @@ export type Database = {
           avatar_url: string | null
           role: string
           provider: string | null
+          country: string | null
+          company: string | null
+          job_title: string | null
+          industry_types: string[]
+          interests: string[]
+          discovery_source: string | null
+          privacy_consent: boolean
+          analytics_consent: boolean
+          onboarding_completed: boolean
           created_at: string
           updated_at: string
         }
@@ -155,6 +173,15 @@ export type Database = {
           avatar_url?: string | null
           role?: string
           provider?: string | null
+          country?: string | null
+          company?: string | null
+          job_title?: string | null
+          industry_types?: string[]
+          interests?: string[]
+          discovery_source?: string | null
+          privacy_consent?: boolean
+          analytics_consent?: boolean
+          onboarding_completed?: boolean
           created_at?: string
           updated_at?: string
         }
@@ -165,6 +192,15 @@ export type Database = {
           avatar_url?: string | null
           role?: string
           provider?: string | null
+          country?: string | null
+          company?: string | null
+          job_title?: string | null
+          industry_types?: string[]
+          interests?: string[]
+          discovery_source?: string | null
+          privacy_consent?: boolean
+          analytics_consent?: boolean
+          onboarding_completed?: boolean
           created_at?: string
           updated_at?: string
         }

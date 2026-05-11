@@ -6,7 +6,7 @@ import LatestPosts from '@/components/home/LatestPosts'
 import PopularPosts from '@/components/home/PopularPosts'
 import FeaturedInsight from '@/components/home/FeaturedInsight'
 import AboutSection from '@/components/home/AboutSection'
-import NewsletterSection from '@/components/home/NewsletterSection'
+// import NewsletterSection from '@/components/home/NewsletterSection'
 
 interface Props {
   params: Promise<{ locale: string }>
@@ -36,7 +36,7 @@ export default async function HomePage({ params }: Props) {
       <LatestPosts locale={locale} />
       <PopularPosts locale={locale} />
       <AboutSection />
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
     </>
   )
 }

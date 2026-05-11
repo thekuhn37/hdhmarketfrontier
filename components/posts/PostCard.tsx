@@ -3,7 +3,6 @@ import { Link } from '@/i18n/navigation'
 import { Clock, Eye, Calendar } from 'lucide-react'
 import { formatDate } from '@/lib/utils/format'
 import type { Post } from '@/lib/supabase/types'
-import { cn } from '@/lib/utils/cn'
 
 const CATEGORY_STYLES: Record<string, { bg: string; text: string }> = {
   markets: { bg: 'rgba(15,23,42,0.06)', text: '#0F172A' },
@@ -63,7 +62,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
     return (
       <Link href={`/posts/${post.slug}`} className="group relative block rounded-3xl overflow-hidden h-96 cursor-pointer">
         <div
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0F172A]/40 to-[#0F172A]/90"
+          className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/20 via-[#0F172A]/65 to-[#0F172A]/95"
           style={{ zIndex: 1 }}
         />
         {post.thumbnail_url ? (
@@ -86,16 +85,21 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             {post.title}
           </h2>
           {post.summary && (
-            <p className="text-white/70 text-sm line-clamp-2 mb-4">{post.summary}</p>
+            <p className="text-white/80 text-sm line-clamp-2 mb-4">{post.summary}</p>
           )}
-          <div className="flex items-center gap-4 text-white/60 text-xs">
-            <span className="flex items-center gap-1.5">
-              <Calendar size={12} />
-              {post.published_at ? formatDate(post.published_at) : ''}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock size={12} />
-              {t('readingTime', { minutes: post.reading_time })}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4 text-white/60 text-xs">
+              <span className="flex items-center gap-1.5">
+                <Calendar size={12} />
+                {post.published_at ? formatDate(post.published_at) : ''}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock size={12} />
+                {t('readingTime', { minutes: post.reading_time })}
+              </span>
+            </div>
+            <span className="flex-shrink-0 px-4 py-2 rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold group-hover:bg-[#38BDF8] group-hover:border-[#38BDF8] transition-all duration-300">
+              {t('readMore')}
             </span>
           </div>
         </div>

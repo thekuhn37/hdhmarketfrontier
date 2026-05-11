@@ -1,13 +1,14 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { Mail, ExternalLink } from 'lucide-react'
+import FooterAdminLink from './FooterAdminLink'
 
 export default function Footer() {
   const t = useTranslations('footer')
   const tNav = useTranslations('nav')
   const year = new Date().getFullYear()
 
-  const mainLinks = [
+  const exploreLinks = [
     { label: tNav('home'), href: '/' },
     { label: tNav('about'), href: '/about' },
     { label: tNav('markets'), href: '/markets' },
@@ -26,11 +27,17 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0F172A] text-white mt-auto">
-      <div className="content-width py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+
+      {/* Accent line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#38BDF8]/40 to-transparent" />
+
+      {/* Main content */}
+      <div className="content-width pt-80 pb-60">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+
+          {/* Brand — spans 6 of 12 */}
+          <div className="md:col-span-6">
+            <Link href="/" className="flex items-center gap-2.5 mb-5">
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">H</span>
               </div>
@@ -38,86 +45,84 @@ export default function Footer() {
                 HDH<span className="text-[#38BDF8]"> Market</span> Frontier
               </span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/55 text-sm leading-relaxed max-w-sm mb-8">
               {t('description')}
             </p>
-            <div className="flex gap-3 mt-6">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-sm transition-all"
-                aria-label={t('linkedin')}
-              >
-                <span className="text-xs font-bold">in</span>
-                LinkedIn
-                <ExternalLink size={12} className="opacity-60" />
-              </a>
-              <a
-                href="mailto:contact@hdhmarketfrontier.com"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-sm transition-all"
-                aria-label={t('email')}
-              >
-                <Mail size={15} />
-                Email
-              </a>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider opacity-60">
-              Explore
-            </h4>
-            <ul className="space-y-2">
-              {mainLinks.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider opacity-60">
-              Legal
-            </h4>
-            <ul className="space-y-2">
-              {legalLinks.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08] max-w-sm mb-8">
               <p className="text-white/40 text-xs leading-relaxed">
                 {t('disclaimer')}
               </p>
             </div>
+            <div className="flex gap-3">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.07] hover:bg-white/[0.14] border border-white/[0.08] text-white/70 hover:text-white text-sm font-medium transition-all duration-200"
+                aria-label={t('linkedin')}
+              >
+                <span className="text-xs font-bold">in</span>
+                LinkedIn
+                <ExternalLink size={11} className="opacity-50" />
+              </a>
+              <Link
+                href="/contact"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.07] hover:bg-white/[0.14] border border-white/[0.08] text-white/70 hover:text-white text-sm font-medium transition-all duration-200"
+              >
+                <Mail size={14} />
+                Contact
+              </Link>
+            </div>
           </div>
-        </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-xs">
-            {t('copyright', { year })}
-          </p>
-          <p className="text-white/30 text-xs">
-            Built with Next.js · Hosted on Google Cloud Run
-          </p>
+          {/* Spacer — 1 col */}
+          <div className="hidden md:block md:col-span-1" />
+
+          {/* Explore — spans 5 of 12, displayed as 2 columns */}
+          <div className="md:col-span-5">
+            <h4 className="text-white/40 font-semibold text-xs uppercase tracking-widest mb-5">
+              Explore
+            </h4>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {exploreLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-white/55 hover:text-white text-sm transition-colors duration-150"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+              <FooterAdminLink />
+            </ul>
+          </div>
+
         </div>
       </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/[0.08]">
+        <div className="content-width pt-8 pb-16 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/35 text-xs">
+            {t('copyright', { year })}
+          </p>
+          <div className="flex items-center gap-1 flex-wrap justify-center sm:justify-end">
+            {legalLinks.map(({ label, href }, i) => (
+              <span key={href} className="flex items-center gap-1">
+                {i > 0 && <span className="text-white/20 text-xs">·</span>}
+                <Link
+                  href={href}
+                  className="text-white/35 hover:text-white/70 text-xs transition-colors duration-150"
+                >
+                  {label}
+                </Link>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </footer>
   )
 }

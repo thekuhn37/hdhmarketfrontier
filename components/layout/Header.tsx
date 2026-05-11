@@ -1,39 +1,39 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Menu, X, ChevronDown, User, LogOut, Settings, LayoutDashboard } from 'lucide-react'
+import { Search, Menu, X, ChevronDown, User, LogOut, LayoutDashboard } from 'lucide-react'
 import { Link, useRouter, usePathname } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils/cn'
+import { createClient } from '@/lib/supabase/client'
 
 const NAV_LINKS = [
+  { key: 'about', href: '/about' },
   { key: 'markets', href: '/markets' },
   { key: 'data', href: '/data' },
+  { key: 'infrastructure', href: '/infrastructure' },
   { key: 'ai', href: '/ai' },
   { key: 'digitalAssets', href: '/digital-assets' },
 ]
 
-interface User {
+interface AuthUser {
   id: string
   email?: string
-  display_name?: string
-  avatar_url?: string
+  display_name?: string | null
+  avatar_url?: string | null
   role?: string
 }
 
-interface HeaderProps {
-  user?: User | null
-}
-
-export default function Header({ user }: HeaderProps) {
+export default function Header() {
   const t = useTranslations('nav')
   const tLang = useTranslations('lang')
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
 
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
@@ -41,18 +41,69 @@ export default function Header({ user }: HeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
+  const fetchProfile = useCallback(async (userId: string, email?: string) => {
+    try {
+      const supabase = createClient()
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('id, email, display_name, avatar_url, role')
+        .eq('id', userId)
+        .single()
+      // DEBUG — remove after admin button is confirmed working
+      console.log('[Header] fetchProfile →', { userId, data, error })
+      if (data) {
+        setCurrentUser(data as AuthUser)
+      } else {
+        setCurrentUser({ id: userId, email: email ?? '' })
+      }
+    } catch (err) {
+      console.error('[Header] fetchProfile threw:', err)
+      setCurrentUser({ id: userId, email: email ?? '' })
+    }
+  }, [])
+
+  useEffect(() => {
+    const supabase = createClient()
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) fetchProfile(session.user.id, session.user.email)
+    })
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        fetchProfile(session.user.id, session.user.email)
+      } else {
+        setCurrentUser(null)
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [fetchProfile])
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleLogout = async () => {
+    const supabase = createClient()
+    await supabase.auth.signOut()
+    setCurrentUser(null)
+    setUserMenuOpen(false)
+    router.push('/')
+  }
+
+  const displayName = currentUser
+    ? (currentUser.display_name || currentUser.email?.split('@')[0] || 'User')
+    : null
+
   const switchLocale = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale as 'en' | 'ko' | 'zh' })
     setLangOpen(false)
   }
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (searchQuery.trim()) {
       router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
@@ -73,7 +124,16 @@ export default function Header({ user }: HeaderProps) {
       <div className="content-width">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+          <button
+            onClick={() => {
+              if (pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              } else {
+                router.push('/')
+              }
+            }}
+            className="flex items-center gap-2 flex-shrink-0"
+          >
             <div className="w-8 h-8 rounded-lg gradient-navy flex items-center justify-center">
               <span className="text-white font-bold text-sm">H</span>
             </div>
@@ -83,7 +143,7 @@ export default function Header({ user }: HeaderProps) {
             <span className="font-bold text-[#0F172A] text-lg sm:hidden tracking-tight">
               HDH<span className="text-[#38BDF8]">MF</span>
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
@@ -96,7 +156,7 @@ export default function Header({ user }: HeaderProps) {
                   'text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC]'
                 )}
               >
-                {t(key as 'markets' | 'data' | 'ai' | 'digitalAssets')}
+                {t(key as 'about' | 'markets' | 'data' | 'infrastructure' | 'ai' | 'digitalAssets')}
               </Link>
             ))}
           </nav>
@@ -148,21 +208,24 @@ export default function Header({ user }: HeaderProps) {
             </div>
 
             {/* Auth */}
-            {user ? (
+            {currentUser ? (
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-[#F8FAFC] transition-all"
+                  className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[#F8FAFC] transition-all"
                 >
-                  {user.avatar_url ? (
-                    <img src={user.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover" />
+                  {currentUser.avatar_url ? (
+                    <img src={currentUser.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover" />
                   ) : (
-                    <div className="w-7 h-7 rounded-full gradient-navy flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-full gradient-navy flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-xs font-bold">
-                        {(user.display_name || user.email || 'U')[0].toUpperCase()}
+                        {(displayName || 'U')[0].toUpperCase()}
                       </span>
                     </div>
                   )}
+                  <span className="hidden sm:block text-sm font-medium text-[#0F172A] max-w-[120px] truncate">
+                    {displayName}
+                  </span>
                   <ChevronDown size={14} className={cn('text-[#6B7280] transition-transform', userMenuOpen && 'rotate-180')} />
                 </button>
                 <AnimatePresence>
@@ -175,8 +238,8 @@ export default function Header({ user }: HeaderProps) {
                       className="absolute right-0 top-full mt-2 bg-white border border-[#E5E7EB] rounded-xl shadow-lg overflow-hidden min-w-[180px]"
                     >
                       <div className="px-4 py-3 border-b border-[#E5E7EB]">
-                        <p className="text-sm font-medium text-[#0F172A] truncate">{user.display_name || 'User'}</p>
-                        <p className="text-xs text-[#6B7280] truncate">{user.email}</p>
+                        <p className="text-sm font-medium text-[#0F172A] truncate">{displayName}</p>
+                        <p className="text-xs text-[#6B7280] truncate">{currentUser.email}</p>
                       </div>
                       <Link
                         href="/profile"
@@ -185,7 +248,7 @@ export default function Header({ user }: HeaderProps) {
                       >
                         <User size={15} /> {t('profile')}
                       </Link>
-                      {user.role === 'admin' && (
+                      {currentUser.role === 'admin' && (
                         <Link
                           href="/admin"
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-colors"
@@ -194,14 +257,12 @@ export default function Header({ user }: HeaderProps) {
                           <LayoutDashboard size={15} /> {t('admin')}
                         </Link>
                       )}
-                      <form action="/api/auth/logout" method="POST">
-                        <button
-                          type="submit"
-                          className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
-                        >
-                          <LogOut size={15} /> {t('logout')}
-                        </button>
-                      </form>
+                      <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      >
+                        <LogOut size={15} /> {t('logout')}
+                      </button>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -245,11 +306,11 @@ export default function Header({ user }: HeaderProps) {
                   className="px-4 py-3 rounded-lg text-sm font-medium text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {t(key as 'markets' | 'data' | 'ai' | 'digitalAssets')}
+                  {t(key as 'about' | 'markets' | 'data' | 'infrastructure' | 'ai' | 'digitalAssets')}
                 </Link>
               ))}
               <div className="border-t border-[#E5E7EB] mt-2 pt-2">
-                {!user && (
+                {!currentUser && (
                   <Link
                     href="/login"
                     className="flex items-center justify-center px-4 py-3 rounded-lg bg-[#0F172A] text-white text-sm font-medium"

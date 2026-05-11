@@ -38,8 +38,15 @@ export default async function AboutPage({ params }: Props) {
       {/* Hero */}
       <section className="gradient-navy py-24">
         <div className="content-width text-center">
-          <div className="w-20 h-20 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center mx-auto mb-6">
-            <span className="text-4xl font-bold text-white">H</span>
+          <div className="w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white/20 mx-auto mb-6 shadow-2xl flex-shrink-0">
+            <img
+              src="/images/headshot2.JPEG"
+              alt="Harry D. Hwang"
+              className="w-full h-full object-cover object-top"
+              style={{ imageRendering: 'auto' }}
+              loading="eager"
+              decoding="sync"
+            />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{t('title')}</h1>
           <p className="text-white/60 text-xl">{t('subtitle')}</p>

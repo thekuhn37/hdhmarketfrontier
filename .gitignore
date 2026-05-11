@@ -54,3 +54,11 @@ pnpm-debug.log*
 supabase/.branches/
 supabase/.temp/
 supabase/.env
+
+# ─── Large binary / media files (serve via CDN or Supabase Storage) ──────────
+public/images/*.jpg
+public/images/*.jpeg
+public/images/*.JPEG
+public/images/*.png
+public/images/*.webp
+assets/images/

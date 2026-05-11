@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing'
 import { Metadata } from 'next'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ScrollToTop from '@/components/layout/ScrollToTop'
 import CookieBanner from '@/components/ui/CookieBanner'
 import { Toaster } from 'react-hot-toast'
 import '../globals.css'
@@ -73,6 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </main>
           <Footer />
+          <ScrollToTop />
           <CookieBanner />
           <Toaster
             position="top-right"

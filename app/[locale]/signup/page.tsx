@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { Link, useRouter } from '@/i18n/navigation'
+import { useTranslations, useLocale } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { Mail, Lock, User } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
@@ -11,13 +11,33 @@ import toast from 'react-hot-toast'
 
 export default function SignupPage() {
   const t = useTranslations('auth')
-  const router = useRouter()
+  const locale = useLocale()
   const [displayName, setDisplayName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleSignup = async (e: React.FormEvent) => {
+  const getErrorMessage = (err: unknown): string => {
+    const msg = err instanceof Error ? err.message : String(err)
+    if (msg.includes('NEXT_PUBLIC_SUPABASE')) {
+      return 'Server not configured. Contact the administrator.'
+    }
+    if (msg.toLowerCase().includes('fetch') || msg.toLowerCase().includes('network') || msg.toLowerCase().includes('connect')) {
+      return 'Cannot reach authentication service. Check your connection and try again.'
+    }
+    if (msg.includes('already registered') || msg.includes('User already registered')) {
+      return 'This email is already registered. Please log in instead.'
+    }
+    if (msg.includes('Password should be') || msg.includes('password')) {
+      return msg
+    }
+    if (msg.includes('Redirect URL not allowed')) {
+      return 'Signup redirect URL is not configured in Supabase. Add http://localhost:3000/api/auth/callback to your Supabase Auth Redirect URLs.'
+    }
+    return msg || 'Signup failed. Please try again.'
+  }
+
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (password.length < 8) {
       toast.error('Password must be at least 8 characters')
@@ -31,24 +51,28 @@ export default function SignupPage() {
         password,
         options: {
           data: { display_name: displayName },
-          emailRedirectTo: `${window.location.origin}/api/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/api/auth/callback?locale=${locale}`,
         },
       })
       if (error) throw error
       toast.success('Check your email to confirm your account.')
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : 'Signup failed')
+      toast.error(getErrorMessage(err))
     } finally {
       setLoading(false)
     }
   }
 
   const handleGoogleLogin = async () => {
-    const supabase = createClient()
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: `${window.location.origin}/api/auth/callback` },
-    })
+    try {
+      const supabase = createClient()
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: `${window.location.origin}/api/auth/callback?locale=${locale}` },
+      })
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err))
+    }
   }
 
   return (

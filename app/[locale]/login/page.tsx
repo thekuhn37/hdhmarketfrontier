@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Link, useRouter } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { Mail, Lock } from 'lucide-react'
@@ -12,9 +12,12 @@ import toast from 'react-hot-toast'
 export default function LoginPage() {
   const t = useTranslations('auth')
   const router = useRouter()
+  const locale = useLocale()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [resetLoading, setResetLoading] = useState(false)
+  const [resetSent, setResetSent] = useState(false)
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,6 +34,18 @@ export default function LoginPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleForgotPassword = async () => {
+    if (!email) { toast.error(t('enterEmailFirst')); return }
+    setResetLoading(true)
+    const supabase = createClient()
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/api/auth/callback?locale=${locale}`,
+    })
+    if (error) toast.error(error.message)
+    else { toast.success(t('resetEmailSent')); setResetSent(true) }
+    setResetLoading(false)
   }
 
   const handleGoogleLogin = async () => {
@@ -101,7 +116,7 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="text-sm font-medium text-[#111827]">{t('password')}</label>
-                <button type="button" className="text-xs text-[#0EA5E9] hover:underline">{t('forgotPassword')}</button>
+                <button type="button" onClick={handleForgotPassword} disabled={resetLoading || resetSent} className="text-xs text-[#0EA5E9] hover:underline disabled:opacity-50">{resetSent ? t('resetEmailSent') : t('forgotPassword')}</button>
               </div>
               <div className="relative">
                 <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280]" />
