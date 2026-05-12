@@ -1,14 +1,3 @@
-/**
- * Post translation service.
- *
- * When OPENAI_API_KEY is set: translates title, summary, and content via GPT-4o-mini.
- * Otherwise: returns original content unchanged (caller shows a "not available" notice).
- *
- * To enable:
- *   1. Set OPENAI_API_KEY in .env.local
- *   2. npm install openai
- */
-
 const LANG_NAMES: Record<string, string> = {
   ko: 'Korean',
   zh: 'Simplified Chinese',
@@ -29,25 +18,31 @@ export async function translatePost(
   input: TranslationInput,
   targetLocale: string
 ): Promise<TranslationResult> {
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey) return { ...input, isAI: false }
+
   const langName = LANG_NAMES[targetLocale] ?? targetLocale
 
-  if (process.env.OPENAI_API_KEY) {
-    try {
-      const { default: OpenAI } = await import('openai')
-      const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-
-      const response = await client.chat.completions.create({
+  try {
+    const res = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',
             content: `You are a professional financial translator specialising in capital markets.
-Translate the provided blog post to ${langName}.
+Translate ALL text fields (title, summary, content) to ${langName}.
 Rules:
+- Translate title, summary, and content — every field must be in ${langName}.
 - Preserve ALL HTML tags exactly — only translate text between tags.
 - Keep proper nouns, ticker symbols, and technical acronyms (e.g. MiFID II, CCP, T+2) unchanged.
-- Respond ONLY with a JSON object: {"title":"...","summary":"...","content":"..."}
-- If summary is null, return null for summary.`,
+- If summary is null in the input, return null for summary.
+- Respond ONLY with a JSON object: {"title":"...","summary":"...","content":"..."}`,
           },
           {
             role: 'user',
@@ -60,21 +55,27 @@ Rules:
         ],
         response_format: { type: 'json_object' },
         max_tokens: 4000,
-      })
+      }),
+    })
 
-      const raw = response.choices[0]?.message?.content ?? '{}'
-      const parsed = JSON.parse(raw) as Partial<TranslationInput>
-
-      return {
-        title: parsed.title || input.title,
-        summary: parsed.summary ?? input.summary,
-        content: parsed.content || input.content,
-        isAI: true,
-      }
-    } catch {
-      // Fall through — return original below
+    if (!res.ok) {
+      const errText = await res.text()
+      console.error('[translatePost] OpenAI error:', res.status, errText)
+      return { ...input, isAI: false }
     }
-  }
 
-  return { ...input, isAI: false }
+    const json = await res.json() as { choices: { message: { content: string } }[] }
+    const raw = json.choices?.[0]?.message?.content ?? '{}'
+    const parsed = JSON.parse(raw) as Partial<TranslationInput>
+
+    return {
+      title: parsed.title || input.title,
+      summary: parsed.summary || input.summary,
+      content: parsed.content || input.content,
+      isAI: true,
+    }
+  } catch (err) {
+    console.error('[translatePost] fetch failed:', err)
+    return { ...input, isAI: false }
+  }
 }

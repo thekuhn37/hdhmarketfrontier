@@ -20,14 +20,13 @@ const SAMPLE_FEATURED: Post = {
   ],
 }
 
-async function getFeaturedPost(locale: string): Promise<Post | null> {
+async function getFeaturedPost(): Promise<Post | null> {
   try {
     const supabase = await createClient()
     const { data } = await supabase
       .from('posts')
       .select(`*, tags:post_tags(tag:tags(*))`)
       .eq('status', 'published')
-      .eq('language', locale)
       .eq('is_featured', true)
       .order('published_at', { ascending: false })
       .limit(1)
@@ -46,7 +45,7 @@ async function getFeaturedPost(locale: string): Promise<Post | null> {
 
 export default async function FeaturedInsight({ locale }: Props) {
   const t = await getTranslations({ locale, namespace: 'home' })
-  const post = await getFeaturedPost(locale)
+  const post = await getFeaturedPost()
 
   if (!post) return null
 

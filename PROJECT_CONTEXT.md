@@ -23,7 +23,7 @@
 13. [Deployment Plan](#13-deployment-plan)
 14. [Coding Conventions](#14-coding-conventions)
 15. [Current Progress Status](#15-current-progress-status)
-16. [Future Roadmap](#16-future-roadmap)
+16. [Priority Roadmap to Professional Blog](#16-priority-roadmap-to-professional-blog)
 
 ---
 
@@ -98,7 +98,7 @@ The gradient from `#0F172A` → `#1E3A5F` → `#38BDF8` is the core brand gradie
 - **Headings**: Bold, tight tracking (`tracking-tight`)
 - **Body**: Regular weight, relaxed line height
 - **Accents / labels**: Small caps-style with uppercase + wide tracking (`.uppercase.tracking-wider`)
-- **Code**: System monospace stack
+- **Code**: JetBrains Mono / Fira Code (monospace stack)
 
 ### Glassmorphism Usage Rules
 
@@ -148,13 +148,14 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 | Animation | Framer Motion | 12.x | Avoid `ease` property |
 | Database | PostgreSQL (via Supabase) | — | 11 tables, all RLS-enabled |
 | Auth | Supabase Auth | @supabase/ssr 0.10.x | Email + Google OAuth |
-| Storage | Supabase Storage | — | `thumbnails` bucket (public) |
+| Storage | Supabase Storage | — | `thumbnails` bucket (public, admin-only write) |
 | i18n | next-intl | v4.x | EN / KO / ZH, `localePrefix: 'always'` |
 | AI | OpenAI | 6.x | GPT-4o-mini: summaries, field generation, translation |
-| Email | Resend | 6.x | Contact form delivery |
+| Email | Resend | 6.x | Contact form delivery — domain `hdhmarketfrontier.com` verified |
+| Rich Text Editor | **TipTap** | v3.x | Full WYSIWYG editor for post creation/editing |
+| Syntax Highlighting | lowlight | v3.x | Used with TipTap CodeBlockLowlight extension |
 | Icons | lucide-react | 1.x | **Note**: `Linkedin` and `Chrome` icons do NOT exist in v1 — use `<span>` alternatives |
 | Forms | react-hook-form + zod | 7.x / 4.x | Used in contact form |
-| Markdown | @uiw/react-md-editor + @uiw/react-markdown-preview | 4.x / 5.x | Admin post editor and post rendering |
 | Toast | react-hot-toast | 2.x | `<Toaster>` must be in layout |
 | Deployment | Google Cloud Run | — | Docker, `output: standalone` |
 | DNS/CDN | Cloudflare | — | Domain registrar + CDN + WAF |
@@ -164,6 +165,8 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 - **Supabase typed client**: `createBrowserClient<Database>` and `createServerClient<Database>` require the `Database` type from `lib/supabase/types.ts`. The `Database` type must use **row-only** definitions (no joined fields like `tags?: Tag[]`). Joining fields must be cast via `as unknown as AppType` after the query. Breaking this rule causes all column selections to return `never`.
 - **next-intl v4**: Server components use `getTranslations()`, client components use `useTranslations()`. Navigation helpers (`Link`, `useRouter`, `usePathname`) come from `@/i18n/navigation`, not `next/navigation`.
 - **Next.js redirect() in try-catch**: `redirect()` from `next/navigation` throws a `NEXT_REDIRECT` error internally. If wrapped in `try-catch`, the redirect is silently swallowed. Always call `redirect()` outside try-catch blocks.
+- **TipTap v3**: `BubbleMenu` is imported from `@tiptap/react/menus` (subpath), not from `@tiptap/react`. All extensions use named exports (e.g., `import { Table } from '@tiptap/extension-table'`). The `TableKit` named export from `@tiptap/extension-table` bundles all four table sub-extensions. Set `immediatelyRender: false` in `useEditor` options to avoid SSR hydration issues.
+- **Content format**: Post content is stored as **HTML** in the `posts.content TEXT` column. TipTap reads and writes HTML natively. AI endpoints receive plain text (HTML tags stripped before sending).
 
 ---
 
@@ -190,7 +193,8 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 │   ├── /profile             Full account management page
 │   ├── /admin               Admin dashboard (admin only)
 │   │   ├── /posts           Post list + management
-│   │   ├── /posts/new       Post editor (AI + image upload)
+│   │   ├── /posts/new       TipTap rich text editor (create)
+│   │   ├── /posts/[id]      TipTap rich text editor (edit existing post)
 │   │   ├── /comments        Comment moderation
 │   │   ├── /contact-messages Contact form inbox
 │   │   └── /ai-drafts       AI-generated draft posts
@@ -205,6 +209,7 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
     ├── /auth/delete-account  Account deletion (POST, server-side)
     ├── /ai/generate-summary  AI summary from content (POST)
     ├── /ai/generate-fields   AI title/slug/SEO from content (POST)
+    ├── /comments             GET (approved public), POST (submit), PATCH (admin status update)
     └── /contact              Contact form submission (rate-limited)
 ```
 
@@ -235,12 +240,13 @@ Dark navy background (`#0F172A`). Two content columns + bottom bar:
 
 `FooterAdminLink` is a client component that **subscribes to `onAuthStateChange`** (not just a one-time mount check) — the admin link disappears immediately on logout without a page refresh. Non-admins and logged-out users see nothing.
 
-**Spacing**: `pt-60` top padding, `pb-20` main content, `py-8 mb-10` bottom bar — intentionally generous for institutional feel.
+**Spacing**: `pt-80` top padding on main content area — intentionally generous for institutional feel.
 
 ### Scroll Behaviour
 
 - **Logo click**: If already on `/`, scrolls to top smoothly (`window.scrollTo`). From any other page, navigates to `/`. Implemented via `onClick` on a `<button>` in `Header.tsx`.
-- **ScrollToTop button**: `components/layout/ScrollToTop.tsx` — client component, fixed bottom-right, appears after scrolling 400px, label "Top" with `ArrowUp` icon. Registered in `app/[locale]/layout.tsx`.
+- **ScrollToTop button**: `components/layout/ScrollToTop.tsx` — fixed at `bottom-[20vh] right-8`, appears after scrolling 400px, pale grey border (`border-[#D1D5DB]`), smooth fade + slide animation (`transition-all duration-300`), label "Top" with `ArrowUp` icon.
+- **ScrollToBottom button**: `components/layout/ScrollToBottom.tsx` — fixed at `bottom-[12vh] right-8` (below Top), appears after scrolling 400px (same threshold as Top), hides automatically when within 40px of page bottom. Same animation and style as ScrollToTop. Both registered in `app/[locale]/layout.tsx`.
 
 ### Hero Section
 
@@ -270,6 +276,8 @@ Each `PostCard` shows:
 - Applies the category's `accentColor` to pills and UI accents
 - Renders a grid of `PostCard` components
 - Shows empty state if no posts
+- Supports **pagination**: `PAGE_SIZE = 9`, uses Supabase `.range(offset, offset+PAGE_SIZE-1)` with `{ count: 'exact' }`. Accepts a `page` prop; all 5 category pages read `searchParams: Promise<{ page?: string }>` (Next.js 16 pattern).
+- Renders `<Pagination>` component at the bottom (windowed: shows ±2 pages around current with ellipsis for gaps). Page 1 URL is the base path (no `?page=`); pages 2+ use `?page=N`.
 
 ---
 
@@ -280,7 +288,7 @@ Each `PostCard` shows:
 Supabase Auth via `@supabase/ssr`. Two clients:
 - **Browser client**: `lib/supabase/client.ts` — `createBrowserClient<Database>`
 - **Server client**: `lib/supabase/server.ts` — `createServerClient<Database>` (cookie-based session)
-- **Admin client**: `lib/supabase/server.ts` — `createAdminClient()` — uses `SUPABASE_SERVICE_ROLE_KEY`, bypasses RLS, server-side only
+- **Admin client**: `lib/supabase/server.ts` — `createAdminClient()` — uses `SUPABASE_SERVICE_ROLE_KEY`, bypasses RLS, server-side only. Uses `createClient` from `@supabase/supabase-js` directly (NOT `createServerClient` from `@supabase/ssr`) — the SSR client does not properly activate service-role permissions. Imported as `createSupabaseClient` alias to avoid name clash with the exported `createClient()` user function.
 
 ### Login Methods
 
@@ -321,7 +329,7 @@ Supabase Auth via `@supabase/ssr`. Two clients:
 
 **Step 1 — Required:**
 - Display Name (required)
-- Country of Residence (required)
+- Country of Residence (required, alphabetically sorted)
 - Privacy Policy Consent (required checkbox)
 - Analytics Consent (optional checkbox)
 
@@ -427,7 +435,7 @@ id              uuid    PRIMARY KEY
 title           text    NOT NULL
 slug            text    UNIQUE NOT NULL
 summary         text
-content         text    NOT NULL         -- Markdown/HTML
+content         text    NOT NULL         -- HTML (written/read by TipTap rich text editor)
 thumbnail_url   text
 category        text                     -- 'Markets' | 'Data' | 'Infrastructure' | 'AI' | 'Digital Assets'
 language        text    DEFAULT 'en'     -- 'en' | 'ko' | 'zh'
@@ -484,16 +492,24 @@ UNIQUE (post_id, locale)
 ### comments
 
 ```sql
-id       uuid PRIMARY KEY
-post_id  uuid REFERENCES posts(id)
-user_id  uuid REFERENCES profiles(id)
-content  text
-status   text DEFAULT 'pending'   -- 'pending' | 'approved' | 'hidden' | 'deleted'
+id         uuid PRIMARY KEY
+post_id    uuid REFERENCES posts(id)
+user_id    uuid REFERENCES profiles(id)
+content    text
+status     text DEFAULT 'pending'   -- 'pending' | 'approved' | 'hidden' | 'deleted'
+is_private boolean DEFAULT false    -- Added in migration 008; private = admin-only visibility
+parent_id  uuid REFERENCES comments(id) ON DELETE CASCADE  -- Added in migration 009; for reply threads
 created_at timestamptz
 updated_at timestamptz
 ```
 
-**RLS**: Public can read `approved` comments. Users can create and manage their own. Admins have full access.
+**RLS**: Public can read `approved` AND `is_private = false` comments. Users can create. Admins have full access.
+
+**Auto-approve**: Public comments (`is_private = false`) are inserted with `status = 'approved'` and appear immediately. Private comments start as `'pending'` and are admin-review only.
+
+**Reply threads**: `parent_id` references another comment in the same table. The API returns a flat list; `CommentSection.tsx` groups them client-side using `filter` + `reduce` into `topLevel[]` + `repliesMap`.
+
+**UUID guard**: `post_id` must be a valid UUID — the API validates with a regex and returns 400 for non-UUID IDs (e.g., sample post IDs like `"1"`). The post page also guards with a UUID regex before rendering `<CommentSection>`.
 
 ### contact_messages
 
@@ -593,10 +609,19 @@ When a visitor views a post in a language different from `post.language`:
 
 1. Check `post_translations` table for `(post_id, target_locale)` — cache hit → serve immediately
 2. If cache miss and `OPENAI_API_KEY` is set → call `lib/ai/translate.ts`
-3. `translatePost()` calls GPT-4o-mini with HTML-preserving system prompt
-4. Result stored in `post_translations` via `createAdminClient()` (service role, bypasses RLS)
-5. All subsequent views for that post+locale pair use the cached translation
-6. If no API key → serve original with an amber notice banner
+3. `translatePost()` calls GPT-4o-mini via direct `fetch` to OpenAI REST API (NOT via the `openai` npm package — dynamic `import('openai')` was unreliable with Turbopack)
+4. Display variables (`displayTitle`, `displaySummary`, `displayContent`) are set **before** the cache write, so translation is shown even if the Supabase upsert fails
+5. Result stored in `post_translations` via `createAdminClient()` (service role, bypasses RLS)
+6. All subsequent views for that post+locale pair use the cached translation (zero token cost)
+7. If no API key → serve original with an amber notice banner
+
+**Summary fallback**: Uses `||` (not `??`) so that if OpenAI returns `null` for summary (a known edge case), the original summary is shown rather than a blank box.
+
+**FeaturedInsight**: The featured post query does NOT filter by `language = locale`. It returns the same featured post regardless of locale — the post page handles translation on demand.
+
+**IMPORTANT — env var precedence**: System-level env vars (e.g., `export OPENAI_API_KEY=...` in `~/.zshrc`) override `.env.local` in Next.js. If the API key is set in both places, the shell value wins. Resolved by removing the export from `~/.zshrc` and keeping the key only in `.env.local`.
+
+**IMPORTANT — translation caching RLS fix**: The `post_translations` INSERT policy requires `auth.role() = 'service_role'`. This only works when using `@supabase/supabase-js` `createClient` with the service role key directly. Using `@supabase/ssr` `createServerClient` with the service role key does NOT activate service-role mode — the upsert fails with error `42501`. After this fix, translations are cached correctly on first load and subsequent locale switches are instant (zero OpenAI calls).
 
 ### Translation Banners
 
@@ -604,31 +629,52 @@ When a visitor views a post in a language different from `post.language`:
 - **Amber notice**: "Original language shown" — shown when translation was requested but no API key configured
 - Both include a "View original" link using `<Link locale={post.language}>`
 
-### Future Recommendation
-
-Add an admin-triggered "Pre-generate Translations" button on the post detail admin page. This would proactively call the translation API and cache results for all locales before the post goes live, eliminating the first-visitor latency.
-
 ---
 
 ## 8. Blog & Post System
 
 ### Post Editor (Admin Only)
 
-Located at `/admin/posts/new`. Client component with:
+Located at `/admin/posts/new` (create) and `/admin/posts/[id]` (edit). Both use the shared `components/admin/PostEditor.tsx` client component, which wraps `components/editor/RichEditor.tsx`.
 
-- **Title field** + "✨ Generate with AI" button
-- **Slug field** (auto-generated from title) + "✨ Generate with AI" button
-- **Category selector** (Markets, Data, Infrastructure, AI, Digital Assets)
-- **Language selector** (English, Korean, Chinese)
-- **Content textarea** (Markdown/HTML)
-- **Summary textarea** + "✨ Generate Summary" button
-- **Thumbnail upload zone** (drag-and-drop or click) — uploads to Supabase Storage `thumbnails` bucket, max 5 MB, image types only
-- **SEO Settings section** — auto-fills from title/summary as user types; manual edits lock auto-fill; "↺ Reset to auto-fill" restores it; "✨ Generate All with AI" generates all SEO fields in one call
-- **Save Draft** and **Publish** buttons
+**TipTap RichEditor extensions (all active):**
+- StarterKit (bold, italic, strike, code, blockquote, bullet list, ordered list, heading H1-H3, horizontal rule, hard break)
+- Underline, Link (opens in new tab), Image (with `allowBase64: false`)
+- Placeholder, TextAlign (left/center/right on headings + paragraphs)
+- Highlight (yellow mark), TaskList + TaskItem (checklists)
+- CodeBlockLowlight (syntax highlighting via lowlight/common — ~40 languages)
+- TableKit (table, table-row, table-header, table-cell bundled)
+- CharacterCount, Typography (smart quotes, etc.)
+
+**Toolbar controls:**
+Undo/Redo | H1 H2 H3 | Bold Italic Underline Strikethrough Code Highlight | Align L/C/R | Bullet Ordered Task lists | Blockquote Code-block HR | Link Image Table
+
+**BubbleMenu** (floating over text selection): Bold Italic Underline Strike | H2 H3 | Code Highlight | Link
+
+**Image upload within editor body:**
+- Toolbar button → file picker → Supabase Storage `thumbnails/posts/body/`
+- Drag & drop onto editor area → same upload flow
+- Paste from clipboard → same upload flow
+- Maximum 10 MB per image
+
+**PostEditor features:**
+- Title + AI-generate button
+- Slug (auto-generated from title) + AI-generate button
+- Category, Language, Status selectors
+- Featured / Popular checkboxes
+- Thumbnail upload (drag-and-drop or click, max 5 MB, stored in `thumbnails/posts/`)
+- Summary textarea + AI-generate button
+- Rich text content editor (TipTap)
+- Tags (comma-separated) + Source URL
+- SEO title (auto-fills from post title, manually overridable, 60-char counter)
+- SEO description (auto-fills from summary, 160-char counter)
+- "Generate All with AI" for all SEO fields at once
+- Delete post (edit mode only) with confirmation dialog
+- Preview link opens live post in new tab (edit mode only)
 
 ### AI Field Generation
 
-`/api/ai/generate-fields` — admin-protected POST endpoint.
+`/api/ai/generate-fields` — admin-protected POST endpoint. Content is stripped of HTML tags before sending to AI.
 
 In dev (no OpenAI key): returns rule-based fields (extracts H1/first sentence for title, slugifies for slug, truncates for SEO).
 
@@ -636,13 +682,13 @@ With OpenAI key: calls GPT-4o-mini to generate compelling title, clean slug, SEO
 
 ### AI Summary Generation
 
-`/api/ai/generate-summary` — returns:
-- Without OpenAI: extractive summary (first N sentences from content)
+`/api/ai/generate-summary` — content HTML is stripped to plain text before AI call. Returns:
+- Without OpenAI: extractive summary (first N sentences)
 - With OpenAI: GPT-4o-mini abstractive summary
 
 ### Post Reading Time
 
-`lib/utils/reading-time.ts` — estimates reading time from word count (200 WPM). Stored as `reading_time` (minutes) in `posts` table.
+`lib/utils/reading-time.ts` — estimates reading time from word count (200 WPM). HTML tags are stripped before calculation. Stored as `reading_time` (minutes) in `posts` table.
 
 ### SEO
 
@@ -654,13 +700,31 @@ Each post has:
 
 The sitemap (`app/sitemap.ts`) generates entries for all published posts × all 3 locales.
 
-### Future: AI Market Brief
+### Post Rendering
 
-Planned automated pipeline:
-1. Scheduled job fetches market data (Yahoo Finance, news APIs)
-2. GPT-4o generates a structured market brief
-3. Stored as `ai_drafts` record with `status = 'pending_review'`
-4. Admin reviews and publishes from `/admin/ai-drafts`
+Post content (HTML from TipTap) is rendered via `dangerouslySetInnerHTML` inside a `div.article-body`. The `article-body` CSS class in `globals.css` applies prose styling (headings, lists, blockquotes, code blocks, tables, images). The `tiptap-prose` class (also in `globals.css`) applies the same styles within the editor for WYSIWYG consistency.
+
+### Reading Progress Bar
+
+`components/posts/ReadingProgress.tsx` — client component, rendered at the top of each post page. Fixed at `top-16` (bottom of the header), `z-40`, `h-[3px]`, `pointer-events-none`, `aria-hidden`. Gradient: `from-[#BAE6FD] via-[#38BDF8] to-[#7DD3FC]` (pale-blue → sky → pale-blue). Width tracks `window.scrollY / (scrollHeight - innerHeight)` as a percentage.
+
+### Comment Section
+
+`components/posts/CommentSection.tsx` — client component rendered at the bottom of real DB posts (UUID ID only — sample posts are excluded). Features:
+
+- Fetches approved public comments on mount via `GET /api/comments?postId=...`
+- Comment form: textarea + public/private toggle (custom CSS switch) + "Post Comment" button
+- **Public comment** → `status = 'approved'`, added to local state immediately (optimistic UI) via `makeTempComment()` helper
+- **Private comment** → `status = 'pending'`, shows "sent to admin" confirmation, not shown in feed
+- Reply button on each top-level comment opens an inline reply textarea
+- Comment tree built client-side: `topLevel = comments.filter(c => !c.parent_id)`, `repliesMap = reduce(...)` keyed by `parent_id`
+- Joined user profile (`display_name`, `avatar_url`) displayed per comment
+
+### Comment API (`/api/comments`)
+
+- `GET`: returns approved + `is_private = false` comments for a post, with joined user profile
+- `POST`: validates UUID `post_id`, sets `status` based on `is_private`, accepts optional `parent_id`
+- `PATCH`: admin-only status update (`approved` / `hidden` / `pending` / `deleted`)
 
 ---
 
@@ -679,9 +743,10 @@ Planned automated pipeline:
 | Section | Route | Status | Description |
 |---|---|---|---|
 | Dashboard | `/admin` | ✅ Implemented | Stats overview, recent messages, top posts |
-| Posts | `/admin/posts` | ✅ Implemented | List, filter, manage all posts |
-| New Post | `/admin/posts/new` | ✅ Implemented | Full editor with AI + image upload |
-| Comments | `/admin/comments` | ✅ Implemented | Approve / hide / delete comments |
+| Posts List | `/admin/posts` | ✅ Implemented | Table view of all posts |
+| Create Post | `/admin/posts/new` | ✅ Implemented | Full TipTap editor with AI + image upload |
+| Edit Post | `/admin/posts/[id]` | ✅ Implemented | Pre-populated TipTap editor, delete + preview |
+| Comments | `/admin/comments` | ✅ Implemented | Expandable rows — click to see full comment, PRIVATE badge, Reply badge, status action buttons (Approve / Hide / Set Pending / Delete). `AdminCommentsList` client component updates status via `PATCH /api/comments` and reflects change optimistically in local state. |
 | Contact Messages | `/admin/contact-messages` | ✅ Implemented | View submissions, reply via mailto |
 | AI Drafts | `/admin/ai-drafts` | ✅ Implemented (placeholder) | Review AI-generated drafts |
 | Users | `/admin/users` | ⚠️ Sidebar link exists, page not built | Planned |
@@ -790,8 +855,8 @@ CONTACT_RECEIVER_EMAIL=harryhwang37@gmail.com
 **Resend status (as of 2026-05-12):**
 - API key is set and valid (send-only restricted key)
 - Receiver: `harryhwang37@gmail.com`
-- Sender: `onboarding@resend.dev` (temporary — `hdhmarketfrontier.com` domain DNS records added to Cloudflare, pending verification)
-- Once domain verifies in Resend: change sender back to `noreply@hdhmarketfrontier.com` in `app/api/contact/route.ts`
+- Sender: `noreply@hdhmarketfrontier.com` — domain verified in Resend ✅
+- DNS records confirmed propagated via Cloudflare
 
 In Supabase dashboard, the keys are now labeled:
 - **Publishable key** = `NEXT_PUBLIC_SUPABASE_ANON_KEY` (safe for browser)
@@ -825,7 +890,7 @@ User → Cloudflare (DNS + CDN + WAF)
 ### Deployment Steps (When Ready)
 
 1. Ensure all migrations (001–007) are applied in Supabase
-2. Create `thumbnails` bucket in Supabase Storage (set to public)
+2. Confirm `thumbnails` bucket exists and policies are applied (migration 007)
 3. Build Docker image: `docker build -t hdhmarketfrontier .`
 4. Push to Google Container Registry: `docker push gcr.io/YOUR_PROJECT_ID/hdhmarketfrontier`
 5. Deploy to Cloud Run:
@@ -925,14 +990,18 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Password change requires current password verification
 - ✅ Header with reactive auth state (onAuthStateChange, no prop drilling)
 - ✅ Header logo — scrolls to top on home page, navigates home from other pages
-- ✅ ScrollToTop floating button — appears after 400px scroll, fixed bottom-right
+- ✅ ScrollToTop floating button — appears after 400px scroll, `bottom-[20vh] right-8`, pale grey border, smooth fade+slide animation
+- ✅ ScrollToBottom floating button — appears after 400px scroll (same threshold), hides near page bottom, `bottom-[12vh] right-8`, same style as ScrollToTop
 - ✅ Footer — redesigned: 2-col grid, legal links in bottom bar, Contact navigates to /contact
 - ✅ FooterAdminLink — subscribes to auth state changes (fixes logout visibility bug)
 - ✅ Hero section with canvas animation
 - ✅ Home page (FeaturedInsight, LatestPosts, PopularPosts, AboutSection)
 - ✅ Featured card — darker overlay, "Read More" button bottom-right
 - ✅ All 5 category pages (Markets, Data, Infrastructure, AI, Digital Assets)
-- ✅ Post detail page with AI translation + caching
+- ✅ Post detail page with AI translation + caching (fetch-based OpenAI call, not SDK import)
+- ✅ Reading progress bar — `top-16`, `h-[3px]`, pale-blue gradient, `pointer-events-none`
+- ✅ Comment section on post pages — public/private toggle, optimistic UI, reply threads, UUID guard
+- ✅ Comment API (`/api/comments`) — GET / POST / PATCH with admin protection on PATCH
 - ✅ Login page (email + Google OAuth + working "Forgot password?" button)
 - ✅ Signup page
 - ✅ Onboarding page (2-step, saves to profiles; country list alphabetically sorted)
@@ -940,88 +1009,126 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Account deletion API route (`/api/auth/delete-account`)
 - ✅ Admin dashboard (stats, recent messages, top posts)
 - ✅ Admin posts list
-- ✅ Admin post editor (AI generation, image upload to `thumbnails` bucket, SEO auto-fill)
-- ✅ Admin comments page
+- ✅ Admin post editor — TipTap v3 rich text editor with full toolbar, BubbleMenu, image upload into body, syntax-highlighted code blocks, tables, task lists, link insert
+- ✅ Admin post edit page (`/admin/posts/[id]`) — pre-populated form, delete with confirmation, preview link
+- ✅ Admin comments page — expandable rows with full detail, PRIVATE/Reply badges, status action buttons
 - ✅ Admin contact messages page
 - ✅ Admin AI drafts page
 - ✅ Admin route protection (layout.tsx server gate)
 - ✅ About page — headshot photo (`/public/images/headshot2.JPEG`) with 400px circular mask
 - ✅ Contact page + API route (rate-limited, saves to DB + sends email via Resend)
-- ✅ Resend email delivery configured (API key set, receiver: harryhwang37@gmail.com)
+- ✅ Resend email delivery — API key configured, domain `hdhmarketfrontier.com` verified, sender: `noreply@hdhmarketfrontier.com`
 - ✅ Search page
 - ✅ Cookie banner (with consent storage)
 - ✅ Privacy Policy, Cookie Policy, Terms of Use pages
 - ✅ Sitemap + robots.txt
 - ✅ Dockerfile (standalone mode)
-- ✅ `.env.example`, `.gitignore`, README.md
-- ✅ GitHub repository (initial commit pushed)
+- ✅ `.env.example`, `.gitignore`
+- ✅ GitHub repository (code pushed, large image files gitignored)
 - ✅ Cloudflare domain registered (`hdhmarketfrontier.com`)
 
 ### Partially Implemented / Known Issues
 
 - ⚠️ Admin users / analytics / settings pages — sidebar links exist but pages not built
-- ⚠️ Per-page `requireAdmin()` functions have redirect-in-try-catch bug (harmless since layout gate protects all routes)
-- ⚠️ Newsletter section exists (`NewsletterSection.tsx`) but is commented out in `app/[locale]/page.tsx` — pending decision on newsletter strategy
-- ⚠️ Seed data (`002_seed_data.sql`) has unescaped apostrophes — SQL syntax error when running. Skip this migration; create real posts through the admin.
-- ⚠️ LinkedIn OAuth not available in Supabase yet — `loginWithLinkedIn` i18n key exists but button not implemented
-- ⚠️ Comment system exists in DB and admin moderation, but no comment input UI on post detail pages yet
-- ⚠️ Resend sender domain `hdhmarketfrontier.com` — DNS records added to Cloudflare but pending verification. Currently using `onboarding@resend.dev` as sender. Once verified, update `from` in `app/api/contact/route.ts` to `noreply@hdhmarketfrontier.com`
-- ⚠️ Migration 007 (`007_storage_thumbnails.sql`) must be manually run in Supabase SQL Editor — not yet applied to production
+- ⚠️ Newsletter section exists (`NewsletterSection.tsx`) but commented out in `app/[locale]/page.tsx` — pending strategy decision
+- ⚠️ Seed data (`002_seed_data.sql`) has unescaped apostrophes — SQL syntax error. Skip; create real posts through the admin editor
+- ⚠️ LinkedIn OAuth not available in Supabase yet
+- ⚠️ Migration 007 idempotency issue — original SQL had no `IF NOT EXISTS` guards; updated SQL now includes DO $$ blocks. Bucket and read policy already exist in Supabase
+- ⚠️ Social share buttons on post detail page use `window.location.href` which is empty during SSR — LinkedIn share URL will be empty on initial server render
+- ⚠️ Migrations 008 and 009 must be run in Supabase SQL Editor if not yet applied (`ADD COLUMN IF NOT EXISTS` — safe to re-run)
 
 ### Not Yet Started
 
-- ❌ Reading progress indicator on post pages
+- ❌ Production deployment to Google Cloud Run
+- ❌ Real published content (only hardcoded sample posts exist)
+- ❌ RSS / Atom feed
+- ❌ Email newsletter subscriber list and campaign sending
+- ❌ Full-text search via Supabase `to_tsvector` (current search is basic keyword matching)
+- ❌ Dynamic Open Graph images for social sharing
 - ❌ Dark mode
-- ❌ Rich text editor (TipTap) — currently using textarea with markdown
-- ❌ Full-text search via Supabase `to_tsvector` — currently keyword-based
-- ❌ Email newsletter integration
 - ❌ Advanced analytics dashboard with charts
 - ❌ AI market brief automation (scheduled job)
-- ❌ Recommendation engine (related posts)
+- ❌ Recommendation engine (related posts beyond same-category)
 - ❌ Bookmarking / saved posts
 - ❌ Multi-author support
-- ❌ Production deployment to Google Cloud Run
 
 ---
 
-## 16. Future Roadmap
+## 16. Priority Roadmap to Professional Blog
 
-### Near-Term (Next Development Phase)
+This section answers the question: **"What must be done, in what order, to go from the current state to a genuinely professional financial blog?"**
 
-| Feature | Priority | Notes |
+The items are ranked by impact on perceived professionalism and reader experience, not by implementation effort.
+
+---
+
+### TIER 1 — Without these, the site cannot function as a public blog
+
+| # | Task | Why it's blocking |
 |---|---|---|
-| Comment input on post pages | High | DB + moderation already built, just need the UI |
-| Admin users page | Medium | List all profiles, view professional info |
-| Admin analytics page | Medium | Page views, post views, reading time charts |
-| Production deployment | High | Docker → Cloud Run → Cloudflare → Supabase URL config |
-| Pre-generate translations | Medium | Admin button to trigger AI translation for all locales |
-
-### Medium-Term
-
-| Feature | Notes |
-|---|---|
-| TipTap rich text editor | Replace markdown textarea in post editor |
-| Full-text search | Supabase `to_tsvector` + `websearch_to_tsquery` |
-| Email newsletter | Resend-based subscriber list, campaign sending |
-| Analytics dashboard | Charts: page views over time, top posts, audience segments |
-| Reading progress indicator | Scroll-depth bar on post detail pages |
-| Dark mode | CSS variable toggle, respect system preference |
-
-### Long-Term / Advanced
-
-| Feature | Notes |
-|---|---|
-| AI market brief pipeline | Scheduled job: Yahoo Finance → GPT-4o → `ai_drafts` → admin review |
-| Audience segmentation | Use `industry_types`, `interests`, `country` from profiles for content targeting |
-| Recommendation engine | Related posts based on tags, category, reading history |
-| Bookmarking / saved posts | User-level saved post list |
-| LinkedIn OAuth | When Supabase adds native support |
-| Multi-author support | Add guest contributor accounts with limited access |
-| Paid tier / gating | Premium content behind auth + payment wall (Stripe) |
-| Enterprise analytics export | CSV/API export of audience data for business intelligence |
+| 1 | **Deploy to production** (Google Cloud Run + Cloudflare) | The site only exists on localhost. No reader can access it. Everything else is irrelevant until this is done. |
+| 2 | **Publish real content** (5–10 original articles) | The site currently shows hardcoded sample posts. A blog without real articles is not a blog. Use the TipTap editor now available in the admin panel. |
+| 3 | **Run migration 007** in Supabase SQL Editor | Required for thumbnail and body image uploads to work in production. Already idempotent — safe to run again. |
 
 ---
 
-*Last updated: 2026-05-12*
+### TIER 2 — Core blog functionality that readers expect
+
+| # | Task | Why it matters |
+|---|---|---|
+| 4 | ~~**Comment input UI on post pages**~~ ✅ Done | Public/private toggle, optimistic UI, reply threads, admin moderation — fully implemented. |
+| 5 | ~~**Reading progress bar on post pages**~~ ✅ Done | Implemented at `top-16`, pale-blue gradient, `h-[3px]`. |
+| 6 | **RSS / Atom feed** | Professional publications all have RSS. It enables syndication, shows up in feed readers, and is a strong credibility signal for a financial research platform. Cost: ~2 hours to implement. |
+| 7 | ~~**Pagination on post list / category pages**~~ ✅ Done | Implemented with Supabase `.range()`, windowed `<Pagination>` component on all 5 category pages. |
+
+---
+
+### TIER 3 — Professional credibility and growth features
+
+| # | Task | Why it matters |
+|---|---|---|
+| 8 | **Email newsletter / subscription** | For a thought-leadership platform, email subscribers are the highest-value audience. Resend is already configured and free up to 3,000 emails/month. Build a simple "Subscribe" form that collects email addresses and sends a welcome email. |
+| 9 | **Full-text search with proper indexing** | The current search is basic keyword matching. Supabase supports `to_tsvector` + `websearch_to_tsquery` which enables true full-text search across titles, summaries, and content — essential when there are 20+ articles. |
+| 10 | **Fix social share buttons** | The LinkedIn share button on post pages uses `window.location.href` which is empty on server render. Needs a client-side URL construction pattern. Also consider adding a Twitter/X share button. |
+| 11 | **Admin analytics page** | To understand which articles perform, what categories attract the most readers, and where traffic comes from. The `page_views` and `post_views` tables already collect data — this is just building the chart UI. |
+| 12 | **Dynamic Open Graph images** | When posts are shared on LinkedIn or Twitter, the preview card matters enormously for click-through rates. A simple dynamic OG image with the post title and category color on a navy background would significantly improve social sharing performance. |
+
+---
+
+### TIER 4 — Enhancement and differentiation
+
+| # | Task | Why it matters |
+|---|---|---|
+| 13 | **Pre-generate AI translations** | Currently translations are generated on-demand for the first visitor. An admin button to pre-generate all locale translations before publishing eliminates that first-visitor latency. |
+| 14 | **Dark mode** | Growing reader expectation, especially for technical / finance audiences reading late at night. CSS variable toggle that respects system preference. |
+| 15 | **Admin users page** | To view reader profiles, professional backgrounds, and interests. Helps shape content strategy. |
+| 16 | **Bookmarking / saved posts** | Allows returning readers to build a personal reading list, increasing session depth and return visits. |
+
+---
+
+### TIER 5 — Advanced / Long-term
+
+| # | Task | Notes |
+|---|---|---|
+| 17 | **AI market brief pipeline** | Scheduled job: fetch market data → GPT-4o → `ai_drafts` → admin review → publish |
+| 18 | **Audience segmentation analytics** | Use `industry_types`, `country`, `interests` from profiles to understand who is reading what |
+| 19 | **Recommendation engine** | Beyond same-category related posts — tag-similarity and reading history based |
+| 20 | **Multi-author support** | Guest contributor accounts with limited admin access |
+| 21 | **Premium content gating** | Selected articles behind login or paid access (Stripe integration) |
+
+---
+
+### Recommended sequence for the next two weeks
+
+```
+Week 1:  Deploy → publish 5 real articles → RSS feed → social share fix
+Week 2:  Newsletter subscription form → full-text search → admin analytics page
+```
+
+This sequence transforms the site from a local prototype into a functioning professional blog with real readers, real content, and standard blog features — in two weeks of focused work.
+
+---
+
+*Last updated: 2026-05-13 (session 3)*
 *Document maintained by: Claude Code (with Harry D. Hwang)*
 *Update this file whenever major architectural changes are made.*

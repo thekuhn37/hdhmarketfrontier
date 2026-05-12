@@ -103,7 +103,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/[0.08]">
-        <div className="content-width pt-8 pb-16 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="content-width pt-10 pb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/35 text-xs">
             {t('copyright', { year })}
           </p>

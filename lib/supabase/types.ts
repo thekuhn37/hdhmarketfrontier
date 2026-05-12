@@ -72,6 +72,8 @@ export interface Comment {
   user_id: string
   content: string
   status: CommentStatus
+  is_private: boolean
+  parent_id: string | null
   created_at: string
   updated_at: string
   user?: Profile
@@ -300,6 +302,8 @@ export type Database = {
           user_id: string
           content: string
           status: string
+          is_private: boolean
+          parent_id: string | null
           created_at: string
           updated_at: string
         }
@@ -309,6 +313,8 @@ export type Database = {
           user_id: string
           content: string
           status?: string
+          is_private?: boolean
+          parent_id?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -318,6 +324,8 @@ export type Database = {
           user_id?: string
           content?: string
           status?: string
+          is_private?: boolean
+          parent_id?: string | null
           created_at?: string
           updated_at?: string
         }

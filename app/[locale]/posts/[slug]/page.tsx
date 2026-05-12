@@ -7,7 +7,9 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/server'
 import { formatDate } from '@/lib/utils/format'
 import { translatePost } from '@/lib/ai/translate'
-import type { Post } from '@/lib/supabase/types'
+import type { Post, Comment } from '@/lib/supabase/types'
+import CommentSection from '@/components/posts/CommentSection'
+import ReadingProgress from '@/components/posts/ReadingProgress'
 
 const LOCALE_NAMES: Record<string, string> = { en: 'English', ko: 'Korean', zh: 'Chinese' }
 
@@ -87,7 +89,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params
+  const { slug } = await params
   let post: Post | null = null
   try {
     const supabase = await createClient()
@@ -160,16 +162,18 @@ export default async function PostPage({ params }: Props) {
       const supabase = await createClient()
 
       // 1. Check translation cache
-      const { data: cached } = await supabase
+      const { data: cached, error: cacheReadErr } = await supabase
         .from('post_translations')
         .select('title, summary, content')
         .eq('post_id', post.id)
         .eq('locale', locale)
-        .single() as unknown as { data: { title: string; summary: string | null; content: string } | null }
+        .single() as unknown as { data: { title: string; summary: string | null; content: string } | null; error: unknown }
+
+      console.log('[translation] cache read — found:', !!cached, 'error:', cacheReadErr)
 
       if (cached) {
         displayTitle = cached.title
-        displaySummary = cached.summary
+        displaySummary = cached.summary || post.summary
         displayContent = cached.content
         isAITranslated = true
       } else if (process.env.OPENAI_API_KEY) {
@@ -178,26 +182,62 @@ export default async function PostPage({ params }: Props) {
           { title: post.title, summary: post.summary, content: post.content },
           locale
         )
+        console.log('[translation] OpenAI result — isAI:', result.isAI, 'summary:', result.summary?.slice(0, 60))
         if (result.isAI) {
-          const admin = await createAdminClient()
-          await admin.from('post_translations').upsert(
-            { post_id: post.id, locale, title: result.title, summary: result.summary, content: result.content },
-            { onConflict: 'post_id,locale' }
-          )
+          // Update display first — show translation even if cache write fails
           displayTitle = result.title
           displaySummary = result.summary
           displayContent = result.content
           isAITranslated = true
+          // Persist to cache (best-effort)
+          try {
+            const admin = createAdminClient()
+            const { error: upsertErr } = await admin.from('post_translations').upsert(
+              { post_id: post.id, locale, title: result.title, summary: result.summary, content: result.content },
+              { onConflict: 'post_id,locale' }
+            )
+            console.log('[translation] cache write — error:', upsertErr)
+          } catch (cacheErr) {
+            console.error('[translation cache] upsert threw:', cacheErr)
+          }
         }
       }
       // 3. If no AI key and no cache: fall through — show original with notice below
-    } catch {}
+    } catch (err) {
+      console.error('[translation] error:', err)
+    }
   }
 
   const originalLangName = LOCALE_NAMES[post.language] ?? post.language
 
+  // Fetch approved comments + current user in parallel
+  let currentUserId: string | null = null
+  let currentUserDisplayName: string | null = null
+  let approvedComments: Comment[] = []
+
+  try {
+    const supabase = await createClient()
+    const [{ data: { user } }, { data: commentData }] = await Promise.all([
+      supabase.auth.getUser(),
+      supabase
+        .from('comments')
+        .select('*, user:profiles(display_name, avatar_url)')
+        .eq('post_id', post.id)
+        .eq('status', 'approved')
+        .order('created_at', { ascending: true }),
+    ])
+    if (user) {
+      currentUserId = user.id
+      const { data: profile } = await supabase
+        .from('profiles').select('display_name').eq('id', user.id).single()
+      currentUserDisplayName = profile?.display_name ?? null
+    }
+    approvedComments = (commentData || []) as unknown as Comment[]
+  } catch {}
+
   return (
     <div className="bg-white">
+      <ReadingProgress />
       {/* Back */}
       <div className="border-b border-[#E5E7EB]">
         <div className="content-width py-4">
@@ -322,6 +362,17 @@ export default async function PostPage({ params }: Props) {
             <AlertCircle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-amber-800 leading-relaxed">{t('disclaimer')}</p>
           </div>
+
+          {/* Comments — only for real DB posts (UUIDs), not sample fallback posts */}
+          {/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(post.id) && (
+            <CommentSection
+              postId={post.id}
+              locale={locale}
+              initialComments={approvedComments}
+              userId={currentUserId}
+              userDisplayName={currentUserDisplayName}
+            />
+          )}
         </div>
       </article>
 

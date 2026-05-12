@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/layout/ScrollToTop'
+import ScrollToBottom from '@/components/layout/ScrollToBottom'
 import CookieBanner from '@/components/ui/CookieBanner'
 import { Toaster } from 'react-hot-toast'
 import '../globals.css'
@@ -75,6 +76,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </main>
           <Footer />
           <ScrollToTop />
+          <ScrollToBottom />
           <CookieBanner />
           <Toaster
             position="top-right"

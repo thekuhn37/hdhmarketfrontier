@@ -1,7 +1,10 @@
 import { createClient } from '@/lib/supabase/server'
 import PostCard from './PostCard'
+import Pagination from './Pagination'
 import type { Post } from '@/lib/supabase/types'
 import type { ReactNode } from 'react'
+
+const PAGE_SIZE = 12
 
 interface Props {
   category: string
@@ -10,6 +13,7 @@ interface Props {
   locale: string
   icon?: ReactNode
   accentColor?: string
+  page?: number
 }
 
 const FALLBACK: Post[] = [
@@ -21,31 +25,53 @@ const FALLBACK: Post[] = [
   { id:'6', title:"Korea's Capital Market Evolution", slug:'korea-capital-market-evolution', summary:"Korea's equity markets have undergone significant structural changes, positioning the country as a key player in Asian market data.", content:'', thumbnail_url:null, category:'Markets', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:5, view_count:423, is_featured:false, is_popular:false, published_at:'2024-12-15T00:00:00Z', created_at:'', updated_at:'', tags:[] },
 ]
 
-async function getPosts(category: string, locale: string): Promise<Post[]> {
+async function getPosts(
+  category: string,
+  locale: string,
+  page: number,
+): Promise<{ posts: Post[]; total: number }> {
   try {
     const supabase = await createClient()
-    const { data } = await supabase
+    const offset = (page - 1) * PAGE_SIZE
+
+    const { data, count } = await supabase
       .from('posts')
-      .select('*, tags:post_tags(tag:tags(*))')
+      .select('*, tags:post_tags(tag:tags(*))', { count: 'exact' })
       .eq('status', 'published')
       .eq('language', locale)
       .ilike('category', category)
       .order('published_at', { ascending: false })
-      .limit(12)
+      .range(offset, offset + PAGE_SIZE - 1)
+
     if (!data || data.length === 0) {
-      return FALLBACK.filter(p => p.category.toLowerCase() === category.toLowerCase())
+      const fallback = FALLBACK.filter(p => p.category.toLowerCase() === category.toLowerCase())
+      return { posts: fallback, total: fallback.length }
     }
-    return data.map((p: Record<string, unknown>) => ({
+
+    const posts = data.map((p: Record<string, unknown>) => ({
       ...p,
       tags: ((p.tags as { tag: unknown }[]) || []).map((t: { tag: unknown }) => t.tag),
     })) as Post[]
+
+    return { posts, total: count ?? posts.length }
   } catch {
-    return FALLBACK.filter(p => p.category.toLowerCase() === category.toLowerCase())
+    const fallback = FALLBACK.filter(p => p.category.toLowerCase() === category.toLowerCase())
+    return { posts: fallback, total: fallback.length }
   }
 }
 
-export default async function CategoryPageLayout({ category, title, description, locale, accentColor = '#0F172A' }: Props) {
-  const posts = await getPosts(category, locale)
+export default async function CategoryPageLayout({
+  category,
+  title,
+  description,
+  locale,
+  accentColor = '#0F172A',
+  page = 1,
+}: Props) {
+  const { posts, total } = await getPosts(category, locale, page)
+  const totalPages = Math.ceil(total / PAGE_SIZE)
+  const categorySlug = category.toLowerCase().replace(/\s+/g, '-')
+  const basePath = `/${locale}/${categorySlug}`
 
   return (
     <div className="bg-white">
@@ -69,13 +95,14 @@ export default async function CategoryPageLayout({ category, title, description,
           {posts.length > 0 ? (
             <>
               <div className="flex items-center justify-between mb-8">
-                <p className="text-[#6B7280] text-sm">{posts.length} articles</p>
+                <p className="text-[#6B7280] text-sm">{total} articles</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
               </div>
+              <Pagination currentPage={page} totalPages={totalPages} basePath={basePath} />
             </>
           ) : (
             <div className="text-center py-24">

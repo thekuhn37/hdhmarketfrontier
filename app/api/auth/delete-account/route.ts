@@ -9,7 +9,7 @@ export async function POST() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const admin = await createAdminClient()
+  const admin = createAdminClient()
   const { error } = await admin.auth.admin.deleteUser(user.id)
 
   if (error) {

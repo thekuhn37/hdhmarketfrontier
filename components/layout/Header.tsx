@@ -117,8 +117,8 @@ export default function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-[#E5E7EB] shadow-sm'
-          : 'bg-white/70 backdrop-blur-md'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-[#F1F5F9]'
+          : 'bg-white/70 backdrop-blur-md border-b border-transparent'
       )}
     >
       <div className="content-width">

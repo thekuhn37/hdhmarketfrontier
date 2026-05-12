@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const supabase = await createAdminClient()
+    const supabase = createAdminClient()
     await supabase.from('contact_messages').insert({
       name: String(name).slice(0, 200),
       email: String(email).slice(0, 200),
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       const { Resend } = await import('resend')
       const resend = new Resend(process.env.RESEND_API_KEY)
       await resend.emails.send({
-        from: 'HDH Market Frontier <onboarding@resend.dev>',
+        from: 'HDH Market Frontier <noreply@hdhmarketfrontier.com>',
         to: process.env.CONTACT_RECEIVER_EMAIL || 'contact@hdhmarketfrontier.com',
         subject: `[Contact] ${subject}`,
         html: `
