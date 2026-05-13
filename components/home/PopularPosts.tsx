@@ -66,7 +66,7 @@ export default async function PopularPosts({ locale }: Props) {
   const posts = await getPopularPosts(locale)
 
   return (
-    <section className="py-24 bg-[#F8FAFC]">
+    <section className="py-24 bg-[#F8FAFC] dark:bg-[#0F172A]">
       <div className="content-width">
         <div className="flex items-end justify-between mb-12">
           <div>
@@ -74,10 +74,10 @@ export default async function PopularPosts({ locale }: Props) {
               <TrendingUp size={20} className="text-[#38BDF8]" />
               <span className="text-sm font-semibold text-[#38BDF8] uppercase tracking-wider">Trending</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-3 tracking-tight">
               {t('popularPosts')}
             </h2>
-            <p className="text-[#4B5563] text-lg">{t('popularPostsDesc')}</p>
+            <p className="text-[#4B5563] dark:text-slate-400 text-lg">{t('popularPostsDesc')}</p>
           </div>
         </div>
 

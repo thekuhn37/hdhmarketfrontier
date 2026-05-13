@@ -32,12 +32,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const SidebarContent = () => (
     <>
-      <div className="px-6 py-5 border-b border-[#E5E7EB]">
+      <div className="px-6 py-5 border-b border-[#E5E7EB] dark:border-white/10">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg gradient-navy flex items-center justify-center">
             <span className="text-white text-xs font-bold">H</span>
           </div>
-          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
+          <span className="font-bold text-[#0F172A] dark:text-white text-sm">Admin Panel</span>
         </div>
       </div>
       <nav className="px-3 py-4 flex-1">
@@ -49,8 +49,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             className={cn(
               'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mb-1 transition-all',
               isActive(href)
-                ? 'bg-[#0F172A] text-white'
-                : 'text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A]'
+                ? 'bg-[#0F172A] text-white dark:bg-[#38BDF8] dark:text-[#0B1120]'
+                : 'text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white'
             )}
           >
             <Icon size={16} />
@@ -58,10 +58,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         ))}
       </nav>
-      <div className="px-3 py-4 border-t border-[#E5E7EB]">
+      <div className="px-3 py-4 border-t border-[#E5E7EB] dark:border-white/10">
         <Link
           href="/"
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-all"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white transition-all"
         >
           <ArrowLeft size={16} /> Back to Site
         </Link>
@@ -70,9 +70,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   )
 
   return (
-    <div className="flex min-h-screen bg-[#F8FAFC]">
+    <div className="flex min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120]">
       {/* Sidebar desktop */}
-      <aside className="hidden lg:flex flex-col w-56 bg-white border-r border-[#E5E7EB] fixed h-full z-30">
+      <aside className="hidden lg:flex flex-col w-56 bg-white dark:bg-[#0F172A] border-r border-[#E5E7EB] dark:border-white/10 fixed h-full z-30">
         <SidebarContent />
       </aside>
 
@@ -82,12 +82,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}
       {/* Mobile sidebar */}
       <aside className={cn(
-        'lg:hidden fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-[#E5E7EB] z-50 flex flex-col transition-transform duration-200',
+        'lg:hidden fixed left-0 top-0 bottom-0 w-56 bg-white dark:bg-[#0F172A] border-r border-[#E5E7EB] dark:border-white/10 z-50 flex flex-col transition-transform duration-200',
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       )}>
-        <div className="flex items-center justify-between px-4 py-4 border-b border-[#E5E7EB]">
-          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
-          <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg hover:bg-[#F8FAFC]">
+        <div className="flex items-center justify-between px-4 py-4 border-b border-[#E5E7EB] dark:border-white/10">
+          <span className="font-bold text-[#0F172A] dark:text-white text-sm">Admin Panel</span>
+          <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg hover:bg-[#F8FAFC] dark:hover:bg-white/5 text-[#4B5563] dark:text-slate-300">
             <X size={18} />
           </button>
         </div>
@@ -97,11 +97,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Main content */}
       <div className="flex-1 lg:ml-56">
         {/* Mobile header */}
-        <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-white border-b border-[#E5E7EB] sticky top-0 z-20">
-          <button onClick={() => setSidebarOpen(true)} className="p-2 rounded-lg hover:bg-[#F8FAFC]">
+        <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-white dark:bg-[#0F172A] border-b border-[#E5E7EB] dark:border-white/10 sticky top-0 z-20">
+          <button onClick={() => setSidebarOpen(true)} className="p-2 rounded-lg hover:bg-[#F8FAFC] dark:hover:bg-white/5 text-[#4B5563] dark:text-slate-300">
             <Menu size={18} />
           </button>
-          <span className="font-bold text-[#0F172A] text-sm">Admin Panel</span>
+          <span className="font-bold text-[#0F172A] dark:text-white text-sm">Admin Panel</span>
         </div>
         <main className="p-6">{children}</main>
       </div>

@@ -57,8 +57,8 @@ function ToolbarBtn({
         'h-7 w-7 flex items-center justify-center rounded-md text-sm transition-all flex-shrink-0',
         'focus:outline-none focus:ring-1 focus:ring-[#38BDF8]',
         active
-          ? 'bg-[#0F172A] text-white'
-          : 'text-[#4B5563] hover:bg-[#E5E7EB] hover:text-[#0F172A]',
+          ? 'bg-[#0F172A] text-white dark:bg-[#38BDF8] dark:text-[#0B1120]'
+          : 'text-[#4B5563] hover:bg-[#E5E7EB] hover:text-[#0F172A] dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white',
         disabled && 'opacity-35 cursor-not-allowed pointer-events-none',
       )}
     >
@@ -68,7 +68,7 @@ function ToolbarBtn({
 }
 
 function Sep() {
-  return <div className="w-px h-4 bg-[#D1D5DB] mx-0.5 flex-shrink-0" />
+  return <div className="w-px h-4 bg-[#D1D5DB] dark:bg-white/15 mx-0.5 flex-shrink-0" />
 }
 
 function BubbleBtn({
@@ -209,18 +209,18 @@ export default function RichEditor({ value, onChange, placeholder }: RichEditorP
 
   if (!editor) {
     return (
-      <div className="border border-[#E5E7EB] rounded-2xl overflow-hidden bg-white">
-        <div className="h-11 bg-[#F8FAFC] border-b border-[#E5E7EB] animate-pulse" />
-        <div className="h-[500px] animate-pulse bg-[#FAFAFA]" />
+      <div className="border border-[#E5E7EB] dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-[#1E2A3B]">
+        <div className="h-11 bg-[#F8FAFC] dark:bg-white/5 border-b border-[#E5E7EB] dark:border-white/10 animate-pulse" />
+        <div className="h-[500px] animate-pulse bg-[#FAFAFA] dark:bg-[#0F172A]" />
       </div>
     )
   }
 
   return (
-    <div className="border border-[#E5E7EB] rounded-2xl overflow-hidden bg-white shadow-sm">
+    <div className="border border-[#E5E7EB] dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-[#1E2A3B] shadow-sm">
 
       {/* ── Toolbar ───────────────────────────────────────────────────────── */}
-      <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5 border-b border-[#E5E7EB] bg-[#F8FAFC] sticky top-0 z-10">
+      <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5 border-b border-[#E5E7EB] dark:border-white/10 bg-[#F8FAFC] dark:bg-[#0F172A] sticky top-0 z-10">
 
         <ToolbarBtn onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Undo (⌘Z)">
           <Undo2 size={14} />
@@ -330,8 +330,8 @@ export default function RichEditor({ value, onChange, placeholder }: RichEditorP
 
       {/* ── Link URL input ────────────────────────────────────────────────── */}
       {showLinkInput && (
-        <div className="flex items-center gap-2 px-3 py-2 border-b border-[#E5E7EB] bg-[#FFFBEB]">
-          <LinkIcon size={13} className="text-[#6B7280] flex-shrink-0" />
+        <div className="flex items-center gap-2 px-3 py-2 border-b border-[#E5E7EB] dark:border-white/10 bg-[#FFFBEB] dark:bg-amber-500/10">
+          <LinkIcon size={13} className="text-[#6B7280] dark:text-slate-400 flex-shrink-0" />
           <input
             type="url"
             value={linkUrl}
@@ -342,14 +342,14 @@ export default function RichEditor({ value, onChange, placeholder }: RichEditorP
             }}
             placeholder="https://example.com"
             autoFocus
-            className="flex-1 text-sm bg-transparent outline-none text-[#111827] placeholder:text-[#9CA3AF]"
+            className="flex-1 text-sm bg-transparent outline-none text-[#111827] dark:text-slate-200 placeholder:text-[#9CA3AF] dark:placeholder:text-slate-500"
           />
           <button type="button" onClick={applyLink} title="Apply link"
-            className="p-1 rounded hover:bg-[#E5E7EB] text-[#22C55E] transition-colors">
+            className="p-1 rounded hover:bg-[#E5E7EB] dark:hover:bg-white/10 text-[#22C55E] dark:text-green-400 transition-colors">
             <Check size={13} />
           </button>
           <button type="button" onClick={() => { setShowLinkInput(false); setLinkUrl('') }} title="Cancel"
-            className="p-1 rounded hover:bg-[#E5E7EB] text-[#6B7280] transition-colors">
+            className="p-1 rounded hover:bg-[#E5E7EB] dark:hover:bg-white/10 text-[#6B7280] dark:text-slate-400 transition-colors">
             <X size={13} />
           </button>
         </div>
@@ -423,11 +423,11 @@ export default function RichEditor({ value, onChange, placeholder }: RichEditorP
       </div>
 
       {/* ── Footer: word / char count ─────────────────────────────────────── */}
-      <div className="flex items-center justify-between px-4 py-2 border-t border-[#E5E7EB] bg-[#F8FAFC]">
-        <span className="text-xs text-[#9CA3AF]">
+      <div className="flex items-center justify-between px-4 py-2 border-t border-[#E5E7EB] dark:border-white/10 bg-[#F8FAFC] dark:bg-[#0F172A]">
+        <span className="text-xs text-[#9CA3AF] dark:text-slate-500">
           {wordCount.toLocaleString()} words · {charCount.toLocaleString()} characters
         </span>
-        <span className="text-xs text-[#D1D5DB]">Drop or paste images to upload</span>
+        <span className="text-xs text-[#D1D5DB] dark:text-slate-600">Drop or paste images to upload</span>
       </div>
     </div>
   )

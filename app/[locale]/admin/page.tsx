@@ -66,41 +66,41 @@ export default async function AdminDashboard({ params }: Props) {
   return (
     <AdminLayout>
       <div className="max-w-6xl">
-        <h1 className="text-2xl font-bold text-[#0F172A] mb-8">{t('dashboard')}</h1>
+        <h1 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-8">{t('dashboard')}</h1>
 
         {/* Stats grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
           {STAT_CARDS.map(({ label, value, icon: Icon, color, bg }) => (
-            <div key={label} className="bg-white rounded-2xl border border-[#E5E7EB] p-5">
+            <div key={label} className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-5">
               <div className={`w-8 h-8 ${bg} rounded-lg flex items-center justify-center mb-3`}>
                 <Icon size={16} className={color} />
               </div>
-              <p className="text-2xl font-bold text-[#0F172A]">{value}</p>
-              <p className="text-xs text-[#6B7280] mt-1">{label}</p>
+              <p className="text-2xl font-bold text-[#0F172A] dark:text-white">{value}</p>
+              <p className="text-xs text-[#6B7280] dark:text-slate-400 mt-1">{label}</p>
             </div>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Recent Messages */}
-          <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+          <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="font-semibold text-[#0F172A] flex items-center gap-2"><Mail size={16} />{t('recentMessages')}</h2>
+              <h2 className="font-semibold text-[#0F172A] dark:text-white flex items-center gap-2"><Mail size={16} />{t('recentMessages')}</h2>
               <Link href="/admin/contact-messages" className="text-xs text-[#38BDF8] hover:underline">View all</Link>
             </div>
             {recentMessages.length > 0 ? (
               <div className="space-y-3">
                 {recentMessages.map(msg => (
-                  <div key={msg.id} className="flex items-center justify-between py-2 border-b border-[#E5E7EB] last:border-0">
+                  <div key={msg.id} className="flex items-center justify-between py-2 border-b border-[#E5E7EB] dark:border-white/10 last:border-0">
                     <div>
-                      <p className="text-sm font-medium text-[#0F172A]">{msg.name}</p>
-                      <p className="text-xs text-[#6B7280] truncate max-w-[200px]">{msg.subject}</p>
+                      <p className="text-sm font-medium text-[#0F172A] dark:text-slate-100">{msg.name}</p>
+                      <p className="text-xs text-[#6B7280] dark:text-slate-400 truncate max-w-[200px]">{msg.subject}</p>
                     </div>
                     <div className="text-right">
                       <span className={`inline-block px-2 py-0.5 rounded-full text-xs ${msg.status === 'unread' ? 'bg-blue-50 text-blue-600' : 'bg-[#F8FAFC] text-[#6B7280]'}`}>
                         {msg.status}
                       </span>
-                      <p className="text-xs text-[#6B7280] mt-1">{formatDate(msg.created_at)}</p>
+                      <p className="text-xs text-[#6B7280] dark:text-slate-400 mt-1">{formatDate(msg.created_at)}</p>
                     </div>
                   </div>
                 ))}
@@ -111,21 +111,21 @@ export default async function AdminDashboard({ params }: Props) {
           </div>
 
           {/* Top Posts */}
-          <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+          <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="font-semibold text-[#0F172A] flex items-center gap-2"><TrendingUp size={16} />{t('mostViewed')}</h2>
+              <h2 className="font-semibold text-[#0F172A] dark:text-white flex items-center gap-2"><TrendingUp size={16} />{t('mostViewed')}</h2>
               <Link href="/admin/posts" className="text-xs text-[#38BDF8] hover:underline">View all</Link>
             </div>
             {topPosts.length > 0 ? (
               <div className="space-y-3">
                 {topPosts.map((post, i) => (
-                  <div key={post.id} className="flex items-center gap-3 py-2 border-b border-[#E5E7EB] last:border-0">
+                  <div key={post.id} className="flex items-center gap-3 py-2 border-b border-[#E5E7EB] dark:border-white/10 last:border-0">
                     <span className="text-[#94A3B8] text-sm font-mono w-5">{i + 1}</span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[#0F172A] truncate">{post.title}</p>
-                      <span className="text-xs text-[#6B7280]">{post.category}</span>
+                      <p className="text-sm font-medium text-[#0F172A] dark:text-slate-100 truncate">{post.title}</p>
+                      <span className="text-xs text-[#6B7280] dark:text-slate-400">{post.category}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-[#6B7280]">
+                    <div className="flex items-center gap-1 text-xs text-[#6B7280] dark:text-slate-400">
                       <Eye size={12} /> {post.view_count}
                     </div>
                   </div>
@@ -142,7 +142,7 @@ export default async function AdminDashboard({ params }: Props) {
           <Link href="/admin/posts/new" className="px-6 py-2.5 rounded-xl gradient-navy text-white text-sm font-semibold hover:opacity-90 transition-all">
             + {t('newPost')}
           </Link>
-          <Link href="/admin/posts" className="px-6 py-2.5 rounded-xl border border-[#E5E7EB] text-[#0F172A] text-sm font-semibold hover:bg-[#F8FAFC] transition-all">
+          <Link href="/admin/posts" className="px-6 py-2.5 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#0F172A] dark:text-slate-200 text-sm font-semibold hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all">
             {t('posts')}
           </Link>
         </div>

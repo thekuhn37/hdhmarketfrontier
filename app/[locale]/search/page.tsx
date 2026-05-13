@@ -20,7 +20,7 @@ export default async function SearchPage({ params, searchParams }: Props) {
   const t = await getTranslations({ locale, namespace: 'search' })
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-[#0B1120] min-h-screen">
       <section className="gradient-navy py-20">
         <div className="content-width">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{t('title')}</h1>

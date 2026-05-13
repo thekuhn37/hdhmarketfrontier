@@ -103,16 +103,16 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
       {/* Search form */}
       <form onSubmit={handleSubmit} className="mb-8">
         <div className="relative mb-4">
-          <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B7280]" />
+          <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B7280] dark:text-slate-400" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('placeholder')}
-            className="w-full pl-12 pr-4 py-4 rounded-2xl border border-[#E5E7EB] bg-white text-[#111827] text-base focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+            className="w-full pl-12 pr-4 py-4 rounded-2xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#1E2A3B] text-[#111827] dark:text-slate-100 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-base focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
           />
           {query && (
-            <button type="button" onClick={() => setQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#6B7280] hover:text-[#0F172A]">
+            <button type="button" onClick={() => setQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white">
               <X size={18} />
             </button>
           )}
@@ -124,7 +124,7 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
             <button
               type="button"
               onClick={() => setCategory('')}
-              className={cn('px-4 py-2 rounded-lg text-sm font-medium transition-colors', !category ? 'bg-[#0F172A] text-white' : 'bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] hover:bg-white')}
+              className={cn('px-4 py-2 rounded-lg text-sm font-medium transition-colors', !category ? 'bg-[#0F172A] text-white dark:bg-[#38BDF8] dark:text-[#0B1120]' : 'bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] hover:bg-white dark:bg-white/5 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/10')}
             >
               {t('allCategories')}
             </button>
@@ -133,7 +133,7 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
                 key={cat}
                 type="button"
                 onClick={() => setCategory(category === cat ? '' : cat)}
-                className={cn('px-4 py-2 rounded-lg text-sm font-medium transition-colors', category === cat ? 'bg-[#0F172A] text-white' : 'bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] hover:bg-white')}
+                className={cn('px-4 py-2 rounded-lg text-sm font-medium transition-colors', category === cat ? 'bg-[#0F172A] text-white dark:bg-[#38BDF8] dark:text-[#0B1120]' : 'bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] hover:bg-white dark:bg-white/5 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/10')}
               >
                 {cat}
               </button>
@@ -151,12 +151,12 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
 
       {/* Results */}
       {loading ? (
-        <div className="text-center py-16 text-[#6B7280]">Searching...</div>
+        <div className="text-center py-16 text-[#6B7280] dark:text-slate-400">Searching...</div>
       ) : searched ? (
         <>
           {results.length > 0 ? (
             <>
-              <p className="text-sm text-[#6B7280] mb-6">
+              <p className="text-sm text-[#6B7280] dark:text-slate-400 mb-6">
                 {t('results', { count: results.length })}
                 {category ? ` in ${category}` : ''}
               </p>
@@ -168,13 +168,13 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
             </>
           ) : (
             <div className="text-center py-24">
-              <p className="text-[#6B7280] text-lg mb-2">{t('noResults')}</p>
-              <p className="text-[#94A3B8] text-sm">{t('noResultsDesc')}</p>
+              <p className="text-[#6B7280] dark:text-slate-400 text-lg mb-2">{t('noResults')}</p>
+              <p className="text-[#94A3B8] dark:text-slate-500 text-sm">{t('noResultsDesc')}</p>
             </div>
           )}
         </>
       ) : (
-        <div className="text-center py-16 text-[#6B7280]">
+        <div className="text-center py-16 text-[#6B7280] dark:text-slate-400">
           Enter a search term to find articles
         </div>
       )}

@@ -58,7 +58,7 @@ export default function ThemeCards() {
   const tThemes = useTranslations('themes')
 
   return (
-    <section className="py-24 bg-[#F8FAFC]">
+    <section className="py-24 bg-[#F8FAFC] dark:bg-[#0F172A]">
       <div className="content-width">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,10 +67,10 @@ export default function ThemeCards() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-4 tracking-tight">
             {t('coreThemes')}
           </h2>
-          <p className="text-[#4B5563] text-lg max-w-2xl mx-auto">{t('coreThemesDesc')}</p>
+          <p className="text-[#4B5563] dark:text-slate-400 text-lg max-w-2xl mx-auto">{t('coreThemesDesc')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -86,19 +86,19 @@ export default function ThemeCards() {
               >
                 <Link
                   href={href}
-                  className={`group flex flex-col p-6 rounded-2xl bg-white border border-[#E5E7EB] ${border} hover:shadow-lg transition-all duration-300 h-full`}
+                  className={`group flex flex-col p-6 rounded-2xl bg-white dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10 ${border} hover:shadow-lg transition-all duration-300 h-full`}
                 >
                   <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-200`}>
                     <Icon size={22} className={iconColor} />
                   </div>
-                  <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-[#1E3A5F] transition-colors">
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-100 mb-2 group-hover:text-[#1E3A5F] dark:group-hover:text-[#7DD3FC] transition-colors">
                     {tThemes(`${themeKey}.name`)}
                   </h3>
-                  <p className="text-sm text-[#6B7280] leading-relaxed flex-1">
+                  <p className="text-sm text-[#6B7280] dark:text-slate-400 leading-relaxed flex-1">
                     {tThemes(`${themeKey}.desc`)}
                   </p>
-                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
-                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: accent }}>
+                  <div className="mt-4 pt-4 border-t border-[#E5E7EB] dark:border-white/10">
+                    <span className="text-xs font-semibold uppercase tracking-wider dark:!text-[#38BDF8]" style={{ color: accent }}>
                       Explore →
                     </span>
                   </div>

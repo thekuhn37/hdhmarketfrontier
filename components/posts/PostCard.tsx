@@ -24,7 +24,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
 
   if (variant === 'compact') {
     return (
-      <Link href={`/posts/${post.slug}`} className="group flex gap-4 py-4 border-b border-[#E5E7EB] last:border-0">
+      <Link href={`/posts/${post.slug}`} className="group flex gap-4 py-4 border-b border-[#E5E7EB] dark:border-white/10 last:border-0">
         {post.thumbnail_url && (
           <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
             <img
@@ -38,10 +38,10 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
           <span className="text-xs font-semibold capitalize" style={{ color: catStyle.text }}>
             {post.category}
           </span>
-          <h3 className="text-sm font-semibold text-[#0F172A] leading-snug mt-0.5 group-hover:text-[#1E3A5F] transition-colors line-clamp-2">
+          <h3 className="text-sm font-semibold text-[#0F172A] dark:text-slate-100 leading-snug mt-0.5 group-hover:text-[#1E3A5F] dark:group-hover:text-[#7DD3FC] transition-colors line-clamp-2">
             {post.title}
           </h3>
-          <div className="flex items-center gap-3 mt-1 text-xs text-[#6B7280]">
+          <div className="flex items-center gap-3 mt-1 text-xs text-[#6B7280] dark:text-slate-400">
             <span className="flex items-center gap-1">
               <Clock size={11} />
               {t('readingTime', { minutes: post.reading_time })}
@@ -111,10 +111,10 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="group flex flex-col rounded-2xl border border-[#E5E7EB] bg-white hover:border-[#38BDF8]/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+      className="group flex flex-col rounded-2xl border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#1E2A3B] hover:border-[#38BDF8]/40 dark:hover:border-[#38BDF8]/50 hover:shadow-lg dark:hover:shadow-[#38BDF8]/5 transition-all duration-300 overflow-hidden"
     >
       {/* Thumbnail */}
-      <div className="h-48 overflow-hidden bg-[#F8FAFC] flex-shrink-0">
+      <div className="h-48 overflow-hidden bg-[#F8FAFC] dark:bg-[#0F172A] flex-shrink-0">
         {post.thumbnail_url ? (
           <img
             src={post.thumbnail_url}
@@ -141,13 +141,13 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
         </span>
 
         {/* Title */}
-        <h3 className="text-base font-bold text-[#0F172A] leading-snug mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-2">
+        <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-100 leading-snug mb-2 group-hover:text-[#1E3A5F] dark:group-hover:text-[#7DD3FC] transition-colors line-clamp-2">
           {post.title}
         </h3>
 
         {/* Summary */}
         {post.summary && (
-          <p className="text-sm text-[#4B5563] leading-relaxed line-clamp-3 mb-4 flex-1">
+          <p className="text-sm text-[#4B5563] dark:text-slate-400 leading-relaxed line-clamp-3 mb-4 flex-1">
             {post.summary}
           </p>
         )}
@@ -158,7 +158,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             {post.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag.id}
-                className="px-2.5 py-0.5 rounded-full text-xs bg-[#F8FAFC] border border-[#E5E7EB] text-[#6B7280]"
+                className="px-2.5 py-0.5 rounded-full text-xs bg-[#F8FAFC] dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#6B7280] dark:text-slate-400"
               >
                 {tag.name}
               </span>
@@ -167,7 +167,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
         )}
 
         {/* Meta */}
-        <div className="flex items-center gap-4 text-xs text-[#6B7280] pt-4 border-t border-[#E5E7EB]">
+        <div className="flex items-center gap-4 text-xs text-[#6B7280] dark:text-slate-500 pt-4 border-t border-[#E5E7EB] dark:border-white/10">
           <span className="flex items-center gap-1.5">
             <Calendar size={12} />
             {post.published_at ? formatDate(post.published_at) : 'Draft'}

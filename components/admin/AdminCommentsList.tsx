@@ -19,10 +19,10 @@ interface Props {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  approved: 'bg-green-50 text-green-700 border border-green-200',
-  pending:  'bg-amber-50 text-amber-700 border border-amber-200',
-  hidden:   'bg-[#F8FAFC] text-[#6B7280] border border-[#E5E7EB]',
-  deleted:  'bg-red-50 text-red-600 border border-red-200',
+  approved: 'bg-green-50 text-green-700 border border-green-200 dark:bg-green-500/10 dark:text-green-300 dark:border-green-500/30',
+  pending:  'bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-500/30',
+  hidden:   'bg-[#F8FAFC] text-[#6B7280] border border-[#E5E7EB] dark:bg-white/5 dark:text-slate-400 dark:border-white/10',
+  deleted:  'bg-red-50 text-red-600 border border-red-200 dark:bg-red-500/10 dark:text-red-300 dark:border-red-500/30',
 }
 
 export default function AdminCommentsList({ initialComments }: Props) {
@@ -52,18 +52,18 @@ export default function AdminCommentsList({ initialComments }: Props) {
 
   if (comments.length === 0) {
     return (
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] text-center py-16 text-[#6B7280]">
+      <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 text-center py-16 text-[#6B7280] dark:text-slate-400">
         No comments yet
       </div>
     )
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden">
+    <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
       {updateError && (
-        <div className="px-5 py-3 bg-red-50 border-b border-red-200 text-sm text-red-600">{updateError}</div>
+        <div className="px-5 py-3 bg-red-50 dark:bg-red-500/10 border-b border-red-200 dark:border-red-500/30 text-sm text-red-600 dark:text-red-300">{updateError}</div>
       )}
-      <div className="divide-y divide-[#E5E7EB]">
+      <div className="divide-y divide-[#E5E7EB] dark:divide-white/10">
         {comments.map(comment => {
           const isExpanded = expandedId === comment.id
           const isUpdating = updating === comment.id
@@ -76,16 +76,16 @@ export default function AdminCommentsList({ initialComments }: Props) {
                 onClick={() => setExpandedId(isExpanded ? null : comment.id)}
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-[#111827] line-clamp-2 text-left">{comment.content}</p>
+                  <p className="text-sm text-[#111827] dark:text-slate-100 line-clamp-2 text-left">{comment.content}</p>
                   <div className="flex items-center gap-2 mt-2 flex-wrap">
-                    <span className="text-xs text-[#9CA3AF]">{formatDate(comment.created_at)}</span>
+                    <span className="text-xs text-[#9CA3AF] dark:text-slate-500">{formatDate(comment.created_at)}</span>
                     {comment.is_private && (
-                      <span className="px-2 py-0.5 rounded-full bg-[#0F172A] text-white text-[10px] font-semibold tracking-wide">
+                      <span className="px-2 py-0.5 rounded-full bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] text-[10px] font-semibold tracking-wide">
                         PRIVATE
                       </span>
                     )}
                     {comment.parent_id && (
-                      <span className="text-[10px] text-[#9CA3AF] font-medium uppercase tracking-wide">↩ Reply</span>
+                      <span className="text-[10px] text-[#9CA3AF] dark:text-slate-500 font-medium uppercase tracking-wide">↩ Reply</span>
                     )}
                   </div>
                 </div>
@@ -93,14 +93,14 @@ export default function AdminCommentsList({ initialComments }: Props) {
                   <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${STATUS_COLORS[comment.status] ?? STATUS_COLORS.hidden}`}>
                     {comment.status}
                   </span>
-                  {isExpanded ? <ChevronUp size={14} className="text-[#9CA3AF]" /> : <ChevronDown size={14} className="text-[#9CA3AF]" />}
+                  {isExpanded ? <ChevronUp size={14} className="text-[#9CA3AF] dark:text-slate-500" /> : <ChevronDown size={14} className="text-[#9CA3AF] dark:text-slate-500" />}
                 </div>
               </button>
 
               {/* Expanded detail + action buttons */}
               {isExpanded && (
-                <div className="mt-4 pt-4 border-t border-[#F1F5F9]">
-                  <p className="text-sm text-[#374151] leading-relaxed whitespace-pre-wrap mb-5">
+                <div className="mt-4 pt-4 border-t border-[#F1F5F9] dark:border-white/10">
+                  <p className="text-sm text-[#374151] dark:text-slate-300 leading-relaxed whitespace-pre-wrap mb-5">
                     {comment.content}
                   </p>
                   <div className="flex gap-2 flex-wrap">
@@ -117,7 +117,7 @@ export default function AdminCommentsList({ initialComments }: Props) {
                       <button
                         onClick={() => updateStatus(comment.id, 'hidden')}
                         disabled={isUpdating}
-                        className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] text-xs font-semibold hover:bg-[#F1F5F9] disabled:opacity-50 transition-colors"
+                        className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#4B5563] dark:text-slate-300 text-xs font-semibold hover:bg-[#F1F5F9] dark:hover:bg-white/10 disabled:opacity-50 transition-colors"
                       >
                         {isUpdating ? '…' : 'Hide'}
                       </button>
@@ -126,7 +126,7 @@ export default function AdminCommentsList({ initialComments }: Props) {
                       <button
                         onClick={() => updateStatus(comment.id, 'hidden')}
                         disabled={isUpdating}
-                        className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E5E7EB] text-[#4B5563] text-xs font-semibold hover:bg-[#F1F5F9] disabled:opacity-50 transition-colors"
+                        className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#4B5563] dark:text-slate-300 text-xs font-semibold hover:bg-[#F1F5F9] dark:hover:bg-white/10 disabled:opacity-50 transition-colors"
                       >
                         {isUpdating ? '…' : 'Hide'}
                       </button>

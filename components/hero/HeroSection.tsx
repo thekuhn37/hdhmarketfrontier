@@ -12,7 +12,7 @@ export default function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-[#0B1120]">
       {/* Animated canvas background */}
       <div className="absolute inset-0 opacity-70">
         <HeroAnimation />
@@ -99,7 +99,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] border border-[#E5E7EB] text-[#1E3A5F] text-xs font-semibold tracking-widest uppercase mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#1E3A5F] dark:text-[#7DD3FC] text-xs font-semibold tracking-widest uppercase mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse" />
               Professional Insight Platform
             </span>
@@ -120,7 +120,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xl md:text-2xl font-medium text-[#1E3A5F] mb-6 tracking-tight"
+            className="text-xl md:text-2xl font-medium text-[#1E3A5F] dark:text-slate-300 mb-6 tracking-tight"
           >
             {t('subtitle')}
           </motion.p>
@@ -130,7 +130,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-base md:text-lg text-[#4B5563] max-w-2xl mx-auto leading-relaxed mb-12"
+            className="text-base md:text-lg text-[#4B5563] dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12"
           >
             {t('description')}
           </motion.p>
@@ -144,14 +144,14 @@ export default function HeroSection() {
           >
             <Link
               href="/markets"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#0F172A] text-white font-semibold text-base hover:bg-[#1E3A5F] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] font-semibold text-base hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               {t('ctaPrimary')}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white border border-[#E5E7EB] text-[#0F172A] font-semibold text-base hover:border-[#38BDF8] hover:text-[#1E3A5F] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#0F172A] dark:text-slate-200 font-semibold text-base hover:border-[#38BDF8] dark:hover:border-[#38BDF8] hover:text-[#1E3A5F] dark:hover:text-white transition-all duration-200"
             >
               {t('ctaSecondary')}
             </Link>
@@ -194,7 +194,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6B7280]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6B7280] dark:text-slate-400"
       >
         <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
         <motion.div

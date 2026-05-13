@@ -50,10 +50,10 @@ export default async function FeaturedInsight({ locale }: Props) {
   if (!post) return null
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-[#0B1120]">
       <div className="content-width">
         <div className="mb-12">
-          <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#0F172A] uppercase tracking-wider mb-3">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#0F172A] dark:text-slate-200 uppercase tracking-wider mb-3">
             <span className="w-6 h-0.5 bg-[#38BDF8]" />
             {t('featuredInsight')}
           </span>

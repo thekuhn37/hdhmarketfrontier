@@ -8,6 +8,7 @@ import { Link, useRouter, usePathname } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils/cn'
 import { createClient } from '@/lib/supabase/client'
+import ThemeToggle from './ThemeToggle'
 
 const NAV_LINKS = [
   { key: 'about', href: '/about' },
@@ -117,8 +118,8 @@ export default function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-[#F1F5F9]'
-          : 'bg-white/70 backdrop-blur-md border-b border-transparent'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-[#F1F5F9] dark:bg-[#0F172A]/95 dark:border-white/5'
+          : 'bg-white/70 backdrop-blur-md border-b border-transparent dark:bg-[#0F172A]/70'
       )}
     >
       <div className="content-width">
@@ -137,10 +138,10 @@ export default function Header() {
             <div className="w-8 h-8 rounded-lg gradient-navy flex items-center justify-center">
               <span className="text-white font-bold text-sm">H</span>
             </div>
-            <span className="font-bold text-[#0F172A] text-lg hidden sm:block tracking-tight">
+            <span className="font-bold text-[#0F172A] dark:text-white text-lg hidden sm:block tracking-tight">
               HDH<span className="text-[#38BDF8]"> Market</span> Frontier
             </span>
-            <span className="font-bold text-[#0F172A] text-lg sm:hidden tracking-tight">
+            <span className="font-bold text-[#0F172A] dark:text-white text-lg sm:hidden tracking-tight">
               HDH<span className="text-[#38BDF8]">MF</span>
             </span>
           </button>
@@ -153,7 +154,8 @@ export default function Header() {
                 href={href}
                 className={cn(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150',
-                  'text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC]'
+                  'text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC]',
+                  'dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5'
                 )}
               >
                 {t(key as 'about' | 'markets' | 'data' | 'infrastructure' | 'ai' | 'digitalAssets')}
@@ -166,17 +168,20 @@ export default function Header() {
             {/* Search */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-2 rounded-lg text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
+              className="p-2 rounded-lg text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5 transition-all"
               aria-label={t('search')}
             >
               <Search size={18} />
             </button>
 
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Language Switcher */}
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5 transition-all"
               >
                 {tLang(locale as 'en' | 'ko' | 'zh')}
                 <ChevronDown size={14} className={cn('transition-transform', langOpen && 'rotate-180')} />
@@ -188,15 +193,15 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 bg-white border border-[#E5E7EB] rounded-xl shadow-lg overflow-hidden min-w-[100px]"
+                    className="absolute right-0 top-full mt-2 bg-white dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10 rounded-xl shadow-lg overflow-hidden min-w-[100px]"
                   >
                     {routing.locales.map((loc) => (
                       <button
                         key={loc}
                         onClick={() => switchLocale(loc)}
                         className={cn(
-                          'w-full px-4 py-2 text-sm text-left hover:bg-[#F8FAFC] transition-colors',
-                          loc === locale ? 'text-[#0F172A] font-semibold' : 'text-[#4B5563]'
+                          'w-full px-4 py-2 text-sm text-left hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors',
+                          loc === locale ? 'text-[#0F172A] dark:text-white font-semibold' : 'text-[#4B5563] dark:text-slate-300'
                         )}
                       >
                         {tLang(loc as 'en' | 'ko' | 'zh')}
@@ -212,7 +217,7 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[#F8FAFC] transition-all"
+                  className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
                 >
                   {currentUser.avatar_url ? (
                     <img src={currentUser.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover" />
@@ -223,10 +228,10 @@ export default function Header() {
                       </span>
                     </div>
                   )}
-                  <span className="hidden sm:block text-sm font-medium text-[#0F172A] max-w-[120px] truncate">
+                  <span className="hidden sm:block text-sm font-medium text-[#0F172A] dark:text-white max-w-[120px] truncate">
                     {displayName}
                   </span>
-                  <ChevronDown size={14} className={cn('text-[#6B7280] transition-transform', userMenuOpen && 'rotate-180')} />
+                  <ChevronDown size={14} className={cn('text-[#6B7280] dark:text-slate-400 transition-transform', userMenuOpen && 'rotate-180')} />
                 </button>
                 <AnimatePresence>
                   {userMenuOpen && (
@@ -235,15 +240,15 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 bg-white border border-[#E5E7EB] rounded-xl shadow-lg overflow-hidden min-w-[180px]"
+                      className="absolute right-0 top-full mt-2 bg-white dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10 rounded-xl shadow-lg overflow-hidden min-w-[180px]"
                     >
-                      <div className="px-4 py-3 border-b border-[#E5E7EB]">
-                        <p className="text-sm font-medium text-[#0F172A] truncate">{displayName}</p>
-                        <p className="text-xs text-[#6B7280] truncate">{currentUser.email}</p>
+                      <div className="px-4 py-3 border-b border-[#E5E7EB] dark:border-white/10">
+                        <p className="text-sm font-medium text-[#0F172A] dark:text-white truncate">{displayName}</p>
+                        <p className="text-xs text-[#6B7280] dark:text-slate-400 truncate">{currentUser.email}</p>
                       </div>
                       <Link
                         href="/profile"
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-colors"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] dark:text-slate-300 hover:bg-[#F8FAFC] dark:hover:bg-white/5 hover:text-[#0F172A] dark:hover:text-white transition-colors"
                         onClick={() => setUserMenuOpen(false)}
                       >
                         <User size={15} /> {t('profile')}
@@ -251,7 +256,7 @@ export default function Header() {
                       {currentUser.role === 'admin' && (
                         <Link
                           href="/admin"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] dark:text-slate-300 hover:bg-[#F8FAFC] dark:hover:bg-white/5 hover:text-[#0F172A] dark:hover:text-white transition-colors"
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <LayoutDashboard size={15} /> {t('admin')}
@@ -259,7 +264,7 @@ export default function Header() {
                       )}
                       <button
                         onClick={handleLogout}
-                        className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                        className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
                       >
                         <LogOut size={15} /> {t('logout')}
                       </button>
@@ -270,7 +275,7 @@ export default function Header() {
             ) : (
               <Link
                 href="/login"
-                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0F172A] text-white text-sm font-medium hover:bg-[#1E3A5F] transition-all"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] text-sm font-medium hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-all"
               >
                 {t('login')}
               </Link>
@@ -279,7 +284,7 @@ export default function Header() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-lg text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
+              className="md:hidden p-2 rounded-lg text-[#4B5563] dark:text-slate-300 hover:text-[#0F172A] dark:hover:text-white hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
               aria-label="Menu"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -296,24 +301,24 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-[#E5E7EB] bg-white/95 backdrop-blur-xl overflow-hidden"
+            className="md:hidden border-t border-[#E5E7EB] dark:border-white/5 bg-white/95 dark:bg-[#0F172A]/95 backdrop-blur-xl overflow-hidden"
           >
             <div className="content-width py-4 flex flex-col gap-1">
               {NAV_LINKS.map(({ key, href }) => (
                 <Link
                   key={key}
                   href={href}
-                  className="px-4 py-3 rounded-lg text-sm font-medium text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
+                  className="px-4 py-3 rounded-lg text-sm font-medium text-[#4B5563] dark:text-slate-300 hover:text-[#0F172A] dark:hover:text-white hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t(key as 'about' | 'markets' | 'data' | 'infrastructure' | 'ai' | 'digitalAssets')}
                 </Link>
               ))}
-              <div className="border-t border-[#E5E7EB] mt-2 pt-2">
+              <div className="border-t border-[#E5E7EB] dark:border-white/5 mt-2 pt-2">
                 {!currentUser && (
                   <Link
                     href="/login"
-                    className="flex items-center justify-center px-4 py-3 rounded-lg bg-[#0F172A] text-white text-sm font-medium"
+                    className="flex items-center justify-center px-4 py-3 rounded-lg bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] text-sm font-medium"
                     onClick={() => setMobileOpen(false)}
                   >
                     {t('login')}
@@ -347,12 +352,12 @@ export default function Header() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search posts, topics, tags..."
-                  className="w-full px-6 py-4 pr-14 rounded-2xl bg-white border border-[#E5E7EB] text-[#0F172A] text-lg shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full px-6 py-4 pr-14 rounded-2xl bg-white dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10 text-[#0F172A] dark:text-slate-100 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-lg shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                   autoFocus
                 />
                 <button
                   type="submit"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-[#4B5563] hover:text-[#0F172A]"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-[#4B5563] dark:text-slate-300 hover:text-[#0F172A] dark:hover:text-white"
                 >
                   <Search size={20} />
                 </button>

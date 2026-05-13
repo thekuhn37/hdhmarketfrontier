@@ -6,16 +6,16 @@ export const metadata: Metadata = {
 
 export default function TermsOfUsePage() {
   return (
-    <div className="bg-white py-16">
+    <div className="bg-white dark:bg-[#0B1120] py-16">
       <div className="article-width">
-        <h1 className="text-4xl font-bold text-[#0F172A] mb-4 tracking-tight">Terms of Use</h1>
-        <p className="text-[#6B7280] text-sm mb-12">Last updated: January 2025</p>
+        <h1 className="text-4xl font-bold text-[#0F172A] dark:text-white mb-4 tracking-tight">Terms of Use</h1>
+        <p className="text-[#6B7280] dark:text-slate-400 text-sm mb-12">Last updated: January 2025</p>
 
         <div className="article-body space-y-10">
           <section>
-            <div className="p-6 rounded-2xl bg-amber-50 border border-amber-200 mb-6">
-              <p className="text-amber-800 font-medium">Important Notice</p>
-              <p className="text-amber-700 text-sm mt-1">The information on this website is provided for general informational and educational purposes only and does not constitute investment, legal, tax, or professional advice. Nothing on this site should be interpreted as a recommendation to buy, sell, or hold any financial instrument.</p>
+            <div className="p-6 rounded-2xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 mb-6">
+              <p className="text-amber-800 dark:text-amber-200 font-medium">Important Notice</p>
+              <p className="text-amber-700 dark:text-amber-300 text-sm mt-1">The information on this website is provided for general informational and educational purposes only and does not constitute investment, legal, tax, or professional advice. Nothing on this site should be interpreted as a recommendation to buy, sell, or hold any financial instrument.</p>
             </div>
           </section>
 

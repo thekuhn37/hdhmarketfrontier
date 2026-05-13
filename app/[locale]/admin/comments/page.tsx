@@ -40,8 +40,8 @@ export default async function AdminCommentsPage({ params }: Props) {
     <AdminLayout>
       <div className="max-w-5xl">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-[#0F172A]">{t('comments')}</h1>
-          <span className="text-sm text-[#6B7280]">{comments.length} total</span>
+          <h1 className="text-2xl font-bold text-[#0F172A] dark:text-white">{t('comments')}</h1>
+          <span className="text-sm text-[#6B7280] dark:text-slate-400">{comments.length} total</span>
         </div>
         <AdminCommentsList initialComments={comments} />
       </div>

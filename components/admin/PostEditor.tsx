@@ -283,8 +283,8 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
     }
   }
 
-  const inputClass = 'w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white transition-shadow'
-  const labelClass = 'block text-xs font-semibold text-[#374151] uppercase tracking-wide mb-2'
+  const inputClass = 'w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white dark:bg-[#0F172A] transition-shadow'
+  const labelClass = 'block text-xs font-semibold text-[#374151] dark:text-slate-300 uppercase tracking-wide mb-2'
 
   return (
     <AdminLayout>
@@ -295,20 +295,20 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           <div className="flex items-center gap-3">
             <Link
               href="/admin/posts"
-              className="flex items-center gap-1.5 text-sm text-[#6B7280] hover:text-[#0F172A] transition-colors"
+              className="flex items-center gap-1.5 text-sm text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white transition-colors"
             >
               <ArrowLeft size={15} /> Posts
             </Link>
-            <span className="text-[#D1D5DB]">/</span>
-            <h1 className="text-xl font-bold text-[#0F172A]">
+            <span className="text-[#D1D5DB] dark:text-white/20">/</span>
+            <h1 className="text-xl font-bold text-[#0F172A] dark:text-white">
               {mode === 'create' ? t('newPost') : 'Edit Post'}
             </h1>
             {mode === 'edit' && initialData?.status && (
               <span className={cn(
                 'px-2.5 py-0.5 rounded-full text-xs font-medium',
                 initialData.status === 'published'
-                  ? 'bg-green-50 text-green-700'
-                  : 'bg-amber-50 text-amber-700',
+                  ? 'bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-300'
+                  : 'bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-300',
               )}>
                 {initialData.status}
               </span>
@@ -319,7 +319,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
               <Link
                 href={`/posts/${form.slug}`}
                 target="_blank"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-[#E5E7EB] text-sm text-[#4B5563] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-sm text-[#4B5563] dark:text-slate-300 hover:text-[#0F172A] dark:hover:text-white hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
               >
                 <Eye size={14} /> Preview
               </Link>
@@ -328,7 +328,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
               <button
                 type="button"
                 onClick={() => setShowDeleteConfirm(true)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-red-200 text-sm text-red-500 hover:bg-red-50 transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-red-200 dark:border-red-500/30 text-sm text-red-500 dark:text-red-300 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all"
               >
                 <Trash2 size={14} /> Delete
               </button>
@@ -336,7 +336,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
             <button
               onClick={() => handleSave(false)}
               disabled={saving}
-              className="flex items-center gap-2 px-5 py-2 rounded-xl border border-[#E5E7EB] text-[#0F172A] text-sm font-semibold hover:bg-[#F8FAFC] transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#0F172A] dark:text-slate-200 text-sm font-semibold hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all disabled:opacity-50"
             >
               {saving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
               {t('saveDraft')}
@@ -354,15 +354,15 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
 
         {/* Delete confirmation */}
         {showDeleteConfirm && (
-          <div className="mb-6 p-5 rounded-2xl bg-red-50 border border-red-200 flex items-center justify-between gap-4">
-            <p className="text-sm text-red-700 font-medium">
+          <div className="mb-6 p-5 rounded-2xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 flex items-center justify-between gap-4">
+            <p className="text-sm text-red-700 dark:text-red-300 font-medium">
               Delete &ldquo;{form.title}&rdquo;? This cannot be undone.
             </p>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={() => setShowDeleteConfirm(false)}
-                className="px-4 py-1.5 rounded-lg text-sm text-[#4B5563] hover:bg-red-100 transition-colors"
+                className="px-4 py-1.5 rounded-lg text-sm text-[#4B5563] dark:text-slate-300 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors"
               >
                 Cancel
               </button>
@@ -380,7 +380,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
         )}
 
         {mode === 'edit' && initialData?.published_at && (
-          <p className="text-xs text-[#9CA3AF] mb-6">
+          <p className="text-xs text-[#9CA3AF] dark:text-slate-500 mb-6">
             Published {formatDate(initialData.published_at)} · {initialData.view_count ?? 0} views
           </p>
         )}
@@ -388,12 +388,12 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
         <div className="space-y-5">
 
           {/* ── Title + Slug ─────────────────────────────────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6 space-y-4">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6 space-y-4">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className={labelClass}>{t('postTitle')} *</label>
                 <button type="button" onClick={() => generateField('title')} disabled={generating.title}
-                  className="flex items-center gap-1 text-xs text-[#0EA5E9] hover:text-[#0F172A] disabled:opacity-50 transition-colors">
+                  className="flex items-center gap-1 text-xs text-[#0EA5E9] dark:text-[#7DD3FC] hover:text-[#0F172A] dark:hover:text-white disabled:opacity-50 transition-colors">
                   {generating.title ? <><Loader2 size={11} className="animate-spin" /> Generating…</> : <><Sparkles size={11} /> AI</>}
                 </button>
               </div>
@@ -408,7 +408,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
               <div className="flex items-center justify-between mb-2">
                 <label className={labelClass}>{t('postSlug')} *</label>
                 <button type="button" onClick={() => generateField('slug')} disabled={generating.slug}
-                  className="flex items-center gap-1 text-xs text-[#0EA5E9] hover:text-[#0F172A] disabled:opacity-50 transition-colors">
+                  className="flex items-center gap-1 text-xs text-[#0EA5E9] dark:text-[#7DD3FC] hover:text-[#0F172A] dark:hover:text-white disabled:opacity-50 transition-colors">
                   {generating.slug ? <><Loader2 size={11} className="animate-spin" /> Generating…</> : <><Sparkles size={11} /> AI</>}
                 </button>
               </div>
@@ -422,7 +422,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           </section>
 
           {/* ── Meta: Category / Language / Status / Flags ────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               <div>
                 <label className={labelClass}>{t('postCategory')}</label>
@@ -457,18 +457,18 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           </section>
 
           {/* ── Thumbnail ─────────────────────────────────────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6">
             <label className={labelClass}>Thumbnail Image</label>
             {form.thumbnail_url ? (
-              <div className="relative rounded-xl overflow-hidden aspect-video bg-[#F8FAFC]">
+              <div className="relative rounded-xl overflow-hidden aspect-video bg-[#F8FAFC] dark:bg-[#0F172A]">
                 <img src={form.thumbnail_url} alt="Thumbnail" className="w-full h-full object-cover" />
                 <div className="absolute top-2 right-2 flex gap-2">
                   <button type="button" onClick={() => fileInputRef.current?.click()}
-                    className="px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur text-xs font-medium text-[#0F172A] flex items-center gap-1.5 hover:bg-white shadow-sm transition-colors">
+                    className="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-[#1E2A3B]/90 backdrop-blur text-xs font-medium text-[#0F172A] dark:text-slate-100 flex items-center gap-1.5 hover:bg-white dark:hover:bg-[#1E2A3B] shadow-sm transition-colors">
                     <Upload size={12} /> Replace
                   </button>
                   <button type="button" onClick={() => setForm(p => ({ ...p, thumbnail_url: '' }))}
-                    className="p-1.5 rounded-lg bg-white/90 backdrop-blur text-[#6B7280] hover:text-red-500 hover:bg-white shadow-sm transition-colors">
+                    className="p-1.5 rounded-lg bg-white/90 dark:bg-[#1E2A3B]/90 backdrop-blur text-[#6B7280] dark:text-slate-300 hover:text-red-500 dark:hover:text-red-400 hover:bg-white dark:hover:bg-[#1E2A3B] shadow-sm transition-colors">
                     <X size={13} />
                   </button>
                 </div>
@@ -478,25 +478,25 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
                 onDragOver={e => e.preventDefault()}
                 onDrop={handleThumbnailDrop}
                 onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-[#E5E7EB] rounded-xl p-10 text-center cursor-pointer hover:border-[#38BDF8] hover:bg-[#F8FAFC] transition-all"
+                className="border-2 border-dashed border-[#E5E7EB] dark:border-white/15 rounded-xl p-10 text-center cursor-pointer hover:border-[#38BDF8] dark:hover:border-[#38BDF8] hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
               >
                 {uploading ? (
-                  <div className="flex flex-col items-center gap-2 text-[#6B7280]">
+                  <div className="flex flex-col items-center gap-2 text-[#6B7280] dark:text-slate-400">
                     <div className="w-7 h-7 border-2 border-[#38BDF8] border-t-transparent rounded-full animate-spin" />
                     <span className="text-sm">Uploading…</span>
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center gap-2 text-[#6B7280]">
-                    <ImagePlus size={28} className="text-[#CBD5E1]" />
-                    <p className="text-sm font-medium text-[#4B5563]">Click or drag & drop an image</p>
-                    <p className="text-xs text-[#9CA3AF]">PNG, JPG, WebP · Max 5 MB</p>
+                  <div className="flex flex-col items-center gap-2 text-[#6B7280] dark:text-slate-400">
+                    <ImagePlus size={28} className="text-[#CBD5E1] dark:text-white/20" />
+                    <p className="text-sm font-medium text-[#4B5563] dark:text-slate-300">Click or drag & drop an image</p>
+                    <p className="text-xs text-[#9CA3AF] dark:text-slate-500">PNG, JPG, WebP · Max 5 MB</p>
                   </div>
                 )}
               </div>
             )}
             <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleThumbnailSelect} />
             <div className="mt-3">
-              <p className="text-xs text-[#9CA3AF] mb-1.5">Or paste an image URL directly:</p>
+              <p className="text-xs text-[#9CA3AF] dark:text-slate-500 mb-1.5">Or paste an image URL directly:</p>
               <input
                 value={form.thumbnail_url}
                 onChange={e => setForm(p => ({ ...p, thumbnail_url: e.target.value }))}
@@ -507,11 +507,11 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           </section>
 
           {/* ── Summary ───────────────────────────────────────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6">
             <div className="flex items-center justify-between mb-2">
               <label className={labelClass}>{t('postSummary')}</label>
               <button type="button" onClick={generateSummary}
-                className="flex items-center gap-1 text-xs text-[#0EA5E9] hover:text-[#0F172A] transition-colors">
+                className="flex items-center gap-1 text-xs text-[#0EA5E9] dark:text-[#7DD3FC] hover:text-[#0F172A] dark:hover:text-white transition-colors">
                 <Wand2 size={12} /> {t('generateSummary')}
               </button>
             </div>
@@ -537,9 +537,9 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           </section>
 
           {/* ── Tags + Source ─────────────────────────────────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6 space-y-4">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6 space-y-4">
             <div>
-              <label className={labelClass}>{t('postTags')} <span className="normal-case font-normal text-[#9CA3AF]">(comma-separated)</span></label>
+              <label className={labelClass}>{t('postTags')} <span className="normal-case font-normal text-[#9CA3AF] dark:text-slate-500">(comma-separated)</span></label>
               <input
                 value={form.tags}
                 onChange={e => update('tags', e.target.value)}
@@ -548,7 +548,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
               />
             </div>
             <div>
-              <label className={labelClass}>Source URL <span className="normal-case font-normal text-[#9CA3AF]">(optional)</span></label>
+              <label className={labelClass}>Source URL <span className="normal-case font-normal text-[#9CA3AF] dark:text-slate-500">(optional)</span></label>
               <input
                 value={form.source_url}
                 onChange={e => update('source_url', e.target.value)}
@@ -559,12 +559,12 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
           </section>
 
           {/* ── SEO ───────────────────────────────────────────── */}
-          <section className="bg-white rounded-2xl border border-[#E5E7EB] p-6 space-y-4">
+          <section className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-sm text-[#0F172A] uppercase tracking-wide">SEO Settings</h3>
+              <h3 className="font-semibold text-sm text-[#0F172A] dark:text-white uppercase tracking-wide">SEO Settings</h3>
               <button type="button" onClick={() => generateField('all')}
                 disabled={generating.seo_title || generating.seo_description}
-                className="flex items-center gap-1.5 text-xs font-medium text-white bg-[#0F172A] hover:bg-[#1E3A5F] disabled:opacity-50 px-3 py-1.5 rounded-lg transition-colors">
+                className="flex items-center gap-1.5 text-xs font-medium text-white dark:text-[#0B1120] bg-[#0F172A] dark:bg-[#38BDF8] hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] disabled:opacity-50 px-3 py-1.5 rounded-lg transition-colors">
                 {(generating.seo_title || generating.seo_description)
                   ? <><Loader2 size={11} className="animate-spin" /> Generating…</>
                   : <><Sparkles size={11} /> Generate All with AI</>}
@@ -576,10 +576,10 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
                 <label className={labelClass} style={{ marginBottom: 0 }}>{t('postSeoTitle')}</label>
                 <div className="flex items-center gap-3">
                   <button type="button" onClick={() => generateField('seo_title')} disabled={generating.seo_title}
-                    className="flex items-center gap-1 text-xs text-[#0EA5E9] hover:text-[#0F172A] disabled:opacity-50 transition-colors">
+                    className="flex items-center gap-1 text-xs text-[#0EA5E9] dark:text-[#7DD3FC] hover:text-[#0F172A] dark:hover:text-white disabled:opacity-50 transition-colors">
                     {generating.seo_title ? <Loader2 size={11} className="animate-spin" /> : <Sparkles size={11} />} Generate
                   </button>
-                  <span className={cn('text-xs', form.seo_title.length > 60 ? 'text-amber-500' : 'text-[#9CA3AF]')}>
+                  <span className={cn('text-xs', form.seo_title.length > 60 ? 'text-amber-500' : 'text-[#9CA3AF] dark:text-slate-500')}>
                     {form.seo_title.length}/60
                   </span>
                 </div>
@@ -597,10 +597,10 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
                 <label className={labelClass} style={{ marginBottom: 0 }}>{t('postSeoDesc')}</label>
                 <div className="flex items-center gap-3">
                   <button type="button" onClick={() => generateField('seo_description')} disabled={generating.seo_description}
-                    className="flex items-center gap-1 text-xs text-[#0EA5E9] hover:text-[#0F172A] disabled:opacity-50 transition-colors">
+                    className="flex items-center gap-1 text-xs text-[#0EA5E9] dark:text-[#7DD3FC] hover:text-[#0F172A] dark:hover:text-white disabled:opacity-50 transition-colors">
                     {generating.seo_description ? <Loader2 size={11} className="animate-spin" /> : <Sparkles size={11} />} Generate
                   </button>
-                  <span className={cn('text-xs', form.seo_description.length > 160 ? 'text-amber-500' : 'text-[#9CA3AF]')}>
+                  <span className={cn('text-xs', form.seo_description.length > 160 ? 'text-amber-500' : 'text-[#9CA3AF] dark:text-slate-500')}>
                     {form.seo_description.length}/160
                   </span>
                 </div>
@@ -622,7 +622,7 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
                       seo_description: prev.summary.slice(0, 160) || prev.content.replace(/<[^>]+>/g, '').slice(0, 160),
                     }))
                   }}
-                  className="text-xs text-[#9CA3AF] hover:text-[#0F172A] mt-1.5 transition-colors">
+                  className="text-xs text-[#9CA3AF] dark:text-slate-500 hover:text-[#0F172A] dark:hover:text-white mt-1.5 transition-colors">
                   ↺ Reset to auto-fill
                 </button>
               )}

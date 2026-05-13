@@ -50,18 +50,18 @@ function SectionCard({ title, icon, children, defaultOpen = true }: {
 }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
-    <div className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden">
+    <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between px-6 py-4 hover:bg-[#F9FAFB] transition-colors"
+        className="w-full flex items-center justify-between px-6 py-4 hover:bg-[#F9FAFB] dark:hover:bg-white/5 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <span className="text-[#0EA5E9]">{icon}</span>
-          <span className="font-semibold text-[#0F172A] text-sm">{title}</span>
+          <span className="text-[#0EA5E9] dark:text-[#38BDF8]">{icon}</span>
+          <span className="font-semibold text-[#0F172A] dark:text-slate-100 text-sm">{title}</span>
         </div>
-        {open ? <ChevronUp size={16} className="text-[#9CA3AF]" /> : <ChevronDown size={16} className="text-[#9CA3AF]" />}
+        {open ? <ChevronUp size={16} className="text-[#9CA3AF] dark:text-slate-500" /> : <ChevronDown size={16} className="text-[#9CA3AF] dark:text-slate-500" />}
       </button>
-      {open && <div className="px-6 pb-6 border-t border-[#F1F5F9]">{children}</div>}
+      {open && <div className="px-6 pb-6 border-t border-[#F1F5F9] dark:border-white/10">{children}</div>}
     </div>
   )
 }
@@ -84,13 +84,13 @@ function MultiCheckbox({ options, selected, onChange }: {
           className={cn(
             'flex items-center gap-2 px-3 py-2 rounded-lg border text-xs text-left transition-all',
             selected.includes(opt)
-              ? 'border-[#0EA5E9] bg-[#F0F9FF] text-[#0369A1] font-medium'
-              : 'border-[#E5E7EB] text-[#4B5563] hover:border-[#D1D5DB] hover:bg-[#F9FAFB]'
+              ? 'border-[#0EA5E9] bg-[#F0F9FF] text-[#0369A1] font-medium dark:bg-[#38BDF8]/10 dark:text-[#7DD3FC] dark:border-[#38BDF8]/40'
+              : 'border-[#E5E7EB] text-[#4B5563] hover:border-[#D1D5DB] hover:bg-[#F9FAFB] dark:border-white/10 dark:text-slate-300 dark:hover:border-white/20 dark:hover:bg-white/5'
           )}
         >
           <span className={cn(
             'w-3.5 h-3.5 rounded flex-shrink-0 border flex items-center justify-center',
-            selected.includes(opt) ? 'bg-[#0EA5E9] border-[#0EA5E9]' : 'border-[#D1D5DB]'
+            selected.includes(opt) ? 'bg-[#0EA5E9] border-[#0EA5E9]' : 'border-[#D1D5DB] dark:border-white/30'
           )}>
             {selected.includes(opt) && <Check size={9} className="text-white" />}
           </span>
@@ -103,9 +103,9 @@ function MultiCheckbox({ options, selected, onChange }: {
 
 function FieldRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start justify-between py-3 border-b border-[#F1F5F9] last:border-0">
-      <span className="text-xs font-medium text-[#6B7280] uppercase tracking-wide w-32 flex-shrink-0">{label}</span>
-      <span className="text-sm text-[#111827] text-right">{value}</span>
+    <div className="flex items-start justify-between py-3 border-b border-[#F1F5F9] dark:border-white/10 last:border-0">
+      <span className="text-xs font-medium text-[#6B7280] dark:text-slate-400 uppercase tracking-wide w-32 flex-shrink-0">{label}</span>
+      <span className="text-sm text-[#111827] dark:text-slate-200 text-right">{value}</span>
     </div>
   )
 }
@@ -297,7 +297,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC]">
+      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0B1120]">
         <div className="w-6 h-6 border-2 border-[#0EA5E9] border-t-transparent rounded-full animate-spin" />
       </div>
     )
@@ -310,23 +310,23 @@ export default function ProfilePage() {
   const providerLabel = profile.provider === 'google' ? t('providerGoogle') : t('providerEmail')
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] py-12 px-4">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120] py-12 px-4">
       <div className="max-w-2xl mx-auto space-y-4">
 
         {/* Page header */}
         <div className="flex items-center justify-between mb-2">
-          <h1 className="text-2xl font-bold text-[#0F172A]">{t('title')}</h1>
-          <Link href="/" className="text-sm text-[#6B7280] hover:text-[#0F172A] transition-colors">
+          <h1 className="text-2xl font-bold text-[#0F172A] dark:text-white">{t('title')}</h1>
+          <Link href="/" className="text-sm text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white transition-colors">
             ← {t('backToSite')}
           </Link>
         </div>
 
         {/* Onboarding banner */}
         {!profile.onboarding_completed && (
-          <div className="flex items-center justify-between gap-4 bg-[#F0F9FF] border border-[#BAE6FD] rounded-2xl px-5 py-4">
+          <div className="flex items-center justify-between gap-4 bg-[#F0F9FF] dark:bg-[#38BDF8]/10 border border-[#BAE6FD] dark:border-[#38BDF8]/30 rounded-2xl px-5 py-4">
             <div>
-              <p className="text-sm font-semibold text-[#0369A1]">{t('completeOnboarding')}</p>
-              <p className="text-xs text-[#0EA5E9] mt-0.5">{t('onboardingBannerDesc')}</p>
+              <p className="text-sm font-semibold text-[#0369A1] dark:text-[#7DD3FC]">{t('completeOnboarding')}</p>
+              <p className="text-xs text-[#0EA5E9] dark:text-[#38BDF8]/80 mt-0.5">{t('onboardingBannerDesc')}</p>
             </div>
             <Link
               href="/onboarding"
@@ -349,11 +349,11 @@ export default function ProfilePage() {
                 </div>
               )}
               <div>
-                <p className="font-semibold text-[#0F172A]">{profile.display_name || profile.email}</p>
-                <p className="text-sm text-[#6B7280]">{profile.email}</p>
+                <p className="font-semibold text-[#0F172A] dark:text-white">{profile.display_name || profile.email}</p>
+                <p className="text-sm text-[#6B7280] dark:text-slate-400">{profile.email}</p>
                 <span className={cn(
                   'inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-medium',
-                  profile.role === 'admin' ? 'bg-amber-50 text-amber-700' : 'bg-[#F1F5F9] text-[#475569]'
+                  profile.role === 'admin' ? 'bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300' : 'bg-[#F1F5F9] text-[#475569] dark:bg-white/10 dark:text-slate-300'
                 )}>
                   {profile.role}
                 </span>
@@ -368,34 +368,34 @@ export default function ProfilePage() {
         <SectionCard title={t('personalInfo')} icon={<Globe size={16} />}>
           <div className="pt-4 space-y-4">
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('displayName')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('displayName')}</label>
               <input
                 type="text"
                 value={displayName}
                 onChange={e => setDisplayName(e.target.value)}
                 placeholder={t('notSet')}
-                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('country')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('country')}</label>
               <select
                 value={country}
                 onChange={e => setCountry(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white dark:bg-[#0F172A]"
               >
                 <option value="">{t('selectCountry')}</option>
                 {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">
                 <span className="flex items-center gap-1.5"><Mail size={13} /> Email</span>
               </label>
               <input
                 value={profile.email}
                 readOnly
-                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm bg-[#F8FAFC] text-[#6B7280] cursor-not-allowed"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/10 text-sm bg-[#F8FAFC] dark:bg-white/5 text-[#6B7280] dark:text-slate-400 cursor-not-allowed"
               />
             </div>
             <button
@@ -414,29 +414,29 @@ export default function ProfilePage() {
           <div className="pt-4 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('company')}</label>
+                <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('company')}</label>
                 <input
                   type="text"
                   value={company}
                   onChange={e => setCompany(e.target.value)}
                   placeholder={t('notSet')}
-                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('jobTitle')}</label>
+                <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('jobTitle')}</label>
                 <input
                   type="text"
                   value={jobTitle}
                   onChange={e => setJobTitle(e.target.value)}
                   placeholder={t('notSet')}
-                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-[#111827] mb-1">{t('industryTypes')}</label>
-              <p className="text-xs text-[#6B7280] mb-2">{t('industryTypesDesc')}</p>
+              <p className="text-xs text-[#6B7280] dark:text-slate-400 mb-2">{t('industryTypesDesc')}</p>
               <MultiCheckbox options={INDUSTRY_OPTIONS} selected={industryTypes} onChange={setIndustryTypes} />
             </div>
             <button
@@ -455,15 +455,15 @@ export default function ProfilePage() {
           <div className="pt-4 space-y-4">
             <div>
               <label className="block text-sm font-medium text-[#111827] mb-1">{t('mainInterests')}</label>
-              <p className="text-xs text-[#6B7280] mb-2">{t('mainInterestsDesc')}</p>
+              <p className="text-xs text-[#6B7280] dark:text-slate-400 mb-2">{t('mainInterestsDesc')}</p>
               <MultiCheckbox options={INTEREST_OPTIONS} selected={interests} onChange={setInterests} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('discoverySource')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('discoverySource')}</label>
               <select
                 value={discoverySource}
                 onChange={e => setDiscoverySource(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white dark:bg-[#0F172A]"
               >
                 <option value="">{t('selectDiscovery')}</option>
                 {DISCOVERY_OPTIONS.map(d => <option key={d} value={d}>{d}</option>)}
@@ -486,34 +486,34 @@ export default function ProfilePage() {
             <div className="pt-4 space-y-4">
               {!isRecovery && (
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('currentPassword')}</label>
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('currentPassword')}</label>
                   <input
                     type="password"
                     value={currentPassword}
                     onChange={e => setCurrentPassword(e.target.value)}
                     placeholder="Enter current password"
-                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                   />
                 </div>
               )}
               <div>
-                <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('newPassword')}</label>
+                <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('newPassword')}</label>
                 <input
                   type="password"
                   value={newPassword}
                   onChange={e => setNewPassword(e.target.value)}
                   placeholder="Min. 8 characters"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('confirmNewPassword')}</label>
+                <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('confirmNewPassword')}</label>
                 <input
                   type="password"
                   value={confirmPassword}
                   onChange={e => setConfirmPassword(e.target.value)}
                   placeholder="Repeat new password"
-                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
               <div className="flex items-center justify-between gap-4">
@@ -547,10 +547,10 @@ export default function ProfilePage() {
                 type="checkbox"
                 checked={privacyConsent}
                 onChange={e => setPrivacyConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] text-[#0EA5E9] focus:ring-[#38BDF8]"
+                className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] dark:border-white/30 text-[#0EA5E9] focus:ring-[#38BDF8]"
               />
               <div>
-                <p className="text-sm font-medium text-[#111827]">{t('privacyConsentLabel')}</p>
+                <p className="text-sm font-medium text-[#111827] dark:text-slate-100">{t('privacyConsentLabel')}</p>
                 <p className="text-xs text-[#6B7280] mt-0.5">{t('privacyConsentDesc')}</p>
               </div>
             </label>
@@ -559,10 +559,10 @@ export default function ProfilePage() {
                 type="checkbox"
                 checked={analyticsConsent}
                 onChange={e => setAnalyticsConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] text-[#0EA5E9] focus:ring-[#38BDF8]"
+                className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] dark:border-white/30 text-[#0EA5E9] focus:ring-[#38BDF8]"
               />
               <div>
-                <p className="text-sm font-medium text-[#111827]">{t('analyticsConsentLabel')}</p>
+                <p className="text-sm font-medium text-[#111827] dark:text-slate-100">{t('analyticsConsentLabel')}</p>
                 <p className="text-xs text-[#6B7280] mt-0.5">{t('analyticsConsentDesc')}</p>
               </div>
             </label>
@@ -580,12 +580,12 @@ export default function ProfilePage() {
         {/* 7. Danger Zone */}
         <SectionCard title={t('dangerZone')} icon={<Trash2 size={16} />} defaultOpen={false}>
           <div className="pt-4">
-            <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-              <p className="text-sm font-semibold text-red-700 mb-1">{t('deleteAccount')}</p>
-              <p className="text-xs text-red-600 mb-3">{t('deleteAccountDesc')}</p>
+            <div className="rounded-xl border border-red-200 dark:border-red-500/30 bg-red-50 dark:bg-red-500/10 p-4">
+              <p className="text-sm font-semibold text-red-700 dark:text-red-300 mb-1">{t('deleteAccount')}</p>
+              <p className="text-xs text-red-600 dark:text-red-400 mb-3">{t('deleteAccountDesc')}</p>
               <button
                 onClick={() => setDeleteOpen(true)}
-                className="px-4 py-2 rounded-lg border border-red-300 text-red-700 text-sm font-medium hover:bg-red-100 transition-colors"
+                className="px-4 py-2 rounded-lg border border-red-300 dark:border-red-500/40 text-red-700 dark:text-red-300 text-sm font-medium hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors"
               >
                 {t('deleteAccountBtn')}
               </button>
@@ -598,28 +598,28 @@ export default function ProfilePage() {
       {/* Delete confirmation modal */}
       {deleteOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
-          <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6 max-w-md w-full shadow-2xl">
+          <div className="bg-white dark:bg-[#1E2A3B] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-6 max-w-md w-full shadow-2xl">
             <div className="flex items-start justify-between mb-4">
-              <h2 className="text-base font-bold text-[#0F172A]">{t('deleteAccount')}</h2>
+              <h2 className="text-base font-bold text-[#0F172A] dark:text-white">{t('deleteAccount')}</h2>
               <button onClick={() => { setDeleteOpen(false); setDeleteConfirmText('') }}>
-                <X size={18} className="text-[#9CA3AF] hover:text-[#374151]" />
+                <X size={18} className="text-[#9CA3AF] dark:text-slate-500 hover:text-[#374151] dark:hover:text-slate-200" />
               </button>
             </div>
-            <p className="text-sm text-[#6B7280] mb-4">{t('deleteAccountWarning')}</p>
+            <p className="text-sm text-[#6B7280] dark:text-slate-400 mb-4">{t('deleteAccountWarning')}</p>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('deleteAccountConfirmLabel')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('deleteAccountConfirmLabel')}</label>
               <input
                 type="text"
                 value={deleteConfirmText}
                 onChange={e => setDeleteConfirmText(e.target.value)}
                 placeholder={t('deleteAccountConfirmPlaceholder')}
-                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:ring-2 focus:ring-red-300"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-300"
               />
             </div>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => { setDeleteOpen(false); setDeleteConfirmText('') }}
-                className="flex-1 px-4 py-2.5 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#374151] hover:bg-[#F8FAFC] transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-sm font-medium text-[#374151] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
               >
                 {t('deleteAccountCancel')}
               </button>

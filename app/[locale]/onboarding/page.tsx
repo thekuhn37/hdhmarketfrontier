@@ -71,13 +71,13 @@ function MultiCheckbox({
           className={cn(
             'flex items-center gap-2 px-3 py-2 rounded-lg border text-sm text-left transition-all',
             selected.includes(opt)
-              ? 'border-[#0EA5E9] bg-[#F0F9FF] text-[#0369A1] font-medium'
-              : 'border-[#E5E7EB] text-[#4B5563] hover:border-[#D1D5DB] hover:bg-[#F9FAFB]'
+              ? 'border-[#0EA5E9] bg-[#F0F9FF] text-[#0369A1] font-medium dark:bg-[#38BDF8]/10 dark:text-[#7DD3FC] dark:border-[#38BDF8]/40'
+              : 'border-[#E5E7EB] text-[#4B5563] hover:border-[#D1D5DB] hover:bg-[#F9FAFB] dark:border-white/10 dark:text-slate-300 dark:hover:border-white/20 dark:hover:bg-white/5'
           )}
         >
           <span className={cn(
             'w-4 h-4 rounded flex-shrink-0 border flex items-center justify-center',
-            selected.includes(opt) ? 'bg-[#0EA5E9] border-[#0EA5E9]' : 'border-[#D1D5DB]'
+            selected.includes(opt) ? 'bg-[#0EA5E9] border-[#0EA5E9]' : 'border-[#D1D5DB] dark:border-white/30'
           )}>
             {selected.includes(opt) && <Check size={10} className="text-white" />}
           </span>
@@ -198,14 +198,14 @@ export default function OnboardingPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC]">
+      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0B1120]">
         <div className="w-6 h-6 border-2 border-[#0EA5E9] border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex items-start justify-center pt-8 pb-16 px-4">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120] flex items-start justify-center pt-8 pb-16 px-4">
       <div className="w-full max-w-xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -213,10 +213,10 @@ export default function OnboardingPage() {
             <div className="w-9 h-9 rounded-xl gradient-navy flex items-center justify-center">
               <span className="text-white font-bold">H</span>
             </div>
-            <span className="font-bold text-[#0F172A] text-lg">HDH Market Frontier</span>
+            <span className="font-bold text-[#0F172A] dark:text-white text-lg">HDH Market Frontier</span>
           </Link>
-          <h1 className="text-2xl font-bold text-[#0F172A] mb-1">{t('title')}</h1>
-          <p className="text-[#6B7280] text-sm">{t('subtitle')}</p>
+          <h1 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-1">{t('title')}</h1>
+          <p className="text-[#6B7280] dark:text-slate-400 text-sm">{t('subtitle')}</p>
         </div>
 
         {/* Step indicator */}
@@ -226,11 +226,11 @@ export default function OnboardingPage() {
               <div className={cn(
                 'w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all',
                 s === step ? 'gradient-navy text-white' :
-                s < step ? 'bg-[#0EA5E9] text-white' : 'bg-[#E5E7EB] text-[#9CA3AF]'
+                s < step ? 'bg-[#0EA5E9] text-white' : 'bg-[#E5E7EB] dark:bg-white/10 text-[#9CA3AF] dark:text-slate-500'
               )}>
                 {s < step ? <Check size={12} /> : s}
               </div>
-              {s < 2 && <div className={cn('w-12 h-px', step > 1 ? 'bg-[#0EA5E9]' : 'bg-[#E5E7EB]')} />}
+              {s < 2 && <div className={cn('w-12 h-px', step > 1 ? 'bg-[#0EA5E9]' : 'bg-[#E5E7EB] dark:bg-white/10')} />}
             </div>
           ))}
         </div>
@@ -244,15 +244,15 @@ export default function OnboardingPage() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="bg-white rounded-3xl border border-[#E5E7EB] p-8 shadow-sm space-y-6">
+              <div className="bg-white dark:bg-[#1E2A3B] rounded-3xl border border-[#E5E7EB] dark:border-white/10 p-8 shadow-sm space-y-6">
                 <div>
-                  <h2 className="text-base font-semibold text-[#0F172A]">{t('step1Title')}</h2>
-                  <p className="text-sm text-[#6B7280] mt-0.5">{t('step1Desc')}</p>
+                  <h2 className="text-base font-semibold text-[#0F172A] dark:text-white">{t('step1Title')}</h2>
+                  <p className="text-sm text-[#6B7280] dark:text-slate-400 mt-0.5">{t('step1Desc')}</p>
                 </div>
 
                 {/* Display Name */}
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1.5">
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">
                     {t('displayName')} <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -260,19 +260,19 @@ export default function OnboardingPage() {
                     value={form.display_name}
                     onChange={e => setForm(f => ({ ...f, display_name: e.target.value }))}
                     placeholder={t('displayNamePlaceholder')}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-sm text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#38BDF8] focus:border-transparent"
                   />
                 </div>
 
                 {/* Country */}
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1.5">
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">
                     {t('country')} <span className="text-red-500">*</span>
                   </label>
                   <select
                     value={form.country}
                     onChange={e => setForm(f => ({ ...f, country: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-sm text-[#111827] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white dark:bg-[#0F172A]"
                   >
                     <option value="">{t('selectCountry')}</option>
                     {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
@@ -280,17 +280,17 @@ export default function OnboardingPage() {
                 </div>
 
                 {/* Consents */}
-                <div className="space-y-3 pt-2 border-t border-[#F1F5F9]">
+                <div className="space-y-3 pt-2 border-t border-[#F1F5F9] dark:border-white/10">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={form.privacy_consent}
                       onChange={e => setForm(f => ({ ...f, privacy_consent: e.target.checked }))}
-                      className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] text-[#0EA5E9] focus:ring-[#38BDF8]"
+                      className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] dark:border-white/30 text-[#0EA5E9] focus:ring-[#38BDF8]"
                     />
-                    <span className="text-sm text-[#374151]">
+                    <span className="text-sm text-[#374151] dark:text-slate-300">
                       {t('privacyConsent')}{' '}
-                      <Link href="/privacy-policy" className="text-[#0EA5E9] hover:underline" target="_blank">
+                      <Link href="/privacy-policy" className="text-[#0EA5E9] dark:text-[#7DD3FC] hover:underline" target="_blank">
                         Privacy Policy
                       </Link>
                       {' '}<span className="text-red-500">*</span>
@@ -301,9 +301,9 @@ export default function OnboardingPage() {
                       type="checkbox"
                       checked={form.analytics_consent}
                       onChange={e => setForm(f => ({ ...f, analytics_consent: e.target.checked }))}
-                      className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] text-[#0EA5E9] focus:ring-[#38BDF8]"
+                      className="mt-0.5 w-4 h-4 rounded border-[#D1D5DB] dark:border-white/30 text-[#0EA5E9] focus:ring-[#38BDF8]"
                     />
-                    <span className="text-sm text-[#374151]">{t('analyticsConsent')}</span>
+                    <span className="text-sm text-[#374151] dark:text-slate-300">{t('analyticsConsent')}</span>
                   </label>
                 </div>
               </div>
@@ -327,38 +327,38 @@ export default function OnboardingPage() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="bg-white rounded-3xl border border-[#E5E7EB] p-8 shadow-sm space-y-6">
+              <div className="bg-white dark:bg-[#1E2A3B] rounded-3xl border border-[#E5E7EB] dark:border-white/10 p-8 shadow-sm space-y-6">
                 <div>
-                  <h2 className="text-base font-semibold text-[#0F172A]">{t('step2Title')}</h2>
-                  <p className="text-sm text-[#6B7280] mt-0.5">{t('step2Desc')}</p>
+                  <h2 className="text-base font-semibold text-[#0F172A] dark:text-white">{t('step2Title')}</h2>
+                  <p className="text-sm text-[#6B7280] dark:text-slate-400 mt-0.5">{t('step2Desc')}</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('company')}</label>
+                    <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('company')}</label>
                     <input
                       type="text"
                       value={form.company}
                       onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
                       placeholder={t('companyPlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-sm text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('jobTitle')}</label>
+                    <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('jobTitle')}</label>
                     <input
                       type="text"
                       value={form.job_title}
                       onChange={e => setForm(f => ({ ...f, job_title: e.target.value }))}
                       placeholder={t('jobTitlePlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-sm text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1">{t('industryType')}</label>
-                  <p className="text-xs text-[#6B7280] mb-2">{t('industryTypeDesc')}</p>
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1">{t('industryType')}</label>
+                  <p className="text-xs text-[#6B7280] dark:text-slate-400 mb-2">{t('industryTypeDesc')}</p>
                   <MultiCheckbox
                     options={INDUSTRY_OPTIONS}
                     selected={form.industry_types}
@@ -367,8 +367,8 @@ export default function OnboardingPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1">{t('mainInterests')}</label>
-                  <p className="text-xs text-[#6B7280] mb-2">{t('mainInterestsDesc')}</p>
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1">{t('mainInterests')}</label>
+                  <p className="text-xs text-[#6B7280] dark:text-slate-400 mb-2">{t('mainInterestsDesc')}</p>
                   <MultiCheckbox
                     options={INTEREST_OPTIONS}
                     selected={form.interests}
@@ -377,11 +377,11 @@ export default function OnboardingPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('discoverySource')}</label>
+                  <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('discoverySource')}</label>
                   <select
                     value={form.discovery_source}
                     onChange={e => setForm(f => ({ ...f, discovery_source: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-sm text-[#111827] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#38BDF8] bg-white dark:bg-[#0F172A]"
                   >
                     <option value="">{t('selectDiscovery')}</option>
                     {DISCOVERY_OPTIONS.map(d => <option key={d} value={d}>{d}</option>)}
@@ -392,7 +392,7 @@ export default function OnboardingPage() {
               <div className="mt-4 flex items-center justify-between">
                 <button
                   onClick={handleBack}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#4B5563] hover:bg-[#F8FAFC] transition-all"
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-sm font-medium text-[#4B5563] dark:text-slate-300 hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-all"
                 >
                   <ChevronLeft size={16} /> Back
                 </button>
@@ -400,7 +400,7 @@ export default function OnboardingPage() {
                   <button
                     onClick={() => handleSubmit(true)}
                     disabled={saving}
-                    className="text-sm text-[#6B7280] hover:text-[#374151] transition-colors px-3 py-3"
+                    className="text-sm text-[#6B7280] dark:text-slate-400 hover:text-[#374151] dark:hover:text-slate-200 transition-colors px-3 py-3"
                   >
                     {t('skipBtn')}
                   </button>

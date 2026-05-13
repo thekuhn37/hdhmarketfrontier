@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/layout/ScrollToTop'
 import ScrollToBottom from '@/components/layout/ScrollToBottom'
+import ThemeProvider from '@/components/layout/ThemeProvider'
 import CookieBanner from '@/components/ui/CookieBanner'
 import { Toaster } from 'react-hot-toast'
 import '../globals.css'
@@ -67,29 +68,33 @@ export default async function LocaleLayout({ children, params }: Props) {
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet"
         />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
       </head>
-      <body className="min-h-screen flex flex-col">
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <Header />
-          <main className="flex-1 pt-16">
-            {children}
-          </main>
-          <Footer />
-          <ScrollToTop />
-          <ScrollToBottom />
-          <CookieBanner />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                borderRadius: '12px',
-                background: '#0F172A',
-                color: '#fff',
-                fontSize: '14px',
-              },
-            }}
-          />
-        </NextIntlClientProvider>
+      <body className="min-h-screen flex flex-col bg-white text-[#111827] dark:bg-[#0B1120] dark:text-slate-200 transition-colors duration-200">
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            <Header />
+            <main className="flex-1 pt-16">
+              {children}
+            </main>
+            <Footer />
+            <ScrollToTop />
+            <ScrollToBottom />
+            <CookieBanner />
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  borderRadius: '12px',
+                  background: '#0F172A',
+                  color: '#fff',
+                  fontSize: '14px',
+                },
+              }}
+            />
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

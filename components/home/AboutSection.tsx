@@ -17,7 +17,7 @@ export default function AboutSection() {
   const t = useTranslations('home')
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-[#0B1120]">
       <div className="content-width">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Visual */}
@@ -91,23 +91,23 @@ export default function AboutSection() {
               <span className="w-6 h-0.5 bg-[#38BDF8]" />
               About
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-6 tracking-tight">
               {t('aboutHarry')}
             </h2>
-            <p className="text-[#4B5563] text-lg leading-relaxed mb-4">
+            <p className="text-[#4B5563] dark:text-slate-300 text-lg leading-relaxed mb-4">
               {t('aboutDesc')}
             </p>
-            <p className="text-[#4B5563] leading-relaxed mb-8">
+            <p className="text-[#4B5563] dark:text-slate-400 leading-relaxed mb-8">
               {t('aboutTagline')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {EXPERTISE.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E5E7EB]">
-                  <div className="w-8 h-8 rounded-lg bg-[#0F172A] flex items-center justify-center flex-shrink-0">
+                <div key={label} className="flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-[#0F172A] dark:bg-[#0F172A] flex items-center justify-center flex-shrink-0">
                     <Icon size={15} className="text-[#38BDF8]" />
                   </div>
-                  <span className="text-sm font-medium text-[#0F172A]">{label}</span>
+                  <span className="text-sm font-medium text-[#0F172A] dark:text-slate-100">{label}</span>
                 </div>
               ))}
             </div>
@@ -115,13 +115,13 @@ export default function AboutSection() {
             <div className="flex gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] text-white font-semibold text-sm hover:bg-[#1E3A5F] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] font-semibold text-sm hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-colors"
               >
                 {t('aboutLink')} <ArrowRight size={16} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#E5E7EB] text-[#0F172A] font-semibold text-sm hover:border-[#38BDF8] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/10 text-[#0F172A] dark:text-slate-200 font-semibold text-sm hover:border-[#38BDF8] dark:hover:border-[#38BDF8] transition-colors"
               >
                 {t('contactLink')}
               </Link>

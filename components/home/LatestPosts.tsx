@@ -34,18 +34,18 @@ export default async function LatestPosts({ locale }: Props) {
   const posts = await getLatestPosts(locale)
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-[#0B1120]">
       <div className="content-width">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-3 tracking-tight">
               {t('latestPosts')}
             </h2>
-            <p className="text-[#4B5563] text-lg">{t('latestPostsDesc')}</p>
+            <p className="text-[#4B5563] dark:text-slate-400 text-lg">{t('latestPostsDesc')}</p>
           </div>
           <Link
             href="/markets"
-            className="hidden md:flex items-center gap-2 text-sm font-semibold text-[#0F172A] hover:text-[#1E3A5F] transition-colors"
+            className="hidden md:flex items-center gap-2 text-sm font-semibold text-[#0F172A] dark:text-slate-200 hover:text-[#1E3A5F] dark:hover:text-[#7DD3FC] transition-colors"
           >
             {t('viewAll')} <ArrowRight size={16} />
           </Link>
@@ -58,7 +58,7 @@ export default async function LatestPosts({ locale }: Props) {
             ))}
           </div>
         ) : (
-          <p className="text-[#6B7280] text-center py-12">No posts yet. Check back soon.</p>
+          <p className="text-[#6B7280] dark:text-slate-400 text-center py-12">No posts yet. Check back soon.</p>
         )}
       </div>
     </section>

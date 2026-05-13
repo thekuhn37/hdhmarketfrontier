@@ -34,7 +34,7 @@ export default async function AboutPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'about' })
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-[#0B1120]">
       {/* Hero */}
       <section className="gradient-navy py-24">
         <div className="content-width text-center">
@@ -57,26 +57,26 @@ export default async function AboutPage({ params }: Props) {
       <section className="py-20">
         <div className="content-width">
           <div className="max-w-3xl mx-auto">
-            <p className="text-[#4B5563] text-lg leading-relaxed mb-8">{t('summary')}</p>
+            <p className="text-[#4B5563] dark:text-slate-300 text-lg leading-relaxed mb-8">{t('summary')}</p>
             <blockquote className="border-l-4 border-[#38BDF8] pl-6 py-2">
-              <p className="text-xl font-medium text-[#0F172A] italic leading-relaxed">{t('missionText')}</p>
+              <p className="text-xl font-medium text-[#0F172A] dark:text-slate-100 italic leading-relaxed">{t('missionText')}</p>
             </blockquote>
           </div>
         </div>
       </section>
 
       {/* Expertise */}
-      <section className="py-20 bg-[#F8FAFC]">
+      <section className="py-20 bg-[#F8FAFC] dark:bg-[#0F172A]">
         <div className="content-width">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-12 text-center tracking-tight">{t('expertise')}</h2>
+          <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white mb-12 text-center tracking-tight">{t('expertise')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {EXPERTISE.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="p-6 rounded-2xl bg-white border border-[#E5E7EB] hover:border-[#38BDF8]/40 hover:shadow-md transition-all">
+              <div key={title} className="p-6 rounded-2xl bg-white dark:bg-[#1E2A3B] border border-[#E5E7EB] dark:border-white/10 hover:border-[#38BDF8]/40 dark:hover:border-[#38BDF8]/50 hover:shadow-md transition-all">
                 <div className="w-10 h-10 rounded-xl gradient-navy flex items-center justify-center mb-4">
                   <Icon size={18} className="text-[#38BDF8]" />
                 </div>
-                <h3 className="font-semibold text-[#0F172A] mb-2">{title}</h3>
-                <p className="text-sm text-[#4B5563] leading-relaxed">{desc}</p>
+                <h3 className="font-semibold text-[#0F172A] dark:text-slate-100 mb-2">{title}</h3>
+                <p className="text-sm text-[#4B5563] dark:text-slate-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -84,16 +84,16 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       {/* What This Site Covers */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-[#0B1120]">
         <div className="content-width max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-12 text-center tracking-tight">{t('whatThisSiteCover')}</h2>
+          <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white mb-12 text-center tracking-tight">{t('whatThisSiteCover')}</h2>
           <div className="space-y-4">
             {WHAT_THIS_COVERS.map(({ cat, desc }) => (
-              <div key={cat} className="flex gap-6 p-6 rounded-2xl border border-[#E5E7EB] hover:border-[#38BDF8]/40 transition-colors">
+              <div key={cat} className="flex gap-6 p-6 rounded-2xl border border-[#E5E7EB] dark:border-white/10 hover:border-[#38BDF8]/40 dark:hover:border-[#38BDF8]/50 transition-colors">
                 <div className="flex-shrink-0">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#0F172A] text-white text-xs font-bold">{cat}</span>
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] text-xs font-bold">{cat}</span>
                 </div>
-                <p className="text-[#4B5563] leading-relaxed">{desc}</p>
+                <p className="text-[#4B5563] dark:text-slate-300 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -101,10 +101,10 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#F8FAFC]">
+      <section className="py-20 bg-[#F8FAFC] dark:bg-[#0F172A]">
         <div className="content-width text-center">
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Let's Connect</h2>
-          <p className="text-[#4B5563] mb-8 max-w-xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-4">Let's Connect</h2>
+          <p className="text-[#4B5563] dark:text-slate-400 mb-8 max-w-xl mx-auto">
             For research collaborations, speaking opportunities, or strategic discussions, I welcome professional conversations.
           </p>
           <Link

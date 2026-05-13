@@ -74,7 +74,7 @@ export default async function CategoryPageLayout({
   const basePath = `/${locale}/${categorySlug}`
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-[#0B1120]">
       {/* Hero */}
       <section className="gradient-navy py-20">
         <div className="content-width">
@@ -89,7 +89,7 @@ export default async function CategoryPageLayout({
           {posts.length > 0 ? (
             <>
               <div className="flex items-center justify-between mb-8">
-                <p className="text-[#6B7280] text-sm">{total} articles</p>
+                <p className="text-[#6B7280] dark:text-slate-400 text-sm">{total} articles</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map((post) => (
@@ -100,8 +100,8 @@ export default async function CategoryPageLayout({
             </>
           ) : (
             <div className="text-center py-24">
-              <p className="text-[#6B7280] text-lg mb-2">No articles yet in this category.</p>
-              <p className="text-[#94A3B8] text-sm">Check back soon for new insights.</p>
+              <p className="text-[#6B7280] dark:text-slate-400 text-lg mb-2">No articles yet in this category.</p>
+              <p className="text-[#94A3B8] dark:text-slate-500 text-sm">Check back soon for new insights.</p>
             </div>
           )}
         </div>

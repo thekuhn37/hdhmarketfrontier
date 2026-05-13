@@ -49,23 +49,15 @@ export default function CookieBanner() {
           transition={{ type: 'spring', stiffness: 200, damping: 28 }}
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
         >
-          <div
-            className="rounded-2xl p-6"
-            style={{
-              background: 'rgba(255,255,255,0.95)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(229,231,235,0.8)',
-              boxShadow: '0 20px 60px rgba(15,23,42,0.15)',
-            }}
-          >
+          <div className="rounded-2xl p-6 bg-white/95 dark:bg-[#1E2A3B]/95 backdrop-blur-xl border border-[#E5E7EB]/80 dark:border-white/10 shadow-[0_20px_60px_rgba(15,23,42,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
             <div className="flex items-start gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E5E7EB] flex items-center justify-center flex-shrink-0">
-                <Cookie size={16} className="text-[#0F172A]" />
+              <div className="w-8 h-8 rounded-lg bg-[#F8FAFC] dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 flex items-center justify-center flex-shrink-0">
+                <Cookie size={16} className="text-[#0F172A] dark:text-[#38BDF8]" />
               </div>
               <div className="flex-1">
-                <p className="text-sm text-[#111827] leading-relaxed">
+                <p className="text-sm text-[#111827] dark:text-slate-200 leading-relaxed">
                   {t('banner')}{' '}
-                  <Link href="/cookie-policy" className="text-[#0EA5E9] hover:underline">
+                  <Link href="/cookie-policy" className="text-[#0EA5E9] dark:text-[#7DD3FC] hover:underline">
                     {t('learnMore')}
                   </Link>
                 </p>
@@ -79,37 +71,37 @@ export default function CookieBanner() {
                 className="mb-4 space-y-3"
               >
                 {/* Essential */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC]">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC] dark:bg-white/5">
                   <div>
-                    <p className="text-sm font-medium text-[#0F172A]">{t('essential')}</p>
-                    <p className="text-xs text-[#6B7280]">{t('essentialDesc')}</p>
+                    <p className="text-sm font-medium text-[#0F172A] dark:text-slate-100">{t('essential')}</p>
+                    <p className="text-xs text-[#6B7280] dark:text-slate-400">{t('essentialDesc')}</p>
                   </div>
-                  <div className="w-8 h-5 rounded-full bg-[#0F172A] flex items-center justify-end px-0.5 flex-shrink-0">
+                  <div className="w-8 h-5 rounded-full bg-[#0F172A] dark:bg-[#38BDF8] flex items-center justify-end px-0.5 flex-shrink-0">
                     <div className="w-4 h-4 rounded-full bg-white" />
                   </div>
                 </div>
                 {/* Analytics */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC]">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC] dark:bg-white/5">
                   <div>
-                    <p className="text-sm font-medium text-[#0F172A]">{t('analytics')}</p>
-                    <p className="text-xs text-[#6B7280]">{t('analyticsDesc')}</p>
+                    <p className="text-sm font-medium text-[#0F172A] dark:text-slate-100">{t('analytics')}</p>
+                    <p className="text-xs text-[#6B7280] dark:text-slate-400">{t('analyticsDesc')}</p>
                   </div>
                   <button
                     onClick={() => setPrefs(p => ({ ...p, analytics: !p.analytics }))}
-                    className={`w-8 h-5 rounded-full transition-colors flex items-center flex-shrink-0 px-0.5 ${prefs.analytics ? 'bg-[#38BDF8] justify-end' : 'bg-[#E5E7EB] justify-start'}`}
+                    className={`w-8 h-5 rounded-full transition-colors flex items-center flex-shrink-0 px-0.5 ${prefs.analytics ? 'bg-[#38BDF8] justify-end' : 'bg-[#E5E7EB] dark:bg-white/10 justify-start'}`}
                   >
                     <div className="w-4 h-4 rounded-full bg-white" />
                   </button>
                 </div>
                 {/* Functional */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC]">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC] dark:bg-white/5">
                   <div>
-                    <p className="text-sm font-medium text-[#0F172A]">{t('functional')}</p>
-                    <p className="text-xs text-[#6B7280]">{t('functionalDesc')}</p>
+                    <p className="text-sm font-medium text-[#0F172A] dark:text-slate-100">{t('functional')}</p>
+                    <p className="text-xs text-[#6B7280] dark:text-slate-400">{t('functionalDesc')}</p>
                   </div>
                   <button
                     onClick={() => setPrefs(p => ({ ...p, functional: !p.functional }))}
-                    className={`w-8 h-5 rounded-full transition-colors flex items-center flex-shrink-0 px-0.5 ${prefs.functional ? 'bg-[#38BDF8] justify-end' : 'bg-[#E5E7EB] justify-start'}`}
+                    className={`w-8 h-5 rounded-full transition-colors flex items-center flex-shrink-0 px-0.5 ${prefs.functional ? 'bg-[#38BDF8] justify-end' : 'bg-[#E5E7EB] dark:bg-white/10 justify-start'}`}
                   >
                     <div className="w-4 h-4 rounded-full bg-white" />
                   </button>
@@ -120,21 +112,21 @@ export default function CookieBanner() {
             <div className="flex flex-col gap-2">
               <button
                 onClick={() => saveConsent({ essential: true, analytics: true, functional: true })}
-                className="w-full py-2.5 rounded-xl bg-[#0F172A] text-white text-sm font-semibold hover:bg-[#1E3A5F] transition-colors"
+                className="w-full py-2.5 rounded-xl bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] text-sm font-semibold hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-colors"
               >
                 {t('acceptAll')}
               </button>
               <div className="flex gap-2">
                 <button
                   onClick={() => saveConsent({ essential: true, analytics: false, functional: false })}
-                  className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] text-[#4B5563] text-sm font-medium hover:bg-[#F8FAFC] transition-colors"
+                  className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#4B5563] dark:text-slate-300 text-sm font-medium hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
                 >
                   {t('rejectNonEssential')}
                 </button>
                 {showDetails ? (
                   <button
                     onClick={() => saveConsent(prefs)}
-                    className="flex-1 py-2.5 rounded-xl border border-[#38BDF8] text-[#0EA5E9] text-sm font-medium hover:bg-[#F0F9FF] transition-colors flex items-center justify-center gap-1"
+                    className="flex-1 py-2.5 rounded-xl border border-[#38BDF8] text-[#0EA5E9] dark:text-[#7DD3FC] text-sm font-medium hover:bg-[#F0F9FF] dark:hover:bg-[#38BDF8]/10 transition-colors flex items-center justify-center gap-1"
                   >
                     <Check size={14} />
                     {t('save')}
@@ -142,7 +134,7 @@ export default function CookieBanner() {
                 ) : (
                   <button
                     onClick={() => setShowDetails(true)}
-                    className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] text-[#4B5563] text-sm font-medium hover:bg-[#F8FAFC] transition-colors flex items-center justify-center gap-1"
+                    className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#4B5563] dark:text-slate-300 text-sm font-medium hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors flex items-center justify-center gap-1"
                   >
                     <Settings size={14} />
                     {t('managePreferences')}

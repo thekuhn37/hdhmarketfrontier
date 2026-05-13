@@ -76,7 +76,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] py-16 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#0B1120] py-16 px-4">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -88,65 +88,65 @@ export default function SignupPage() {
             <div className="w-9 h-9 rounded-xl gradient-navy flex items-center justify-center">
               <span className="text-white font-bold">H</span>
             </div>
-            <span className="font-bold text-[#0F172A] text-lg">HDH Market Frontier</span>
+            <span className="font-bold text-[#0F172A] dark:text-white text-lg">HDH Market Frontier</span>
           </Link>
-          <h1 className="text-2xl font-bold text-[#0F172A] mb-1">{t('signup')}</h1>
-          <p className="text-[#6B7280] text-sm">
+          <h1 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-1">{t('signup')}</h1>
+          <p className="text-[#6B7280] dark:text-slate-400 text-sm">
             {t('hasAccount')}{' '}
-            <Link href="/login" className="text-[#0EA5E9] hover:underline font-medium">
+            <Link href="/login" className="text-[#0EA5E9] dark:text-[#7DD3FC] hover:underline font-medium">
               {t('login')}
             </Link>
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-[#E5E7EB] p-8 shadow-sm">
+        <div className="bg-white dark:bg-[#1E2A3B] rounded-3xl border border-[#E5E7EB] dark:border-white/10 p-8 shadow-sm">
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] font-medium text-sm hover:bg-[#F8FAFC] transition-colors mb-6"
+            className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-slate-200 font-medium text-sm hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors mb-6"
           >
             <span className="text-base font-bold">G</span>
             {t('loginWithGoogle')}
           </button>
 
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex-1 h-px bg-[#E5E7EB]" />
-            <span className="text-xs text-[#6B7280]">{t('orContinueWith')}</span>
-            <div className="flex-1 h-px bg-[#E5E7EB]" />
+            <div className="flex-1 h-px bg-[#E5E7EB] dark:bg-white/10" />
+            <span className="text-xs text-[#6B7280] dark:text-slate-500">{t('orContinueWith')}</span>
+            <div className="flex-1 h-px bg-[#E5E7EB] dark:bg-white/10" />
           </div>
 
           <form onSubmit={handleSignup} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('displayName')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('displayName')}</label>
               <div className="relative">
-                <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280]" />
+                <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280] dark:text-slate-500" />
                 <input
                   type="text"
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
                   required
                   placeholder="Your name"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('email')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('email')}</label>
               <div className="relative">
-                <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280]" />
+                <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280] dark:text-slate-500" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="you@example.com"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#111827] mb-1.5">{t('password')}</label>
+              <label className="block text-sm font-medium text-[#111827] dark:text-slate-200 mb-1.5">{t('password')}</label>
               <div className="relative">
-                <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280]" />
+                <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6B7280] dark:text-slate-500" />
                 <input
                   type="password"
                   value={password}
@@ -154,7 +154,7 @@ export default function SignupPage() {
                   required
                   minLength={8}
                   placeholder="Min. 8 characters"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#E5E7EB] dark:border-white/15 bg-white dark:bg-[#0F172A] text-[#111827] dark:text-slate-200 placeholder:text-[#94A3B8] dark:placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
                 />
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function SignupPage() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-[#6B7280] mt-4">
+        <p className="text-center text-xs text-[#6B7280] dark:text-slate-400 mt-4">
           {t('termsAgree')}{' '}
           <Link href="/terms-of-use" className="hover:underline">Terms</Link>
           {' & '}
