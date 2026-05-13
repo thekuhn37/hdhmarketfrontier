@@ -78,12 +78,6 @@ export default async function CategoryPageLayout({
       {/* Hero */}
       <section className="gradient-navy py-20">
         <div className="content-width">
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-white text-xs font-semibold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: accentColor }}
-          >
-            {category}
-          </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{title}</h1>
           <p className="text-white/70 text-lg max-w-2xl">{description}</p>
         </div>
