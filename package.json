@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "briefing": "tsx --env-file=.env.local briefing/jobs/dailyBriefing.ts"
+    "briefing": "tsx --env-file-if-exists=.env.local briefing/jobs/dailyBriefing.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
