@@ -146,17 +146,19 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 | Language | TypeScript | 5.x | Strict mode |
 | Styling | Tailwind CSS | v4 | CSS-based config (`@theme` in globals.css), no `tailwind.config.js` |
 | Animation | Framer Motion | 12.x | Avoid `ease` property |
-| Database | PostgreSQL (via Supabase) | — | 11 tables, all RLS-enabled |
+| Database | PostgreSQL (via Supabase) | — | 11 tables, all RLS-enabled + explicit GRANTs (migration 010) |
 | Auth | Supabase Auth | @supabase/ssr 0.10.x | Email + Google OAuth |
 | Storage | Supabase Storage | — | `thumbnails` bucket (public, admin-only write) |
 | i18n | next-intl | v4.x | EN / KO / ZH, `localePrefix: 'always'` |
-| AI | OpenAI | 6.x | GPT-4o-mini: summaries, field generation, translation |
-| Email | Resend | 6.x | Contact form delivery — domain `hdhmarketfrontier.com` verified |
+| AI | OpenAI | 6.x | GPT-4o-mini: summaries, field generation, translation, weekly briefing |
+| Email | Resend | 6.x | Contact form + weekly briefing notification — domain `hdhmarketfrontier.com` verified |
+| Theme | next-themes | 0.4.x | Dark/light/system mode, `attribute="class"`, SSR-safe |
 | Rich Text Editor | **TipTap** | v3.x | Full WYSIWYG editor for post creation/editing |
 | Syntax Highlighting | lowlight | v3.x | Used with TipTap CodeBlockLowlight extension |
 | Icons | lucide-react | 1.x | **Note**: `Linkedin` and `Chrome` icons do NOT exist in v1 — use `<span>` alternatives |
 | Forms | react-hook-form + zod | 7.x / 4.x | Used in contact form |
 | Toast | react-hot-toast | 2.x | `<Toaster>` must be in layout |
+| Briefing runtime | tsx + rss-parser | 4.x / 3.x | Weekly briefing pipeline — ESM mode via `briefing/package.json` with `"type":"module"` |
 | Deployment | Google Cloud Run | — | Docker, `output: standalone` |
 | DNS/CDN | Cloudflare | — | Domain registrar + CDN + WAF |
 
@@ -728,7 +730,90 @@ Post content (HTML from TipTap) is rendered via `dangerouslySetInnerHTML` inside
 
 ---
 
-## 9. Admin Dashboard
+## 9. Weekly Market Briefing Pipeline
+
+### Overview
+
+A 9-agent automated pipeline that runs every **Monday at 22:00 UTC** via GitHub Actions. It generates a weekly institutional-grade market briefing, saves it as a Supabase draft post, and emails the admin a review link.
+
+### Architecture
+
+```
+GitHub Actions (Mon 22:00 UTC)
+  → Agent 1: market-data   — Yahoo Finance v8 chart API (27 symbols) + CoinGecko (BTC/ETH)
+  → Agent 2: news          — rss-parser across 4 RSS feeds (MarketWatch, Yahoo, CNBC, Reuters)
+  → Agent 3: calendar      — Finnhub economic calendar (optional, graceful skip if no key)
+  → Agent 4: analysis      — GPT-4o-mini writes 11-section HTML article
+  → Agent 5: visualization — 3 QuickChart.io dark-themed bar charts (equity/FX/commodity)
+  → Agent 6: seo           — GPT-generated SEO metadata
+  → Agent 7: quality       — GPT QC review (score < 60 warns but does not stop pipeline)
+  → Agent 8: upload        — Supabase draft post insert via service_role
+  → Agent 9: notify        — Resend HTML email with edit link
+```
+
+### Article Structure (11 Sections)
+
+1. Executive Summary
+2. **Weekly Insights** — editorial centerpiece, 2–3 paragraphs on week's key themes
+3. Global Equity Markets (table + analysis)
+4. Futures & Volatility
+5. FX Markets
+6. Commodities
+7. Cryptocurrency
+8. Regional Highlights (Asia-Pacific / Europe subsections)
+9. Key Market News
+10. Economic Calendar Ahead
+11. **Weekly Outlook** — forward-looking, what to watch next week
+
+### File Structure
+
+```
+briefing/
+  agents/
+    market-data/   calendar/   news/   analysis/
+    visualization/ seo/        quality/ upload/   notify/
+  jobs/dailyBriefing.ts   — orchestrator (runWeeklyBriefing)
+  lib/openaiClient.ts     — OpenAI singleton
+  lib/supabaseAdmin.ts    — service_role Supabase client
+  lib/resendClient.ts     — Resend client
+  prompts/                — GPT system + user prompts
+  types/index.ts          — shared TypeScript interfaces
+  utils/format.ts logger.ts retry.ts
+  package.json            — {"type":"module"} — required for ESM on Node 26+
+.github/workflows/daily-briefing.yml  — cron + GitHub Actions config
+```
+
+### Key Technical Notes
+
+- **Yahoo Finance**: Uses direct `fetch` to `https://query1.finance.yahoo.com/v8/finance/chart/{symbol}` with a browser User-Agent header. Does NOT use `yahoo-finance2` library (its crumb-based auth was blocked by Yahoo). CoinGecko used for BTC/ETH (no auth required).
+- **ESM module resolution**: `briefing/package.json` with `"type":"module"` enables ESM for the entire directory so Node resolves ESM-only packages (like the old yahoo-finance2). Required because Node 26+ has stricter cycle detection with `--import tsx/esm`.
+- **Env loading**: Local runs use `--env-file-if-exists=.env.local` (silently skips if missing). GitHub Actions injects env vars via the workflow `env:` block — no `.env.local` file on runners.
+- **Cost**: ~$0.003/run (3 GPT-4o-mini calls, ~10,000 tokens total). ~$0.06/month.
+- **Graceful degradation**: Optional agents (news, calendar, charts, quality, notify) skip on error without stopping the pipeline. Required agents (market-data, analysis, upload) fail the pipeline if they error.
+- **Draft-only output**: Articles are always saved as `status: 'draft'`. Admin reviews and publishes manually. Nothing goes live automatically.
+
+### GitHub Actions Secrets Required
+
+| Secret | Purpose |
+|---|---|
+| `OPENAI_API_KEY` | GPT-4o-mini calls |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Draft post insert (bypasses RLS) |
+| `RESEND_API_KEY` | Admin notification email |
+| `NEXT_PUBLIC_SITE_URL` | Edit URL in email (e.g. `https://hdhmarketfrontier.com`) |
+| `FINNHUB_API_KEY` | Optional — economic calendar |
+
+### Running Locally
+
+```bash
+npm run briefing   # loads .env.local automatically via --env-file-if-exists
+```
+
+Yahoo Finance returns 429 errors on residential IPs (rate limit). GitHub Actions (AWS IPs) is not rate-limited. Local test runs produce zero-data articles — this is expected.
+
+---
+
+## 10. Admin Dashboard
 
 ### Access Control
 
@@ -743,6 +828,7 @@ Post content (HTML from TipTap) is rendered via `dangerouslySetInnerHTML` inside
 | Section | Route | Status | Description |
 |---|---|---|---|
 | Dashboard | `/admin` | ✅ Implemented | Stats overview, recent messages, top posts |
+
 | Posts List | `/admin/posts` | ✅ Implemented | Table view of all posts |
 | Create Post | `/admin/posts/new` | ✅ Implemented | Full TipTap editor with AI + image upload |
 | Edit Post | `/admin/posts/[id]` | ✅ Implemented | Pre-populated TipTap editor, delete + preview |
@@ -809,14 +895,27 @@ Post content (HTML from TipTap) is rendered via `dangerouslySetInnerHTML` inside
 
 All `/admin/*` routes are protected by `app/[locale]/admin/layout.tsx` (server-side, no try-catch). This is the primary gate. Each page also has its own `requireAdmin()` for defense in depth, but these have a known bug: they call `redirect()` inside `try-catch`, which swallows the redirect in development. This is harmless since the layout gate already blocks non-admins before the page runs.
 
-### Row Level Security
+### Row Level Security + Explicit GRANTs (migration 010)
 
-All 11 database tables have RLS enabled. Key policies:
-- `profiles`: public read (author display), self update, admin full access
-- `posts`: public read (published only), admin full access
-- `comments`: public read (approved only), self create, admin full access
-- `contact_messages`: public insert only, admin read/update
-- `post_translations`: public read, service-role-only write
+All 11 database tables have RLS enabled. Migration 010 adds explicit `GRANT` statements required by Supabase's Data API policy change (May 30 / Oct 30 2026).
+
+| Table | anon | authenticated |
+|---|---|---|
+| `profiles` | SELECT (id, display_name, avatar_url, role only — email hidden) | SELECT + UPDATE |
+| `posts` | SELECT (published only via RLS) | SELECT + full DML (admin RLS) |
+| `tags` / `post_tags` | SELECT | SELECT + full DML (admin RLS) |
+| `comments` | SELECT (approved + `is_private = false`) | SELECT + full DML |
+| `contact_messages` | INSERT | INSERT + SELECT + UPDATE + DELETE (admin RLS) |
+| `page_views` / `post_views` | INSERT | INSERT |
+| `ai_drafts` | none | SELECT + full DML (admin RLS) |
+| `cookie_consents` | SELECT + INSERT | SELECT + INSERT + UPDATE |
+| `post_translations` | SELECT | SELECT (writes via service_role only) |
+
+`service_role` bypasses RLS entirely — it is never listed in GRANT statements.
+
+**Developer reference**: `docs/supabase-security-checklist.md` explains when to use each role, how to write GRANT + RLS policy statements, common mistakes, and verification queries.
+
+**Future table rule**: every new `CREATE TABLE public.*` must be followed immediately by explicit GRANTs, `ALTER TABLE ... ENABLE ROW LEVEL SECURITY`, and `CREATE POLICY` statements. See the template at the bottom of migration 010.
 
 ### Contact Form
 
@@ -982,7 +1081,8 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Tailwind CSS v4 with `@theme` design tokens
 - ✅ next-intl v4 — EN/KO/ZH routing and message files
 - ✅ Supabase client (browser + server + admin) configured
-- ✅ Database schema — all 11 tables with RLS (migrations 001–007)
+- ✅ Database schema — all 11 tables with RLS (migrations 001–009) + explicit GRANTs (migration 010)
+- ✅ Supabase GRANT compliance — migration 010 adds explicit grants for all tables; column-level grant hides email from anon on profiles; security checklist at `docs/supabase-security-checklist.md`
 - ✅ Supabase Storage — `thumbnails` bucket (public, admin-only write) via migration 007
 - ✅ Supabase Auth — email + Google OAuth (Google provider enabled in dashboard)
 - ✅ Auth callback (`/api/auth/callback`) — handles both `token_hash` (email flows) and `code` (OAuth PKCE)
@@ -990,6 +1090,7 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Password change requires current password verification
 - ✅ Header with reactive auth state (onAuthStateChange, no prop drilling)
 - ✅ Header logo — scrolls to top on home page, navigates home from other pages
+- ✅ Dark mode — complete institutional system (Bloomberg/Linear/Vercel aesthetic); next-themes with class strategy; Sun/Moon toggle in header with Framer Motion animation; CSS semantic token system (`--bg-primary`, `--fg-primary`, etc.); deep blue-black `#0B1120` primary background; all 42 files updated; system preference detection; persists via localStorage
 - ✅ ScrollToTop floating button — appears after 400px scroll, `bottom-[20vh] right-8`, pale grey border, smooth fade+slide animation
 - ✅ ScrollToBottom floating button — appears after 400px scroll (same threshold), hides near page bottom, `bottom-[12vh] right-8`, same style as ScrollToTop
 - ✅ Footer — redesigned: 2-col grid, legal links in bottom bar, Contact navigates to /contact
@@ -1026,6 +1127,7 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ `.env.example`, `.gitignore`
 - ✅ GitHub repository (code pushed, large image files gitignored)
 - ✅ Cloudflare domain registered (`hdhmarketfrontier.com`)
+- ✅ Weekly Market Briefing pipeline — 9-agent system, Monday 22:00 UTC via GitHub Actions; GPT-4o-mini; Yahoo Finance v8 chart API + CoinGecko; QuickChart.io charts; Resend notification; Supabase draft upload
 
 ### Partially Implemented / Known Issues
 
@@ -1035,7 +1137,7 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ⚠️ LinkedIn OAuth not available in Supabase yet
 - ⚠️ Migration 007 idempotency issue — original SQL had no `IF NOT EXISTS` guards; updated SQL now includes DO $$ blocks. Bucket and read policy already exist in Supabase
 - ⚠️ Social share buttons on post detail page use `window.location.href` which is empty during SSR — LinkedIn share URL will be empty on initial server render
-- ⚠️ Migrations 008 and 009 must be run in Supabase SQL Editor if not yet applied (`ADD COLUMN IF NOT EXISTS` — safe to re-run)
+- ⚠️ Migrations 008, 009, and 010 must be run in Supabase SQL Editor if not yet applied (all safe to re-run)
 
 ### Not Yet Started
 
@@ -1045,9 +1147,7 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ❌ Email newsletter subscriber list and campaign sending
 - ❌ Full-text search via Supabase `to_tsvector` (current search is basic keyword matching)
 - ❌ Dynamic Open Graph images for social sharing
-- ❌ Dark mode
 - ❌ Advanced analytics dashboard with charts
-- ❌ AI market brief automation (scheduled job)
 - ❌ Recommendation engine (related posts beyond same-category)
 - ❌ Bookmarking / saved posts
 - ❌ Multi-author support
@@ -1100,7 +1200,7 @@ The items are ranked by impact on perceived professionalism and reader experienc
 | # | Task | Why it matters |
 |---|---|---|
 | 13 | **Pre-generate AI translations** | Currently translations are generated on-demand for the first visitor. An admin button to pre-generate all locale translations before publishing eliminates that first-visitor latency. |
-| 14 | **Dark mode** | Growing reader expectation, especially for technical / finance audiences reading late at night. CSS variable toggle that respects system preference. |
+| 14 | ~~**Dark mode**~~ ✅ Done | Complete institutional system — next-themes, Sun/Moon toggle, 42 files updated, Bloomberg-style palette. |
 | 15 | **Admin users page** | To view reader profiles, professional backgrounds, and interests. Helps shape content strategy. |
 | 16 | **Bookmarking / saved posts** | Allows returning readers to build a personal reading list, increasing session depth and return visits. |
 
@@ -1110,7 +1210,7 @@ The items are ranked by impact on perceived professionalism and reader experienc
 
 | # | Task | Notes |
 |---|---|---|
-| 17 | **AI market brief pipeline** | Scheduled job: fetch market data → GPT-4o → `ai_drafts` → admin review → publish |
+| 17 | ~~**AI market brief pipeline**~~ ✅ Done | 9-agent weekly briefing system — GitHub Actions cron, Yahoo Finance + CoinGecko, GPT-4o-mini, QuickChart, Resend. Runs Mondays 22:00 UTC. |
 | 18 | **Audience segmentation analytics** | Use `industry_types`, `country`, `interests` from profiles to understand who is reading what |
 | 19 | **Recommendation engine** | Beyond same-category related posts — tag-similarity and reading history based |
 | 20 | **Multi-author support** | Guest contributor accounts with limited admin access |
@@ -1129,6 +1229,6 @@ This sequence transforms the site from a local prototype into a functioning prof
 
 ---
 
-*Last updated: 2026-05-13 (session 3)*
+*Last updated: 2026-05-14 (session 4)*
 *Document maintained by: Claude Code (with Harry D. Hwang)*
 *Update this file whenever major architectural changes are made.*
