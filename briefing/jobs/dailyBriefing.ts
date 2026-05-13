@@ -69,17 +69,6 @@ export async function runWeeklyBriefing(): Promise<BriefingResult> {
     logger.warn(`Chart generation failed, continuing without: ${err}`);
   }
 
-  // Embed charts into article content
-  if (charts.equityChartUrl) {
-    const chartSection = `
-<div>
-  <img src="${charts.equityChartUrl}" alt="Global Equity Markets Daily % Change" style="max-width:100%;height:auto;" />
-  <img src="${charts.fxChartUrl}" alt="FX Rates Daily % Change" style="max-width:100%;height:auto;" />
-  <img src="${charts.commodityChartUrl}" alt="Commodities and Crypto Daily % Change" style="max-width:100%;height:auto;" />
-</div>`;
-    article = { ...article, content: article.content + chartSection };
-  }
-
   // Agent 6: SEO (required)
   let seo;
   try {

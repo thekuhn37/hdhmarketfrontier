@@ -791,6 +791,9 @@ briefing/
 - **Cost**: ~$0.003/run (3 GPT-4o-mini calls, ~10,000 tokens total). ~$0.06/month.
 - **Graceful degradation**: Optional agents (news, calendar, charts, quality, notify) skip on error without stopping the pipeline. Required agents (market-data, analysis, upload) fail the pipeline if they error.
 - **Draft-only output**: Articles are always saved as `status: 'draft'`. Admin reviews and publishes manually. Nothing goes live automatically.
+- **QuickChart POST endpoint**: `visualization/index.ts` POSTs to `https://quickchart.io/chart/create` and receives a stable short URL (`https://quickchart.io/chart/render/zf-<uuid>`). GET-based URLs were ~1596 chars and unreliable in the editor. Bar charts use `barPercentage: 0.5` and `categoryPercentage: 0.6` for narrower, well-spaced bars.
+- **Chart embedding**: Charts are embedded once, by `embedCharts()` inside `uploadDraft` (after the first `</h2>`), using `<p><img .../></p>` wrappers for TipTap compatibility. The `dailyBriefing.ts` orchestrator does NOT append charts — doing so caused a double-embedding bug (6 img tags instead of 3).
+- **Post title timezone**: Titles include `(UTC)` suffix — e.g. `Global Markets at a Glance — May 13, 2026 (UTC)` — because `todayLong()` always returns the UTC date. This makes the date transparent to readers in other timezones (e.g. KST = UTC+9).
 
 ### GitHub Actions Secrets Required
 
@@ -1127,7 +1130,8 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ `.env.example`, `.gitignore`
 - ✅ GitHub repository (code pushed, large image files gitignored)
 - ✅ Cloudflare domain registered (`hdhmarketfrontier.com`)
-- ✅ Weekly Market Briefing pipeline — 9-agent system, Monday 22:00 UTC via GitHub Actions; GPT-4o-mini; Yahoo Finance v8 chart API + CoinGecko; QuickChart.io charts; Resend notification; Supabase draft upload
+- ✅ Weekly Market Briefing pipeline — 9-agent system, Monday 22:00 UTC via GitHub Actions; GPT-4o-mini; Yahoo Finance v8 chart API + CoinGecko; QuickChart.io POST charts (stable short URLs, narrower bars); Resend notification; Supabase draft upload; chart double-embedding bug fixed; `(UTC)` in title
+- ✅ `docs/project-overview.md` — plain-language explainer of the platform and multi-agent pipeline for sharing with others
 
 ### Partially Implemented / Known Issues
 
@@ -1229,6 +1233,6 @@ This sequence transforms the site from a local prototype into a functioning prof
 
 ---
 
-*Last updated: 2026-05-14 (session 4)*
+*Last updated: 2026-05-14 (session 5)*
 *Document maintained by: Claude Code (with Harry D. Hwang)*
 *Update this file whenever major architectural changes are made.*

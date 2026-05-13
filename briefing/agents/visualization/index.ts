@@ -1,7 +1,7 @@
 import type { MarketData, ChartData } from '../../types/index.js';
 import { logger } from '../../utils/logger.js';
 
-const QUICKCHART_BASE = 'https://quickchart.io/chart';
+const QUICKCHART_CREATE = 'https://quickchart.io/chart/create';
 
 const DARK_BG = '#0F172A';
 const WHITE = '#FFFFFF';
@@ -11,8 +11,17 @@ function barColor(pct: number): string {
   return pct >= 0 ? '#22C55E' : '#EF4444';
 }
 
-function buildChartUrl(config: object): string {
-  return `${QUICKCHART_BASE}?c=${encodeURIComponent(JSON.stringify(config))}&width=600&height=300`;
+async function buildChartUrl(config: object): Promise<string> {
+  const body = { chart: config, width: 600, height: 300, backgroundColor: DARK_BG };
+  const res = await fetch(QUICKCHART_CREATE, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`QuickChart POST failed: HTTP ${res.status}`);
+  const json = await res.json() as { success: boolean; url: string };
+  if (!json.success || !json.url) throw new Error(`QuickChart returned no URL: ${JSON.stringify(json)}`);
+  return json.url;
 }
 
 function chartBase(labels: string[], data: number[], title: string) {
@@ -27,6 +36,8 @@ function chartBase(labels: string[], data: number[], title: string) {
           backgroundColor: data.map(barColor),
           borderColor: data.map(barColor),
           borderWidth: 1,
+          barPercentage: 0.5,
+          categoryPercentage: 0.6,
         },
       ],
     },
@@ -89,9 +100,11 @@ export async function generateCharts(data: MarketData): Promise<ChartData> {
     data.crypto.btc.changePct,
   ];
 
-  const equityChartUrl = buildChartUrl(chartBase(equityLabels, equityData, 'Global Equities — Daily % Change'));
-  const fxChartUrl = buildChartUrl(chartBase(fxLabels, fxData, 'FX Rates — Daily % Change'));
-  const commodityChartUrl = buildChartUrl(chartBase(commodityLabels, commodityData, 'Commodities & Crypto — Daily % Change'));
+  const [equityChartUrl, fxChartUrl, commodityChartUrl] = await Promise.all([
+    buildChartUrl(chartBase(equityLabels, equityData, 'Global Equities — Weekly % Change')),
+    buildChartUrl(chartBase(fxLabels, fxData, 'FX Rates — Weekly % Change')),
+    buildChartUrl(chartBase(commodityLabels, commodityData, 'Commodities & Crypto — Weekly % Change')),
+  ]);
 
   logger.info('Chart URLs generated.');
 

@@ -9,7 +9,7 @@ export async function generateAnalysis(pipeline: BriefingPipeline): Promise<Arti
 
   const prompt = buildMarketAnalystPrompt(pipeline);
   const dateLong = todayLong();
-  const title = `Global Markets at a Glance — ${dateLong}`;
+  const title = `Global Markets at a Glance — ${dateLong} (UTC)`;
 
   const content = await chatComplete(
     [{ role: 'user', content: prompt }],

@@ -22,12 +22,11 @@ async function getAdminUserId(): Promise<string | null> {
 }
 
 function embedCharts(content: string, charts: ChartData): string {
-  const chartsHtml = `
-<div>
-  <img src="${charts.equityChartUrl}" alt="Global Equity Markets Weekly % Change Chart" style="max-width:100%;height:auto;" />
-  <img src="${charts.fxChartUrl}" alt="FX Rates Weekly % Change Chart" style="max-width:100%;height:auto;" />
-  <img src="${charts.commodityChartUrl}" alt="Commodities and Crypto Weekly % Change Chart" style="max-width:100%;height:auto;" />
-</div>`;
+  const chartsHtml = [
+    `<p><img src="${charts.equityChartUrl}" alt="Global Equity Markets Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
+    `<p><img src="${charts.fxChartUrl}" alt="FX Rates Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
+    `<p><img src="${charts.commodityChartUrl}" alt="Commodities and Crypto Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
+  ].join('\n');
 
   const insertAfter = '</h2>';
   const idx = content.indexOf(insertAfter);
