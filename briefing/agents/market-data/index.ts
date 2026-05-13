@@ -1,4 +1,5 @@
-import yahooFinance from 'yahoo-finance2';
+import YahooFinanceClass from 'yahoo-finance2';
+const yahooFinance = new (YahooFinanceClass as unknown as new () => { quote: (symbol: string) => Promise<{ regularMarketPrice?: number; regularMarketChange?: number; regularMarketChangePercent?: number }> })();
 import type { MarketData, MarketQuote } from '../../types/index.js';
 import { withRetry } from '../../utils/retry.js';
 import { logger } from '../../utils/logger.js';
@@ -24,12 +25,7 @@ async function fetchQuotes(symbols: string[], names: Record<string, string>): Pr
   for (const symbol of symbols) {
     try {
       const result = await withRetry(
-        // Cast needed: yahoo-finance2 `this` type constraint is an internal module detail
-        () => (yahooFinance.quote as unknown as (s: string) => Promise<{
-          regularMarketPrice?: number;
-          regularMarketChange?: number;
-          regularMarketChangePercent?: number;
-        }>)(symbol),
+        () => yahooFinance.quote(symbol),
         3,
         1500,
       );
