@@ -7,13 +7,13 @@ jobs:
   briefing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.4.0
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
       - run: npm ci
-      - run: npx tsx briefing/jobs/dailyBriefing.ts
+      - run: npm run briefing
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
