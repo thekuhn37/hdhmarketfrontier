@@ -61,33 +61,35 @@ export function buildMarketAnalystPrompt(data: BriefingPipeline): string {
     ? calendar.map((e) => `${e.date} | ${e.country ?? 'Global'} | ${e.importance} | ${e.event}`).join('\n')
     : 'No calendar events available.';
 
-  const systemPrompt = `You are a senior institutional market analyst writing the daily global market briefing for HDH Market Frontier, a professional financial intelligence platform. Your writing style matches Bloomberg Intelligence: precise, analytical, data-driven, and concise. You never fabricate numbers or data — you only reference what is explicitly provided.`;
+  const systemPrompt = `You are a senior institutional market analyst writing the weekly global market briefing for HDH Market Frontier, a professional financial intelligence platform. Your writing style matches Bloomberg Intelligence: precise, analytical, data-driven, and concise. You never fabricate numbers or data — you only reference what is explicitly provided.`;
 
-  const userPrompt = `Write the full Daily Market Briefing for ${date}. Output ONLY valid HTML — no markdown, no \`\`\`html wrapper, no prose outside HTML tags.
+  const userPrompt = `Write the full Weekly Market Briefing for the week of ${date}. Output ONLY valid HTML — no markdown, no \`\`\`html wrapper, no prose outside HTML tags.
 
-The article must contain EXACTLY these 10 sections as <h2> headings in this order:
+The article must contain EXACTLY these 11 sections as <h2> headings in this order:
 1. Executive Summary
-2. Global Equity Markets
-3. Futures & Volatility
-4. FX Markets
-5. Commodities
-6. Cryptocurrency
-7. Regional Highlights
-8. Key Market News
-9. Economic Calendar
-10. Closing Perspective
+2. Weekly Insights
+3. Global Equity Markets
+4. Futures & Volatility
+5. FX Markets
+6. Commodities
+7. Cryptocurrency
+8. Regional Highlights
+9. Key Market News
+10. Economic Calendar Ahead
+11. Weekly Outlook
 
 Section requirements:
-- Section 1 (Executive Summary): 2–3 paragraphs synthesizing the overall market narrative for the day. Highlight the dominant theme, key movers, and macro backdrop.
-- Section 2 (Global Equity Markets): Include an HTML <table> with columns: Index, Price, Change, % Change, Direction. Use all equity data provided. Add 1–2 paragraphs of analysis after the table.
-- Section 3 (Futures & Volatility): Cover ES, NQ, YM futures and the VIX reading. Use the futures and VIX data provided. 1–2 paragraphs.
-- Section 4 (FX Markets): Cover DXY, EUR/USD, USD/JPY, USD/KRW, GBP/USD, USD/CNH. Use the FX data provided. 1–2 paragraphs analyzing dollar dynamics and key currency moves.
-- Section 5 (Commodities): Cover Gold, Silver, Brent, WTI, Natural Gas. Use commodity data provided. 1–2 paragraphs.
-- Section 6 (Cryptocurrency): Cover BTC and ETH. Use crypto data provided. 1 paragraph.
-- Section 7 (Regional Highlights): Write a <h3>-subsectioned breakdown for Asia-Pacific (Korea, Japan, Hong Kong, Singapore, Australia) and Europe (UK). Use regional equity data. 2–3 paragraphs total.
-- Section 8 (Key Market News): Format as an HTML <ul> with each news item as <li> containing the headline as <strong> followed by the summary. Include source attribution.
-- Section 9 (Economic Calendar): Format as an HTML <table> with columns: Date, Country, Importance, Event. Use the calendar events provided. If no events, state that clearly.
-- Section 10 (Closing Perspective): 1–2 paragraphs offering a forward-looking perspective on what to watch next session. Reference specific data points from the briefing.
+- Section 1 (Executive Summary): 2–3 paragraphs synthesizing the overall market narrative for the week. Highlight the dominant theme, key movers, and macro backdrop.
+- Section 2 (Weekly Insights): 2–3 paragraphs covering the week's most important themes, trend shifts, or structural developments across asset classes. This is the editorial centerpiece — write with depth and conviction. Identify what changed this week versus prior weeks based on the data.
+- Section 3 (Global Equity Markets): Include an HTML <table> with columns: Index, Price, Change, % Change, Direction. Use all equity data provided. Add 1–2 paragraphs of analysis after the table.
+- Section 4 (Futures & Volatility): Cover ES, NQ, YM futures and the VIX reading. Use the futures and VIX data provided. 1–2 paragraphs.
+- Section 5 (FX Markets): Cover DXY, EUR/USD, USD/JPY, USD/KRW, GBP/USD, USD/CNH. Use the FX data provided. 1–2 paragraphs analyzing dollar dynamics and key currency moves.
+- Section 6 (Commodities): Cover Gold, Silver, Brent, WTI, Natural Gas. Use commodity data provided. 1–2 paragraphs.
+- Section 7 (Cryptocurrency): Cover BTC and ETH. Use crypto data provided. 1 paragraph.
+- Section 8 (Regional Highlights): Write a <h3>-subsectioned breakdown for Asia-Pacific (Korea, Japan, Hong Kong, Singapore, Australia) and Europe (UK). Use regional equity data. 2–3 paragraphs total.
+- Section 9 (Key Market News): Format as an HTML <ul> with each news item as <li> containing the headline as <strong> followed by the summary. Include source attribution.
+- Section 10 (Economic Calendar Ahead): Format as an HTML <table> with columns: Date, Country, Importance, Event. Use the calendar events provided. If no events, state that clearly.
+- Section 11 (Weekly Outlook): 2–3 paragraphs offering a forward-looking perspective on what to watch next week. Reference specific data points from the briefing and identify key risks and catalysts.
 
 MARKET DATA (use only these numbers — do not invent or modify):
 

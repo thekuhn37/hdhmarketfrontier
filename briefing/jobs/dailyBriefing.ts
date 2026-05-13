@@ -9,14 +9,15 @@ import { qualityCheck } from '../agents/quality/index.js';
 import { uploadDraft } from '../agents/upload/index.js';
 import { sendNotification } from '../agents/notify/index.js';
 import { logger } from '../utils/logger.js';
-import { today, todayLong } from '../utils/format.js';
+import { today, todayLong, weekOf } from '../utils/format.js';
 
-export async function runDailyBriefing(): Promise<BriefingResult> {
+export async function runWeeklyBriefing(): Promise<BriefingResult> {
   const startTime = Date.now();
   const date = today();
   const dateLong = todayLong();
+  const weekOfDate = weekOf();
 
-  logger.info(`Starting daily briefing pipeline for ${dateLong}`);
+  logger.info(`Starting weekly briefing pipeline for week of ${weekOfDate}`);
 
   // Agent 1: Market data (required)
   let marketData;
@@ -122,7 +123,7 @@ export async function runDailyBriefing(): Promise<BriefingResult> {
   }
 
   const duration = Date.now() - startTime;
-  logger.info(`Daily briefing complete in ${(duration / 1000).toFixed(1)}s — post: ${editUrl}`);
+  logger.info(`Weekly briefing complete in ${(duration / 1000).toFixed(1)}s — post: ${editUrl}`);
 
   return {
     success: true,
@@ -133,7 +134,7 @@ export async function runDailyBriefing(): Promise<BriefingResult> {
   };
 }
 
-runDailyBriefing()
+runWeeklyBriefing()
   .then((result) => {
     if (result.success) {
       logger.info(`Pipeline succeeded: ${result.editUrl}`);
