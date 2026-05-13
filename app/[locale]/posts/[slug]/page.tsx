@@ -169,8 +169,6 @@ export default async function PostPage({ params }: Props) {
         .eq('locale', locale)
         .single() as unknown as { data: { title: string; summary: string | null; content: string } | null; error: unknown }
 
-      console.log('[translation] cache read — found:', !!cached, 'error:', cacheReadErr)
-
       if (cached) {
         displayTitle = cached.title
         displaySummary = cached.summary || post.summary
@@ -182,7 +180,6 @@ export default async function PostPage({ params }: Props) {
           { title: post.title, summary: post.summary, content: post.content },
           locale
         )
-        console.log('[translation] OpenAI result — isAI:', result.isAI, 'summary:', result.summary?.slice(0, 60))
         if (result.isAI) {
           // Update display first — show translation even if cache write fails
           displayTitle = result.title
@@ -196,15 +193,14 @@ export default async function PostPage({ params }: Props) {
               { post_id: post.id, locale, title: result.title, summary: result.summary, content: result.content },
               { onConflict: 'post_id,locale' }
             )
-            console.log('[translation] cache write — error:', upsertErr)
-          } catch (cacheErr) {
-            console.error('[translation cache] upsert threw:', cacheErr)
+          } catch {
+            // best-effort cache write — ignore failures
           }
         }
       }
       // 3. If no AI key and no cache: fall through — show original with notice below
-    } catch (err) {
-      console.error('[translation] error:', err)
+    } catch {
+      // translation failed — display original content
     }
   }
 
