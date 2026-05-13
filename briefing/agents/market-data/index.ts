@@ -1,5 +1,3 @@
-import YahooFinanceClass from 'yahoo-finance2';
-const yahooFinance = new (YahooFinanceClass as unknown as new () => { quote: (symbol: string) => Promise<{ regularMarketPrice?: number; regularMarketChange?: number; regularMarketChangePercent?: number }> })();
 import type { MarketData, MarketQuote } from '../../types/index.js';
 import { withRetry } from '../../utils/retry.js';
 import { logger } from '../../utils/logger.js';
@@ -17,6 +15,45 @@ function direction(pct: number): 'up' | 'down' | 'flat' {
   return 'flat';
 }
 
+interface YahooChartMeta {
+  regularMarketPrice?: number;
+  chartPreviousClose?: number;
+  previousClose?: number;
+}
+
+interface YahooChartResponse {
+  chart?: {
+    result?: Array<{ meta?: YahooChartMeta }>;
+    error?: unknown;
+  };
+}
+
+async function fetchQuote(symbol: string): Promise<{ price: number; change: number; changePct: number }> {
+  const encoded = encodeURIComponent(symbol);
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encoded}?interval=1d&range=2d`;
+
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept': 'application/json',
+      'Accept-Language': 'en-US,en;q=0.9',
+    },
+  });
+
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${symbol}`);
+
+  const data = await res.json() as YahooChartResponse;
+  const meta = data?.chart?.result?.[0]?.meta;
+  if (!meta) throw new Error(`No data returned for ${symbol}`);
+
+  const price = meta.regularMarketPrice ?? 0;
+  const prevClose = meta.chartPreviousClose ?? meta.previousClose ?? price;
+  const change = price - prevClose;
+  const changePct = prevClose ? (change / prevClose) * 100 : 0;
+
+  return { price, change, changePct };
+}
+
 type QuoteMap = Record<string, MarketQuote>;
 
 async function fetchQuotes(symbols: string[], names: Record<string, string>): Promise<QuoteMap> {
@@ -24,29 +61,18 @@ async function fetchQuotes(symbols: string[], names: Record<string, string>): Pr
 
   for (const symbol of symbols) {
     try {
-      const result = await withRetry(
-        () => yahooFinance.quote(symbol),
-        3,
-        1500,
-      );
-      const price = result.regularMarketPrice ?? 0;
-      const change = result.regularMarketChange ?? 0;
-      const changePct = (result.regularMarketChangePercent ?? 0);
+      const result = await withRetry(() => fetchQuote(symbol), 3, 1500);
       map[symbol] = {
         symbol,
         name: names[symbol] ?? symbol,
-        price,
-        change,
-        changePct,
-        direction: direction(changePct),
+        price: result.price,
+        change: result.change,
+        changePct: result.changePct,
+        direction: direction(result.changePct),
       };
     } catch (err) {
       logger.warn(`Failed to fetch ${symbol}: ${err}`);
-      map[symbol] = {
-        symbol,
-        name: names[symbol] ?? symbol,
-        ...FALLBACK,
-      };
+      map[symbol] = { symbol, name: names[symbol] ?? symbol, ...FALLBACK };
     }
   }
 
