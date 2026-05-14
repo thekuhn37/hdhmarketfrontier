@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import {
   LayoutDashboard, FileText, MessageSquare, Users, BarChart2,
-  Mail, BrainCircuit, Settings, ArrowLeft, Menu, X
+  Mail, BrainCircuit, Settings, ArrowLeft, Menu, X, FlaskConical, Briefcase
 } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
@@ -18,6 +18,10 @@ const NAV = [
   { key: 'contactMessages', href: '/admin/contact-messages', icon: Mail },
   { key: 'aiDrafts', href: '/admin/ai-drafts', icon: BrainCircuit },
   { key: 'settings', href: '/admin/settings', icon: Settings },
+]
+
+const PIONEER_NAV = [
+  { label: 'Job Market Today', href: '/admin/pioneer-lab/job-market-today', icon: Briefcase },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -57,6 +61,36 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {t(key as keyof typeof t)}
           </Link>
         ))}
+        {/* Pioneer Lab section */}
+        <div className="mt-3 pt-3 border-t border-[#E5E7EB] dark:border-white/10">
+          <Link
+            href="/admin/pioneer-lab"
+            onClick={() => setSidebarOpen(false)}
+            className={cn(
+              'flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider mb-1 transition-all',
+              pathname.includes('/admin/pioneer-lab')
+                ? 'text-[#38BDF8]'
+                : 'text-[#6B7280] dark:text-slate-500 hover:text-[#0F172A] dark:hover:text-white'
+            )}
+          >
+            <FlaskConical size={13} /> Pioneer Lab
+          </Link>
+          {PIONEER_NAV.map(({ label, href, icon: Icon }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setSidebarOpen(false)}
+              className={cn(
+                'flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium mb-0.5 ml-1 transition-all',
+                isActive(href)
+                  ? 'bg-[#0F172A] text-white dark:bg-[#38BDF8] dark:text-[#0B1120]'
+                  : 'text-[#4B5563] hover:bg-[#F8FAFC] hover:text-[#0F172A] dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white'
+              )}
+            >
+              <Icon size={15} /> {label}
+            </Link>
+          ))}
+        </div>
       </nav>
       <div className="px-3 py-4 border-t border-[#E5E7EB] dark:border-white/10">
         <Link

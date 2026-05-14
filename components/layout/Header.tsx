@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Menu, X, ChevronDown, User, LogOut, LayoutDashboard } from 'lucide-react'
+import { Search, Menu, X, ChevronDown, User, LogOut, LayoutDashboard, FlaskConical } from 'lucide-react'
 import { Link, useRouter, usePathname } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils/cn'
@@ -254,13 +254,22 @@ export default function Header() {
                         <User size={15} /> {t('profile')}
                       </Link>
                       {currentUser.role === 'admin' && (
-                        <Link
-                          href="/admin"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] dark:text-slate-300 hover:bg-[#F8FAFC] dark:hover:bg-white/5 hover:text-[#0F172A] dark:hover:text-white transition-colors"
-                          onClick={() => setUserMenuOpen(false)}
-                        >
-                          <LayoutDashboard size={15} /> {t('admin')}
-                        </Link>
+                        <>
+                          <Link
+                            href="/admin"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#4B5563] dark:text-slate-300 hover:bg-[#F8FAFC] dark:hover:bg-white/5 hover:text-[#0F172A] dark:hover:text-white transition-colors"
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <LayoutDashboard size={15} /> {t('admin')}
+                          </Link>
+                          <Link
+                            href="/admin/pioneer-lab"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#38BDF8] hover:bg-[#F0F9FF] dark:hover:bg-[#38BDF8]/10 transition-colors"
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FlaskConical size={15} /> Pioneer Lab
+                          </Link>
+                        </>
                       )}
                       <button
                         onClick={handleLogout}
