@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Link2, FileText, Upload, PenLine, Search, Loader2, AlertTriangle, KeyRound, Eye, EyeOff } from 'lucide-react'
+import { Link2, FileText, Upload, PenLine, Search, Loader2, KeyRound, Eye, EyeOff, Zap } from 'lucide-react'
 import type { PioneerJobPost } from '@/lib/supabase/types'
 
 type Tab = 'paste' | 'urls' | 'upload' | 'manual'
@@ -23,6 +23,16 @@ const btnCls = 'flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0F172A] dark:b
 
 const PLATFORMS = ['LinkedIn', 'FISD', 'Company Website', 'Greenhouse', 'Lever', 'Ashby', 'Workday', 'Indeed', 'Other']
 
+function detectPlatform(url: string): string {
+  if (url.includes('linkedin.com')) return 'LinkedIn'
+  if (url.includes('greenhouse.io')) return 'Greenhouse'
+  if (url.includes('lever.co')) return 'Lever'
+  if (url.includes('ashbyhq.com')) return 'Ashby'
+  if (url.includes('myworkdayjobs.com') || url.includes('workday.com')) return 'Workday'
+  if (url.includes('fisd.net')) return 'FISD'
+  return 'Company Website'
+}
+
 export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
   const [tab, setTab] = useState<Tab>('paste')
   const [pasteText, setPasteText] = useState('')
@@ -36,7 +46,6 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
   const [manualForm, setManualForm] = useState<Partial<PioneerJobPost>>(MANUAL_DEFAULTS)
   const fileRef = useRef<HTMLInputElement>(null)
 
-  // Persist li_at in localStorage so it survives page refreshes
   useEffect(() => {
     const saved = localStorage.getItem('pioneer_li_at')
     if (saved) setLiAt(saved)
@@ -50,7 +59,7 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
 
   const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
     { id: 'paste', label: 'Paste Text', icon: <FileText size={14} /> },
-    { id: 'urls', label: 'URLs', icon: <Link2 size={14} /> },
+    { id: 'urls', label: 'Manual URLs', icon: <Link2 size={14} /> },
     { id: 'upload', label: 'Upload File', icon: <Upload size={14} /> },
     { id: 'manual', label: 'Manual Add', icon: <PenLine size={14} /> },
   ]
@@ -76,6 +85,109 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
     return res.json() as Promise<Partial<PioneerJobPost>>
   }
 
+  async function save(jobs: Partial<PioneerJobPost>[]) {
+    const saved = await Promise.all(
+      jobs.map(j =>
+        fetch('/api/pioneer-lab/jobs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(j),
+        }).then(r => r.json()).then(d => (d as { job: PioneerJobPost }).job)
+      )
+    )
+    onJobsExtracted(saved.filter(Boolean))
+  }
+
+  // Core URL processor — used by both auto-search and manual URL tab
+  async function processUrlList(urls: string[]): Promise<number> {
+    const results: Partial<PioneerJobPost>[] = []
+
+    for (let i = 0; i < urls.length; i++) {
+      const url = urls[i]
+      setStatus(`Scraping ${i + 1}/${urls.length}: ${new URL(url).hostname}...`)
+
+      try {
+        // Small delay to avoid rate-limiting
+        if (i > 0) await new Promise(r => setTimeout(r, 600))
+
+        const fetchRes = await fetch('/api/pioneer-lab/fetch-url', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url, liAt: liAt || undefined }),
+        })
+        const fetchData = await fetchRes.json() as {
+          blocked?: boolean
+          message?: string
+          content?: string
+          preMappedFields?: Record<string, unknown> | null
+        }
+
+        if (fetchData.blocked) {
+          setStatus(`⚠ ${i + 1}/${urls.length}: ${fetchData.message}`)
+          continue
+        }
+
+        setStatus(`Extracting ${i + 1}/${urls.length}: AI analysis...`)
+        const job = await extractOne(
+          fetchData.content ?? '',
+          url,
+          detectPlatform(url),
+          fetchData.preMappedFields,
+        )
+        results.push({ ...job, source_link: url })
+      } catch (e) {
+        setStatus(`✗ ${i + 1}/${urls.length}: ${e instanceof Error ? e.message : 'Error'}`)
+      }
+    }
+
+    if (results.length) await save(results)
+    return results.length
+  }
+
+  // ── Auto-search: keywords → LinkedIn search → scrape all results ──
+  async function handleAutoSearch() {
+    if (!keywords.trim()) { setStatus('Enter keywords above before searching.'); return }
+
+    setIsLoading(true)
+    setStatus(`Searching LinkedIn for "${keywords}"...`)
+
+    try {
+      const res = await fetch('/api/pioneer-lab/search-linkedin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ keywords, liAt: liAt || undefined, maxResults: 25 }),
+      })
+      const data = await res.json() as {
+        blocked?: boolean
+        needsLogin?: boolean
+        message?: string
+        urls?: string[]
+        count?: number
+      }
+
+      if (data.blocked) {
+        setStatus(`⚠ ${data.message}`)
+        setIsLoading(false)
+        return
+      }
+
+      if (!data.urls?.length) {
+        setStatus(data.message ?? 'No jobs found. Try broader keywords.')
+        setIsLoading(false)
+        return
+      }
+
+      setStatus(`Found ${data.count} jobs — collecting all...`)
+      const saved = await processUrlList(data.urls)
+      setStatus(saved > 0 ? `✓ Saved ${saved} job(s) from LinkedIn.` : 'No jobs could be extracted. Check your li_at cookie.')
+    } catch (e) {
+      setStatus(`Search failed: ${e instanceof Error ? e.message : 'Unknown error'}`)
+    }
+
+    setIsLoading(false)
+  }
+
+  // ── Manual tabs ──
   async function handlePaste() {
     if (!pasteText.trim()) return
     setIsLoading(true)
@@ -95,60 +207,10 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
   async function handleUrls() {
     const urls = urlsText.split('\n').map(u => u.trim()).filter(u => u.startsWith('http'))
     if (!urls.length) { setStatus('Enter at least one valid URL.'); return }
-
     setIsLoading(true)
-    const results: Partial<PioneerJobPost>[] = []
-
-    for (const url of urls) {
-      setStatus(`Fetching: ${new URL(url).hostname}...`)
-      try {
-        const fetchRes = await fetch('/api/pioneer-lab/fetch-url', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ url, liAt: liAt || undefined }),
-        })
-        const fetchData = await fetchRes.json() as {
-          blocked?: boolean
-          needsLogin?: boolean
-          message?: string
-          content?: string
-          preMappedFields?: Record<string, unknown> | null
-        }
-
-        if (fetchData.blocked) {
-          setStatus(`⚠ ${new URL(url).hostname}: ${fetchData.message}`)
-          continue
-        }
-
-        // Detect platform from URL
-        const platform = url.includes('linkedin.com') ? 'LinkedIn'
-          : url.includes('greenhouse.io') ? 'Greenhouse'
-          : url.includes('lever.co') ? 'Lever'
-          : url.includes('ashbyhq.com') ? 'Ashby'
-          : url.includes('myworkdayjobs.com') || url.includes('workday.com') ? 'Workday'
-          : url.includes('fisd.net') ? 'FISD'
-          : 'Company Website'
-
-        setStatus(`Extracting: ${new URL(url).hostname}...`)
-        const job = await extractOne(
-          fetchData.content ?? '',
-          url,
-          platform,
-          fetchData.preMappedFields,
-        )
-        results.push({ ...job, source_link: url })
-      } catch (e) {
-        setStatus(`✗ ${new URL(url).hostname}: ${e instanceof Error ? e.message : 'Error'}`)
-      }
-    }
-
-    if (results.length) {
-      await save(results)
-      setUrlsText('')
-      setStatus(`✓ Saved ${results.length} job(s).`)
-    } else {
-      setStatus('No jobs could be extracted. Check the URLs or add a LinkedIn cookie.')
-    }
+    const saved = await processUrlList(urls)
+    setUrlsText('')
+    setStatus(saved > 0 ? `✓ Saved ${saved} job(s).` : 'No jobs could be extracted. Check URLs or set li_at cookie.')
     setIsLoading(false)
   }
 
@@ -183,19 +245,6 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
     setIsLoading(false)
   }
 
-  async function save(jobs: Partial<PioneerJobPost>[]) {
-    const saved = await Promise.all(
-      jobs.map(j =>
-        fetch('/api/pioneer-lab/jobs', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(j),
-        }).then(r => r.json()).then(d => (d as { job: PioneerJobPost }).job)
-      )
-    )
-    onJobsExtracted(saved.filter(Boolean))
-  }
-
   const setManualField = (key: keyof PioneerJobPost) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setManualForm(f => ({ ...f, [key]: e.target.value }))
@@ -204,26 +253,27 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
 
   return (
     <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
-      {/* Global keyword + LinkedIn cookie row */}
-      <div className="px-4 pt-4 pb-3 border-b border-[#F1F5F9] dark:border-white/5 space-y-2">
+
+      {/* ── Top: keywords + cookie ── */}
+      <div className="px-4 pt-4 pb-4 border-b border-[#F1F5F9] dark:border-white/5 space-y-2">
         <div className="flex gap-2 items-center">
           <Search size={14} className="text-[#6B7280] flex-shrink-0" />
           <input
             type="text"
-            placeholder="Focus keywords — guide AI relevance (e.g. 'market data business development Singapore')..."
+            placeholder="Keywords — e.g. 'market data business development Singapore'..."
             value={keywords}
             onChange={e => setKeywords(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter' && !busy) handleAutoSearch() }}
             className={`${inputCls} text-xs`}
           />
         </div>
 
-        {/* LinkedIn li_at cookie */}
         <div className="flex gap-2 items-center">
           <KeyRound size={14} className="text-[#38BDF8] flex-shrink-0" />
           <div className="flex-1 relative">
             <input
               type={showLiAt ? 'text' : 'password'}
-              placeholder="LinkedIn session cookie (li_at) — paste from browser DevTools → Application → Cookies"
+              placeholder="LinkedIn session cookie (li_at) — F12 → Application → Cookies → linkedin.com → li_at"
               value={liAt}
               onChange={e => saveLiAt(e.target.value)}
               className={`${inputCls} text-xs pr-8`}
@@ -236,16 +286,39 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
               {showLiAt ? <EyeOff size={13} /> : <Eye size={13} />}
             </button>
           </div>
-          {liAt && (
-            <span className="text-[10px] text-green-600 dark:text-green-400 whitespace-nowrap">cookie set</span>
-          )}
+          {liAt && <span className="text-[10px] text-green-600 dark:text-green-400 whitespace-nowrap">cookie set</span>}
         </div>
-        <p className="text-[10px] text-[#9CA3AF] dark:text-slate-500 ml-5">
-          Required for LinkedIn URL scraping. Open LinkedIn in Chrome → F12 → Application → Cookies → copy the <code className="bg-[#F1F5F9] dark:bg-white/5 px-0.5 rounded">li_at</code> value. Stored locally in your browser only.
+
+        {/* ── Primary action ── */}
+        <button
+          onClick={handleAutoSearch}
+          disabled={busy || !keywords.trim()}
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#38BDF8] hover:bg-[#7DD3FC] disabled:opacity-50 disabled:cursor-not-allowed text-[#0B1120] font-semibold text-sm transition-all"
+        >
+          {busy ? <Loader2 size={15} className="animate-spin" /> : <Zap size={15} />}
+          {busy ? status || 'Working...' : 'Auto-Search LinkedIn'}
+        </button>
+        <p className="text-[10px] text-[#9CA3AF] dark:text-slate-500 text-center">
+          Searches LinkedIn with your keywords, scrapes up to 25 matching jobs, and extracts all with AI — automatically.
+          {!liAt && <span className="text-amber-500 dark:text-amber-400"> Set li_at cookie above to access LinkedIn.</span>}
         </p>
+
+        {/* Status line (outside button when not loading) */}
+        {!busy && status && (
+          <p className={`text-xs flex items-center gap-1.5 ${status.startsWith('✓') ? 'text-green-600 dark:text-green-400' : 'text-[#6B7280] dark:text-slate-400'}`}>
+            {status}
+          </p>
+        )}
       </div>
 
-      {/* Tabs */}
+      {/* ── Divider ── */}
+      <div className="flex items-center gap-3 px-4 py-2">
+        <div className="flex-1 h-px bg-[#E5E7EB] dark:bg-white/10" />
+        <span className="text-[10px] text-[#9CA3AF] dark:text-slate-500 uppercase tracking-wider">or add manually</span>
+        <div className="flex-1 h-px bg-[#E5E7EB] dark:bg-white/10" />
+      </div>
+
+      {/* ── Tabs ── */}
       <div className="flex border-b border-[#E5E7EB] dark:border-white/10">
         {TABS.map(t => (
           <button
@@ -262,7 +335,7 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
         ))}
       </div>
 
-      {/* Tab content */}
+      {/* ── Tab content ── */}
       <div className="p-4">
         {tab === 'paste' && (
           <div className="space-y-3">
@@ -288,13 +361,9 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
 
         {tab === 'urls' && (
           <div className="space-y-3">
-            <div className="flex gap-2 p-3 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
-              <AlertTriangle size={14} className="text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-              <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
-                <p><strong>LinkedIn URLs:</strong> Set your <code className="bg-blue-100 dark:bg-blue-500/20 px-0.5 rounded">li_at</code> cookie above to enable scraping. Without it, LinkedIn will return a login wall.</p>
-                <p><strong>Public ATS pages</strong> (Greenhouse, Lever, Workday) work without a cookie.</p>
-              </div>
-            </div>
+            <p className="text-xs text-[#6B7280] dark:text-slate-400">
+              Paste specific job URLs to scrape — one per line. LinkedIn URLs need the <code className="bg-[#F1F5F9] dark:bg-white/5 px-0.5 rounded">li_at</code> cookie set above.
+            </p>
             <textarea
               rows={6}
               placeholder="One URL per line:&#10;https://www.linkedin.com/jobs/view/1234567890/&#10;https://boards.greenhouse.io/company/jobs/456&#10;https://careers.bloomberg.com/job/789"
@@ -304,7 +373,7 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
             />
             <button onClick={handleUrls} disabled={busy || !urlsText.trim()} className={btnCls}>
               {busy ? <Loader2 size={14} className="animate-spin" /> : <Search size={14} />}
-              Search / Collect
+              Scrape & Extract
             </button>
           </div>
         )}
@@ -376,10 +445,15 @@ export default function JobInputPanel({ onJobsExtracted, loading }: Props) {
           </div>
         )}
 
-        {status && (
+        {/* Status for manual tabs */}
+        {!busy && status && tab !== 'paste' && (
           <p className={`mt-3 text-xs flex items-center gap-1.5 ${status.startsWith('✓') ? 'text-green-600 dark:text-green-400' : 'text-[#6B7280] dark:text-slate-400'}`}>
-            {busy && <Loader2 size={12} className="animate-spin flex-shrink-0" />}
             {status}
+          </p>
+        )}
+        {busy && tab !== 'paste' && (
+          <p className="mt-3 text-xs flex items-center gap-1.5 text-[#6B7280] dark:text-slate-400">
+            <Loader2 size={12} className="animate-spin flex-shrink-0" /> {status}
           </p>
         )}
       </div>
