@@ -14,13 +14,14 @@ export async function POST(req: NextRequest) {
     sourceUrl?: string
     sourcePlatform?: string
     keywords?: string
+    preMappedFields?: Record<string, unknown> | null
   }
 
   if (!body.rawText || body.rawText.trim().length < 20) {
     return NextResponse.json({ error: 'Job text is too short to extract data from.' }, { status: 400 })
   }
-  if (body.rawText.length > 30000) {
-    return NextResponse.json({ error: 'Input too large. Please trim to under 30,000 characters.' }, { status: 400 })
+  if (body.rawText.length > 50000) {
+    return NextResponse.json({ error: 'Input too large. Please trim to under 50,000 characters.' }, { status: 400 })
   }
 
   const extracted = await extractJobFromText(
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
     body.sourceUrl,
     body.sourcePlatform,
     body.keywords,
+    body.preMappedFields,
   )
 
   return NextResponse.json(extracted)
