@@ -1,0 +1,51 @@
+# ── Build output ─────────────────────────────────────────────
+.next
+out
+build
+dist
+
+# ── Dependencies (re-installed in Docker) ────────────────────
+node_modules
+
+# ── Environment files — NEVER include secrets in image ───────
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.staging
+
+# ── Dev / editor artifacts ───────────────────────────────────
+.git
+.gitignore
+.vscode
+.idea
+.DS_Store
+*.log
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Test / CI tooling (not needed in production image) ───────
+coverage
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+
+# ── Briefing pipeline (runs in GitHub Actions, not container) ─
+briefing
+
+# ── Supabase local dev ───────────────────────────────────────
+supabase/.branches
+supabase/.temp
+supabase/.env
+
+# ── Large raw assets (Supabase Storage serves these) ─────────
+assets/images
+
+# ── Docs (not needed at runtime) ─────────────────────────────
+docs
+README.md
+PROJECT_CONTEXT.md
+CLAUDE.md
+AGENTS.md

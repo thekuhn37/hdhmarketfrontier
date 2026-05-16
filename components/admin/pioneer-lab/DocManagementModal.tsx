@@ -391,9 +391,15 @@ export default function DocManagementModal({
                     {documents.map(doc => (
                       <tr key={doc.id} className="hover:bg-[#F8FAFC] dark:hover:bg-white/3 transition-colors">
                         <td className="px-3 py-3 max-w-[180px]">
-                          <p className="text-xs font-medium text-[#0F172A] dark:text-white leading-snug truncate">
+                          <a
+                            href={`${process.env.NEXT_PUBLIC_LICENSE_POLICY_API_BASE_URL}/api/documents/${doc.id}/pdf`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-medium text-[#0F172A] dark:text-white leading-snug truncate block hover:text-[#38BDF8] dark:hover:text-[#38BDF8] transition-colors"
+                            title="Open PDF in new tab"
+                          >
                             {doc.title}
-                          </p>
+                          </a>
                           <p className="text-[10px] text-[#9CA3AF] dark:text-slate-500 mt-0.5 truncate">
                             {doc.fileName}
                             {doc.fileSize ? ` · ${formatBytes(doc.fileSize)}` : ''}

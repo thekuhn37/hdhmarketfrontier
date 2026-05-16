@@ -62,3 +62,7 @@ public/images/*.JPEG
 public/images/*.png
 public/images/*.webp
 assets/images/
+
+# ─── Exceptions: profile/brand images needed in production Docker build ───────
+!public/images/headshot2.JPEG
+!public/images/harry-hwang.jpg
