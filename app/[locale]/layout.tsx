@@ -70,6 +70,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+        {/* Runs before hydration — sets dark class immediately to prevent flash */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#111827] dark:bg-[#0B1120] dark:text-slate-200 transition-colors duration-200">
         <ThemeProvider>
