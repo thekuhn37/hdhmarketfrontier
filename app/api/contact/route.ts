@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/server'
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 // Simple in-memory rate limit (resets on cold start)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 
@@ -73,11 +82,11 @@ export async function POST(req: NextRequest) {
         subject: `[Contact] ${subject}`,
         html: `
           <h2>New Contact Message</h2>
-          <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
-          ${organization ? `<p><strong>Organization:</strong> ${organization}</p>` : ''}
-          <p><strong>Subject:</strong> ${subject}</p>
+          <p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
+          ${organization ? `<p><strong>Organization:</strong> ${escapeHtml(organization)}</p>` : ''}
+          <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
           <hr />
-          <p>${message.replace(/\n/g, '<br />')}</p>
+          <p>${escapeHtml(message).replace(/\n/g, '<br />')}</p>
         `,
       })
     } catch (err) {

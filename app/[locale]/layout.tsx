@@ -10,7 +10,6 @@ import ScrollToBottom from '@/components/layout/ScrollToBottom'
 import ThemeProvider from '@/components/layout/ThemeProvider'
 import CookieBanner from '@/components/ui/CookieBanner'
 import { Toaster } from 'react-hot-toast'
-import '../globals.css'
 
 interface Props {
   children: React.ReactNode
@@ -60,49 +59,28 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages({ locale })
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet"
-        />
-        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
-        {/* Runs before hydration — sets dark class immediately to prevent flash */}
-        <script
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`
+    <ThemeProvider>
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <Header />
+        <main className="flex-1 pt-16">
+          {children}
+        </main>
+        <Footer />
+        <ScrollToTop />
+        <ScrollToBottom />
+        <CookieBanner />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              borderRadius: '12px',
+              background: '#0F172A',
+              color: '#fff',
+              fontSize: '14px',
+            },
           }}
         />
-      </head>
-      <body className="min-h-screen flex flex-col bg-white text-[#111827] dark:bg-[#0B1120] dark:text-slate-200 transition-colors duration-200">
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages} locale={locale}>
-            <Header />
-            <main className="flex-1 pt-16">
-              {children}
-            </main>
-            <Footer />
-            <ScrollToTop />
-            <ScrollToBottom />
-            <CookieBanner />
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                style: {
-                  borderRadius: '12px',
-                  background: '#0F172A',
-                  color: '#fff',
-                  fontSize: '14px',
-                },
-              }}
-            />
-          </NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+      </NextIntlClientProvider>
+    </ThemeProvider>
   )
 }

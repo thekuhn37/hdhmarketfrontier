@@ -22,19 +22,33 @@ async function getAdminUserId(): Promise<string | null> {
 }
 
 function embedCharts(content: string, charts: ChartData): string {
-  const chartsHtml = [
-    `<p><img src="${charts.equityChartUrl}" alt="Global Equity Markets Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
-    `<p><img src="${charts.fxChartUrl}" alt="FX Rates Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
-    `<p><img src="${charts.commodityChartUrl}" alt="Commodities and Crypto Weekly % Change Chart" style="max-width:100%;height:auto;" /></p>`,
-  ].join('\n');
+  const valid = (url: string) => url && url.startsWith('http');
+  const chartImgs = [
+    valid(charts.equityChartUrl)
+      ? `<p><img src="${charts.equityChartUrl}" alt="Global Equity Markets — Weekly % Change" style="max-width:100%;height:auto;border-radius:8px;" /></p>`
+      : '',
+    valid(charts.fxChartUrl)
+      ? `<p><img src="${charts.fxChartUrl}" alt="FX Rates — Weekly % Change" style="max-width:100%;height:auto;border-radius:8px;" /></p>`
+      : '',
+    valid(charts.commodityChartUrl)
+      ? `<p><img src="${charts.commodityChartUrl}" alt="Commodities & Crypto — Weekly % Change" style="max-width:100%;height:auto;border-radius:8px;" /></p>`
+      : '',
+  ].filter(Boolean);
 
-  const insertAfter = '</h2>';
-  const idx = content.indexOf(insertAfter);
-  if (idx !== -1) {
-    return content.slice(0, idx + insertAfter.length) + chartsHtml + content.slice(idx + insertAfter.length);
+  if (chartImgs.length === 0) return content;
+  const chartsHtml = '\n' + chartImgs.join('\n') + '\n';
+
+  // Insert BEFORE the second <h2> so charts appear after the Executive Summary text, not before it
+  const firstH2 = content.indexOf('<h2');
+  if (firstH2 !== -1) {
+    const secondH2 = content.indexOf('<h2', firstH2 + 4);
+    if (secondH2 !== -1) {
+      return content.slice(0, secondH2) + chartsHtml + content.slice(secondH2);
+    }
   }
 
-  return chartsHtml + content;
+  // Fallback: append at end
+  return content + chartsHtml;
 }
 
 async function ensureUniqueSlug(baseSlug: string, date: string): Promise<string> {

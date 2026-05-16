@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import {
   LayoutDashboard, FileText, MessageSquare, Users, BarChart2,
-  Mail, BrainCircuit, Settings, ArrowLeft, Menu, X, FlaskConical, Briefcase
+  Mail, BrainCircuit, Settings, ArrowLeft, Menu, X, FlaskConical, Briefcase, Scale
 } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
@@ -22,6 +22,7 @@ const NAV = [
 
 const PIONEER_NAV = [
   { label: 'Job Market Today', href: '/admin/pioneer-lab/job-market-today', icon: Briefcase },
+  { label: 'Data License Benchmark', href: '/admin/pioneer-lab/data-license-benchmark', icon: Scale },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

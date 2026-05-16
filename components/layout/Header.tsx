@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils/cn'
 import { createClient } from '@/lib/supabase/client'
 import ThemeToggle from './ThemeToggle'
 
+
 const NAV_LINKS = [
   { key: 'about', href: '/about' },
   { key: 'markets', href: '/markets' },
@@ -50,15 +51,12 @@ export default function Header() {
         .select('id, email, display_name, avatar_url, role')
         .eq('id', userId)
         .single()
-      // DEBUG — remove after admin button is confirmed working
-      console.log('[Header] fetchProfile →', { userId, data, error })
       if (data) {
         setCurrentUser(data as AuthUser)
       } else {
         setCurrentUser({ id: userId, email: email ?? '' })
       }
-    } catch (err) {
-      console.error('[Header] fetchProfile threw:', err)
+    } catch {
       setCurrentUser({ id: userId, email: email ?? '' })
     }
   }, [])

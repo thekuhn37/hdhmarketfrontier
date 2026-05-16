@@ -27,12 +27,24 @@ export function estimateReadingTime(html: string): number {
   return Math.max(1, Math.round(wordCount / 200));
 }
 
+// When the pipeline runs at 02:00 UTC Saturday (= Friday 10 PM New York),
+// the market reference date is still Friday — shift back one day.
+function marketRefDate(): Date {
+  const now = new Date();
+  if (now.getUTCDay() === 6) {
+    const fri = new Date(now);
+    fri.setUTCDate(now.getUTCDate() - 1);
+    return fri;
+  }
+  return now;
+}
+
 export function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  return marketRefDate().toISOString().slice(0, 10);
 }
 
 export function todayLong(): string {
-  return new Date().toLocaleDateString('en-US', {
+  return marketRefDate().toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -41,12 +53,11 @@ export function todayLong(): string {
 }
 
 export function weekOf(): string {
-  const now = new Date();
-  // Find the Monday of this week
-  const day = now.getUTCDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+  const ref = marketRefDate();
+  const day = ref.getUTCDay(); // 0=Sun, 1=Mon, ..., 5=Fri
   const diff = day === 0 ? -6 : 1 - day;
-  const monday = new Date(now);
-  monday.setUTCDate(now.getUTCDate() + diff);
+  const monday = new Date(ref);
+  monday.setUTCDate(ref.getUTCDate() + diff);
   return monday.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',

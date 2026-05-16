@@ -344,5 +344,54 @@
     "aboutTitle": "About | HDH Market Frontier",
     "contactTitle": "Contact | HDH Market Frontier",
     "searchTitle": "Search | HDH Market Frontier"
+  },
+  "dlb": {
+    "title": "Data License Benchmark Platform",
+    "description": "Analyze and benchmark exchange market data license policies with structured evidence and citations.",
+    "researchLabel": "Research use only.",
+    "researchText": "This platform provides structured policy analysis for internal research and compliance review. Outputs do not constitute legal advice. Consult qualified legal counsel for binding interpretations.",
+    "exchanges": {
+      "heading": "Available Exchanges",
+      "statusActive": "active",
+      "statusInactive": "inactive",
+      "noSelected": "Enable at least one exchange to submit questions.",
+      "scopeHeading": "Active Query Scope",
+      "noEnabled": "No exchanges enabled"
+    },
+    "actions": {
+      "docManagement": "Document Management",
+      "exportPdf": "Export as PDF",
+      "exportMd": "Export as Markdown",
+      "clearChat": "Clear Chat",
+      "exportPdfShort": "Export PDF",
+      "mdShort": ".md",
+      "clearShort": "Clear"
+    },
+    "chat": {
+      "emptyTitle": "Ask a licensing question",
+      "emptyDesc": "Query structured exchange license policy data with evidence-backed answers and source citations.",
+      "placeholder": "Ask a licensing question — e.g. \"Can CME data be used to create CFD products?\"",
+      "analyzing": "Analyzing policy data…",
+      "noExchangeWarning": "Please enable at least one exchange in the sidebar before submitting a question.",
+      "sources": "Policy Sources",
+      "showSources": "Show {count} sources",
+      "hideSources": "Hide {count} sources",
+      "showSource": "Show {count} source",
+      "hideSource": "Hide {count} source",
+      "translatedFrom": "Translated from {lang}",
+      "errorMsg": "Unable to process your question at this time. Please check your connection and try again.",
+      "scopeLabel": "Scope",
+      "noExchangeScope": "no exchanges selected"
+    },
+    "scope": {
+      "focused": "Focused on {exchange}",
+      "comparison": "Comparison: {exchanges}"
+    },
+    "confidence": {
+      "high": "high confidence",
+      "medium": "medium confidence",
+      "low": "low confidence",
+      "unknown": "unknown confidence"
+    }
   }
 }

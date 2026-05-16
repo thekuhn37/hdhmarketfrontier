@@ -344,5 +344,54 @@
     "aboutTitle": "소개 | HDH Market Frontier",
     "contactTitle": "연락처 | HDH Market Frontier",
     "searchTitle": "검색 | HDH Market Frontier"
+  },
+  "dlb": {
+    "title": "데이터 라이선스 벤치마크 플랫폼",
+    "description": "정형화된 증거와 인용을 통해 거래소 시장 데이터 라이선스 정책을 분석하고 비교합니다.",
+    "researchLabel": "연구 목적 전용.",
+    "researchText": "이 플랫폼은 내부 연구 및 컴플라이언스 검토를 위한 구조화된 정책 분석을 제공합니다. 출력 결과는 법적 조언을 구성하지 않습니다. 구속력 있는 해석은 자격을 갖춘 법률 전문가와 상담하십시오.",
+    "exchanges": {
+      "heading": "이용 가능한 거래소",
+      "statusActive": "활성",
+      "statusInactive": "비활성",
+      "noSelected": "질문을 제출하려면 최소 하나의 거래소를 활성화하세요.",
+      "scopeHeading": "현재 검색 범위",
+      "noEnabled": "활성화된 거래소 없음"
+    },
+    "actions": {
+      "docManagement": "문서 관리",
+      "exportPdf": "PDF로 내보내기",
+      "exportMd": "마크다운으로 내보내기",
+      "clearChat": "대화 초기화",
+      "exportPdfShort": "PDF 내보내기",
+      "mdShort": ".md",
+      "clearShort": "초기화"
+    },
+    "chat": {
+      "emptyTitle": "라이선스 질문하기",
+      "emptyDesc": "증거 기반 답변과 출처 인용으로 구조화된 거래소 라이선스 정책 데이터를 조회하세요.",
+      "placeholder": "라이선스 관련 질문을 입력하세요 — 예: \"CME 데이터를 CFD 상품 개발에 사용할 수 있나요?\"",
+      "analyzing": "정책 데이터 분석 중…",
+      "noExchangeWarning": "질문을 제출하기 전에 사이드바에서 최소 하나의 거래소를 활성화해 주세요.",
+      "sources": "정책 출처",
+      "showSources": "{count}개 출처 보기",
+      "hideSources": "{count}개 출처 숨기기",
+      "showSource": "{count}개 출처 보기",
+      "hideSource": "{count}개 출처 숨기기",
+      "translatedFrom": "{lang}에서 번역됨",
+      "errorMsg": "현재 질문을 처리할 수 없습니다. 연결을 확인하고 다시 시도해 주세요.",
+      "scopeLabel": "범위",
+      "noExchangeScope": "선택된 거래소 없음"
+    },
+    "scope": {
+      "focused": "{exchange} 집중 검색",
+      "comparison": "비교: {exchanges}"
+    },
+    "confidence": {
+      "high": "높은 신뢰도",
+      "medium": "보통 신뢰도",
+      "low": "낮은 신뢰도",
+      "unknown": "알 수 없는 신뢰도"
+    }
   }
 }

@@ -42,10 +42,14 @@ export default function AboutSection() {
                   backgroundSize: '40px 40px',
                 }}
               />
-              {/* Center monogram */}
+              {/* Center headshot */}
               <div className="relative z-10 text-center">
-                <div className="w-24 h-24 rounded-full border-2 border-white/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-4xl font-bold text-white">H</span>
+                <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white/20 mx-auto mb-4 shadow-xl">
+                  <img
+                    src="/images/headshot2.JPEG"
+                    alt="Harry D. Hwang"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 <p className="text-white/60 text-sm font-medium tracking-widest uppercase">Harry D. Hwang</p>
                 <p className="text-white/40 text-xs mt-1">Financial Markets Professional</p>

@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { Link } from '@/i18n/navigation'
-import { FlaskConical, Briefcase, Building2, LineChart, Compass, BrainCircuit, ChevronRight } from 'lucide-react'
+import { FlaskConical, Briefcase, Building2, LineChart, Compass, BrainCircuit, ChevronRight, Scale } from 'lucide-react'
 
 interface Props {
   params: Promise<{ locale: string }>
@@ -15,6 +15,14 @@ const MODULES = [
     description: 'Track and curate relevant opportunities across financial data, market infrastructure, fintech, AI, and digital assets.',
     status: 'active' as const,
     href: '/admin/pioneer-lab/job-market-today',
+  },
+  {
+    id: 'data-license-benchmark',
+    icon: Scale,
+    title: 'Data License Benchmark Platform',
+    description: 'Analyze and benchmark exchange market data license policies with structured evidence, citations, and compliance intelligence.',
+    status: 'active' as const,
+    href: '/admin/pioneer-lab/data-license-benchmark',
   },
   {
     id: 'industry-watchlist',

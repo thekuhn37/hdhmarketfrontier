@@ -344,5 +344,54 @@
     "aboutTitle": "关于 | HDH Market Frontier",
     "contactTitle": "联系 | HDH Market Frontier",
     "searchTitle": "搜索 | HDH Market Frontier"
+  },
+  "dlb": {
+    "title": "数据许可基准平台",
+    "description": "通过结构化证据和引用分析和比较交易所市场数据许可政策。",
+    "researchLabel": "仅供研究使用。",
+    "researchText": "此平台提供用于内部研究和合规审查的结构化政策分析。输出结果不构成法律建议。如需具有约束力的解释，请咨询合格的法律顾问。",
+    "exchanges": {
+      "heading": "可用交易所",
+      "statusActive": "活跃",
+      "statusInactive": "非活跃",
+      "noSelected": "请启用至少一个交易所以提交问题。",
+      "scopeHeading": "当前查询范围",
+      "noEnabled": "无已启用的交易所"
+    },
+    "actions": {
+      "docManagement": "文件管理",
+      "exportPdf": "导出为PDF",
+      "exportMd": "导出为Markdown",
+      "clearChat": "清除对话",
+      "exportPdfShort": "PDF导出",
+      "mdShort": ".md",
+      "clearShort": "清除"
+    },
+    "chat": {
+      "emptyTitle": "提出许可问题",
+      "emptyDesc": "通过证据支持的答案和来源引用查询结构化的交易所许可政策数据。",
+      "placeholder": "请输入许可相关问题 — 例如：\"CME数据可以用于创建CFD产品吗？\"",
+      "analyzing": "正在分析政策数据…",
+      "noExchangeWarning": "提交问题前，请在侧边栏中启用至少一个交易所。",
+      "sources": "政策来源",
+      "showSources": "显示{count}个来源",
+      "hideSources": "隐藏{count}个来源",
+      "showSource": "显示{count}个来源",
+      "hideSource": "隐藏{count}个来源",
+      "translatedFrom": "从{lang}翻译",
+      "errorMsg": "当前无法处理您的问题。请检查连接并重试。",
+      "scopeLabel": "范围",
+      "noExchangeScope": "未选择交易所"
+    },
+    "scope": {
+      "focused": "专注于{exchange}",
+      "comparison": "比较：{exchanges}"
+    },
+    "confidence": {
+      "high": "高置信度",
+      "medium": "中置信度",
+      "low": "低置信度",
+      "unknown": "未知置信度"
+    }
   }
 }

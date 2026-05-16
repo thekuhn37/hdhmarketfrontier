@@ -1,7 +1,7 @@
 name: Weekly Market Briefing
 on:
   schedule:
-    - cron: '0 22 * * 1'
+    - cron: '0 2 * * 6'  # Friday 10:00 PM New York (EDT, UTC-4) = Saturday 02:00 UTC
   workflow_dispatch:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

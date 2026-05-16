@@ -10,6 +10,7 @@ import { translatePost } from '@/lib/ai/translate'
 import type { Post, Comment } from '@/lib/supabase/types'
 import CommentSection from '@/components/posts/CommentSection'
 import ReadingProgress from '@/components/posts/ReadingProgress'
+import ResearchCoveragePeriod from '@/components/posts/ResearchCoveragePeriod'
 
 const LOCALE_NAMES: Record<string, string> = { en: 'English', ko: 'Korean', zh: 'Chinese' }
 
@@ -206,6 +207,19 @@ export default async function PostPage({ params }: Props) {
 
   const originalLangName = LOCALE_NAMES[post.language] ?? post.language
 
+  // Compute Mon–Fri coverage window from the post date (UTC)
+  const coveragePeriod: { start: string; end: string } | null = (() => {
+    const raw = post.published_at || post.created_at
+    if (!raw) return null
+    const d = new Date(raw)
+    const dow = d.getUTCDay() // 0=Sun … 6=Sat
+    const toMonday = dow === 0 ? -6 : 1 - dow
+    const toFriday = dow === 6 ? -1 : 5 - dow
+    const mon = new Date(d); mon.setUTCDate(d.getUTCDate() + toMonday)
+    const fri = new Date(d); fri.setUTCDate(d.getUTCDate() + toFriday)
+    return { start: mon.toISOString().slice(0, 10), end: fri.toISOString().slice(0, 10) }
+  })()
+
   // Fetch approved comments + current user in parallel
   let currentUserId: string | null = null
   let currentUserDisplayName: string | null = null
@@ -272,6 +286,11 @@ export default async function PostPage({ params }: Props) {
                 )}
               </div>
             </div>
+          )}
+
+          {/* Research Coverage Period — shown for Markets weekly briefings */}
+          {post.category === 'Markets' && coveragePeriod && (
+            <ResearchCoveragePeriod start={coveragePeriod.start} end={coveragePeriod.end} />
           )}
 
           {/* Category */}

@@ -152,7 +152,7 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 | i18n | next-intl | v4.x | EN / KO / ZH, `localePrefix: 'always'` |
 | AI | OpenAI | 6.x | GPT-4o-mini: summaries, field generation, translation, weekly briefing |
 | Email | Resend | 6.x | Contact form + weekly briefing notification — domain `hdhmarketfrontier.com` verified |
-| Theme | next-themes | 0.4.x | Dark/light/system mode, `attribute="class"`, SSR-safe |
+| Theme | Custom ThemeProvider | — | Dark/light/system mode, `class` strategy, localStorage-backed; React 19–safe (no next-themes). Theme-init script injected via `<Script strategy="beforeInteractive">` in root layout to prevent flash |
 | Rich Text Editor | **TipTap** | v3.x | Full WYSIWYG editor for post creation/editing |
 | Syntax Highlighting | lowlight | v3.x | Used with TipTap CodeBlockLowlight extension |
 | Icons | lucide-react | 1.x | **Note**: `Linkedin` and `Chrome` icons do NOT exist in v1 — use `<span>` alternatives |
@@ -199,7 +199,10 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
 │   │   ├── /posts/[id]      TipTap rich text editor (edit existing post)
 │   │   ├── /comments        Comment moderation
 │   │   ├── /contact-messages Contact form inbox
-│   │   └── /ai-drafts       AI-generated draft posts
+│   │   ├── /ai-drafts       AI-generated draft posts
+│   │   └── /pioneer-lab     Admin-only career/research intelligence workspace
+│   │       ├── /data-license-benchmark  Policy Q&A chatbot (FastAPI backend)
+│   │       └── /translate              Translation sub-route
 │   ├── /privacy-policy
 │   ├── /cookie-policy
 │   └── /terms-of-use
@@ -212,7 +215,10 @@ Glassmorphism is used sparingly and only where it adds depth without clutter:
     ├── /ai/generate-summary  AI summary from content (POST)
     ├── /ai/generate-fields   AI title/slug/SEO from content (POST)
     ├── /comments             GET (approved public), POST (submit), PATCH (admin status update)
-    └── /contact              Contact form submission (rate-limited)
+    ├── /contact              Contact form submission (rate-limited)
+    └── /data-license-benchmark
+        ├── /chat             Proxy to FastAPI backend POST /api/chat
+        └── /translate        Two-stage translation — detect language + back-translate answer
 ```
 
 ### GNB (Global Navigation Bar)
@@ -597,7 +603,7 @@ next-intl v4, `localePrefix: 'always'`. All routes require a locale prefix:
 
 UI strings live in `messages/en.json`, `messages/ko.json`, `messages/zh.json`.
 
-Namespaces: `nav`, `lang`, `hero`, `home`, `themes`, `posts`, `search`, `about`, `contact`, `auth`, `onboarding`, `profile`, `comments`, `admin`, `cookies`, `footer`, `errors`, `meta`
+Namespaces: `nav`, `lang`, `hero`, `home`, `themes`, `posts`, `search`, `about`, `contact`, `auth`, `onboarding`, `profile`, `comments`, `admin`, `cookies`, `footer`, `errors`, `meta`, `dlb` (Data License Benchmark)
 
 ### Post Language Architecture
 
@@ -852,6 +858,42 @@ Yahoo Finance returns 429 errors on residential IPs (rate limit). GitHub Actions
 
 ---
 
+## 10b. Pioneer Lab
+
+### Overview
+
+Pioneer Lab is an admin-only workspace at `/admin/pioneer-lab` for research tools and career intelligence features not exposed to public readers.
+
+### Data License Benchmark Platform
+
+**Purpose**: Q&A chatbot for querying exchange market-data license policies across CME, ASX, LSE, and others.
+
+**Architecture**:
+- **Frontend**: `components/admin/pioneer-lab/DataLicenseBenchmark.tsx` (chat UI), `DocManagementModal.tsx` (document management)
+- **API routes**: `app/api/data-license-benchmark/chat/` (proxies to FastAPI), `app/api/data-license-benchmark/translate/` (GPT-4o-mini translation)
+- **Lib**: `lib/data-license-benchmark/` — `api.ts` (API calls + PDF/MD export), `types.ts`, `mock-data.ts`, `transformers.ts`
+- **Backend**: FastAPI server (`datalicensebenchmarkcenter` repo) at `http://localhost:8000` in dev; controlled by `NEXT_PUBLIC_LICENSE_POLICY_API_BASE_URL` env var
+- **Backend store**: `PolicyStore` in `data_store.py` — in-memory, keyed by `(exchange.lower(), agreement_type.value)`. Uses `_merge()` when multiple JSON files share the same key (prevents overwrite)
+- **Exchange-aware routing**: `normalize.py` checks `_infer_exchange(doc)` before selecting exchange-specific parsers — prevents LSE/ASX documents from being tagged as CME
+
+**Key frontend features**:
+- Exchange toggle sidebar — enables/disables exchanges per query
+- `resolveQueryScope()` — detects exchange mentions in question text; sends `enabled_exchanges: [single]` to backend for focused queries, suppressing off-topic citations
+- `MarkdownAnswer` + `InlineContent` — lightweight custom markdown renderer for LLM output (headers, lists, bold, blockquotes, `[Conclusion]`/`[Supporting Evidence]` labels)
+- Citation cards — auto-expand when ≤3 citations (`AUTO_EXPAND_LIMIT = 3`), per-exchange colored badges (`EXCHANGE_BADGE` map)
+- PDF export — `exportChatHistoryPdf()` generates a styled HTML page and calls `window.print()` — no library dependency
+- Markdown export — `exportChatHistory()` produces structured `.md` file
+
+**Multilingual Q&A (two-stage translation)**:
+1. User question is sent to `/api/data-license-benchmark/translate` — detects language, translates to English if needed
+2. English question goes to FastAPI backend → English answer returned
+3. If question was non-English, answer is back-translated via GPT-4o-mini (`max_tokens: 4096`) before display
+- UI strings use `useTranslations('dlb')` via next-intl; `dlb` namespace exists in all three locale files (en/ko/zh)
+
+**PDF citation link fix**: The backend's `GET /api/documents/{id}/pdf` endpoint returns the original PDF for in-app citation viewing. Filenames with non-ASCII characters (e.g., em dash `–` in LSE files) caused HTTP 500 because Starlette rejects non-ASCII in headers. Fixed with RFC 6266 encoding: `filename="{ascii_fallback}"; filename*=UTF-8''{url_encoded_name}`.
+
+---
+
 ## 10. Analytics & Tracking
 
 ### Current Implementation
@@ -1093,7 +1135,7 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Password change requires current password verification
 - ✅ Header with reactive auth state (onAuthStateChange, no prop drilling)
 - ✅ Header logo — scrolls to top on home page, navigates home from other pages
-- ✅ Dark mode — complete institutional system (Bloomberg/Linear/Vercel aesthetic); next-themes with class strategy; Sun/Moon toggle in header with Framer Motion animation; CSS semantic token system (`--bg-primary`, `--fg-primary`, etc.); deep blue-black `#0B1120` primary background; all 42 files updated; system preference detection; persists via localStorage
+- ✅ Dark mode — complete institutional system; **custom ThemeProvider** (replaced next-themes to eliminate React 19 `<script>` warning); Sun/Moon toggle in header with Framer Motion animation; CSS semantic token system; `#0B1120` primary background; system preference detection; persists via localStorage. Theme-init script uses `<Script strategy="beforeInteractive">` in root `app/layout.tsx` (not the locale layout) — the only place Next.js guarantees it runs outside React's component tree
 - ✅ ScrollToTop floating button — appears after 400px scroll, `bottom-[20vh] right-8`, pale grey border, smooth fade+slide animation
 - ✅ ScrollToBottom floating button — appears after 400px scroll (same threshold), hides near page bottom, `bottom-[12vh] right-8`, same style as ScrollToTop
 - ✅ Footer — redesigned: 2-col grid, legal links in bottom bar, Contact navigates to /contact
@@ -1132,6 +1174,8 @@ Do not write multi-line JSDoc or docstring blocks. At most one short inline comm
 - ✅ Cloudflare domain registered (`hdhmarketfrontier.com`)
 - ✅ Weekly Market Briefing pipeline — 9-agent system, Monday 22:00 UTC via GitHub Actions; GPT-4o-mini; Yahoo Finance v8 chart API + CoinGecko; QuickChart.io POST charts (stable short URLs, narrower bars); Resend notification; Supabase draft upload; chart double-embedding bug fixed; `(UTC)` in title
 - ✅ `docs/project-overview.md` — plain-language explainer of the platform and multi-agent pipeline for sharing with others
+- ✅ Root layout restructure — `app/layout.tsx` now owns `<html>/<head>/<body>` with `<Script strategy="beforeInteractive">` for theme init; uses `getLocale()` from next-intl for `lang` attribute; `app/[locale]/layout.tsx` reduced to providers + content shell only
+- ✅ Pioneer Lab — admin-only workspace at `/admin/pioneer-lab`; Data License Benchmark Platform implemented (exchange Q&A chatbot, markdown rendering, PDF/MD export, citation cards, two-stage translation pipeline, full EN/KO/ZH UI localisation via `dlb` namespace)
 
 ### Partially Implemented / Known Issues
 
@@ -1233,6 +1277,6 @@ This sequence transforms the site from a local prototype into a functioning prof
 
 ---
 
-*Last updated: 2026-05-14 (session 5)*
+*Last updated: 2026-05-17 (session 6)*
 *Document maintained by: Claude Code (with Harry D. Hwang)*
 *Update this file whenever major architectural changes are made.*

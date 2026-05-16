@@ -54,7 +54,12 @@ export function buildMarketAnalystPrompt(data: BriefingPipeline): string {
   ].join('\n');
 
   const newsContext = news.length
-    ? news.map((n, i) => `${i + 1}. [${n.source}] ${n.headline}\n   ${n.summary}`).join('\n\n')
+    ? news
+        .map(
+          (n, i) =>
+            `${i + 1}. [${n.source}] ${n.headline}\n   URL: ${n.url}\n   ${n.summary}`,
+        )
+        .join('\n\n')
     : 'No news items available.';
 
   const calendarContext = calendar.length
@@ -87,7 +92,7 @@ Section requirements:
 - Section 6 (Commodities): Cover Gold, Silver, Brent, WTI, Natural Gas. Use commodity data provided. 1–2 paragraphs.
 - Section 7 (Cryptocurrency): Cover BTC and ETH. Use crypto data provided. 1 paragraph.
 - Section 8 (Regional Highlights): Write a <h3>-subsectioned breakdown for Asia-Pacific (Korea, Japan, Hong Kong, Singapore, Australia) and Europe (UK). Use regional equity data. 2–3 paragraphs total.
-- Section 9 (Key Market News): Format as an HTML <ul> with each news item as <li> containing the headline as <strong> followed by the summary. Include source attribution.
+- Section 9 (Key Market News): Format as an HTML <ul>. For each news item, output a <li> in this exact structure: the headline wrapped in <a href="URL" target="_blank" rel="noopener noreferrer"><strong>Headline text</strong></a>, followed by a space and the source in muted text like <span style="color:#64748b;font-size:0.85em;">(Source)</span>, then a line break or em-dash and the summary sentence. Use the exact URL provided for each item. Do not fabricate URLs.
 - Section 10 (Economic Calendar Ahead): Format as an HTML <table> with columns: Date, Country, Importance, Event. Use the calendar events provided. If no events, state that clearly.
 - Section 11 (Weekly Outlook): 2–3 paragraphs offering a forward-looking perspective on what to watch next week. Reference specific data points from the briefing and identify key risks and catalysts.
 
