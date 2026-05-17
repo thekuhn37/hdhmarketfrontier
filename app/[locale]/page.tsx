@@ -32,10 +32,10 @@ export default async function HomePage({ params }: Props) {
     <>
       <HeroSection />
       <ThemeCards />
+      <AboutSection />
       <FeaturedInsight locale={locale} />
       <LatestPosts locale={locale} />
       <PopularPosts locale={locale} />
-      <AboutSection />
       {/* <NewsletterSection /> */}
     </>
   )
