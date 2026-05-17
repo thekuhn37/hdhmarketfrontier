@@ -1,19 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-
-/**
- * POST /api/data-license-benchmark/translate
- *
- * Two modes:
- *  1. No `targetLanguage` → detect source language, translate to English.
- *     Returns { originalLanguage, translatedText, wasTranslated }
- *
- *  2. `targetLanguage` provided (e.g. "ko") → translate English text to that language.
- *     Returns { translatedText }
- */
 export async function POST(req: NextRequest) {
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   const body = await req.json() as { text: string; targetLanguage?: string }
   const { text, targetLanguage } = body
   if (!text?.trim()) return NextResponse.json({ error: 'Missing text' }, { status: 400 })
