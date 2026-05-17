@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import {
   Scale, Building2, FileText, Send, Download, Trash2,
   MessageSquare, AlertTriangle, Loader2, RefreshCw,
-  ChevronDown, ChevronRight, X,
+  ChevronDown, ChevronRight, X, SlidersHorizontal,
 } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import type {
@@ -417,6 +417,7 @@ export default function DataLicenseBenchmark() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [docManagementOpen, setDocManagementOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const [showDisclaimer, setShowDisclaimer] = useState(true)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
 
@@ -586,11 +587,68 @@ export default function DataLicenseBenchmark() {
         </div>
       )}
 
+      {/* Mobile sidebar toggle */}
+      <div className="md:hidden">
+        <button
+          onClick={() => setSidebarOpen(v => !v)}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-[#0F172A] border border-[#E5E7EB] dark:border-white/10 text-sm font-medium text-[#4B5563] dark:text-slate-300 w-full"
+        >
+          <SlidersHorizontal size={14} className="text-[#38BDF8]" />
+          <span>Exchanges & Settings</span>
+          <div className="ml-auto flex items-center gap-2">
+            {enabledExchanges.length > 0 && (
+              <div className="flex gap-1">
+                {enabledExchanges.map(code => (
+                  <span key={code} className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#0F172A] text-white dark:bg-[#1E3A5F] dark:text-[#38BDF8]">{code}</span>
+                ))}
+              </div>
+            )}
+            <ChevronDown size={14} className={cn('transition-transform', sidebarOpen && 'rotate-180')} />
+          </div>
+        </button>
+        {sidebarOpen && (
+          <div className="mt-2 space-y-3">
+            {/* Exchange panel */}
+            <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
+              <div className="px-4 py-3 border-b border-[#F1F5F9] dark:border-white/5 flex items-center gap-2">
+                <Building2 size={13} className="text-[#38BDF8]" />
+                <h2 className="text-[10px] font-semibold uppercase tracking-wider text-[#6B7280] dark:text-slate-400">{t('exchanges.heading')}</h2>
+              </div>
+              <div className="divide-y divide-[#F1F5F9] dark:divide-white/5">
+                {exchanges.map(exchange => (
+                  <div key={exchange.id} className="px-4 py-3 flex items-center gap-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-sm text-[#0F172A] dark:text-white">{exchange.code}</span>
+                        <span className={cn('px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wider', exchange.status === 'active' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400' : 'bg-[#F1F5F9] text-[#9CA3AF] dark:bg-white/5 dark:text-slate-500')}>
+                          {exchange.status === 'active' ? t('exchanges.statusActive') : t('exchanges.statusInactive')}
+                        </span>
+                      </div>
+                    </div>
+                    <ToggleSwitch checked={exchange.enabled} onChange={() => handleToggleExchange(exchange.id)} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Action buttons */}
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => { setDocManagementOpen(true); setSidebarOpen(false) }} className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-[#0F172A] border border-[#E5E7EB] dark:border-white/10 text-sm text-[#4B5563] dark:text-slate-300 font-medium">
+                <FileText size={14} className="text-[#38BDF8]" />{t('actions.docManagement')}
+                <span className="ml-auto text-xs text-[#9CA3AF]">{documents.length}</span>
+              </button>
+              <button onClick={handleClearChat} disabled={chatMessages.length === 0} className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-[#0F172A] border border-[#E5E7EB] dark:border-white/10 text-sm text-[#4B5563] dark:text-slate-300 font-medium disabled:opacity-40">
+                <Trash2 size={14} className="text-[#6B7280]" />{t('actions.clearShort')}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Main two-column layout */}
       <div className="flex gap-4 items-start">
 
-        {/* ── Left sidebar ── */}
-        <div className="w-72 flex-shrink-0 space-y-3">
+        {/* ── Left sidebar (desktop only) ── */}
+        <div className="hidden md:block w-72 flex-shrink-0 space-y-3">
 
           {/* Exchange panel */}
           <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
@@ -669,7 +727,7 @@ export default function DataLicenseBenchmark() {
         </div>
 
         {/* ── Right chat panel ── */}
-        <div className="flex-1 flex flex-col bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden" style={{ minHeight: 'calc(100vh - 17rem)' }}>
+        <div className="flex-1 min-w-0 flex flex-col bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden" style={{ minHeight: 'calc(100vh - 17rem)' }}>
           <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4">
             {chatMessages.length === 0 && !loading ? (
               <ChatEmptyState onSamplePrompt={q => setInput(q)} />

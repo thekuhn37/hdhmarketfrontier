@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('homeTitle'),
       description: t('siteDesc'),
-      images: [{ url: 'https://hdhmarketfrontier.com/en/opengraph-image', width: 1200, height: 630 }],
+      images: [{ url: 'https://hdhmarketfrontier.com/images/harry-hwang.jpg', width: 800, height: 800 }],
     },
     twitter: {
       card: 'summary_large_image',
-      images: ['https://hdhmarketfrontier.com/en/opengraph-image'],
+      images: ['https://hdhmarketfrontier.com/images/harry-hwang.jpg'],
     },
   }
 }
