@@ -20,7 +20,7 @@ export default async function Image() {
           display: 'flex',
           alignItems: 'center',
           padding: '60px 80px',
-          gap: '60px',
+          gap: '32px',
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: '12px' }}>
@@ -34,7 +34,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            Market Intelligence
+            Financial Market Intelligence
           </div>
           <div
             style={{
@@ -57,7 +57,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            Financial Research & Analysis
+            Explore the evolving industry landscape
           </div>
           <div
             style={{
@@ -76,11 +76,12 @@ export default async function Image() {
 
         <img
           src={headshot}
-          width={220}
-          height={220}
+          width={290}
+          height={290}
           style={{
             borderRadius: '50%',
             objectFit: 'cover',
+            objectPosition: 'center top',
             border: '4px solid #3b82f6',
             flexShrink: 0,
           }}
