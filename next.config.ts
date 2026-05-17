@@ -20,6 +20,9 @@ if (process.env.NEXT_PUBLIC_SITE_URL) {
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  outputFileTracingIncludes: {
+    '**': ['./node_modules/@swc/helpers/**'],
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '*.supabase.co' },
