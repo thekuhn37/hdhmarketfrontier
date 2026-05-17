@@ -1,6 +1,11 @@
 import Script from 'next/script'
 import { getLocale } from 'next-intl/server'
+import type { Metadata } from 'next'
 import './globals.css'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://hdhmarketfrontier.com'),
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale()
