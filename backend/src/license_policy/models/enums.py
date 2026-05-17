@@ -8,6 +8,9 @@ class AgreementType(str, Enum):
     product_guide = "product_guide"
     fee_schedule = "fee_schedule"
     marketsource_agreement = "marketsource_agreement"
+    terms_and_conditions = "terms_and_conditions"
+    market_data_policy = "market_data_policy"
+    policy_guidelines = "policy_guidelines"
 
 
 class DataCategory(str, Enum):
