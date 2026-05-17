@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
+import { createAdminClient } from '@/lib/supabase/server'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hdhmarketfrontier.com'
+const siteUrl = 'https://hdhmarketfrontier.com'
 const locales = ['en', 'ko', 'zh']
 
 const STATIC_ROUTES = [
@@ -18,23 +19,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   )
 
-  // Sample post slugs - in production these come from Supabase
-  const sampleSlugs = [
-    'understanding-market-structure',
-    'why-market-data-strategy-matters',
-    'hidden-infrastructure-financial-markets',
-    'ai-use-cases-financial-data-governance',
-    'tokenization-future-market-infrastructure',
-  ]
+  let postPages: MetadataRoute.Sitemap = []
+  try {
+    const supabase = createAdminClient()
+    const { data: posts } = await supabase
+      .from('posts')
+      .select('slug, language, updated_at')
+      .eq('status', 'published')
+      .order('published_at', { ascending: false })
 
-  const postPages = locales.flatMap(locale =>
-    sampleSlugs.map(slug => ({
-      url: `${siteUrl}/${locale}/posts/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as 'monthly',
-      priority: 0.7,
-    }))
-  )
+    if (posts && posts.length > 0) {
+      postPages = posts.map(post => ({
+        url: `${siteUrl}/${post.language}/posts/${post.slug}`,
+        lastModified: new Date(post.updated_at),
+        changeFrequency: 'monthly' as 'monthly',
+        priority: 0.7,
+      }))
+    }
+  } catch {
+    // If DB is unreachable, sitemap still works for static pages
+  }
 
   return [...staticPages, ...postPages]
 }
