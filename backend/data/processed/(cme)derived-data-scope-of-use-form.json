@@ -1,0 +1,442 @@
+{
+  "exchange": "CME",
+  "agreement_type": "derived_data",
+  "agreement_title": "CME Group Derived Data License Agreement",
+  "version": "",
+  "definitions": {
+    "Derived Data Scope of Use\nDate": "Name of Organization:",
+    "Address": "Website:",
+    "Contact Name": "Contact Phone/E-mail: This scope of use is intended to assist with articulating the activities in which CME Group Market Data (herein after “Information”) is, or will be used, by your organization in the creation of derived works. The purpose of completing this document is to facilitate the appropriate licensing as required. Section 1 – Customer If your organization uses CME Group Information for the purposes of creating, distributing, maintaining or settlement of any derived works (herein after “Products”) please complete each of the following questions in respect of your usage of CME Group Information. Derived works include, but are not limited to indexes, exchange traded or other structured products, OTC products, quotes, spot prices, curves, surfaces, contracts for difference (CFDs) and other similar leveraged products, indicative optimized portfolio values (IOPV), net asset values (NAV), or analytical reference figures or values calculated from Information for purposes of fund administration and portfolio management services, risk management services, or valuation services."
+  },
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "non-exclusive, non-transferable, non-sublicensable worldwide license",
+    "territory": "worldwide",
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to use Information to process, develop, create, calculate, settle, maintain or support and market Products; and with prior written consent of CME, distribute Products within the Services."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "end_of_day",
+      "description": "Summary data available at end of trading day (settlement, open, high, low, close, etc.).",
+      "timing_constraint": "end of trading day",
+      "delay_period": null
+    },
+    {
+      "category": "snapshot",
+      "description": "Information of not more than three specific points in time in a single calendar day, only for derived works.",
+      "timing_constraint": "up to 3 points per day",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Use Information to process, develop, create, calculate, settle, maintain or support and market Products as listed in Appendix A.",
+      "conditions": [
+        "Must have Information Agreement in force",
+        "Subject to Information Policies"
+      ],
+      "source_section": "2.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Distribute Products within Services for customers/clients' use within the Services only.",
+      "conditions": [
+        "Requires prior written consent of CME"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Creation, calculation, issuance, distribution, settlement, maintenance or support of derivative works not authorized under this Agreement, including: indexes, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information in connection with the trading or support of any commodity or financial product on any exchange or trading platform not designated by CME.",
+      "conditions": [],
+      "source_section": "2.12",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information for calculating, distributing, settling, providing liquidity for or maintaining any CFD, binary option, spread bet or any related leveraged product.",
+      "conditions": [],
+      "source_section": "2.12",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information to create Futures Contracts or Options on Futures Contracts, or licensing any Product to third parties to create futures or options on futures.",
+      "conditions": [],
+      "source_section": "2.13",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information.",
+      "conditions": [],
+      "source_section": "2.8(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.8(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [
+    {
+      "description": "Products must constitute a new, original work that has been derived from the Information and must not be capable of being used as a substitute for the Information.",
+      "criteria": [
+        "Must constitute a new, original work derived from Information",
+        "Must not be capable of being used as a substitute for Information",
+        "Must not be capable of reverse engineering to re-create the original Information",
+        "Must be used in accordance with the Information Agreement terms"
+      ],
+      "verification_authority": "CME has sole discretion to determine if Product meets requirements"
+    }
+  ],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of receipt of invoice from CME.",
+    "late_penalty": "Daily interest at the lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "CME may change/revise Fees with 90 days prior written notice. Annual automatic increase based on IMF CPI if CME does not exercise revision rights.",
+    "refund": "Pro-rated refund only if CME terminates under section 5.1(d). No other refunds.",
+    "tax": "Fees exclusive of applicable taxes (sales, distribution, use, withholding, VAT except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "Fees pro-rated if Effective Date or Appendix A date does not fall on first day of year.",
+    "unit_of_count": null,
+    "reporting_requirements": "",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books of account, records and related documentation relating to use of Information.",
+      "duration": "During Term and 24 months thereafter, for most recent 5 years.",
+      "details": [
+        "Books of account for all Licensee Group entities' use of Information",
+        "CME may inspect equipment, devices, software and records"
+      ]
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated as Confidential Information",
+        "Underpayment >5% means Licensee bears audit costs",
+        "Outstanding Fees from audit due within 30 days of invoice"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, Licensee Group, consultants and advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, required by law/regulation"
+      ]
+    },
+    {
+      "type": "disclaimer",
+      "description": "Required disclaimer text must be used in all Informational Material (Appendix E).",
+      "duration": "",
+      "details": [
+        "CME GROUP MARKET DATA IS USED UNDER LICENSE AS A SOURCE OF INFORMATION FOR CERTAIN [LICENSEE] PRODUCTS. CME GROUP HAS NO OTHER CONNECTION TO [LICENSEE] PRODUCTS AND SERVICES AND DOES NOT SPONSOR, ENDORSE, RECOMMEND OR PROMOTE ANY [LICENSEE] PRODUCTS OR SERVICES."
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages arising from the Agreement, except gross negligence or willful misconduct by CME.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "non_renewal",
+      "initiated_by": "either",
+      "notice_period": "90 days prior to end of Initial Term or current Renewal Term",
+      "consequences": "Agreement terminates at end of term. Wind-down provisions apply."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "Immediate if material irremediable breach; 30 days to cure material breach",
+      "consequences": "Includes: misrepresentation, failure to comply with 2.4, failure to use effective Internal Controls, failure to prevent unauthorized use."
+    },
+    {
+      "trigger": "fee_revision",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from fee increase notice or Information Policy revision",
+      "consequences": ""
+    },
+    {
+      "trigger": "reverse_engineering",
+      "initiated_by": "cme",
+      "notice_period": "Immediate or 90 days written notice",
+      "consequences": "If CME determines Information may be or is being reverse-engineered or misused."
+    },
+    {
+      "trigger": "change_of_control",
+      "initiated_by": "cme",
+      "notice_period": "Immediate upon notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "information_agreement_terminated",
+      "initiated_by": "cme",
+      "notice_period": "Immediate upon notice",
+      "consequences": "If Information Agreement governing receipt of relevant Information is terminated."
+    },
+    {
+      "trigger": "law_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate",
+      "consequences": "If changes in law impair CME's ability to provide license."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate",
+      "consequences": "If underlying contract is delisted/substantially changed or CME's rights to license substantially change."
+    }
+  ],
+  "wind_down": {
+    "description": "After termination, Licensee may continue using Information for previously issued and outstanding Products requiring orderly wind-down.",
+    "max_duration": "Shorter of: (i) Product remains outstanding, or (ii) 1 year after termination.",
+    "conditions": [
+      "Must continue to pay Fees",
+      "Must comply with all Agreement terms",
+      "As set out in Appendix A",
+      "As required by applicable law or regulation"
+    ]
+  },
+  "redistribution_restrictions": [
+    {
+      "description": "No Licensee Group entity may license, sublicense, transfer, sell, resell, publish, reproduce or otherwise distribute/redistribute Information.",
+      "exceptions": [
+        "Distribution of Products within Services with prior written CME consent"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $100,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$100,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk"
+    ],
+    "indemnification": "Licensee indemnifies CME Group against all Claims and Damages except those arising from CME's gross negligence or willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": "Derived Data Scope of Use\nDate:\nName of Organization:\nAddress:\nWebsite:\nContact Name:\nContact Phone/E-mail:\nThis scope of use is intended to assist with articulating the activities in which CME Group Market Data (herein\nafter “Information”) is, or will be used, by your organization in the creation of derived works. The purpose of\ncompleting this document is to facilitate the appropriate licensing as required.\nSection 1 – Customer\nIf your organization uses CME Group Information for the purposes of creating, distributing, maintaining or\nsettlement of any derived works (herein after “Products”) please complete each of the following questions in\nrespect of your usage of CME Group Information. Derived works include, but are not limited to indexes, exchange\ntraded or other structured products, OTC products, quotes, spot prices, curves, surfaces, contracts for difference\n(CFDs) and other similar leveraged products, indicative optimized portfolio values (IOPV), net asset values (NAV),\nor analytical reference figures or values calculated from Information for purposes of  fund  administration and\nportfolio management services, risk management services, or valuation services.",
+      "page": 1
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ".\nWhat is the name of the legal entity that requires/uses CME Group Information?",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".\nWhat are your organization’s primary business activities?\nAsset Manager\nBank\nSoftware Vendor\nCommercial/Corporate\nExchange\nHedge Fund\nIndex Provider\nInformation Vendor\nCFD Provider\nGovernment Agency or Academic Institution\nOther (please specify):",
+      "page": 1
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ".\nIn which region(s) does your company offer or conduct these activities?\nAsia-Pacific\nCanada\nEMEA\nLatin America\nU.S.\nOther (please specify):\nDERIVED DATA SCOPE OF USE",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ".\nAre you currently licensed to receive and use CME Group Information?\nMarket Data License Agreement\nSubscriber Agreement\nOther (please specify):",
+      "page": 2
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ".\nPlease list all market data distributors your organization uses to receive CME Group Information:\nPrimary Data Distributor:\nDistributor Name:\nContact Name:\nTelephone Number:\nEmail Address:\nAdditional Data Distributor:\nAdditional Data Distributor:",
+      "page": 2
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ".\nOn which date did/will you start receiving CME Group  Information?\nSection 2 – Use of Information in Derived Works",
+      "page": 2
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ".\nIn the table below, please list each of your organization’s Products that contain CME Group Information\nand provide the associated detail. (Please be as specific as possible, please use one row per product. A spreadsheet\nversion can be provided upon request if more rows are required.)\nTotal Number of Products:\nBranded Name of Product\n(e.g. US Light Crude CFD; Acme\nCommodity Index)\nProduct\nType\n(e.g. CFD,\nIndex, ETF)\nCME Information used to\ncreate your Product\n(please list all if multiple, e.g.\nGold Options; WTI Futures)\nFrequency of\nAccess to CME\nInformation\n(real time, delayed\nor end of day)\n% weighting of CME\nGroup Information in\nyour Product\n(list each)\nDERIVED DATA SCOPE OF USE",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": ".\nIn the table below, please provide the details about each Products’ distribution.\nBranded Name of\nProduct\n(e.g. US Light Crude CFD;\nAcme Commodity Index)\nInternal or\nExternal\nDistribution?\nDistribution Method\n(e.g. www.client.com, white label\nservice, platform, API feed,\nexchange listed, research paper)\nFrequency of Product\nDissemination\n(real-time, delayed, EOD,\nquarterly, yearly)\nDistribution Start\nDate\n(MM/DD/YYYY)",
+      "page": 3
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": ".\nAre any Product(s) tradable instruments or investment products?\nYes\nNo",
+      "page": 3
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ". Please provide the details of each methodology used to create your Product(s). Please use one row per\nProduct methodology and a clear example to illustrate the approach.\nDetails of Methodology\nExamples of Methodology\nDERIVED DATA SCOPE OF USE",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "Section 4 – Additional Product Information",
+      "page": 4
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": ". Please provide any additional information or material with your submission that may be relevant with\nregard to the Products and would assist CME in accurately licensing your organization for the use of CME\nGroup Information (e.g. prospectus’, investor documents, legal and/ or regulatory filings, informational and/or\nmarketing material)",
+      "page": 4
+    },
+    {
+      "number": "12",
+      "title": "",
+      "text": ". If your organization intends to use a third party to calculate all or a portion of a Product (Calculation\nAgent) please provide detail below:\nName of Calculation Agent:\nDescription of calculation the Calculation Agent is to perform:\nSection 4 – Affiliated Companies\n“Affiliate” means, an entity that controls, is controlled by or is under common control with a party. Control means the\nownership or control, directly or indirectly, of at least fifty percent (50%) or more of all of the voting shares (or other\nsecurities or rights) entitled to vote for the election of directors or other governing authority.",
+      "page": 4
+    },
+    {
+      "number": "13",
+      "title": "",
+      "text": ". Please list all affiliates of your organization that will use CME Group Information:",
+      "page": 4
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ".",
+      "page": 4
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".",
+      "page": 4
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ".",
+      "page": 4
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ".",
+      "page": 4
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ".",
+      "page": 4
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ".",
+      "page": 4
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

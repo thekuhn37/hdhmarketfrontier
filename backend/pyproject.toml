@@ -1,0 +1,29 @@
+[project]
+name = "license-policy-benchmark"
+version = "0.2.0"
+description = "MCP server and REST API backend for the Data License Benchmark Platform"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "pymupdf>=1.25",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
+    "anthropic>=0.40",
+    "python-dotenv>=1.0",
+    "openai>=2.37.0",
+]
+
+[project.scripts]
+preprocess = "license_policy.preprocessing.cli:main"
+serve = "license_policy.server.main:main"
+api = "license_policy.api.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/license_policy"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

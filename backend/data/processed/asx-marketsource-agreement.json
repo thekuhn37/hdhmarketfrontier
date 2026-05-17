@@ -1,0 +1,1298 @@
+{
+  "exchange": "ASX",
+  "agreement_type": "marketsource_agreement",
+  "agreement_title": "MarketSource Agreement — General Terms and Conditions",
+  "version": "2.0 (July 2023)",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "non-transferable, non-exclusive licence",
+    "territory": null,
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "Licence to store/process Information, display Real Time in Closed User Groups, display Delayed/EOD in Closed/Open User Groups, distribute as Datafeed to Subscriber Firms for internal use, and Non-Display Use (clause 6.1)."
+  },
+  "data_categories": [],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Store and process Information in Your System.",
+      "conditions": [],
+      "source_section": "6.1(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Display Real Time Information on a Device to End Users in Closed User Groups.",
+      "conditions": [
+        "Must comply with Agreement terms",
+        "Must pay applicable Fees"
+      ],
+      "source_section": "6.1(b)(i)",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Display Delayed and EOD Information on a Device to Closed or Open User Groups.",
+      "conditions": [],
+      "source_section": "6.1(b)(ii)",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Distribute Information as part of a Datafeed to Subscriber Firms for their internal use only.",
+      "conditions": [],
+      "source_section": "6.1(b)(iii)",
+      "use_context": "datafeed",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use and distribute Real Time, Delayed or EOD Information for Non-Display Use purposes.",
+      "conditions": [],
+      "source_section": "6.1(b)(iv)",
+      "use_context": "non_display",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Provide Information to Sub-vendors for distribution to their Subscriber Firms and End Users, with prior written authorisation from ASX.",
+      "conditions": [
+        "Sub-vendor must have entered appropriate MarketSource distribution agreement with ASX",
+        "If released without authorisation, licensee liable for Sub-vendor's Fees"
+      ],
+      "source_section": "6.2",
+      "use_context": "redistribution",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Use Information for creating a New Original Work.",
+      "conditions": [
+        "Requires prior written consent from ASX (may be withheld in absolute discretion)",
+        "ASX determines whether processed Information constitutes a New Original Work",
+        "If approved, ASX acknowledges licensee owns IP in the New Original Work",
+        "Order Form updated per clause 6.4"
+      ],
+      "source_section": "6.7",
+      "use_context": "new_original_work",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "End Users may publish ad-hoc limited extracts of static Information in written or oral communications with clients in connection with ordinary financial services business.",
+      "conditions": [
+        "Must not constitute regular or systematic distribution",
+        "Must not involve Real Time or continuously updating Information",
+        "Must be attributed to ASX",
+        "ASX reserves right to determine what constitutes limited extracts"
+      ],
+      "source_section": "6.8",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information to establish, maintain or provide the ability to trade Financial Products or a financial market for trading, unless specifically authorised by law.",
+      "conditions": [],
+      "source_section": "6.6",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information other than as permitted by the terms of this Agreement.",
+      "conditions": [],
+      "source_section": "6.9",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": null,
+  "compliance_obligations": [
+    {
+      "type": "record_keeping",
+      "description": "Retain up-to-date books and records to enable Fees and other sums to be ascertained.",
+      "duration": "Period specified in the Guide",
+      "details": [
+        "Must retain records as specified in the Guide from time to time",
+        "Where Datafeed provided to Subscriber Firm, must require Subscriber Firms to retain A&E records",
+        "Subscriber Firms must report usage preferably monthly, at intervals not exceeding 3 calendar months"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "Monthly remittance report concerning use and distribution of Information.",
+      "duration": "",
+      "details": [
+        "Submit within timeframe and format specified in the Guide",
+        "Must cover all use and distribution of Information"
+      ]
+    },
+    {
+      "type": "audit",
+      "description": "ASX may send personnel to verify compliance with the Agreement.",
+      "duration": "",
+      "details": [
+        "At least 30 days notice (less if reasonable grounds for compliance suspicion)",
+        "Remote and/or in-person inspection during normal business hours",
+        "Covers: services, A&E system, devices, systems, applications, books and records",
+        "Underpayment >5%: customer bears reasonable audit costs",
+        "Underpayment amount plus interest (2% above overdraft rate) payable within 30 days",
+        "Overpayment: refund limited to preceding 60 days before inspection",
+        "Must promptly advise ASX of evidence of Subscriber Firm/End User breach"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information used solely for Agreement purposes; need-to-know disclosure only.",
+      "duration": "",
+      "details": [
+        "Disclosure permitted: with prior written consent, as required by law, to ASX service providers/advisors/Group/regulators",
+        "Remittance reports are confidential to the licensee"
+      ]
+    },
+    {
+      "type": "notification",
+      "description": "Must promptly notify ASX of unauthorised use of MarketSource Products or IP infringement.",
+      "duration": "",
+      "details": [
+        "Must require Subscriber Firms to inform of any such use or infringement",
+        "Must discontinue supply to any third party if ASX provides notice of licence breach"
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies ASX, Related Bodies Corporate and Personnel against Losses from: breach of Agreement, unauthorised use/supply, Subscriber Agreement breach, wilful/fraudulent/negligent acts.",
+      "duration": "",
+      "details": [
+        "Except to the extent ASX has caused or contributed to the Losses"
+      ]
+    },
+    {
+      "type": "notice",
+      "description": "Fees calculated per Fee Schedule; ASX may vary with 90 days notice via ASX Online.",
+      "duration": "",
+      "details": [
+        "Payable in Australian dollars only unless otherwise agreed",
+        "Direct billing option available for Subscriber Firms upon request",
+        "Late payment: interest at 2% above overdraft rate, accruing daily",
+        "Late 2 consecutive months or 3/6 months: immediate audit at customer cost",
+        "All taxes, duties (including GST and withholding tax) borne by licensee"
+      ]
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "breach",
+      "initiated_by": "licensee",
+      "notice_period": "30 days cure period",
+      "consequences": "Termination if ASX fails to remedy material breach within 30 days"
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "ASX",
+      "notice_period": "30 days cure period",
+      "consequences": "Termination if licensee fails to remedy material breach within 30 days"
+    },
+    {
+      "trigger": "insolvency",
+      "initiated_by": "ASX",
+      "notice_period": "Immediate",
+      "consequences": "Termination without liability upon Insolvency Event"
+    },
+    {
+      "trigger": "suspension_extended",
+      "initiated_by": "ASX",
+      "notice_period": "Immediate",
+      "consequences": "Termination if suspension under clause 22.1 not lifted after >90 days"
+    },
+    {
+      "trigger": "trading_restriction_breach",
+      "initiated_by": "ASX",
+      "notice_period": "Immediate",
+      "consequences": "Termination for breach of trading restriction clause 6.6"
+    },
+    {
+      "trigger": "change_of_control",
+      "initiated_by": "ASX",
+      "notice_period": "Immediate",
+      "consequences": "Termination upon change in direct or indirect beneficial ownership or control"
+    },
+    {
+      "trigger": "convenience",
+      "initiated_by": "either",
+      "notice_period": "90 days prior written notice",
+      "consequences": "Termination without cause"
+    },
+    {
+      "trigger": "format_change",
+      "initiated_by": "licensee",
+      "notice_period": "Immediate",
+      "consequences": "Termination if Format Change is likely to be detrimental (clause 9.3)"
+    },
+    {
+      "trigger": "urgent_change",
+      "initiated_by": "licensee",
+      "notice_period": "Immediate",
+      "consequences": "Termination if urgent changes to Agreement or Means of Supply are detrimental (clause 4.5: law changes, regulatory direction, security/technical issues)"
+    }
+  ],
+  "wind_down": {
+    "description": "On termination: licences immediately cease, must destroy all ASX Confidential Information (Information, Software, Documentation) within 30 days, may retain one backup copy for archival/record keeping, must provide signed confirmation of destruction upon request.",
+    "max_duration": "30 days",
+    "conditions": [
+      "Must promptly pay all amounts owed",
+      "ASX discharged from further obligations after termination date",
+      "Surviving clauses: Terms of Licence, Taxes, Liability, Indemnity, IP Rights, Confidentiality, Dispute Resolution"
+    ]
+  },
+  "redistribution_restrictions": [
+    {
+      "description": "Assignment requires ASX prior written consent (not unreasonably withheld).",
+      "exceptions": [
+        "ASX may assign to any ASX Group member without notice",
+        "ASX may assign to any person capable of fulfilling obligations with prior written notice"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "12 months' Fees",
+    "cap_amount": "Fees paid or payable during 12 months preceding the events giving rise to liability",
+    "exclusions": [
+      "Consequential Loss (loss of revenue, profits, goodwill, anticipated savings, data, trading losses, opportunity)",
+      "Losses from unauthorised use/supply by licensee",
+      "Losses from Subscriber Agreement breach",
+      "Losses from decisions based on Information",
+      "Losses from inaccurate/incomplete Information (except wilful misconduct, fraud, or negligence)",
+      "Losses from transmission delays/interruptions (except wilful misconduct, fraud, or negligence)"
+    ],
+    "indemnification": "Licensee indemnifies ASX for: breach of Agreement, unauthorised use/supply, Subscriber Agreement breach, wilful/fraudulent/negligent acts; except to extent ASX caused or contributed",
+    "ip_indemnification": "ASX indemnifies licensee for IP infringement of Software/Documentation/Information provided under Agreement, subject to: content not altered/tampered by licensee, prompt notification, ASX controls defence/settlement, licensee provides reasonable assistance. ASX may: obtain continued use rights, modify/replace infringing part, or accept return and refund Fees."
+  },
+  "dispute_resolution": {
+    "governing_law": "Laws in force in the State of New South Wales",
+    "arbitration_body": null,
+    "venue": "Courts of New South Wales and appellate courts of the Commonwealth of Australia",
+    "language": "",
+    "negotiation_period": "7 days executive negotiation before court proceedings",
+    "court_jurisdiction": "Exclusive jurisdiction of NSW courts"
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [
+    {
+      "trigger": "Payment failure",
+      "notice_period": "Immediate",
+      "cure_period": "7 days after receiving notice",
+      "consequences": "Access to MarketSource Products suspended",
+      "requalification_required": false
+    },
+    {
+      "trigger": "Unauthorised access to Broker Specific or Restricted Information",
+      "notice_period": "Immediate",
+      "cure_period": "",
+      "consequences": "Access suspended; ASX must promptly notify",
+      "requalification_required": false
+    },
+    {
+      "trigger": "Technical or operational issues causing detriment to ASX systems",
+      "notice_period": "Immediate",
+      "cure_period": "",
+      "consequences": "Connection suspended",
+      "requalification_required": true
+    },
+    {
+      "trigger": "Unjustified delays or distortions in Information transmission to Subscriber Firms/End Users",
+      "notice_period": "Immediate",
+      "cure_period": "",
+      "consequences": "Access suspended",
+      "requalification_required": false
+    },
+    {
+      "trigger": "Reputational risk to ASX or market integrity",
+      "notice_period": "Immediate",
+      "cure_period": "",
+      "consequences": "Access suspended",
+      "requalification_required": false
+    },
+    {
+      "trigger": "Regulatory direction or applicable law compliance",
+      "notice_period": "Immediate",
+      "cure_period": "",
+      "consequences": "Access suspended",
+      "requalification_required": false
+    }
+  ],
+  "subscriber_agreement_requirements": [
+    {
+      "description": "Before providing Information to any Subscriber Firm, must enter into a Subscriber Agreement containing terms materially consistent with obligations under the MarketSource Agreement (clause 7.1-7.4).",
+      "mandatory_terms": [
+        "Only use Information solely for own internal business purposes",
+        "Not transfer or publish to third parties except as permitted",
+        "Recognise IP Rights of ASX and ASX's Suppliers",
+        "Not allow any person other than an End User to access Information",
+        "Ensure each End User has unique user ID/password as part of approved A&E System; no sharing",
+        "Not use Information for illegal purpose or purpose not permitted under Agreement",
+        "Maintain records and provide information for record keeping, reporting and payment obligations including monthly device/user counts",
+        "Allow ASX or authorised representative to remotely audit and/or enter premises to audit systems, records and usage",
+        "Obtain and provide consents for ASX to review personal information for compliance verification",
+        "Keep confidential all ASX Confidential Information; no third-party disclosure without prior written consent"
+      ]
+    }
+  ],
+  "force_majeure": {
+    "description": "If a party is wholly or partially unable to perform obligations due to Force Majeure Event, obligations suspended for duration of delay. If delay continues >60 days, non-affected party may terminate. If ASX suspends supply, licensee relieved from paying Fees for suspended products.",
+    "covered_events": [
+      "Acts of terrorism",
+      "Epidemic",
+      "War",
+      "Fire",
+      "Flood or other accident",
+      "Strike",
+      "Lock outs",
+      "Delays in transport",
+      "Material shortages",
+      "Restrictions or prohibitions of any government or semi-government authority"
+    ]
+  },
+  "document_priority": [
+    "Order Form (including Special Conditions)",
+    "Guide (Product & Services Guide)",
+    "Applicable schedules or addenda",
+    "General Terms and Conditions"
+  ],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": "DEFINITIONS",
+      "page": 1
+    },
+    {
+      "number": "1.1",
+      "title": "In this Agreement:",
+      "text": "‘Access & Entitlement System’ means auditable security systems and controls\nthat permission access to, record and report all usage of Information by reference\nto the Units of Count under this Agreement and:\n(a)\nmeet Our requirements published in the Guide; and\n(b)\nare approved by Us;\n‘Agreement’ means these General Terms and Conditions, the Guide, the Fee\nSchedule, the applicable Order Form and any other documents incorporated by\nreference;\n‘ASX’ means the Australian Securities Exchange, a market operated by ASX\nLimited ABN 98 008 624 691;\n‘ASX Group’ means Us and Our Related Bodies Corporate;\n‘ASX Online’ means the ASX Online website, located at www.asxonline.com;\n‘Broker Specific Information’ has the meaning given in Schedule 1;\n‘Business Day’ means a day other than:\n(a) a Saturday, Sunday, New Year’s Day, Good Friday, Easter Monday,\nChristmas Day, Boxing Day;\n(b) any other day that We or any of Our Related Bodies Corporate advise is not\na Business Day; and\n(c) any other day that We or any of Our Related Bodies Corporate are not open\nfor business;\n‘Claim’ means any claim, demand, action or proceeding (whether based in\ncontract, tort (including negligence), statute or otherwise;\n‘Closed User Group’ means any system, technical environment or electronic data\ntransmission where access to or use of the Information is controlled by an Access\n& Entitlement System;\n‘Commencement Date’ means the date the Order Form is signed by both parties,\nor the date otherwise expressed as the ‘Commencement Date’ in the Order Form;\n‘Confidential Information’ means the terms of this Agreement, and information\ndisclosed in connection with this Agreement which by its nature is confidential, is\ndesignated as confidential, or which the recipient knows or reasonably ought to\nknow is confidential, but does not include information that is in the public domain\nwithout a breach of confidence or breach of this Agreement, is obtained from a third\nparty without an obligation of confidence, is independently developed without\nbreach of this Agreement, and includes in the case of ASX:\n(a) the Information;\n(b) any information relating to any business conducted by Us and the ASX Group\nand the customers, personnel, policies or business strategies of Ours and that\nof the members of the ASX Group;\n(c) information comprised in or relating to the Software, the Information or the\nDocumentation;\n(d) that part of all notes and other records prepared by the Subscriber Firm or\nEnd User based on or incorporating the information referred to in paragraph\n(c); and\n(e) all copies of the information and those parts of the notes and other records\nreferred to in any of paragraphs (a), (b), (c) and (d);\n‘Consequential Loss’ means loss of revenue, loss of profits, loss of goodwill, loss\nof anticipated savings or business, pure economic loss, loss or corruption of data,\nloss of value of equipment, trading losses, wasted expenditure, loss of opportunity\nor expectation loss and any other form of consequential, indirect or special loss;\n‘Corporations Act’ means the Corporations Act 2001 (Cth);\n‘Datafeed’ means any supply of the Information to an environment where You do\nnot control the Access & Entitlement System;\n‘Delayed Information’ means the Real Time Information that has been delayed\nfor a minimum period specified in the Guide after its initial dissemination by Us;\n‘Derived Information’ means any part of the Information (excluding Restricted\nInformation or Broker Specific Information) or any data derived in any way from the\nreformatting, manipulation or processing of the Information (excluding Restricted\nInformation or Broker Specific Information) or any part of the Information (excluding\nRestricted Information or Broker Specific Information) excluding, for the avoidance\nof doubt, any New Original Works;\n‘Device’ means a computer terminal, software application, data receiver, display\nunit or other technical device or service that can access the Information;\n‘Documentation’ means all documentation referenced in the Guide and includes\nany documentation relating to the Software;\n‘End of Day or EOD Information’ means Information that is disseminated after\nclose of trading or such other time and subject to such other terms as We may\npublish in the Guide;\n‘End User’ means an employee of a Subscriber Firm, a contractor acting under the\ndirection of a Subscriber Firm in the ordinary course of their business, or a\nRegistered Client of the Subscriber Firm who can access the Information;\n‘Fees’ means the fees set out in the Fee Schedule from time to time;\n‘Fee Schedule’ means the schedule of fees applicable to the Agreement published\nunder that title by Us on ASX Online, or as otherwise notified by Us to You, as\nvaried from time to time in accordance with this Agreement;\n‘Financial Product’ has the meaning given to that term in the Corporations Act;\n‘Force Majeure Event’ means any cause beyond the party’s reasonable control\nincluding without limitation, acts of terrorism, epidemic, war, fire, flood or other\naccident, strike, lock outs, delays in transport, material shortages, restrictions or\nprohibitions of any government or semi-government authority;\n‘Format’ means the current options of formats and API’s, details of which appear\nin the Order Form and the Guide;\n‘General Terms and Conditions' means these general terms and conditions;\n‘Guide’ means the document titled ‘ASX Market Information Products & Services\nGuide’ published by Us, a copy of which may be accessed via ASX Online;\n‘Information’ means, as the case may be, each or any of the Real Time\nInformation, Delayed Information, EOD Information, and Restricted Information\nand may include information licensed to Us by Our Suppliers;\n‘Insolvency Event’ means the occurrence of any one or more of the following\nevents:\n(a) an order is made or an effective resolution is passed for winding up or\ndissolution without winding up (other than for the purposes of solvent\nreconstruction or amalgamation) of that party and the order or resolution\nremains in effect for a continuous period of 5 Business Days;\n(b) a controller, receiver, receiver and manager, official manager, administrator,\nprovisional liquidator, liquidator, or like official is appointed over the whole or\nsubstantial part of the undertaking and property of that party and the\nappointment remains in effect for a continuous period of 5 Business Days;\n(c) a holder of an encumbrance takes possession of the whole or any substantial\npart of the undertaking and property of that party;\n(d) that party is unable to pay its debts as they fall due;\n(e) that party becomes insolvent or is deemed to become insolvent under any\napplicable law; or\n(f) that party ceases to carry on business or threatens to do so;\n‘Intellectual Property Rights’ means all present and future intellectual property\nand industrial rights whether conferred by statute, at common law or in equity and\nwherever existing, including:\n(a) patents, designs, copyright, rights in circuit layouts, trade marks, know how,\nbrand names, domain names, inventions, product names, trade secrets and\nany other rights subsisting in the results of intellectual effort in any field,\nwhether or not registered or capable of registration;\n(b) any application or right to apply for registration of any of these rights;\n(c) any registration of any of those rights or any registration of any application\nreferred to in paragraph (b); and\n(d) all renewals and extensions of these rights;\n‘Losses’ means all liabilities, costs, losses, damages, expenses (including legal\nexpenses on a solicitor/client basis), or other outgoings of whatsoever kind and\nhowsoever arising (including negligence) or liability incurred or suffered arising\nfrom any Claim, in each case whether such loss is direct, indirect, special or\nconsequential and whether or not You or We (as the context requires) were advised\nin advance of the possibility of such loss, including for the avoidance of doubt,\nConsequential Loss;\n‘MarketSource Products’ means the Information and other related products and\nservices including any Software and Documentation and, in the case of direct\nconnections to Us, the Format specified in the Order Form;\n‘Means of Supply’ means the nominated means of supply specified in the Order\nForm;\n‘New Original Work’ means a work determined by Us (in accordance with clause",
+      "page": 1
+    },
+    {
+      "number": "6.7",
+      "title": "",
+      "text": ") to be a new original work, being created by You using the Information, where\nthe Information has been processed or modified to such an extent that the result\ncannot be recognised as, traced back to or reverse engineered to display the\nMarketSource™ Agreement\nInformation, nor can the new original work be used as a substitute for the\nInformation;\n‘Nominated Third Party or NTP’ means a third party nominated by You in the\nOrder Form to receive the MarketSource Products from Us on Your behalf and who\nwill take responsibility for distributing the MarketSource Products to You;\n‘Non-Display Use’ means distribution, use or processing of the Information or\nDerived Information that does not involve display of the Information or Derived\nInformation on a Device in a way that can be seen or heard, details and examples\nof which may be specified in the Guide;\n‘Open User Group’ means any system, technical environment or electronic data\ntransmission where access to or use of the Information is not controlled by an\nAccess & Entitlement System;\n‘Order Form’ means the order form which sets out the MarketSource Products to\nbe supplied by Us to You, as amended from time to time;\n‘Our Suppliers’ means any third party who makes its information available to Us\n(under a license or otherwise) as part of the Information and any supplier of goods\nor services (including any hardware, Software and Documentation) which are used\ndirectly or indirectly by Us to supply the MarketSource Products;\n‘Participant’, in the case of ASX, means Trading Participants as that term is\ndefined in the ASX Market Rules; and in the case of ASX 24, has the meaning\ngiven to that term in the ASX 24 Operating Rules;\n‘Personnel’ means officers, employees, agents and contractors of either party;\n‘Permitted Persons’ has the meaning given in Schedule 1;\n‘Procedures Certificate’ means a certificate in the form set out in the Guide;\n‘Real Time Information’ means any part of the Information (including Derived\nInformation), other than Restricted Information or Broker Specific Information, from\nthe time of dissemination by Us up to and including the time period specified for\nDelayed Information;\n‘Registered Client’ means the retail clients of Your Services who have a formal\nbrokerage or trading account, including a registered HIN and/or cash management\naccount.  It does not include every customer of Yours that has a user name and\npassword to access information via Your website or other internet based\ndistribution platform, nor does it include financial planners and other investment\nprofessionals;\n‘Regulatory Authority’ means any relevant government agency or regulatory\nbody with decision making powers;\n‘Related Body Corporate’ has the meaning given to that term in the Corporations\nAct;\n‘Restricted Information’ means the ITS information that may not be divulged to\nanyone who is not a Designated Trading Representative, except where that person\nis employed by the Participant  and has a need to access that information as part\nof their duties .  The following information is prescribed as Restricted Information\nin the ITS Reference Manual; information that is contained in the:\n(a) Bulletin Board Window;\n(b) Broker List on ITS Info Link;\n(c) ITS News file on ITS Info Link;\n‘Software’ means any software owned by or licensed to Us and used to store,\nprocess, display or distribute the Information;\n‘Start Date’ means, in respect of each MarketSource Product, the date specified\nas the start date in the Order Form;\n‘Subscriber Firm’ means any person, company or organisation, other than You,\nYour Personnel or a Sub-vendor, who can access the Information directly or\nindirectly via Your Service;\n‘Subscriber Agreement’ means a legally valid agreement between You and\nSubscriber Firms and/or End Users (as applicable) governing access to and use of\nthe Information by Subscriber Firms and End Users in accordance with this\nAgreement;\n‘Sub-vendor’ means any person, company or organisation that receives access\nto Information, other than Restricted Information or Broker Specific Information,\ndirectly or indirectly from Your Service for the purposes of redistribution and:\n(a) meets the criteria specified in the Guide; and\n(b) complies with any other terms specified in a MarketSource distribution\nagreement and the Guide concerning redistribution of that Information;\n‘Technical Support’ has the meaning given to that term in the Guide;\n‘Term’ means the term of this Agreement, as determined pursuant to clause 3;\n‘Unit of Count’ means the units of count approved by Us and published in the\nGuide, which are to be used as the basis for recording and reporting use of\nInformation and payment of Fees under this Agreement;\n‘We, Us or Our’ means ASX Operations Pty Limited;\n‘You” or Your’ means the customer entity that appears on the Order Form;\n‘Your Service’ means any service operated by You or a Related Body Corporate\nof Yours that includes the Information in any form, details of which are specified in\nthe Order Form; and\n‘Your System’ means the computer systems (including all hardware, software and\nany associated technology) and internal communications networks installed at or\nused by You and / or Your Related Bodies Corporate, to interface with the\nMarketSource Products, and to store and process the Information.",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "INTERPRETATION",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": "In this Agreement, unless the contrary intention appears:\n(a)\nreferences to ‘person’ include individuals, firms, bodies corporate,\nassociations, governments and governmental, semi-governmental and\nlocal authorities and agencies;\n(b)\nheadings are for ease of reference only and do not affect the meaning of\nthis Agreement;\n(c)\nthe singular includes the plural and vice versa and words importing a\ngender include other genders;\n(d)\nother grammatical forms of defined words or expressions have\ncorresponding meanings;\n(e)\na reference to a clause, paragraph, schedule or annexure is a reference\nto a clause or paragraph of or schedule or annexure to this Agreement\nas amended from time to time and a reference to this Agreement includes\nany schedules and annexures as so amended;\n(f)\na reference to a document or agreement, including this Agreement,\nincludes a reference to that document or agreement as novated, altered\nor replaced from time to time;\n(g)\na reference to a manual, guide, specification, information pack, fee\nschedule or other document published by the ASX Group means the\nmanual, guide, specification, fee schedule or document as amended,\nvaried, renamed, substituted or replaced from time to time;\n(h)\na reference to a party includes its executors, administrators, successors\nand permitted assigns;\n(i)\na reference to a Statute, ordinance or by-law includes regulations and\nother instructions under it and consolidations, amendments, re-\nenactments or replacements of any of them; and\n(j)\na reference to a website or URL includes a reference to such other\nwebsite or URL notified by Us to You as replacing or superseding a\nwebsite or URL for all or particular purposes;\n(k)\na document drafted or published by a member of the ASX Group\n(including this Agreement) may not be construed adversely to Us or other\nmembers of the ASX Group just because a member of the ASX Group\nprepared it.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "TERM",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": "This Agreement commences on the Commencement Date and will\ncontinue until:\n(a)\nWe cease supplying or making available to You MarketSource Products\nunder this Agreement, in which case the Agreement will automatically\nexpire on the date that We cease supplying or making them available to\nYou; or\n(b)\nit is otherwise validly terminated in accordance with its terms.",
+      "page": 2
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "SUPPLY OF PRODUCTS",
+      "page": 2
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": "We will supply or make available the MarketSource Products to You as\nset out in the Order Form in accordance with this Agreement.",
+      "page": 2
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": "You may, from time to time, request Us to add or remove MarketSource\nProducts under this Agreement. If agreed by Us, We will update the\nOrder Form and re-issue it to You for You to re-sign and return to Us.",
+      "page": 2
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": "Subject to clause 4.5, We may amend this Agreement, including\ndiscontinuing MarketSource Products, by giving You 90 days prior written\nnotice. You may terminate this Agreement by notice to Us within 30 days\nof receiving notice of such change without liability, if the proposed\namendments are likely to be detrimental to You, and if You choose to\nterminate, it will be effective on the date that such changes take effect.\nThis clause does not affect either party’s right to terminate for\nconvenience at any time under clause 23.3.",
+      "page": 2
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": "Subject to clause 4.5, We may change or discontinue any of the Means\nof Supply on giving You 90 days notice, or such other period set out in\nMarketSource™ Agreement\nthe Guide. You may terminate this Agreement by notice to Us within 30\ndays of receiving notice of such change without liability, if the change or\ndiscontinuation is likely to be detrimental to You, and if You choose to\nterminate, it will be effective on the date that such changes take effect.\nThis clause does not affect either party’s right to terminate for\nconvenience at any time under clause 23.3.",
+      "page": 2
+    },
+    {
+      "number": "4.5",
+      "title": "",
+      "text": "From time to time We may need to make urgent changes to this\nAgreement or the Means of Supply due to certain events, including but\nnot limited to:\n(a)\nchanges to applicable law;\n(b)\na direction by a Regulatory Authority;\n(c)\nsecurity or technical issues where necessary to protect the integrity or\nperformance of the MarketSource system or Our trading system.\nIn such cases We will endeavour to provide You with reasonable notice\nof the change having regard to the nature of the event. You may\nimmediately terminate this Agreement by notice to Us without liability if\nthe change or discontinuation is likely to be detrimental to You. This\nclause does not affect either party’s right to terminate for convenience at\nany time under clause 23.3.",
+      "page": 3
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "TECHNICAL SUPPORT",
+      "page": 3
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": "We agree to provide Technical Support as set out in the Guide.",
+      "page": 3
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": "You acknowledge and agree that:\n(a)\nsubject to clause 4.3, We may, from time to time, change the provision\nof Technical Support under this Agreement by updating the Guide;\n(b)\nthe Fees for the MarketSource Products include an allowance for\nreasonable usage of Technical Support; and\n(c)\nWe may monitor usage of Technical Support and You agree to not make\nunreasonable or excessive use of the Technical Support.",
+      "page": 3
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": "You may request and We may agree to resupply MarketSource Products\nfrom time to time under this Agreement, provided that:\n(a)\nresupply must in each instance be requested in writing by either You or,\nif applicable, the NTP, no later than the next Business Day after the\noriginal supply by Us; and\n(b)\nfor each resupply requested, You must pay the then current fee\napplicable for resupply (if applicable).",
+      "page": 3
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "TERMS OF LICENCE",
+      "page": 3
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": "Subject to this Agreement, on and from the Start Date(s) set out in the\nOrder Form for the relevant MarketSource Products, We grant to You a\nnon transferable, non-exclusive licence to:\n(a)\nstore and process the Information in Your System;\n(b)\nincorporate the Information into Your Service(s) and:\n(i)\ndisplay Real Time Information on a Device provided by You to End Users\nin Closed User Groups;\n(ii)\ndisplay Delayed Information and EOD Information on a Device provided\nby You to Closed User Groups or Open User Groups;\n(iii)\ndistribute Information as part of a Datafeed to Subscriber Firms for their\ninternal use only;\n(iv)\nuse and distribute the Real Time Information, Delayed Information or\nEOD Information for Non-Display Use purposes;\n(v)\nuse the Information in accordance with such other licence as We may\napprove in accordance with clause 6.4 from time to time,\nPROVIDED You comply at all times with the terms of this Agreement,\nincluding payment of applicable Fees and any requirements We publish\nin the Guide from time to time AND Your use, display and/or distribution\nof the Information does not affect the accuracy of the Information You\nreceive from Us.",
+      "page": 3
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": "You may provide the Information to Sub-vendors for distribution to their\nSubscriber Firms and End Users, provided You have received prior\nwritten authorisation from Us that the prospective Sub-vendor has\nentered into the appropriate MarketSource distribution agreement with\nUs. Subject to You and Us complying with applicable laws, You agree to\nprovide any information that may be required by Us in order to confirm\nthat provision of the Information by You to the prospective Sub-vendor is\nauthorised by Us. If You release any Information to any Sub-vendor prior\nto obtaining written authorisation from Us, You will be liable to Us for any\nFees that otherwise would have been payable by the Sub-vendor.",
+      "page": 3
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": "Subject to clause 4.3, We may, from time to time, change the range of\nlicences applicable to use, display and/or distribution of the Information\nunder this Agreement by updating the Guide and/or Fee Schedule.",
+      "page": 3
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": "You may, from time to time, request to increase the number or range of\nYour Services that incorporate the Information under this Agreement. We\nwill consider any such request and, if accepted by Us, We will update\nand re-issue the Order Form to You for You to re-sign and return to Us.",
+      "page": 3
+    },
+    {
+      "number": "6.5",
+      "title": "",
+      "text": "If You provide a Datafeed to Subscriber Firms that includes the\nInformation, You must ensure that You provide a copy of the Guide to\nthe Subscriber Firm, as updated from time to time.",
+      "page": 3
+    },
+    {
+      "number": "6.6",
+      "title": "",
+      "text": "The licence granted in clause 6.1 does not include a right to the use of\nthe Information (whether by You or Subscriber Firms) to establish,\nmaintain or provide, or assist in establishing, maintaining or providing:\n(a)\nthe ability to trade in Financial Products; or\n(b)\na financial market for trading in Financial Products,\nunless (a) and (b) are specifically authorised by law.\nFor the avoidance of doubt, this clause 6.6 does not affect Our rights\nunder clause 6.3 to change the range of licences, from time to time, under\nthis Agreement.",
+      "page": 3
+    },
+    {
+      "number": "6.7",
+      "title": "",
+      "text": "Subject to the foregoing provisions You may, only with Our prior written\nconsent (which may be withheld in Our absolute discretion) use the\nInformation for the purpose of creating a New Original Work. We reserve\nall rights to determine, acting reasonably, whether or not any processed\nInformation constitutes a New Original Work. If We determine that a work\nis a New Original Work, We acknowledge that You own the Intellectual\nProperty Rights in that New Original Work. If We consent to use of the\nInformation for the purpose of Creating a New Original Work, We will\nupdate and re-issue the Order Form in accordance with clause 6.4.",
+      "page": 3
+    },
+    {
+      "number": "6.8",
+      "title": "",
+      "text": "You may permit End Users to publish, on an ad-hoc basis in written or\noral communications with clients, insubstantial amounts or limited\nextracts of static Information to their clients in connection with the End\nUser’s ordinary business as a provider of financial services or financial\nadvice, provided:\n(a)\nit does not constitute regular or systematic distribution, display or\nprocessing of the Information;\n(b)\nin the case of Real Time Information, it does not involve the provision of\nReal Time Information or any other form of continuously updating or\nstreaming Information; and\n(c)\nit is attributed to Us.\nWe reserve all rights to determine, acting reasonably, whether\ncommunications including Information constitute limited extracts for this\npurpose and to limit or withdraw rights to provide limited extracts of the\nInformation.",
+      "page": 3
+    },
+    {
+      "number": "6.9",
+      "title": "",
+      "text": "You must not use the Information, or permit Subscriber Firms or End\nUsers to access, receive or use the Information, other than as permitted\nby the terms of this Agreement.",
+      "page": 3
+    },
+    {
+      "number": "6.10",
+      "title": "",
+      "text": "You agree to discontinue the supply of Information to any third party,\nSubscriber Firm or End User if We provide notice to You that We\nreasonably believe that the third party, Subscriber Firm or End User has\nbreached the licence conditions under this Agreement or Your\nSubscriber Agreement with any such third party.",
+      "page": 3
+    },
+    {
+      "number": "6.11",
+      "title": "",
+      "text": "You must promptly notify Us of any unauthorised, improper or unlawful\nuse of the MarketSource Products or infringement of the Intellectual\nProperty Rights in the MarketSource Products that comes to Your notice\nand You must require Subscriber Firms to inform You of any such use or\ninfringement.",
+      "page": 3
+    },
+    {
+      "number": "6.12",
+      "title": "",
+      "text": "Unless We otherwise agree in writing, the licence granted by Us to use\nthe Information under this clause 6 will cease immediately when We\ncease supplying or making available the relevant MarketSource Products\nto You under this Agreement.",
+      "page": 3
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "SUBSCRIBER FIRM OR END USERS USE OF THE INFORMATION",
+      "page": 3
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": "Before providing the Information to any Subscriber Firm, You must:\n(a)\nenter into a Subscriber Agreement with the Subscriber Firm concerning\nsupply and use of the Information by the Subscriber Firm and its End\nUsers containing (where appropriate) terms materially consistent with\nYour obligations under this Agreement.",
+      "page": 3
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": "If You provide Your Services directly to End Users, You must:\n(a)\nenter into a Subscriber Agreement directly with the End User concerning\nthe supply and use of the Information by the End User containing (where\nMarketSource™ Agreement\nappropriate) terms materially consistent with Your obligations under this\nAgreement.",
+      "page": 3
+    },
+    {
+      "number": "7.3",
+      "title": "",
+      "text": "If You fail to enter into a valid and enforceable Subscriber Agreement\nwith Subscriber Firms and/or End Users as required under this clause 7,\nYou will be liable to Us for any unlicensed use or distribution of the\nInformation by any Subscriber Firm or End User arising from Your\nService or any other Information supplied by You.",
+      "page": 4
+    },
+    {
+      "number": "7.4",
+      "title": "",
+      "text": "Any Subscriber Agreement under which You provide Information must\nprovide (as applicable) that the relevant Subscriber Firm or End User (as\nthe case may be) must:\n(a)\nonly use the Information solely for their own internal business purposes;\n(b)\nnot transfer or publish to third parties all or part of the Information except\nwhere allowed to do so under this Agreement or with Our prior written\nconsent;\n(c)\nrecognise the Intellectual Property Rights and Our rights, and those of\nOur Suppliers’ in respect of the Information;\n(d)\nnot allow any person other than an End User to access the Information;\n(e)\nensure each End User is issued with a unique user identifier and\npassword, or other security device fit for the purpose as part of an\napproved Access & Entitlement System, and ensure that these unique\nusers IDs and passwords are not shared with other End Users or any\nunauthorised person;\n(f)\nnot use the Information for an illegal purpose or a purpose not permitted\nunder this Agreement;\n(g)\nmaintain all records and, subject to applicable laws, provide all\ninformation required to meet Your record keeping, reporting and payment\nobligations to Us including, without limitation, provide a list of locations in\nwhich Information is received and to report monthly the number of\nDevices used to access the Information or the number of End Users\naccessing the Information (as applicable to the Subscriber Firm);\n(h)\nallow Us, or Our authorised representative, to remotely audit and / or\nenter upon the Subscriber Firm’s premises and audit Your Subscriber\nFirm’s systems, records and usage of the Information;\n(i)\nsubject to applicable laws, obtain and provide any consents necessary\nfor Us or Our authorised representative, to review and receive personal\ninformation, for the purpose of verifying compliance with Your obligations\nto Us; and\n(j)\nkeep confidential any and all ASX Confidential Information and not\ndisclose it to any third party without Our prior written consent.",
+      "page": 4
+    },
+    {
+      "number": "7.5",
+      "title": "",
+      "text": "Subject to clause 4.3, We reserve the right to enter into a direct\nagreement with any of Your Subscriber Firms. We may elect to do this in\ntwo ways:\n(a)\nin respect of specific Subscriber Firms, in which case We will provide You\nwith notice detailing the relevant Subscriber Firms; or\n(b)\nby identifying a category or segment of Subscriber Firms, in which case\nWe will publish Our requirements in the Guide.",
+      "page": 4
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "DOCUMENTATION & MANUALS",
+      "page": 4
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": "We will provide You with access to any technical documentation, via ASX\nOnline, relevant to the MarketSource Products You have selected in the\nOrder Form (Manuals). We may amend the Manuals with reasonable\nnotice from time to time and will make the updated versions available on\nASX Online.",
+      "page": 4
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": "CONTENT AND FORMAT OF THE MARKETSOURCE PRODUCT",
+      "page": 4
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": "For direct connections to Us, the MarketSource Product is available on\nthe terms and in the Formats specified in the Guide.",
+      "page": 4
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": "Subject to clause 9.3, We may add to, alter or delete any part of the\nInformation or the Format of a Product (“Format Change”) in Our sole\ndiscretion provided We give either You or (as applicable) the NTP\nreasonable notice, ast set out in the Guide.",
+      "page": 4
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": "You may immediately terminate this Agreement by notice to Us if the\nFormat Change is likely to be detrimental to You. This clause does not\naffect either party’s right to terminate for convenience at any time under\nclause 23.3.",
+      "page": 4
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": "RESTRICTED INFORMATION & BROKER SPECIFIC INFORMATION",
+      "page": 4
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": "If an ASX Participant requests that You receive Broker Specific\nInformation or Restricted Information on its behalf, the provisions in\nSchedule 1 will apply.",
+      "page": 4
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "RECORDS AND REPORTS",
+      "page": 4
+    },
+    {
+      "number": "11.1",
+      "title": "",
+      "text": "You must retain up to date books and records as may be necessary to\nenable the Fees and other sums payable to Us under this Agreement to\nbe ascertained, including records, if any, specified in the Guide from time\nto time. These books and records must be retained for the period\nspecified in the Guide.",
+      "page": 4
+    },
+    {
+      "number": "11.2",
+      "title": "",
+      "text": "Where You do not control permissioning of the Information down to the\nEnd User level using an Access & Entitlement System (for example, if\nYou provide a Datafeed to a Subscriber Firm and they control the Access\n& Entitlement System), You must also require Subscriber Firms to retain\nall necessary records concerning the operation of their Access &\nEntitlement System and their access to and use of the Information for the\nminimum period specified in the Guide from time to time, and to report\ntheir usage of the Information to You, preferably monthly, but at intervals\nthat do not exceed 3 calendar months so that You can comply with Your\nobligations to report Information usage to Us under this Agreement. You\nwill be liable to Us for any failure to obtain these reports from Your\nSubscriber Firms.",
+      "page": 4
+    },
+    {
+      "number": "11.3",
+      "title": "",
+      "text": "Within the timeframe and in the format specified in the Guide from time\nto time, You will provide Us with a monthly remittance report concerning\nYour use and distribution of the Information.",
+      "page": 4
+    },
+    {
+      "number": "12",
+      "title": "",
+      "text": "AUDIT AND INSPECTION",
+      "page": 4
+    },
+    {
+      "number": "12.1",
+      "title": "",
+      "text": "You must establish and maintain appropriate procedures and systems\ndesigned to ensure that You are adhering to Your obligations under this\nAgreement and You and Your Subscriber Firms and End Users are\nadhering to any applicable Subscriber Agreements. You must also\nrequire Subscriber Firms to retain all necessary records concerning the\naccess to and use of the Information for the minimum period specified in\nthe Guide from time to time.",
+      "page": 4
+    },
+    {
+      "number": "12.2",
+      "title": "",
+      "text": "We may, on giving You at least 30 days notice (or less where agreed by\nboth parties), remotely and / or send in-person Our nominated Personnel\nto attend Your premises to verify compliance with this Agreement,\nincluding observing the use made of the MarketSource Products or the\nInformation and to examine and inspect Your Services, Your Access &\nEntitlement System, any devices, systems, applications, attachments or\napparatuses, as well as any books and records (incl. electronic records)\nrequired to be maintained by You in connection with this Agreement\n(“Inspection”). We reserve the right to give You a shorter period of notice\nconcerning an Inspection if We have reasonable grounds for suspicion\nthat there has been a compliance failing under this Agreement that is\nlikely to impact on the Fees paid to Us.",
+      "page": 4
+    },
+    {
+      "number": "12.3",
+      "title": "",
+      "text": "Any Inspection will be conducted during normal business hours and\nsubject to Your reasonable security and confidentiality requirements. You\nmust grant, and You must also procure from Your Subscriber Firms, all\nnecessary licences to enable Our Personnel to enter all relevant\npremises of Yours or a nominated Subscriber Firm and inspect any\nbusiness records or systems at any of those premises of the type\nidentified in this clause that will assist in validating compliance with this\nAgreement.",
+      "page": 4
+    },
+    {
+      "number": "12.4",
+      "title": "",
+      "text": "We will endeavour to conduct audits (whether at Your premises or at that\nof a nominated Subscriber Firm) in accordance with the information\nindustry best practices, and the Guide. Both parties should co-operate to\nensure that the purpose of the audit is achieved with minimum disruption\nto the business operations of any persons involved, including Your\nSubscriber Firms where applicable.",
+      "page": 4
+    },
+    {
+      "number": "12.5",
+      "title": "",
+      "text": "If any Inspection under this clause 12 discloses any underpayment of\nFees to Us or a failure to retain the requisite records for the relevant audit\nperiod, You will:\n(a)\nbe liable for Our reasonable costs for the Inspection where such\nunderpayment is greater than 5% of the Fees payable to Us during the\nrelevant audit period;\n(b)\npay Us within 30 days of Us notifying You, any underpayment of Fees\ndisclosed by the Inspection for the relevant audit period (including\ninterest at the rate of 2% above the overdraft rate charged by Our\nprincipal bankers) to compensate for any failure to properly account for\nthe use of the MarketSource Products or the Information; and\n(c)\npay to Us within 30 days of Us notifying You, Our reasonable estimate of\nany discrepancy discovered pursuant to any such Inspection in the event\nMarketSource™ Agreement\nthat You, or Your Subscriber Firms, fail to retain the requisite records for\nthe relevant audit period.",
+      "page": 4
+    },
+    {
+      "number": "12.6",
+      "title": "",
+      "text": "If any Inspection under this clause 12 discloses that You have overpaid\nFees to Us for the relevant audit period, We will refund You the amounts\nthat have been overpaid in the preceding 60 days prior to the Inspection.",
+      "page": 5
+    },
+    {
+      "number": "12.7",
+      "title": "",
+      "text": "You must promptly advise Us of any case where You have evidence or\nreasonable cause to believe that a Subscriber Firm or End User is in\nbreach of any one or more of the minimum terms required to be included\nin Your Subscriber Agreement.",
+      "page": 5
+    },
+    {
+      "number": "13",
+      "title": "",
+      "text": "FEES AND PAYMENT",
+      "page": 5
+    },
+    {
+      "number": "13.1",
+      "title": "",
+      "text": "The Fees are calculated and payable in accordance with the Fee\nSchedule.",
+      "page": 5
+    },
+    {
+      "number": "13.2",
+      "title": "",
+      "text": "If requested by a Subscriber Firm, We may bill the Subscriber Firm\ndirectly for the Fees. In this circumstance, You will not be responsible for\npaying the relevant Fees to Us in relation to that Subscriber Firm.",
+      "page": 5
+    },
+    {
+      "number": "13.3",
+      "title": "",
+      "text": "Subject to clause 4.3, We may vary the Fees by publishing the variation\nto the Fee Schedule on ASX Online, or by otherwise notifying You, ninety\n(90) days prior to the effective date of the variation.  This clause does\nnot affect either party’s right to terminate for convenience at any time\nunder clause 23.3.",
+      "page": 5
+    },
+    {
+      "number": "13.4",
+      "title": "",
+      "text": "You must pay in full the Fees in Australian dollars only (unless otherwise\nagreed in writing by Us) no later than the dates specified inYour invoice.",
+      "page": 5
+    },
+    {
+      "number": "14",
+      "title": "",
+      "text": "LATE PAYMENTS & REPORTS",
+      "page": 5
+    },
+    {
+      "number": "14.1",
+      "title": "",
+      "text": "If You do not lodge a monthly remittance report or make a payment under\nthis Agreement on time, the following provisions apply:\n(a)\nYou must pay to Us (in addition to any applicable administration charge\nset out in the Fee Schedule) interest on the amount not paid on its due\ndate at the rate of two percent (2%) above the overdraft rate charged by\nOur principal bankers, computed from and including the due date for\npayment until but excluding the date on which full payment of that amount\nis made;\n(b)\nInterest at this rate is payable before and after any judgment;\n(c)\nInterest accrues daily and is payable on demand by Us and, if not paid,\nthat interest bears interest in accordance with this clause.",
+      "page": 5
+    },
+    {
+      "number": "14.2",
+      "title": "",
+      "text": "If You are late with Your monthly remittance report or payments under\nthis Agreement for two consecutive months, or for three months out of\nany six month period, We may immediately undertake an audit. You will\nbear Our reasonable costs of this audit even if the audit does not disclose\nany breaches of this Agreement.",
+      "page": 5
+    },
+    {
+      "number": "15",
+      "title": "",
+      "text": "TAXES",
+      "page": 5
+    },
+    {
+      "number": "15.1",
+      "title": "",
+      "text": "You must pay all existing taxes and duties (including, but not limited to,\nany lease duty or other stamp duty), any new taxes and duties (including\na goods and services tax or any other value-added taxes), any increases\nin taxes and duties and any associated penalties payable on or in respect\nof this Agreement, the Fees, any other payments due to Us or any other\ntransaction or matter contemplated by this Agreement. If We are liable to\npay such tax, duty or penalty then You must indemnify and release Us to\nthe full extent of that liability.",
+      "page": 5
+    },
+    {
+      "number": "15.2",
+      "title": "",
+      "text": "In the event that payment of any amount of the Fees becomes subject to\nwithholding tax, levy or similar payment obligation on sums due to Us\nunder this Agreement such withholding tax amounts shall be borne and\npaid for by You in addition to the sums due to Us. You will provide Us\nfree of charge with the appropriate certificate(s) from the relevant\nauthorities confirming the amount of the withholding taxes, levies or\nsimilar payments borne and paid for by You.",
+      "page": 5
+    },
+    {
+      "number": "15.3",
+      "title": "",
+      "text": "Any amounts payable to Us under or in connection with this Agreement\nhave been determined exclusive of GST. If any supply made by Us to\nYou under or in connection with this Agreement is a taxable supply:\n(a)\nYou must pay an amount to Us equal to the GST payable by Us on that\nsupply, in addition to any amounts payable or other consideration to be\nprovided for that supply;\n(b)\nthe additional amount must be paid at the same time as the first part of\nany consideration is provided for that supply; and\n(c)\nWe will provide You with a tax invoice for that supply in accordance with\nthe GST law, unless We and You have entered into an arrangement\nwhereby You will provide a recipient created tax invoice for supplies,\nincluding that taxable supply.\nFor the purposes of this clause, words and phrases that are defined in\nthe A New Tax System (Goods and Services Tax) Act 1999 (Cth) have\nthe meaning provided by that Act. However, where the GST law treats a\npart of a supply as a separate supply for the purpose of working out the\nGST payable on that supply or determining the time at which GST will be\npayable on that supply, that part of the supply will be treated as a\nseparate supply for the purposes of this clause.",
+      "page": 5
+    },
+    {
+      "number": "16",
+      "title": "",
+      "text": "LIABILITY",
+      "page": 5
+    },
+    {
+      "number": "16.1",
+      "title": "",
+      "text": "Subject to clause16.4, neither We nor any member of the ASX Group will\nbe liable to You or Your Subscriber Firms or End Users or to any third\nparty, whether in contract, tort, under statute or otherwise arising under\nor in connection with this Agreement for:\n(a)\nany Losses arising under this Agreement in connection with:\n(i)\nuse or supply by You of the MarketSource Products or the Information to\nany third party in a manner not permitted by or otherwise in breach of this\nAgreement;\n(ii)\na breach by You or a Subscriber Firm or End User of any Subscriber\nAgreement to which You are a party; or\n(iii)\nany decisions by You or any third party based on the MarketSource\nProducts or the Information;\n(b)\nany Losses arising under this Agreement in connection with:\n(i)\nthe MarketSource Products or the Information being inaccurate or\nincomplete; or\n(ii)\ndelays or interruptions in transmission of the MarketSource Products or\nthe Information,\nexcept to the extent that that such Losses arise directly from Our wilful\nmisconduct or fraud, or Our negligent act or omission.",
+      "page": 5
+    },
+    {
+      "number": "16.2",
+      "title": "",
+      "text": "Subject to clause 16.4, and to the extent permitted by applicable law, Our\naggregate liability for all Losses sustained by You in connection with this\nAgreement for any one incident or series of incidents, including under or\nin connection with any Subscriber Agreement to which You are a party,\nwill not exceed an amount equal to the Fees paid or payable by You\nduring the 12 months preceding the events giving rise to such liability.",
+      "page": 5
+    },
+    {
+      "number": "16.3",
+      "title": "",
+      "text": "To the extent permitted by applicable law, We exclude all liability to You\nfor Consequential Loss suffered or incurred by You arising under or in\nconnection with this Agreement.",
+      "page": 5
+    },
+    {
+      "number": "16.4",
+      "title": "",
+      "text": "The limitations and exclusions in clause 16 .1 and 16.2 do not apply to:\n(a)\npersonal injury or death that We have caused or contributed to;\n(b)\nloss of or damage to tangible property that We have caused or\ncontributed to;\n(c)\nbreach of Our confidentiality obligations under this Agreement;\n(d)\nOur wilful misconduct or fraud;\n(e)\na breach of the Consumer Guarantees under the Australian Consumer\nLaw, in which case Our liability for any breach of a Consumer Guarantee\nis hereby limited, at Our option, to:\n(i)\nin the case of goods:\n(A)\nthe replacement of the goods or the supply of equivalent goods; or\n(B)\nthe repair of the goods; and\n(ii)\nin the case of services:\n(A)\nthe supply of the services again; or\n(B)\nthe payment of the cost of having the services supplied again.",
+      "page": 5
+    },
+    {
+      "number": "17",
+      "title": "",
+      "text": "REPRESENTATIONS",
+      "page": 5
+    },
+    {
+      "number": "17.1",
+      "title": "",
+      "text": "This Agreement constitutes the entire agreement between the parties as\nto its subject matter, and supersedes all prior agreements and\nunderstandings whether verbal or in writing.",
+      "page": 5
+    },
+    {
+      "number": "17.2",
+      "title": "",
+      "text": "We do not represent or warrant that the Information will be complete,\naccurate or error-free. We will, however:\n(a)\nnotify You of any material errors or omissions in the Information as soon\nas reasonably practicable after We become aware of them; and\n(b)\ntake the necessary steps to have any such material errors or omissions\ncorrected as soon as reasonably practicable after We become aware of\nthem.",
+      "page": 5
+    },
+    {
+      "number": "17.3",
+      "title": "",
+      "text": "We do not represent or warrant that the supply of the MarketSource\nProducts or related services will be free of interruption. If We have not\nsupplied a product by the time specified in the relevant Manual due to an\ninterruption, We will:\nMarketSource™ Agreement\n(a)\nnotify You of any such interruption as soon as reasonably practicable\nafter We become aware of it;\n(b)\nwhere reasonably practicable, give an estimate of how long it will take to\nremedy the cause of the interruption; and\n(c)\nin any case, and subject to the cooperation of relevant\ntelecommunication carriers (e.g. in re-establishing a connection following\ndisconnection), promptly remedy such interruption as soon as\nreasonably practicable after We become aware of the interruption.",
+      "page": 5
+    },
+    {
+      "number": "18",
+      "title": "",
+      "text": "INDEMNITY",
+      "page": 6
+    },
+    {
+      "number": "18.1",
+      "title": "",
+      "text": "You must at all times indemnify and hold harmless and release (and keep\nindemnified, released and held harmless) Us, Our Related Bodies\nCorporate and Our and their Personnel (‘those indemnified’) from and\nagainst any Losses incurred or suffered by any of those indemnified\narising from any Claim, which any person other than You may bring\nagainst any of those indemnified where such Claim arose out of or in\nconnection with:\n(a)\na breach by You of Your obligations under this Agreement;\n(b)\nuse or supply by You of the MarketSource Products or the Information in\na manner not permitted under or otherwise in breach of this Agreement;\n(c)\na breach by You or a Subscriber Firm or End User of any Subscriber\nAgreement to which You are a party;\n(d)\nany wilful, fraudulent, unlawful or negligent act or omission by You,\nexcept to the extent that We have caused or contributed to the Losses.",
+      "page": 6
+    },
+    {
+      "number": "19",
+      "title": "",
+      "text": "INTELLECTUAL PROPERTY RIGHTS",
+      "page": 6
+    },
+    {
+      "number": "19.1",
+      "title": "",
+      "text": "We, members of the ASX Group, Our Suppliers or their respective\nlicensors, retain all Intellectual Property Rights in or to the Software,\nDocumentation and the Information to the extent that those Intellectual\nProperty Rights exist under the law from time to time.",
+      "page": 6
+    },
+    {
+      "number": "19.2",
+      "title": "",
+      "text": "Nothing in this Agreement is to be understood as an abandonment,\nrevocation, assignment or denial by either Us, the members of the ASX\nGroup or Our Suppliers of their Intellectual Property Rights or those of\ntheir licensors.\n(a)\nYou must notify Us immediately if You become aware of any\nunauthorised copying or use of the Software, Documentation, or the\nInformation.",
+      "page": 6
+    },
+    {
+      "number": "19.3",
+      "title": "",
+      "text": "If Your use of the Software, Documentation or the Information, in\naccordance with this Agreement infringes the Intellectual Property Rights\nof any person, We will indemnify and release You against any loss,\ndamage, liability or reasonable costs determined by a court of law as a\nresult of a claim by a third party against You, but only:\n(a)\nto the extent the claim relates to the Software, Documentation or the\nInformation provided by Us under this Agreement provided such\nSoftware, Documentation or Information has not in any way been altered\nor tampered with by You; and\n(b)\nif You:\n(i)\npromptly notify Us of the claim;\n(ii)\nallow Us to defend or settle the claim and to control any proceedings;\nand\n(iii)\nsupply reasonable assistance to Us in defending and settling a claim at\nOur expense.",
+      "page": 6
+    },
+    {
+      "number": "19.4",
+      "title": "",
+      "text": "As part of a defence or settlement of a Dispute under clause 21, We may\nin Our absolute discretion:\n(a)\nobtain for You the right to continue using the Software, Documentation\nor Information as is relevant;\n(b)\nmodify or replace the infringing part of the Software, Documentation or\nInformation as is relevant to avoid the claim; or\n(c)\naccept the return of the infringing part from You and refund to You any\nFees paid in respect of that infringing part.",
+      "page": 6
+    },
+    {
+      "number": "20",
+      "title": "",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "20.1",
+      "title": "",
+      "text": "Unless otherwise agreed in writing, a party may use Confidential\nInformation of the disclosing party solely for the purposes of performing\nits obligations and exercising its rights under this Agreement.",
+      "page": 6
+    },
+    {
+      "number": "20.2",
+      "title": "",
+      "text": "Subject to clause 20.3, each party agrees to keep confidential and not to\nuse or disclose to any other person the Confidential Information of the\nother party. Each party is liable for all acts or omissions of such persons\nas if they were acts or omissions of that party.",
+      "page": 6
+    },
+    {
+      "number": "20.3",
+      "title": "",
+      "text": "Each party may disclose Confidential Information of the other party only\non a “need-to-know” and confidential basis:\n(a)\nwith the prior written consent of the other party;\n(b)\nto the extent required by law;\n(c)\nin the case of ASX, to its service providers, professional advisors, ASX\nGroup members, Regulatory Authorities.",
+      "page": 6
+    },
+    {
+      "number": "20.4",
+      "title": "",
+      "text": "We expressly acknowledge that all reports received from You under\nclause 12 are confidential to You and agree to keep confidential and not\nto disclose to any other person (except those of its Personnel who have\na need to know and only to the extent that each has a need to know) the\ncontents of such reports except to the extent that such disclosure is\nrequired by law.",
+      "page": 6
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "RESOLUTION OF DISPUTES",
+      "page": 6
+    },
+    {
+      "number": "21.1",
+      "title": "",
+      "text": "A party will not start court proceedings (except proceedings seeking\nurgent interlocutory relief) in respect of a dispute arising out of this\nAgreement (a ‘Dispute’) unless it has first complied with this clause.",
+      "page": 6
+    },
+    {
+      "number": "21.2",
+      "title": "",
+      "text": "A party claiming that a Dispute has arisen will notify each other party to\nthe Dispute giving full details of the Dispute.",
+      "page": 6
+    },
+    {
+      "number": "21.3",
+      "title": "",
+      "text": "After a notice is given under clause 21.2, the Dispute will be referred to\nan ASX Group senior executive with decision makin power (or any\nperson fulfilling that role in the absence of that person) and an executive\nof corresponding seniority nominated by You, who will endeavour to\nnegotiate a resolution of the Dispute for a period of seven days.",
+      "page": 6
+    },
+    {
+      "number": "21.4",
+      "title": "",
+      "text": "If, following the seven day period referred to in clause 21.3 the parties\nhave been unable to resolve the Dispute, a party that has complied with\nclauses 21.2 and 21.3 may terminate the dispute resolution process by\ngiving notice to the other party.",
+      "page": 6
+    },
+    {
+      "number": "21.5",
+      "title": "",
+      "text": "Any information or documents disclosed by a representative under this\nclause:\n(a)\nwill be kept confidential; and\n(b)\nmay not be used except to attempt to settle the Dispute.",
+      "page": 6
+    },
+    {
+      "number": "21.6",
+      "title": "",
+      "text": "Each party will bear its own costs of resolving a Dispute under this\nclause.",
+      "page": 6
+    },
+    {
+      "number": "21.7",
+      "title": "",
+      "text": "If a party to a Dispute does not comply with any provision of clauses 21.1\nto 21.3 the other parties to the Dispute will not be bound by those\nclauses.",
+      "page": 6
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": "SUSPENSION",
+      "page": 6
+    },
+    {
+      "number": "22.1",
+      "title": "",
+      "text": "We may immediately suspend Your access to the MarketSource\nProducts without liability to You if at any time during the Term:\n(a)\nYou fail to pay any amounts due under this Agreement and You fail to\nremedy that failure within seven days after receiving notice requiring You\nto do so;\n(b)\nWe are not reasonably satisfied that any of Your operations or\nprocedures will prevent unauthorised access to any Broker Specific\nInformation or Restricted Information;\n(c)\nWe reasonably consider that Your connection or Your System is causing\ndetrimental technical or operational issues for Our systems, including but\nnot limited to the performance of the MarketSource system, or Our\ntrading system, which requires an immediate suspension of Your\nconnection;\n(d)\nin Our reasonable opinion, there are unjustified or unreasonable delays,\ninterruptions or distortions within Your control in the transmission by You\nof Information to Subscriber Firms or End Users;\n(e)\nin Our reasonable opinion, any act or omission by You is considered\nlikely to bring into disrepute Our name or reputation or the integrity of the\nmarkets conducted by the ASX Group at any time; or\n(f)\nWe are required to do so to comply with applicable law or a direction by\na Regulatory Authority.",
+      "page": 6
+    },
+    {
+      "number": "22.2",
+      "title": "",
+      "text": "If We suspend Your connection with the MarketSource system pursuant\nto clause 22.1, We must promptly notify You accordingly.",
+      "page": 6
+    },
+    {
+      "number": "22.3",
+      "title": "",
+      "text": "If in the case of any suspension pursuant to clause 22.1(a), (b), (c) or (d)\nWe are satisfied with the remedial action You have taken We will lift the\nsuspension implemented pursuant to clause 22.1 and notify You\naccordingly.\nMarketSource™ Agreement",
+      "page": 6
+    },
+    {
+      "number": "22.4",
+      "title": "",
+      "text": "If Your connection to MarketSource is suspended, We reserve the right,\nin the case of direct connections, to conduct further qualification tests\nand connectivity tests before You are reconnected to MarketSource after\nthat suspension is lifted.",
+      "page": 7
+    },
+    {
+      "number": "22.5",
+      "title": "",
+      "text": "This clause does not affect either party’s right to terminate for\nconvenience at any time under clause 23.3.",
+      "page": 7
+    },
+    {
+      "number": "23",
+      "title": "",
+      "text": "TERMINATION",
+      "page": 7
+    },
+    {
+      "number": "23.1",
+      "title": "",
+      "text": "You may terminate this Agreement if We breach a material term of this\nAgreement and fail to remedy that breach within 30 days after receiving\nnotice requiring Us to do so.",
+      "page": 7
+    },
+    {
+      "number": "23.2",
+      "title": "",
+      "text": "We may terminate this Agreement or terminate Your access to\nMarketSource Products without liability immediately by notice in writing\nif:\n(a)\nYou are in material breach of this Agreement and fail to remedy that\nbreach within 30 days after receiving notice requiring You to do so;\n(b)\nYou are the subject of an Insolvency Event;\n(c)\nany suspension implemented under clause 22.1 has not been lifted after\na period of more than 90 days;\n(d)\nYou are in breach of clause 6.6; or\n(e)\nthere is any change in the direct or indirect beneficial ownership or control\nof You.",
+      "page": 7
+    },
+    {
+      "number": "23.3",
+      "title": "",
+      "text": "Notwithstanding any other provision of this Agreement, either party may\nterminate this Agreement at any time on giving not less than 90 days\nprior written notice.",
+      "page": 7
+    },
+    {
+      "number": "24",
+      "title": "",
+      "text": "EFFECTS OF TERMINATION",
+      "page": 7
+    },
+    {
+      "number": "24.1",
+      "title": "",
+      "text": "On termination of this Agreement by either party:\n(a)\nYou must promptly pay to Us all amounts owed by You in connection with\nthis Agreement;\n(b)\nWe will be regarded as discharged from any further obligations under the\nAgreement after the date of termination;\n(c)\nunless otherwise agreed, Your licences and right to use and / or distribute\nthe MarketSource Products, Information, Software and the Information\nwill immediately cease; and\n(d)\nYou will within 30 days, destroy all ASX Confidential Information,\nincluding all Information, Software and Documentation in the possession\nor control of You and Your Personnel, subject to You having the right to\nretain one backup copy for archival or record keeping purposes, and You\nwill, upon request by Us, provide written notice to Us, signed by a duly\nauthorised officer, confirming that the Information, Software and\nDocumentation (as applicable) has been so destroyed.",
+      "page": 7
+    },
+    {
+      "number": "24.2",
+      "title": "",
+      "text": "Those rights and obligations required or purporting to have effect after\ntermination of this Agreement including without limitation those arising\nunder clauses 6 (Terms of Licence), 15 (Taxes), 16 (Liability), 18\n(Indemnity), 19 (Intellectual Property Rights), 20 (Confidential\nInformation) and 21 (Resolution of Disputes) will survive termination.",
+      "page": 7
+    },
+    {
+      "number": "25",
+      "title": "",
+      "text": "AMENDMENTS TO SCHEDULE 1",
+      "page": 7
+    },
+    {
+      "number": "25.1",
+      "title": "",
+      "text": "Subject to clause 4.3, We may amend Schedule 1 at any time by\nproviding written notice to You in accordance with clause 28.4.",
+      "page": 7
+    },
+    {
+      "number": "26",
+      "title": "",
+      "text": "FORCE MAJEURE",
+      "page": 7
+    },
+    {
+      "number": "26.1",
+      "title": "",
+      "text": "If a party is wholly or partially unable to perform its obligations because\nof a Force Majeure Event then:\n(a)\nas soon as reasonably practicable after the Force Majeure Event arises,\nthat party must notify the other party of the extent to which the notifying\nparty is unable to perform its obligations; and\n(b)\nthat party's obligation to perform those obligations will be suspended for\nthe duration of the delay arising directly out of the Force Majeure Event.",
+      "page": 7
+    },
+    {
+      "number": "26.2",
+      "title": "",
+      "text": "If the delay arising directly out of a Force Majeure Event continues or is\nlikely to continue for more than 60 days, the party not subject to the Force\nMajeure Event may, by notice to the other party, terminate this\nAgreement.",
+      "page": 7
+    },
+    {
+      "number": "26.3",
+      "title": "",
+      "text": "If the Force Majeure Event is triggered by Us and We suspend supply\nany MarketSource Products to You, You will be relieved from Your\nobligation to pay Fees for those MarketSource Products that are\nsuspended until the Force Majeure Event is resolved or this Agreement\nis otherwise validly terminated.",
+      "page": 7
+    },
+    {
+      "number": "26.4",
+      "title": "",
+      "text": "This clause does not affect either party’s right to terminate for\nconvenience at any time under clause 23.3.",
+      "page": 7
+    },
+    {
+      "number": "27",
+      "title": "",
+      "text": "PUBLIC STATEMENTS",
+      "page": 7
+    },
+    {
+      "number": "27.1",
+      "title": "",
+      "text": "Neither party may advertise or make any public statement about the\ncontents of this Agreement unless it has first obtained written consent\nfrom the other party.",
+      "page": 7
+    },
+    {
+      "number": "28",
+      "title": "",
+      "text": "NOTICES",
+      "page": 7
+    },
+    {
+      "number": "28.1",
+      "title": "",
+      "text": "Subject to clause 28.4, communication (including each notice, consent,\napproval, request and demand) under or in connection with this\nAgreement must be:\n(a)\nin writing;\n(b)\naddressed to the address of the other party specified in the Order Form\nor such other address as may be given in accordance with this clause;\nand\n(c)\nleft at or sent by prepaid post or via email to that address.",
+      "page": 7
+    },
+    {
+      "number": "28.2",
+      "title": "",
+      "text": "A notice given in accordance with clause 28.4  is received:\n(a)\nif left at the recipient's address, on the date of delivery;\n(b)\nif sent by prepaid post, 5 days after the date of posting;\n(c)\nif sent by email, when the sender's email receives a message confirming\nsuccessful transmission.",
+      "page": 7
+    },
+    {
+      "number": "28.3",
+      "title": "",
+      "text": "Each party must notify the other of an address for notices which may, at\nany time, be changed by notice to the other party.",
+      "page": 7
+    },
+    {
+      "number": "28.4",
+      "title": "",
+      "text": "Any notice to be given by Us under this Agreement may be given by way\nof publication on ASX Online.",
+      "page": 7
+    },
+    {
+      "number": "29",
+      "title": "",
+      "text": "RELATIONSHIP",
+      "page": 7
+    },
+    {
+      "number": "29.1",
+      "title": "",
+      "text": "Nothing in this Agreement or any circumstances associated with it or its\nperformance give rise to any relationship of partnership, principal and\nagent (except as expressly provided in this Agreement), or employer and\nemployee between Us and You or between Us and any of Your\nPersonnel and You have no right to assume or create any obligations of\nany kind, express or implied, in the name of or on behalf of Us.",
+      "page": 7
+    },
+    {
+      "number": "30",
+      "title": "",
+      "text": "RIGHTS CUMULATIVE – NO EXCLUSION OF LAW OR EQUITY\nThe rights and remedies provided under this Agreement are cumulative\nand not exclusive of any rights provided by law or any other such right or\nremedy. This Agreement must not be construed in any way to exclude\nthe operation of any principle of law or equity.",
+      "page": 7
+    },
+    {
+      "number": "31",
+      "title": "",
+      "text": "SEVERABILITY",
+      "page": 7
+    },
+    {
+      "number": "31.1",
+      "title": "",
+      "text": "If part or all of any clause of this Agreement is illegal or unenforceable, it\nwill be severed from this Agreement and will not affect the continued\noperation of the remaining provisions of this Agreement.",
+      "page": 7
+    },
+    {
+      "number": "32",
+      "title": "",
+      "text": "WAIVER",
+      "page": 7
+    },
+    {
+      "number": "32.1",
+      "title": "",
+      "text": "The failure of a party at any time to insist on performance by the other\nparty of any obligation under this Agreement is not a waiver of its right:\n(a)\nto insist on providing of, or to claim damages for breach of, that\nobligation, unless that party acknowledges in writing that the failure is a\nwaiver; and\n(b)\nat any other time insist on performance of that or any other obligation of\nthe other party under this Agreement.",
+      "page": 7
+    },
+    {
+      "number": "33",
+      "title": "",
+      "text": "THIRD PARTY BENEFICIARIES",
+      "page": 7
+    },
+    {
+      "number": "33.1",
+      "title": "",
+      "text": "Any provision of this Agreement (including any indemnity or provision\nexcluding or limiting liability) which is expressed to benefit a member of\nthe ASX Group or its Personnel  is to be interpreted as benefiting (in\naddition to benefiting Us) each of those persons and to be enforceable\nby each of those persons.\nMarketSource™ Agreement",
+      "page": 7
+    },
+    {
+      "number": "33.2",
+      "title": "",
+      "text": "To that extent, We have entered into this Agreement and hold the benefit\nof those provisions for itself and on behalf of and as trustee for the\nmembers of the ASX Group and those Personnel.",
+      "page": 8
+    },
+    {
+      "number": "34",
+      "title": "",
+      "text": "SUBCONTRACTS",
+      "page": 8
+    },
+    {
+      "number": "34.1",
+      "title": "",
+      "text": "We may subcontract the performance of Our obligations under this\nAgreement or any part of this Agreement without Your consent, provided\nthat We remain liable at all times for the performance of Our obligations\nunder this Agreement.",
+      "page": 8
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "ASSIGNMENT",
+      "page": 8
+    },
+    {
+      "number": "35.1",
+      "title": "",
+      "text": "This Agreement (and all of Our rights and obligations hereunder) may be\nassigned by Us at any time to any person within the ASX Group without\nnotice, or to any other person capable of fulfilling Our obligations under\nthis Agreement with prior written notice.",
+      "page": 8
+    },
+    {
+      "number": "35.2",
+      "title": "",
+      "text": "Neither this Agreement nor any of the rights or obligations hereunder may\nbe assigned by You without Our prior written consent, which consent\nshall not be withheld unreasonably.",
+      "page": 8
+    },
+    {
+      "number": "36",
+      "title": "",
+      "text": "PRIORITY OF DOCUMENTS",
+      "page": 8
+    },
+    {
+      "number": "36.1",
+      "title": "",
+      "text": "If there is any inconsistency between any of the terms in this Agreement,\nthe order of precedence shall be as follows:\n(a)\nthe Order Form, including any Special Conditions within the Order Form;\n(b)\nthe Guide;\n(c)\nany applicable schedule or addendum; and\n(d)\nthese General Terms and Conditions.",
+      "page": 8
+    },
+    {
+      "number": "37",
+      "title": "",
+      "text": "GOVERNING LAW AND JURISDICTION",
+      "page": 8
+    },
+    {
+      "number": "37.1",
+      "title": "",
+      "text": "This Agreement is governed by the laws in force in the State of New\nSouth Wales and each party submits to the exclusive jurisdiction of the\ncourts of New South Wales and the appellate courts of the\nCommonwealth of Australia.",
+      "page": 8
+    },
+    {
+      "number": "38",
+      "title": "",
+      "text": "TRANSITIONAL PROVISIONS",
+      "page": 8
+    },
+    {
+      "number": "38.1",
+      "title": "",
+      "text": "Notwithstanding any other provision of this Agreement, the parties\nacknowledge and agree that these General Terms and Conditions come\ninto effect for existing customers on 1 July 2023 (Transition Date), such\nthat:\n(a)\nexcept in respect of New Original Works licences, Your existing Order\nForm(s) will continue to apply as at the Transition Date without requiring\nthe parties to re-execute a new Order Form;\n(b)\nunless You and We agree otherwise, any Special Conditions within Your\nexisting Order Form(s) or other variations to the terms in effect prior to\nthe Transition Date, will be superseded by this Agreement as at the\nTransition Date;\n(c)\nunless You and We agree otherwise, Your licence to use the\nMarketSource Products as set out in Your existing Order Form(s) shall\nremain in full force and effect, subject to any new or varied terms coming\ninto effect under this Agreement as at the Transition Date;\n(d)\neach party remains liable to the other for any rights or obligations that\nwere due for performance and remain outstanding, or that arose and\nhave not been exercised or discharged, as at the Transition Date, subject\nto the terms in effect prior to the Transition Date; and\n(e)\nany Claim by either party arising from events prior to the Transition Date\nshall be subject to the terms in effect prior to the Transition Date.\nMarketSource™ Agreement\nSCHEDULE 1\nDefinition:\n“Broker Specific Information” means the information specific to a Participant that\ninstigated a transaction on the ASX trading system(s) and which is not distributed\nby Us to other Participants, including but not limited to, the following:\n\nClient references on orders and trades\n\nIceberg quantities on orders\n\nThe Broker Identifier or Broker name associated with an order or trade\n\nThe unique identifier of a Trading Participant allocated by the ASX\n\nSome order types, e.g. SHL - Short Sell, PST – Price Stablisation\n\nSignum (DTR identifier) on orders and trades\n\nExpiry dates on orders\n\nThe short sell parameter on own trades\n\nTrades with condition codes:\nBP – Booking Purposes\nLN – Loan\nLR – Loan Return\nWe grant to You a non-transferable, non-exclusive licence to acquire, store and\nprocess in Your computer system the Restricted Information and Broker Specific\nInformation in accordance with this Schedule 1.",
+      "page": 8
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ".\nRestricted Information or Broker Specific Information must not be\nsupplied, shown or made available or allow to be accessed by any means\nor permitted to be supplied, shown or made available to anyone who is\nnot a Designated Trading Representative of the relevant Participant,\nexcept where that person is an employee of Yours or Participant and has\na need to access that data as part of their duties (\"Permitted Persons\").",
+      "page": 9
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".\nIf requested by a Participant, We will supply to You Restricted Information\nand Broker Specific Information of that Participant, until that request is\nrevoked.",
+      "page": 9
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ".\nIf You have access to Restricted Information and Broker Specific\nInformation for more than one Participant, You must ensure that the\nRestricted Information and Broker Specific Information for each\nParticipant is treated as Confidential Information in respect of each\nParticipant.",
+      "page": 9
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ".\nWe may determine, in Our sole discretion, to allow the release of\nRestricted Information or Broker Specific Information to third parties\nincluding but not limited to Participants in particular circumstances or\nwhere We determine it is necessary to do so to maintain a fair and orderly\nmarket.",
+      "page": 9
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ".\nYou will:\n(a)\nensure at all times during the Term that none of Your Subscriber Firm’s\nPersonnel are able to obtain any access to Restricted Information or\nBroker Specific Information unless expressly permitted to do so under\nthis Agreement;\n(b)\nprior to disseminating any Restricted Information, establish and\nimplement all procedures and systems necessary to ensure compliance\nwith Schedule 1.",
+      "page": 9
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ".\nYou will at all times during the Term:\n(a)\nkeep in place all procedures and systems and keep all books and records\nnecessary to ensure and demonstrate compliance with Schedule 1;\n(b)\nif so requested by Us, demonstrate to Us that You have established and\nare maintaining all procedures and systems necessary to ensure\ncompliance with Schedule 1;\n(c)\nif requested by Us, notify Us of the names and positions of any Permitted\nPersons (and any changes thereto) and the reason why such persons\nneed access to Restricted Information and Broker Specific Information;\nand\n(d)\nensure at all times that all Permitted Persons:\n(i)\nare made aware of their obligations of confidentiality in respect of\nRestricted Information and Broker Specific Information; and\n(ii)\nnot access, use or disclose Restricted Information or Broker Specific\nInformation except as expressly authorised under this Agreement.",
+      "page": 9
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ".\nYou will at Your cost complete and provide Us with an updated\nProcedures Certificate signed by Your duly authorised officer within 30\ndays of being so requested by Us in writing or as otherwise required in\nthe Guide.",
+      "page": 9
+    }
+  ]
+}

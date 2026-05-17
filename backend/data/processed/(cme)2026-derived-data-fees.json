@@ -1,0 +1,468 @@
+{
+  "exchange": "CME",
+  "agreement_type": "derived_data",
+  "agreement_title": "CME Group Derived Data License Agreement",
+  "version": "",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "non-exclusive, non-transferable, non-sublicensable worldwide license",
+    "territory": "worldwide",
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to use Information to process, develop, create, calculate, settle, maintain or support and market Products; and with prior written consent of CME, distribute Products within the Services."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "end_of_day",
+      "description": "Summary data available at end of trading day (settlement, open, high, low, close, etc.).",
+      "timing_constraint": "end of trading day",
+      "delay_period": null
+    },
+    {
+      "category": "snapshot",
+      "description": "Information of not more than three specific points in time in a single calendar day, only for derived works.",
+      "timing_constraint": "up to 3 points per day",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Use Information to process, develop, create, calculate, settle, maintain or support and market Products as listed in Appendix A.",
+      "conditions": [
+        "Must have Information Agreement in force",
+        "Subject to Information Policies"
+      ],
+      "source_section": "2.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Distribute Products within Services for customers/clients' use within the Services only.",
+      "conditions": [
+        "Requires prior written consent of CME"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Creation, calculation, issuance, distribution, settlement, maintenance or support of derivative works not authorized under this Agreement, including: indexes, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information in connection with the trading or support of any commodity or financial product on any exchange or trading platform not designated by CME.",
+      "conditions": [],
+      "source_section": "2.12",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information for calculating, distributing, settling, providing liquidity for or maintaining any CFD, binary option, spread bet or any related leveraged product.",
+      "conditions": [],
+      "source_section": "2.12",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Using Information to create Futures Contracts or Options on Futures Contracts, or licensing any Product to third parties to create futures or options on futures.",
+      "conditions": [],
+      "source_section": "2.13",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information.",
+      "conditions": [],
+      "source_section": "2.8(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.8(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [
+    {
+      "description": "Products must constitute a new, original work that has been derived from the Information and must not be capable of being used as a substitute for the Information.",
+      "criteria": [
+        "Must constitute a new, original work derived from Information",
+        "Must not be capable of being used as a substitute for Information",
+        "Must not be capable of reverse engineering to re-create the original Information",
+        "Must be used in accordance with the Information Agreement terms"
+      ],
+      "verification_authority": "CME has sole discretion to determine if Product meets requirements"
+    }
+  ],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of receipt of invoice from CME.",
+    "late_penalty": "Daily interest at the lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "CME may change/revise Fees with 90 days prior written notice. Annual automatic increase based on IMF CPI if CME does not exercise revision rights.",
+    "refund": "Pro-rated refund only if CME terminates under section 5.1(d). No other refunds.",
+    "tax": "Fees exclusive of applicable taxes (sales, distribution, use, withholding, VAT except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "Fees pro-rated if Effective Date or Appendix A date does not fall on first day of year.",
+    "unit_of_count": null,
+    "reporting_requirements": "",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books of account, records and related documentation relating to use of Information.",
+      "duration": "During Term and 24 months thereafter, for most recent 5 years.",
+      "details": [
+        "Books of account for all Licensee Group entities' use of Information",
+        "CME may inspect equipment, devices, software and records"
+      ]
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated as Confidential Information",
+        "Underpayment >5% means Licensee bears audit costs",
+        "Outstanding Fees from audit due within 30 days of invoice"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, Licensee Group, consultants and advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, required by law/regulation"
+      ]
+    },
+    {
+      "type": "disclaimer",
+      "description": "Required disclaimer text must be used in all Informational Material (Appendix E).",
+      "duration": "",
+      "details": [
+        "CME GROUP MARKET DATA IS USED UNDER LICENSE AS A SOURCE OF INFORMATION FOR CERTAIN [LICENSEE] PRODUCTS. CME GROUP HAS NO OTHER CONNECTION TO [LICENSEE] PRODUCTS AND SERVICES AND DOES NOT SPONSOR, ENDORSE, RECOMMEND OR PROMOTE ANY [LICENSEE] PRODUCTS OR SERVICES."
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages arising from the Agreement, except gross negligence or willful misconduct by CME.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "non_renewal",
+      "initiated_by": "either",
+      "notice_period": "90 days prior to end of Initial Term or current Renewal Term",
+      "consequences": "Agreement terminates at end of term. Wind-down provisions apply."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "Immediate if material irremediable breach; 30 days to cure material breach",
+      "consequences": "Includes: misrepresentation, failure to comply with 2.4, failure to use effective Internal Controls, failure to prevent unauthorized use."
+    },
+    {
+      "trigger": "fee_revision",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from fee increase notice or Information Policy revision",
+      "consequences": ""
+    },
+    {
+      "trigger": "reverse_engineering",
+      "initiated_by": "cme",
+      "notice_period": "Immediate or 90 days written notice",
+      "consequences": "If CME determines Information may be or is being reverse-engineered or misused."
+    },
+    {
+      "trigger": "change_of_control",
+      "initiated_by": "cme",
+      "notice_period": "Immediate upon notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "information_agreement_terminated",
+      "initiated_by": "cme",
+      "notice_period": "Immediate upon notice",
+      "consequences": "If Information Agreement governing receipt of relevant Information is terminated."
+    },
+    {
+      "trigger": "law_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate",
+      "consequences": "If changes in law impair CME's ability to provide license."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate",
+      "consequences": "If underlying contract is delisted/substantially changed or CME's rights to license substantially change."
+    }
+  ],
+  "wind_down": {
+    "description": "After termination, Licensee may continue using Information for previously issued and outstanding Products requiring orderly wind-down.",
+    "max_duration": "Shorter of: (i) Product remains outstanding, or (ii) 1 year after termination.",
+    "conditions": [
+      "Must continue to pay Fees",
+      "Must comply with all Agreement terms",
+      "As set out in Appendix A",
+      "As required by applicable law or regulation"
+    ]
+  },
+  "redistribution_restrictions": [
+    {
+      "description": "No Licensee Group entity may license, sublicense, transfer, sell, resell, publish, reproduce or otherwise distribute/redistribute Information.",
+      "exceptions": [
+        "Distribution of Products within Services with prior written CME consent"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $100,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$100,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk"
+    ],
+    "indemnification": "Licensee indemnifies CME Group against all Claims and Damages except those arising from CME's gross negligence or willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "2",
+      "title": "",
+      "text": "Defined Terms\nIn this document, the following capitalized terms shall have the meanings set out next to them. Any capitalized term not\notherwise defined herein shall have the respective meaning associated with it in the DDLA or EDDLA. Should any term in\nthis document conflict with or deviate from a term defined in the DDLA or EDDLA, the latter shall prevail.\nCategory 1: the superset of Information that is Real-Time Information, Delayed Information, fixing markers or similar time\nvalues, Snap Shot Information or Historical Information.\nCategory 2: Information that is Snap Shot Information, fixing markers or similar time values or Historical Information.\nData Provider: the entity from which a Licensee Group entity receives the Information.\nDelayed Information: Information that is made available more than ten (10) minutes, but less than eight (8) hours after\ninitial transmission by the originator of the Information.\nExchange-Traded Products or ETPs: an exchange-traded fund (ETF), exchange-traded note (ETN), or exchange-traded\ncommodities (ETC).\nHistorical Information: Information that is not Real-Time Information or Delayed Information that is first accessed at least\neight (8) hours after initial transmission by the originator of the Information.\nInformation: the market prices, volumes and other information as set out in the tables of this document. By way of\nexample and not limitation, Information includes, opening and closing range prices, high-low prices, settlement prices,\ncurrent bid and ask prices, last sale prices, price limits, market depth, requests for quotations, estimated and actual\ncontract volume data, other market activity information, contract specifications, index values, index constituents, and\ninformation respecting exchange-for related product (EFRP) and against actual (AA) transactions.\nInformation Agreement: any agreement between Licensee and CME or Data Provider, that grants Licensee Group, the\nright to receive and use the Information, in accordance with the terms of that agreement. Such agreement does not grant\nany Licensee Group entity the right to create derivative works based upon the Information other than for internal business\npurposes only and those limited rights granted within the Information Agreement.\nLicensee: The legal entity that has entered into a DDLA or EDDLA with CME.\nLicensee Group: the combined name of the Licensee and those affiliates of the Licensee listed in the DDLA or EDDLA.\nReal-Time Information: Information that is made available within ten (10) minutes of initial transmission by the originator\nof the Information.\nSnap Shot Information: Information of not more than three specific points in time in a single calendar day only to be\nused in a derived work.\n© 2025 CME Group. All rights reserved.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "CME Instruments of Information\nCME Group exchanges offer the widest range of global futures and options instruments across all major asset classes,\nincluding interest rates, equity indexes, foreign exchange, energy, agriculture, and metals. Our Series I instruments of\nInformation represent some of CME Group’s deepest and most liquid markets, offering a wide range of customers the\nability to leverage them in the creation of derivative works.\nSeries II Instruments consist of all non-Series I instruments.\nCME crypto instruments and crypto pricing products are licensed separately from Series I instruments of Information and\nSeries II instruments of Information at this time.\nFutures and options are distinct and separately licensable instruments of Information. Licensing of an instrument includes\nall expiries. Any variant of an instrument of Information, such as a Micro contract, would share the same underlying\nclassification, but is a distinct and separate instrument of Information. Contact us for details on newly launched instruments.\nExchange\nAsset\nclass\nCME Information\nCME\nAgriculture\nFeeder Cattle futures and options\nLean Hog futures and options\nLive Cattle futures and options\nEquities\nE-mini S&P 500 futures and options\nE-mini S&P 500 ESG Index futures\nE-mini S&P MidCap 400 futures and\noptions\nAdjusted Interest Rate S&P 500 Total\nReturn (EFFR) futures\nE-mini Nasdaq-100 futures and options\nE-mini Russell 2000 Index futures and\noptions\nNikkei/USD futures and options\nNikkei/Yen futures\nNasdaq Veles California Water Index\nfutures\nInterest\nrates\nESTR futures and options",
+      "page": 3
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "m SOFR futures and options",
+      "page": 4
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "m SOFR futures and options\nMPC SONIA futures\nQuarterly IMM SONIA futures\nFX\nAustralian Dollar futures and options\nBritish Pound futures and options\nCanadian Dollar futures and options\nEuro FX futures and options\nJapanese Yen futures and options\nSwiss Franc futures and options\nEuro/British Pound futures and options\nMexican Peso futures and options\nNew Zealand Dollar futures and options\nSeries I Instrument List\nExchange\nAsset\nclass\nCME Information\nCBOT\nAgriculture\nCorn futures and options\nChicago SRW Wheat futures and options\nKansas City Wheat futures and options\nSoybean futures and options\nSoybean Meal futures and options\nSoybean Oil futures and options\nEquities\nE-mini Dow ($5) futures and options\nInterest\nrates\nUS Treasury Bond futures and options\nUltra US Treasury Bond futures and\noptions",
+      "page": 4
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": "-Yr T-Note futures and options\nUltra 10-Yr US T-Note futures and options",
+      "page": 4
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "-Yr T-Note futures and options",
+      "page": 4
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "-Yr T-Note futures",
+      "page": 4
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "-Yr T-Note futures and options",
+      "page": 4
+    },
+    {
+      "number": "30",
+      "title": "",
+      "text": "-Day Federal Funds futures and\noptions\nNYMEX\nEnergy\nCrude Oil futures and options\nHenry Hub Natural Gas futures and\noptions\nNY Harbor ULSD futures and options\nRBOB Gasoline futures and options\nCBL GEO and N-GEO futures\nMetals\nPlatinum futures and options\nPalladium futures and options\nCOMEX\nMetals\nGold futures and options\nSilver futures and options\nCopper futures and options\n© 2025 CME Group. All rights reserved.",
+      "page": 4
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "Cryptocurrency Product List\nAsset Class\nCME Information\nCrypto\ninstruments\nBitcoin futures and options\nMicro Bitcoin futures and options\nEther futures and options\nMicro Ether futures and options\nSolana futures and options\nMicro Solana futures and options\nXRP futures and options\nMicro XRP futures and options\nCrypto pricing\nproducts\nCryptocurrency\nReference Rates\nRealtime Index\nBitcoin\nCME CF Ether-Dollar Reference Rate\nCME CF Ether-Dollar Reference Rate New York\nCME CF Ether-Dollar Reference Rate APAC\nCME CF Ether-Euro Reference Rate\nCME CF Bitcoin Real-Time Index\nCME CF Bitcoin-Euro Real-Time Index\nBitcoin Cash\nCME CF Bitcoin Cash-Dollar Reference Rate\nCME CF Bitcoin Cash-Dollar Reference Rate New\nYork\nCME CF Bitcoin Cash-Dollar Real-Time\nIndex\nEther\nCME CF Ether-Dollar Reference Rate\nCME CF Ether-Dollar Reference Rate New York\nCME CF Ether-Dollar Reference Rate APAC\nCME CF Ether-Euro Reference Rate\nCME CF ETHBTC_USD Real-Time Index\nXRP\nCME CF XRP-Dollar Reference Rate\nCME CF XRP-Dollar Reference Rate New York\nCME CF XRP-Dollar Reference Rate APAC\nCME CF XRP-Dollar Real-Time Index\nSolana\nCME CF Solana-Dollar Reference Rate\nCME CF Solana-Dollar Reference Rate New York\nCME CF Solana-Dollar Reference Rate APAC\nCME CF Solana-Dollar Real-Time Index\nEther/Bitcoin\nRatio\nCME CF Ether/Bitcoin-Dollar Reference Rate\nCME CF ETHBTC_USD Real-Time Index\nAave\nCME CF Aave-Dollar Reference Rate\nCME CF Aave-Dollar Real-Time Index\nAlgorand\nCME CF Algorand-Dollar Reference Rate\nCME CF Algorand-Dollar Real-Time Index\nARB\nCME CF ARB-Dollar Reference Rate\nCME CF ARB-Dollar Reference Rate New York\nCME CF ARB-Dollar Real-Time Index\nAvalanche\nCME CF Avalanche-Dollar Reference Rate\nCME CF Avalanche-Dollar Reference Rate New\nYork\nCME CF Avalanche-Dollar Real-Time\nIndex\nAxie Infinity\nCME CF Axie Infinity-Dollar Reference Rate\nCME CF Axie Infinity-Dollar Real-Time\nIndex\nCardano\nCME CF Cardano-Dollar Reference Rate\nCME CF Cardano-Dollar Reference Rate New York\nCME CF Cardano-Dollar Reference Rate APAC\nCME CF Cardano-Dollar Real-Time Index\n© 2025 CME Group. All rights reserved.",
+      "page": 4
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "Asset Class\nCME Information\nCrypto pricing\nproducts\nChainlink\nCME CF Chainlink-Dollar Reference Rate\nCME CF Chainlink-Dollar Reference Rate New\nYork\nCME CF Chainlink-Dollar Reference Rate APAC\nCME CF Chainlink-Dollar Real-Time Index\nChiliz\nCME CF Chiliz-Dollar Reference Rate\nCME CF Chiliz-Dollar Real-Time Index\nCosmos\nCME CF Cosmos-Dollar Reference Rate\nCME CF Cosmos-Dollar Real-Time Index\nCurve\nCME CF Curve-Dollar Reference Rate\nCME CF Curve-Dollar Real-Time Index\nDecentraland\nCME CF Decentraland-Dollar Reference Rate\nCME CF Decentraland-Dollar Real-Time\nIndex\nFilecoin\nCME CF Filecoin-Dollar Reference Rate\nCME CF Filecoin-Dollar Real-Time Index\nInternet\nComputer\nCME CF Internet Computer-Dollar Reference Rate\nCME CF Internet Computer-Dollar Real-\nTime Index\nLitecoin\nCME CF Litecoin-Dollar Reference Rate\nCME CF Litecoin-Dollar Reference Rate New York\nCME CF Litecoin-Dollar Reference Rate APAC\nCME CF Litecoin-Dollar Real-Time Index\nNEAR\nCME CF NEAR-Dollar Reference Rate\nCME CF NEAR-Dollar Reference Rate New York\nCME CF NEAR-Dollar Real-Time Index\nOndo\nCME CF Ondo-Dollar Reference Rate\nCME CF Ondo-Dollar Reference Rate New York\nCME CF Ondo-Dollar Real-Time Index\nPolkadot\nCME CF Polkadot-Dollar Reference Rate\nCME CF Polkadot-Dollar Reference Rate New York\nCME CF Polkadot-Dollar Reference Rate APAC\nCME CF Polkadot-Dollar Real-Time Index\nPolygon\nCME CF Polygon-Dollar Reference Rate\nCME CF Polygon-Dollar Reference Rate New York\nCME CF Polygon-Dollar Real-Time Index\nStellar Lumens\nCME CF Stellar Lumens-Dollar Reference Rate\nCME CF Stellar Lumens-Dollar Reference Rate\nNew York\nCME CF Stellar Lumens-Dollar Real-Time\nIndex\nSui\nCME CF Sui-Dollar Reference Rate\nCME CF Sui-Dollar Reference Rate New York\nCME CF Sui-Dollar Real-Time Index\nSynthetix\nCME CF Synthetix-Dollar Reference Rate\nCME CF Synthetix-Dollar Real-Time Index\nTezos\nCME CF Tezos-Dollar Reference Rate\nCME CF Tezos-Dollar Real-Time Index\nUniswap\nCME CF Uniswap-Dollar Reference Rate\nCME CF Uniswap-Dollar Real-Time Index\n© 2025 CME Group. All rights reserved.",
+      "page": 5
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "FEES",
+      "page": 6
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ".\t Indices\nThe “Index Fees,” set out in the table below, are the fees for the use of a single instrument of Information, whether in\nwhole, in part or in combination with other Information or data, to process, develop, create or otherwise calculate an index\nthat is:\ni)\nmade available for external distribution;\nii)\t viewable by external display; and/or\niii)\t \u0007used in whole or in part as an underlying strategy for any financial product linked to the index, including but not\nlimited to swaps, ETPs, notes, certificates, funds or other investment wrappers.\nAdditional fees may apply where:\ni)\nan index is licensed, distributed or used by any party other than the Licensee Group; or\nii)\t a financial product is linked to or otherwise tracks the performance of an index.\nIndex Fees\nUSD/Annum\nTier 1\nFirst 1-5 Instruments\nTier 2\nNext 6-20 Instruments\nTier 3",
+      "page": 7
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "+ Instruments\nSeries I\nCategory 1\n$34,260 (per instrument)\n$20,520 (per instrument)\n$13,680 (per instrument)\nCategory 2\n$13,680 (per instrument)\n$10,260 (per instrument)\n$6,840 (per instrument)\nSeries II\nCategory 1\n$13,680 (per instrument)\n$10,260 (per instrument)\n$6,840 (per instrument)\nCategory 2\n$6,840 (per instrument)\n$5,130 (per instrument)\n$3,408 (per instrument)",
+      "page": 7
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".\t Exchange-Traded Product Values (IOPV, NAV, iNAV)\nThe “Exchange-Traded Product Value Fees,” set out in the table below, are the fees for the use of a single instrument of\nInformation in the material calculation of the indicative optimized portfolio value (IOPV), net asset value (NAV or iNAV) or\ncertain other reference values for or relating to an ETP, whereby the ETP is either not linked to an underlying index, or the\nunderlying index with which the ETP is linked is not also owned by the ETP’s advisor.\nAdditional fees may apply for creation of ETP Values provided as a service.\nExchange Traded Product Value Fees\nUSD/Annum\nTier 1\nFirst 1-5 Instruments\nTier 2\nNext 6-20 Instruments\nTier 3",
+      "page": 7
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "+ Instruments\nSeries I\nCategory 1\n$10,260 (per instrument)\n$5,130 (per instrument)\n$2,730 (per instrument)\nCategory 2\n$5,130 (per instrument)\n$2,730 (per instrument)\n$1,362 (per instrument)\nSeries II\nCategory 1\n$5,130 (per instrument)\n$2,730 (per instrument)\n$1,362 (per instrument)\nCategory 2\n$2,730 (per instrument)\n$1,362 (per instrument)\n$678 (per instrument)\n© 2025 CME Group. All rights reserved.",
+      "page": 7
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ".\t Certificates and Warrants\nThe “Certificate and Warrant Fees,” set out in the table below, are the fees for a single instrument of Information, in\nwhole or in part, to process, develop, create, calculate or otherwise settle a certificate, warrant, or other similar structured\nfinancial product.\nCertificate and Warrant Fees\nUSD/Annum\nTier 1\nFirst 1-5 Instruments\nTier 2\nNext 6-20 Instruments\nTier 3",
+      "page": 8
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "+ Instruments\nSeries I\nCategory 1\n$34,260 (per instrument)\n$20,520 (per instrument)\n$13,680 (per instrument)\nCategory 2\n$13,680 (per instrument)\n$10,260 (per instrument)\n$6,840 (per instrument)\nSeries II\nCategory 1\n$13,680 (per instrument)\n$10,260 (per instrument)\n$6,840 (per instrument)\nCategory 2\n$6,840 (per instrument)\n$5,130 (per instrument)\n$3,408 (per instrument)\nCrypto Pricing Products\n$34,260 (per token)\nCrypto Instruments\n$55,530 (per instrument)",
+      "page": 8
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ".\t Spot, Indicative or Amalgamated Price/Value\nThe Spot, Indicative or Amalgamated Price Fee for a single instrument of Information is assessed for the right to use that\ninstrument of Information, whether in whole, in part or in combination with other Information or data, to process, develop,\ncreate or otherwise calculate a price or value.\nSpot, Indicative or Amalgamated Pricing Fees\nUSD/Annum\nTier 1\nFirst 1-5 Instruments\nTier 2\nNext 6-20 Instruments\nTier 3",
+      "page": 8
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "+ Instruments\nSeries I\nCategory 1\nfrom $34,260 (per instrument)\nSeries II\nCategory 1\nfrom $13,680 (per instrument)\nCrypto Pricing Products\n$34,260 (per token)\nCrypto Instruments\n$55,530 (per instrument)\n© 2025 CME Group. All rights reserved.",
+      "page": 8
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ".\t Contract for Difference (CFD)\nThe “CFD Fees,” set out in the table below, are the fees for the use of a single instrument of Information, in whole or in\npart, to process, develop, create, calculate, support, or provide prices/values for, contracts for difference (CFDs), spread\nbets, binary options, and other products offering similar leveraged exposure that CME may determine in its sole discretion.\nCFDs, spread bets, binary options and other similar leveraged financial products created using the same underlying CME\ninstrument of Information are considered as separate licensable products.\nIn addition to the CFD Fees, “White Label Service Fees” or “API Distribution Fees” may apply.\nCFD Fees\nUSD/Annum\nTier 1\nFirst 1-5 Instruments\nTier 2\nNext 6-20 Instruments\nTier 3",
+      "page": 9
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "+ Instruments\nSeries I\nCategory 1\n$34,260 (per instrument)\nSeries II\nCategory 1\nfrom $17,070 (per instrument)\nCrypto Pricing Products\n$17,070 (per token)\nCrypto Instruments\n$34,260 (per instrument)\nThe CFD White Label Service Fee is assessed for the right to distribute CFDs to third parties through a branded or co-\nbranded trading solution.\nCFD White Label Service Fees\nUSD/Annum\n$14,280\nFurther information about CFD API Distribution Fees are available upon request.\n© 2025 CME Group. All rights reserved.",
+      "page": 9
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": "",
+      "page": 9
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ".\t Creation of Other Derivative Works\nFees for the right to use Information or any portion thereof in the creation, settlement, maintenance or support of any\nderivative work not otherwise expressly referenced above, including, but not limited to financial products, ETFs, ETNs,\nETCs, quotes, price assessments, ratios, curves, surfaces, charts, any analytical reference figures or values, for purposes\nof fund administration, portfolio management services, risk management services, valuation services, or other pre- and\npost-trade services are available upon request. CME reserves the right to determine in its sole discretion whether use of\nInformation constitutes a derivative work that otherwise necessitates express permission through execution of a DDLA or\nEDDLA.\nPlease contact Derived Data Services (DDS) for fees pertaining to Other Derivative Works at\nCMEGroupDerivedData@cmegroup.com\nAcademic Institution and Government Agency Derived Data Fee Waiver Policy\nCME may waive certain fees for the use of Information to create derived works under this policy. Please note that fees are\nstill applicable for the initial accessing of the Information. To be considered for a fee waiver for the right to use Information\nin the creation of derivative works under this policy, an applicant must demonstrate it is either: (i) an accredited academic\ninstitution; (ii) a student enrolled in and sponsored by an accredited academic institution; or (iii) is a state or federal\ngovernment agency or entity.\nThe use of Information must be limited to independent academic research, journals, teaching or other educational\npurposes. Commercial or industry funded research is ineligible.\nCME shall determine eligibility and approved applicants must sign a data license agreement with CME.\nAcademic institutions and students require an authorized institutional representative’s signature, while government\nagencies need an authorized approving official’s signature.\n© 2025 CME Group. All rights reserved.",
+      "page": 10
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": "About CME Group\nAs the world’s leading and most diverse derivatives marketplace, CME Group (www.cmegroup.com) is where the world\ncomes to manage risk. CME Group exchanges offer the widest range of global benchmark products across all major\nasset classes, including futures and options based on interest rates, equity indexes, foreign exchange, energy, agricultural\nproducts and metals. Around the world, CME Group brings buyers and sellers together through its CME Globex®\nelectronic trading platform. CME Group also operates one of the world’s leading central counterparty clearing providers\nthrough CME Clearing, which offers clearing and settlement services across asset classes for exchange-traded and\nover-the-counter derivatives. CME Group products and services ensure that businesses around the world can effectively\nmanage risk and achieve growth.\nVisit us at: www.cmegroup.com/market-data/derived-data.html\nContact Our Derived Data Services Team\nEmail is the best way to get in touch with us: CMEGroupDerivedData@CMEGroup.com\nEMEA Tel: +44 20 3379 3747\nAmericas Tel: +1 312 435 4684\n© 2025 CME Group. All rights reserved.",
+      "page": 10
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "cmegroup.com\nAny capitalized term not otherwise defined herein shall have the respective meaning associated with it in the DDLA.\nAll information contained within this document is provided for reference purposes only. While CME endeavors to ensure the accuracy, reliability and completeness of the information, neither CME, nor any of its affiliates\nmake any warranty or representation, express or implied, or accepts any responsibility or liability for, the accuracy, completeness, reliability or suitability of the Information for any particular purpose. CME accepts no liability\nwhatsoever to any person for any loss or damage arising from any inaccuracy or omission in the information or from any consequence, decision, action or non-action based on or in reliance upon this document.\nNothing herein shall be construed as granting any rights to create derivative works using CME Information, nor shall the information contained in this document supersede or take precedence over any terms or conditions\nset forth in the DDLA. In the event of a conflict or inconsistency between this document and the DDLA, the DDLA shall control and govern the rights and obligations of any party.\n© 2025 CME Group. All rights reserved.\nPM25_MD025/0925",
+      "page": 11
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

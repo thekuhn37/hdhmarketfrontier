@@ -1,0 +1,445 @@
+{
+  "exchange": "CME",
+  "agreement_type": "information",
+  "agreement_title": "CME Information License Agreement",
+  "version": "5.01",
+  "definitions": {
+    "As Needed": "a reporting frequency where Licensee is required to report the details set out in Schedule 3, only when a change in the ability to access Information on a Unit of Count occurs (is added or removed). Such reports must be submitted, within the month that the change occurred.",
+    "Access ID": "unique identifier for each point of access to Information on a Device.",
+    "Report Processing Fee": "the report processing fee set forth in the applicable schedule.",
+    "Location ID": "unique identifier for each location at which Direct Licensee, Subscriber (as defined in Schedule 5) or Licensee Group entity (as defined in Schedule 1a) receives Information.",
+    "Subscriber Name": "the entity that has entered into the Subscriber Agreement (as defined in Schedule 5).",
+    "Location Address": "the full postal address for the location of the entity that receives Information.",
+    "Reporting Codes": "unique identifiers for the Information and usage package as set out in the Schedules."
+  },
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "limited, non-exclusive, non-transferable, non-sublicensable license",
+    "territory": null,
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to: (a) receive Information from CME and Data Provider; (b) use Information as permitted in Schedules; and (c) create limited derivative works based on Information solely for internal business purposes, provided derivative works may only be disclosed internally and not distributed to third parties without prior written CME consent. Separate license required for derivative works beyond this scope."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission by the originator.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information that is not Real Time or Delayed, first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Receive Information from CME and Data Provider.",
+      "conditions": [
+        "Subject to Information Policies and Agreement terms"
+      ],
+      "source_section": "2.1(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information as permitted in the Schedules.",
+      "conditions": [
+        "As specified in Schedules"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Create limited derivative works based on Information solely for internal business purposes.",
+      "conditions": [
+        "Internal disclosure only",
+        "No distribution to third parties without prior written CME consent",
+        "Separate license required for derivative works beyond this scope",
+        "Must comply with Information Policies"
+      ],
+      "source_section": "2.1(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information or any part thereof.",
+      "conditions": [],
+      "source_section": "2.2(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.2(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information in the creation, distribution, calculation, issuance, settlement or maintenance of any derivative work including but not limited to: financial products, futures contracts, options on futures, synthetic instruments, indexes, index-linked instruments, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), or any analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.2(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information only for internal business purposes.",
+      "conditions": [
+        "Except as expressly permitted under the Agreement"
+      ],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Text and data mining as defined in EU Directive 2019/790.",
+      "conditions": [],
+      "source_section": "3.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use or access Information for any illegal purpose.",
+      "conditions": [],
+      "source_section": "2.4",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of date of invoice issued by CME.",
+    "late_penalty": "Daily interest on overdue Fees at lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "",
+    "refund": "If Licensee terminates, Fees paid in advance retained by CME. If CME terminates under 5.2(a) or 5.6, or is breaching party, or Licensee terminates under 5.3, advance Fees for post-termination period refunded.",
+    "tax": "Fees exclusive of applicable taxes, fees or charges (sales, distribution, use, VAT, etc. except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "",
+    "unit_of_count": "Device (default). If a Device accesses multiple Services, each access counts as one Unit of Count.",
+    "reporting_requirements": "Licensee must report all Units of Count that have the ability to access Information.",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "internal_controls",
+      "description": "All Licensee Group entities must maintain effective Internal Controls at all times.",
+      "duration": "",
+      "details": [
+        "Identify ability to access Information",
+        "Permit access using defined Unit of Count",
+        "Prevent unauthorized access to Information",
+        "Retain auditable records",
+        "Licensee responsible for Fees for all Units of Count with ability to access, whether Internal Controls used or not",
+        "Must maintain auditable evidence of Internal Controls operation throughout Term"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "All access to Information must be identified and recorded using Unit of Count per Device.",
+      "duration": "",
+      "details": [
+        "Unless stated otherwise in Schedules"
+      ]
+    },
+    {
+      "type": "attribution",
+      "description": "Information must not be misrepresented and must include proper attribution.",
+      "duration": "",
+      "details": [
+        "Legend: \"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+        "Trademarks/proprietary notices transmitted with Information must not be amended",
+        "Delayed Information must be clearly labelled with period of delay",
+        "Comply with other reasonable display requirements from CME Group"
+      ]
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME of any unlicensed activity relating to Information and immediately implement remedial actions.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME in writing if it becomes aware of non-compliance by any Licensee Group entity.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books and records relating to all Units of Count and Internal Controls.",
+      "duration": "During Term and 24 months thereafter, for most recent 5-year period.",
+      "details": []
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated confidentially, used only for compliance verification",
+        "Outstanding Fees from audit due within 30 days",
+        "CME may appoint independent auditor at Licensee's cost if records inadequate",
+        "Underpayment >=5% means Licensee bears audit costs"
+      ]
+    },
+    {
+      "type": "personal_data",
+      "description": "Licensee must collect, hold, process and provide Personal Data in accordance with all applicable laws.",
+      "duration": "",
+      "details": [
+        "Must obtain valid consents or satisfy applicable legal basis for data processing",
+        "Must ensure cross-border transfers satisfy applicable laws",
+        "Must make individuals aware of CME Group's data processing (Privacy Center)",
+        "Subject to CME Group's Data Processing Addendum"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, CME licensors, Licensee Group, and their agents/advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, becomes public through no fault, rightfully known from another source, required by law/regulation"
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages from access/use of Information or breach of warranties, except CME willful misconduct.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "convenience",
+      "initiated_by": "either",
+      "notice_period": "30 days written notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "liquidation",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If other party enters liquidation, has receiver appointed, or presents winding-up petition."
+    },
+    {
+      "trigger": "material_breach_irremediable",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "Irremediable breaches include: misrepresentation of Information, failure to use effective Internal Controls, failure to prevent unauthorized use/distribution."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "30 days to remedy after written notice",
+      "consequences": "If other party fails to remedy material breach within 30 days."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from date change takes effect",
+      "consequences": "If changes to Information significantly alter its nature or materially reduce quality."
+    },
+    {
+      "trigger": "sublicense_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If CME's rights to sublicense Information substantially change, or if third-party source rights substantially change."
+    }
+  ],
+  "wind_down": null,
+  "redistribution_restrictions": [
+    {
+      "description": "No distribution or redistribution of Information or any portion thereof in any manner.",
+      "exceptions": [
+        "Limited derivative works for internal business purposes only (with CME consent for external distribution)"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [
+    {
+      "legend_text": "\"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+      "trademark_rules": "Any trademarks or proprietary notices transmitted with the Information must not be amended.",
+      "delay_labeling": "Delayed Information must be clearly labelled with the period of delay.",
+      "display_conditions": [
+        "Legend must be used to credit CME as source of Information",
+        "If not possible to use legend alongside Information, permitted recipients must receive and acknowledge the legend",
+        "Information must not be misrepresented or used to create false/misleading impressions as to origin or value"
+      ]
+    }
+  ],
+  "internal_control_requirements": [
+    {
+      "description": "Electronic systems, network configurations, rules, procedures and policies that satisfy CME requirements.",
+      "requirements": [
+        "Identify the ability to access Information",
+        "Permit access to Information using a defined Unit of Count",
+        "Prevent any unauthorized access to Information",
+        "Retain auditable records of the foregoing",
+        "Fee liability applies to all Units with ability to access, regardless of whether Internal Controls were used",
+        "Must assist CME with prevention, identification and curtailing of unlicensed activity",
+        "Must maintain auditable evidence of Internal Controls throughout Term"
+      ]
+    }
+  ],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $1,000,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$1,000,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk",
+      "No representations/warranties except as expressly stated (merchantability, fitness, accuracy, etc. disclaimed)"
+    ],
+    "indemnification": "Bilateral: CME indemnifies Licensee for IP infringement claims (non-patent) for CME-owned Information used in compliance, subject to exceptions (derivative works, combination with non-CME products, breach). Licensee indemnifies CME Group for all Claims from access/use of Information or breach, except CME willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": ". Definitions\nAs Needed: a reporting frequency where Licensee is required to report the details set out in Schedule 3, only when a change in the\nability to access Information on a Unit of Count occurs (is added or removed). Such reports must be submitted, within the month that\nthe change occurred.\nAccess ID: unique identifier for each point of access to Information on a Device.\nReport Processing Fee: the report processing fee set forth in the applicable schedule.\nLocation ID: unique identifier for each location at which Direct Licensee, Subscriber (as defined in Schedule 5) or Licensee\nGroup entity (as defined in Schedule 1a) receives Information.\nSubscriber Name: the entity that has entered into the Subscriber Agreement (as defined in Schedule 5).\nLocation Address: the full postal address for the location of the entity that receives Information.\nReporting Codes: unique identifiers for the Information and usage package as set out in the Schedules.",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". Reporting Requirements",
+      "page": 1
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": "By the last Day of each calendar month, or as otherwise specified in a Schedule, Licensee shall submit a report to CME,\nsetting out the total number of Units of Count (as specified in each Schedule) that had the ability to access Information,\nvia each Service, during the previous calendar month.",
+      "page": 1
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": "In the case of any access to Information in a Device that also is used for Non-Display Use, reporting and fees are due for both\nthe ability to access Information and the Non-Display Use, as set out in the Agreement.",
+      "page": 1
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": "The maximum Units of Count (as specified in each Schedule)  via each Service, must be reported.",
+      "page": 1
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": "A full month’s Fee is due for each month in which the applicable Unit of Count had the ability to access Information, per\nService, except for fees based on Quotes.",
+      "page": 1
+    },
+    {
+      "number": "2.5",
+      "title": "",
+      "text": "Licensee will submit reports utilizing the CME specified electronic reporting system(s).",
+      "page": 1
+    },
+    {
+      "number": "2.6",
+      "title": "",
+      "text": "Late submission of reports, or submission of reports via any other means than the specified electronic reporting system,\nwill result in Licensee being charged the monthly Report Processing Fee.",
+      "page": 1
+    },
+    {
+      "number": "2.7",
+      "title": "",
+      "text": "Unless otherwise specified in a Schedule, CME requires Licensee to report some or all of the following information in\naddition to such other information as may reasonably be required by CME:\nAccess IDs\nDirect License Name\nLocation IDs Location\nAddresses\nLicensee Group Names\nReporting Codes Services\nSubscriber Names Website\nURLs\nPlease refer to each individual Schedule for the reporting requirements specific to the Information licensed\nthereunder.",
+      "page": 1
+    },
+    {
+      "number": "2.8",
+      "title": "",
+      "text": "If after Licensee submits a report pursuant to this Schedule, it becomes aware of any misreported access to Information\n(an \"Erroneous Report\"), Licensee shall submit their corrections to the previously issued Erroneous Report, in the next\nmonthly report due, or as soon as Licensee becomes aware (the \"Corrected Report\"). If the Corrected Report identifies\nany increase in reported Units of Count, the additional Fees shall be due immediately. If the Corrected Report identifies\na decrease from the originally reported Units of Count, CME may issue a credit to Licensee’s next invoice, but only if,\nthe Corrected Report was submitted within ninety (90) Days of the due date of the Erroneous Report. The application\nof such credits shall however, be limited to covering a period of not more than three (3) months preceding the due date\nof the Erroneous Report.",
+      "page": 2
+    },
+    {
+      "number": "2.9",
+      "title": "",
+      "text": "If applicable laws or regulations (including without limitation any privacy laws or regulations) prevent Licensee from\ncomplying with the foregoing reporting requirements, then Licensee must either waive such laws or regulations on its\nown behalf or obtain a waiver of such laws or regulations from the affected Subscriber as applicable. In the event that\nLicensee is unable to provide an effective waiver on its own behalf CME may terminate Licensee’s access to\nInformation. In the event Licensee is unable to obtain an effective waiver from a Subscriber, Licensee must terminate\nthe affected Subscriber’s access to Information.",
+      "page": 2
+    },
+    {
+      "number": "2.10",
+      "title": "",
+      "text": "All reports must be submitted in English.",
+      "page": 2
+    },
+    {
+      "number": "2.11",
+      "title": "",
+      "text": "Reports submitted by Licensee to CME are Confidential Information.",
+      "page": 2
+    },
+    {
+      "number": "2.12",
+      "title": "",
+      "text": "As of the Schedule 3 Effective Date, this Schedule 3 supersedes every prior Schedule 3 executed by the parties.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". Personal Data",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": "Personal Data obtained will be used in accordance with the Privacy Center.\n[signature page follows]\nIN WITNESS WHEREOF, each of the Parties has caused this Schedule to be duly executed in its name and on its behalf\nby the officer or representative duly authorized.\nLicensee\nCME\nSignature\nPrint Name\nTitle\nLicensee\nDate of Signature",
+      "page": 2
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

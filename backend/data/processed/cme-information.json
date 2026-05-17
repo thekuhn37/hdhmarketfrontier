@@ -1,0 +1,753 @@
+{
+  "exchange": "CME",
+  "agreement_type": "information",
+  "agreement_title": "CME Information License Agreement",
+  "version": "5.01",
+  "definitions": {
+    "Affiliate": "an entity that controls, is controlled by or is under common control with a party. Control means the ownership or control, directly or indirectly, of at least fifty percent (50%) or more of all of the voting shares (or other securities or rights) entitled to vote for the election of directors or other governing authority.",
+    "Agreement": "this Information License Agreement, together with the Schedules and the Information Policies, as amended from time to time in accordance with this Agreement.",
+    "Authorized Contacts": "as set out at Schedule 1.",
+    "Claim": "any suit, claim or action.",
+    "CME Group": "CME and its Affiliates.",
+    "Confidential Information": "all information disclosed by the parties in connection with this Agreement, which should reasonably be considered as confidential because of its nature and the manner of its disclosure including but not limited to the Information.",
+    "Damages": "damages, costs, liabilities, expenses (including court costs and reasonable attorneys’ fees) and settlement amounts.",
+    "Data Provider": "the entity from which a Licensee Group entity receives the Information as listed in the Schedules.",
+    "Day": "a calendar day.",
+    "Delayed Information": "Information that is made available more than ten (10) minutes, but less than eight (8) hours after initial transmission by the originator of the Information.",
+    "Device": "means any display unit (fixed or portable) , which has the ability to access, accesses, receives, processes, or displays the Information, whether in whole or part, through the Service. CME reserves the sole right to determine what constitutes a Device.",
+    "Fees": "the fees for Information payable in United States Dollars that are set out in the Schedules (as may be amended from time to time).",
+    "Historical Information": "Information that is not Real Time Information or Delayed Information, that is first accessed at least eight (8) hours after initial transmission by the originator of the Information.",
+    "Information": "the market prices, volumes and other information as set out in the Schedules that is delivered to any Licensee Group entity by CME directly or indirectly through the Data Provider. By way of example and not limitation, Information may include orders, market prices, volumes, quantity, opening and closing range prices, high-low prices, bid and offer prices, trade prices, , related reference data including instrument specifications, including daily settlement prices, final settlement prices, options values current bid and ask prices, last sale prices, price limits, market depth, time and sales, requests for quotations, estimated and actual contract volume data, other market activity information, index values, index constituents, information regarding block trades information respecting exchange-for related product (EFRP).",
+    "Information Policies": "the policies applicable to Information as set out in the Schedules and on the CME website (currently located at www.cmegroup.com/informationpolicies) as they may be amended from time to time.",
+    "Intellectual Property Rights": "patents, trademarks, service marks, trade and service names, domain names, copyrights, topography rights, database rights, design rights, trade secrets and other intellectual property, proprietary or moral rights, whether or not they are registered and including all applications and rights to apply for registration, and all similar or equivalent rights, anywhere in the world.",
+    "Internal Controls": "the electronic systems (including software and hardware) , network configurations rules, procedures, and policies which, taken together and to the satisfaction of CME: (i) identify the ability to access Information; (ii) permit access to Information using a defined Unit of Count; (iii) prevent any unauthorized access to Information; and (iv) retain auditable records of the forgoing.",
+    "Licensee Affiliates": "those Affiliates of Licensee listed at Schedule 1a.",
+    "Licensee Group": "Licensee and Licensee Affiliates.",
+    "Personal Data": "any information relating to an identified or identifiable natural person.",
+    "Privacy Center": "the CME Group Inc. privacy center on the CME website (currently located at http://www.cmegroup.com/privacy- policy.html) as may be amended from time to time.",
+    "Real Time Information": "Information that is made available within ten (10) minutes of initial transmission by the originator of the Information.",
+    "Service": "any medium provided by, or on behalf of, Licensee or a Licensee Group entity through which the Information is made available.",
+    "Term": "is the period from the Effective Date until the termination of this Agreement in accordance with section 5.",
+    "Unit of Count": "the unit of measure as identified in this Agreement, that is used for the assessment of Fees and or reporting. Unless otherwise specified in a Schedule, Device is the default Unit of Count. If a Device is configured to access multiple Services, then each ability to access a Service on that Device will be one (1) Unit of Count, for example, a laptop running three (3) Services shall be counted as three (3) Devices."
+  },
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "limited, non-exclusive, non-transferable, non-sublicensable license",
+    "territory": null,
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to: (a) receive Information from CME and Data Provider; (b) use Information as permitted in Schedules; and (c) create limited derivative works based on Information solely for internal business purposes, provided derivative works may only be disclosed internally and not distributed to third parties without prior written CME consent. Separate license required for derivative works beyond this scope."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission by the originator.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information that is not Real Time or Delayed, first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Receive Information from CME and Data Provider.",
+      "conditions": [
+        "Subject to Information Policies and Agreement terms"
+      ],
+      "source_section": "2.1(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information as permitted in the Schedules.",
+      "conditions": [
+        "As specified in Schedules"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Create limited derivative works based on Information solely for internal business purposes.",
+      "conditions": [
+        "Internal disclosure only",
+        "No distribution to third parties without prior written CME consent",
+        "Separate license required for derivative works beyond this scope",
+        "Must comply with Information Policies"
+      ],
+      "source_section": "2.1(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information or any part thereof.",
+      "conditions": [],
+      "source_section": "2.2(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.2(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information in the creation, distribution, calculation, issuance, settlement or maintenance of any derivative work including but not limited to: financial products, futures contracts, options on futures, synthetic instruments, indexes, index-linked instruments, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), or any analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.2(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information only for internal business purposes.",
+      "conditions": [
+        "Except as expressly permitted under the Agreement"
+      ],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Text and data mining as defined in EU Directive 2019/790.",
+      "conditions": [],
+      "source_section": "3.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use or access Information for any illegal purpose.",
+      "conditions": [],
+      "source_section": "2.4",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of date of invoice issued by CME.",
+    "late_penalty": "Daily interest on overdue Fees at lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "",
+    "refund": "If Licensee terminates, Fees paid in advance retained by CME. If CME terminates under 5.2(a) or 5.6, or is breaching party, or Licensee terminates under 5.3, advance Fees for post-termination period refunded.",
+    "tax": "Fees exclusive of applicable taxes, fees or charges (sales, distribution, use, VAT, etc. except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "",
+    "unit_of_count": "Device (default). If a Device accesses multiple Services, each access counts as one Unit of Count.",
+    "reporting_requirements": "Licensee must report all Units of Count that have the ability to access Information.",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "internal_controls",
+      "description": "All Licensee Group entities must maintain effective Internal Controls at all times.",
+      "duration": "",
+      "details": [
+        "Identify ability to access Information",
+        "Permit access using defined Unit of Count",
+        "Prevent unauthorized access to Information",
+        "Retain auditable records",
+        "Licensee responsible for Fees for all Units of Count with ability to access, whether Internal Controls used or not",
+        "Must maintain auditable evidence of Internal Controls operation throughout Term"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "All access to Information must be identified and recorded using Unit of Count per Device.",
+      "duration": "",
+      "details": [
+        "Unless stated otherwise in Schedules"
+      ]
+    },
+    {
+      "type": "attribution",
+      "description": "Information must not be misrepresented and must include proper attribution.",
+      "duration": "",
+      "details": [
+        "Legend: \"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+        "Trademarks/proprietary notices transmitted with Information must not be amended",
+        "Delayed Information must be clearly labelled with period of delay",
+        "Comply with other reasonable display requirements from CME Group"
+      ]
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME of any unlicensed activity relating to Information and immediately implement remedial actions.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME in writing if it becomes aware of non-compliance by any Licensee Group entity.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books and records relating to all Units of Count and Internal Controls.",
+      "duration": "During Term and 24 months thereafter, for most recent 5-year period.",
+      "details": []
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated confidentially, used only for compliance verification",
+        "Outstanding Fees from audit due within 30 days",
+        "CME may appoint independent auditor at Licensee's cost if records inadequate",
+        "Underpayment >=5% means Licensee bears audit costs"
+      ]
+    },
+    {
+      "type": "personal_data",
+      "description": "Licensee must collect, hold, process and provide Personal Data in accordance with all applicable laws.",
+      "duration": "",
+      "details": [
+        "Must obtain valid consents or satisfy applicable legal basis for data processing",
+        "Must ensure cross-border transfers satisfy applicable laws",
+        "Must make individuals aware of CME Group's data processing (Privacy Center)",
+        "Subject to CME Group's Data Processing Addendum"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, CME licensors, Licensee Group, and their agents/advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, becomes public through no fault, rightfully known from another source, required by law/regulation"
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages from access/use of Information or breach of warranties, except CME willful misconduct.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "convenience",
+      "initiated_by": "either",
+      "notice_period": "30 days written notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "liquidation",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If other party enters liquidation, has receiver appointed, or presents winding-up petition."
+    },
+    {
+      "trigger": "material_breach_irremediable",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "Irremediable breaches include: misrepresentation of Information, failure to use effective Internal Controls, failure to prevent unauthorized use/distribution."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "30 days to remedy after written notice",
+      "consequences": "If other party fails to remedy material breach within 30 days."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from date change takes effect",
+      "consequences": "If changes to Information significantly alter its nature or materially reduce quality."
+    },
+    {
+      "trigger": "sublicense_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If CME's rights to sublicense Information substantially change, or if third-party source rights substantially change."
+    }
+  ],
+  "wind_down": null,
+  "redistribution_restrictions": [
+    {
+      "description": "No distribution or redistribution of Information or any portion thereof in any manner.",
+      "exceptions": [
+        "Limited derivative works for internal business purposes only (with CME consent for external distribution)"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [
+    {
+      "legend_text": "\"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+      "trademark_rules": "Any trademarks or proprietary notices transmitted with the Information must not be amended.",
+      "delay_labeling": "Delayed Information must be clearly labelled with the period of delay.",
+      "display_conditions": [
+        "Legend must be used to credit CME as source of Information",
+        "If not possible to use legend alongside Information, permitted recipients must receive and acknowledge the legend",
+        "Information must not be misrepresented or used to create false/misleading impressions as to origin or value"
+      ]
+    }
+  ],
+  "internal_control_requirements": [
+    {
+      "description": "Electronic systems, network configurations, rules, procedures and policies that satisfy CME requirements.",
+      "requirements": [
+        "Identify the ability to access Information",
+        "Permit access to Information using a defined Unit of Count",
+        "Prevent any unauthorized access to Information",
+        "Retain auditable records of the foregoing",
+        "Fee liability applies to all Units with ability to access, regardless of whether Internal Controls were used",
+        "Must assist CME with prevention, identification and curtailing of unlicensed activity",
+        "Must maintain auditable evidence of Internal Controls throughout Term"
+      ]
+    }
+  ],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $1,000,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$1,000,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk",
+      "No representations/warranties except as expressly stated (merchantability, fitness, accuracy, etc. disclaimed)"
+    ],
+    "indemnification": "Bilateral: CME indemnifies Licensee for IP infringement claims (non-patent) for CME-owned Information used in compliance, subject to exceptions (derivative works, combination with non-CME products, breach). Licensee indemnifies CME Group for all Claims from access/use of Information or breach, except CME willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": ". Definitions\nAffiliate: an entity that controls, is controlled by or is under common control with a party. Control means the ownership or control,\ndirectly or indirectly, of at least fifty percent (50%) or more of all of the voting shares (or other securities or rights) entitled to vote\nfor the election of directors or other governing authority.\nAgreement: this Information License Agreement, together with the Schedules and the Information Policies, as amended from\ntime to time in accordance with this Agreement.\nAuthorized Contacts: as set out at Schedule 1.\nClaim: any suit, claim or action.\nCME Group: CME and its Affiliates.\nConfidential Information: all information disclosed by the parties in connection with this Agreement, which should reasonably\nbe considered as confidential because of its nature and the manner of its disclosure including but not limited to the Information.\nDamages: damages, costs, liabilities, expenses (including court costs and reasonable attorneys’ fees) and settlement amounts.\nData Provider: the entity from which a Licensee Group entity receives the Information as listed in the Schedules.\nDay: a calendar day.\nDelayed Information: Information that is made available more than ten (10) minutes, but less than eight (8) hours after initial\ntransmission by the originator of the Information.\nDevice: means any display unit (fixed or portable) , which  has the ability to access, accesses, receives, processes, or displays\nthe Information, whether in whole or part, through the Service. CME reserves the sole right to determine what constitutes a\nDevice.\nFees: the fees for Information payable in United States Dollars that are set out in the Schedules (as may be amended from time\nto time).\nHistorical Information: Information that is not Real Time Information or Delayed Information, that is first accessed at least eight\n(8) hours after initial transmission by the originator of the Information.\nInformation:  the market prices, volumes and other information as set out in the Schedules that is delivered to any Licensee\nGroup entity by CME directly or indirectly through the Data Provider. By way of example and not limitation, Information may\ninclude orders, market prices, volumes, quantity, opening and closing range prices, high-low prices, bid and offer prices, trade\nprices, , related reference data including instrument specifications, including daily settlement prices, final settlement prices,\noptions values current bid and ask prices, last sale prices, price limits, market depth, time and sales, requests for quotations,\nestimated and actual contract volume data, other market activity information, index values, index constituents, information\nregarding block trades information respecting exchange-for related product (EFRP).\nInformation Policies: the policies applicable to Information as set out in the Schedules and on the CME website (currently\nlocated at www.cmegroup.com/informationpolicies) as they may be amended from time to time.\nIntellectual Property Rights: patents, trademarks, service marks, trade and service names, domain names, copyrights,\ntopography rights, database rights, design rights, trade secrets and other intellectual property, proprietary or moral rights,\nwhether or not they are registered and including all applications and rights to apply for registration, and all similar or equivalent\nrights, anywhere in the world.\nInternal Controls: the electronic systems (including software and hardware) , network configurations rules, procedures, and\npolicies which, taken together and to the satisfaction of CME: (i) identify the ability to access Information; (ii) permit access to\nInformation using a defined Unit of Count; (iii) prevent any unauthorized access to Information; and (iv) retain auditable records\nof the forgoing.\nLicensee Affiliates: those Affiliates of Licensee listed at Schedule 1a.\nLicensee Group: Licensee and Licensee Affiliates.\nPersonal Data: any information relating to an identified or identifiable natural person.\nPrivacy Center: the CME Group Inc. privacy center on the CME website (currently located at http://www.cmegroup.com/privacy-\npolicy.html) as may be amended from time to time.\nReal Time Information: Information that is made available within ten (10) minutes of initial transmission by the originator of the\nInformation.\nService: any medium provided by, or on behalf of, Licensee or a Licensee Group entity through which the Information is made\navailable.\nTerm: is the period from the Effective Date until the termination of this Agreement in accordance with section 5.\nUnit of Count: the unit of measure as identified in this Agreement, that is used for the assessment of Fees and or reporting.\nUnless otherwise specified in a Schedule, Device is the default Unit of Count. If a Device is configured to access multiple\nServices, then each ability to access a Service on that Device will be one (1) Unit of Count, for example, a laptop running three\n(3) Services shall be counted as three (3) Devices.",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". License and Restrictions",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": "CME grants each Licensee Group entity, a limited, non-exclusive, non-transferable, non- sublicensable (except as set forth\nherein) license during the Term, subject to the Information Policies and the terms and conditions of the Agreement to:\n(a)\nreceive the Information from CME and the Data Provider;\n(b)\nuse the Information as permitted in the Schedules; and\n(c)\ncreate limited derivative works based on the Information solely for its internal business purposes in accordance with\nthe Information Policies, provided that each Licensee Group entity may only disclose any such derivative works\ninternally and may not distribute any such derivative work to any third party without the prior written consent of CME.\nLicensee Group must be licensed under a separate license agreement with CME, for the right to create or distribute\ncertain derivative works beyond the scope of this Agreement.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": "Except as expressly permitted under this Agreement, no Licensee Group entity may: (a) copy, modify, reverse engineer,\nreverse assemble or reverse compile the Information or any part thereof; (b) license, sublicense, transfer, sell, resell,\npublish, reproduce, or otherwise distribute or redistribute the Information or any portion thereof in any manner; or (c) use\nthe Information or any portion thereof in the creation, distribution, calculation, issuance, settlement or maintenance of any\nderivative work including but not limited to financial products, futures contracts, options on futures contracts, synthetic\ninstruments,  indexes, index-linked instruments, exchange traded products (ETP) (e.g., exchange traded funds (ETF),\nexchange traded notes (ETN)), quotes, price assessments, spot or amalgamated prices or values, ratios, curves, surfaces,\ncharts, certificates, warrants, contracts for difference (CFDs) and other leveraged products, ETP values (e.g., indicative\noptimized portfolio values (IOPV), net asset values (NAV or iNAV)), or any analytical reference figures or values calculated\nfrom Information for purposes of fund administration or portfolio management services, pre and post-trade analytics, risk\nmanagement services, or valuation services.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": "Except as expressly permitted under this Agreement, each Licensee Group entity, may use the Information only for its\ninternal business purposes.",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": "Licensee represents and warrants during the Term that each Licensee Group entity will receive, access and use the\nInformation in compliance with all applicable laws and regulations (except to the extent doing so would place either party\nin contravention of applicable U.S laws or regulations), including but not limited to anti-corruption, economic sanctions,\nsecurities and anti-money laundering laws and regulations including the U.S. Foreign Corrupt Practices Act, and all\nregulations of the Office of Foreign Assets Control of the U.S. Department of the Treasury, now or hereinafter in effect.\nNothing in the Agreement shall be construed to mean that either party is required to take any action contrary to, or\nprohibited by, or otherwise in violation of any applicable laws or regulations. No Licensee Group entity shall use or access\nInformation for any illegal purpose.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". Information",
+      "page": 3
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": "Licensee agrees, on behalf of each Licensee Group entity, that CME and CME licensors, hold all right, title and interest\nin and to Information and the Intellectual Property Rights in the Information, and in the format in which Information is\ntransmitted by CME. Except for the limited license e x p r e s s l y  granted herein, all rights not expressly licensed under\nthis Agreement are expressly reserved to CME and CME licensors and the ownership and Intellectual Property Rights\nof the CME Group entities and other CME licensors are not transferred, assigned or affected in any way by this Agreement.\nLicensee undertakes that Licensee Group shall not carry out text and data mining as those terms are defined in EU\nDirective 2019/790. Licensee acknowledges on behalf of Licensee Group that the reservation of rights by CME and CME\nlicensors in this Agreement is appropriate.",
+      "page": 3
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": "Subject to section 3.1, all Intellectual Property Rights of each Licensee Group entity, subsisting in or relating to: (i) a Service\nthat may include Information (as processed by the applicable Licensee Group entity in accordance with this Agreement);\nand (ii) any collection or compilation created by a Licensee Group entity, in which Information is included in a manner\npermitted by this Agreement; will remain vested exclusively in the relevant Licensee Group entity.",
+      "page": 3
+    },
+    {
+      "number": "3.3",
+      "title": "",
+      "text": "At CME’s request and expense, Licensee will take all reasonable actions necessary for the protection and enforcement of\nCME Group and CME licensors’ Intellectual Property Rights in the Information.",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ". Receipt of Information Obligations",
+      "page": 3
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": "All access to Information, must be identified and recorded using Unit of Count per Device, unless stated otherwise.",
+      "page": 3
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": "Internal Controls\n(a)\nAll Licensee Group entities must maintain, at all times, effective Internal Controls in accordance with the terms of\nthis Agreement including but not limited to the Information Policies.\n(b)\nIn addition to all other available remedies, Licensee shall be responsible for payment of associated Fees for all Units\nof Count that had the ability to access Information whether Internal Controls were used or not.  For example, if a\nDevice was not entitled by Internal Controls, but had the ability to access Information, such a Device will be fee\nliable, irrespective of whether it actually did access the Information.\n(c)\nLicensee shall use all reasonable efforts to assist CME with the prevention, identification and curtailing of any\nunlicensed activity relating to the Information. Licensee shall promptly notify CME of any unlicensed activity relating\nto Information and Licensee shall immediately implement remedial actions to prevent such unlicensed activity\noccurring.\n(d)\nThroughout the Term of this Agreement or the relevant period (if longer), Licensee must maintain auditable evidence\nof the operation of the Internal Controls.",
+      "page": 3
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": "Licensee is responsible for, and CME Group bears no responsibility for, any: telecommunication services; software or\nhardware required for the receipt and use of the Information by Licensee Group.",
+      "page": 3
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": "Licensee shall ensure that Information is not misrepresented, not used in any way that may create a false or misleading\nimpression as to the origin or value of any item of Information, and is always used subject to the following attribution\nrequirements:\n(a)\nthe following legend is used to credit CME as the source of Information: \"The market data, and all rights in and to it,\nare the property of Chicago Mercantile Exchange Inc. or it’s licensors as applicable. All rights reserved, except as\nexpressly licensed by Chicago Mercantile Exchange Inc.\" In circumstances where it is not possible to use the legend\nalongside the Information, any permitted recipients of the Information must receive and acknowledge the legend;\n(b)\nany trademarks or proprietary notices transmitted with the Information are not amended;\n(c)\nDelayed Information is clearly labelled with the period of delay; and\n(d)\nany other reasonable display requirements provided by CME Group.",
+      "page": 3
+    },
+    {
+      "number": "4.5",
+      "title": "",
+      "text": "Licensee shall promptly notify CME in writing, if it becomes aware that Licensee, or any other Licensee Group entity, has\nfailed to comply with the terms and conditions of this Agreement.",
+      "page": 3
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ". Term & Termination",
+      "page": 3
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": "This Agreement will continue from the Effective Date until terminated.",
+      "page": 3
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": "Either party may terminate this Agreement, any of the Schedules or any license individually:\n(a)\non thirty (30) Days’ written notice; or\n(b)\nwith immediate effect on written notice if:\n(i)\nthe other party enters into compulsory or voluntary liquidation, has a receiver appointed, presents a petition\nfor its winding up (or has such a petition presented by a creditor);\n(ii)\nthe other party commits a material, irremediable breach of any term of this Agreement, which includes, but\nis not limited to, the following breaches by Licensee: misrepresentation of Information; failure to use effective\nInternal Controls; failure to prevent, identify or end unauthorized use, distribution or redistribution of\nInformation; or\n(iii)\nthe other party fails to remedy a material breach within thirty (30) Days of written notice to do so.",
+      "page": 3
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": "Licensee may terminate this Agreement, or any of the Schedules individually, if changes to Information made in\naccordance with section 11.2 (c) significantly alter the nature of Information or materially reduce its quality, providing that\nwritten notice is given no later than thirty (30) Days of the date the change takes effect.",
+      "page": 4
+    },
+    {
+      "number": "5.4",
+      "title": "",
+      "text": "If Licensee terminates the Agreement, any Fees paid in advance will be retained by CME.",
+      "page": 4
+    },
+    {
+      "number": "5.5",
+      "title": "",
+      "text": "If CME terminates the Agreement under section 5.2 (a), or section 5.6, is the breaching party under 5.2 (b) (ii) or 5.2 (b)\n(iii) or Licensee terminates the Agreement under section 5.3, any Fees paid in advance for the period following\ntermination will be refunded.",
+      "page": 4
+    },
+    {
+      "number": "5.6",
+      "title": "",
+      "text": "CME may terminate this Agreement, any of the Schedules or any license individually, with immediate effect on written\nnotice, if (a) CME is sublicensing the Information and CME’s rights to sublicense the Information substantially changes,\nor (b) if the Information is derived from information received from a third party and CME’s rights to access such information\nsubstantially changes.",
+      "page": 4
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ". Fees and Reporting",
+      "page": 4
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": "Licensee must report all Units of Count that have the ability to access the Information, in accordance with the terms of\nthis Agreement.",
+      "page": 4
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": "Licensee will pay the Fees to CME within thirty (30) Days of the date of the invoice issued by CME. Daily interest may be\ncharged on overdue Fees at the lower of 1.5% per month or the maximum permitted by law.",
+      "page": 4
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": "Fees are exclusive of any applicable taxes, fees or other applicable charges (e.g. sales, distribution, use, value added or\nother taxes except for taxes on CME net income), for which the Licensee shall be responsible.",
+      "page": 4
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": "Each Licensee Group entity must provide CME with copies of resale certificates or VAT registration numbers or similar, as\napplicable.",
+      "page": 4
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ". Personal Data",
+      "page": 4
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": "Licensee is required to collect, hold, process, and provide to CME, certain Personal Data, in order to comply with the\nprovisions of this Agreement. Licensee will collect, hold, process and provide such Personal Data in accordance with all\napplicable laws.",
+      "page": 4
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": "The Licensee, on behalf of each Licensee Group entity, consents to CME Group’s use of the Personal Data and represents\nand warrants to CME, that it and they have either obtained valid consents from those individuals to whom the Personal\nData relates, or has satisfied an applicable legal basis, pursuant to all applicable laws, so as to ensure that CME Group\nis able to process the Personal Data, as envisaged under this Agreement and in accordance with applicable laws. When\ndisclosing Personal Data to CME Group, Licensee will ensure that any transfer of Personal Data, to countries other than\nwhere the individual provided its Personal Data, as described in the Privacy Center, will satisfy all applicable laws.",
+      "page": 4
+    },
+    {
+      "number": "7.3",
+      "title": "",
+      "text": "CME Group will use the Personal Data submitted by Licensee: in order to supply, administer, manage and improve services\nprovided by CME Group; to comply with applicable regulatory and legal requirements; and in accordance with the\nSchedules and the content of the Privacy Center and all applicable laws. Licensee Group shall make sure those individuals\nto whom the Personal Data relates are aware of how their Personal Data will be processed by the CME Group (see the\nPrivacy Center) in order to ensure that CME Group satisfies all applicable laws.",
+      "page": 4
+    },
+    {
+      "number": "7.4",
+      "title": "",
+      "text": "The parties agree that any processing of Personal Data under this Agreement, shall be subject to CME Group’s Data\nProcessing Addendum as set forth at https://www.cmegroup.com/privacy-policy/data-processing-addendum.html, which is\nincorporated into this Agreement and made a part hereof.",
+      "page": 4
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": ". Compliance, Records & Audit",
+      "page": 5
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": "During the Term and for a period of not less than twenty-four (24) months thereafter, Licensee must maintain complete\nand accurate books and records, relating to all Units of Count that have had the ability to access and use of Information\nunder this Agreement and related Internal Controls for the most recent five (5) year period. CME and its authorized\nrepresentatives, may inspect equipment, software and records to verify compliance with the Agreement.",
+      "page": 5
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": "Audits may be carried out by CME at any Licensee Group location, during business hours, during the Term of the\nAgreement and up to twenty-four (24) months following termination:\n(a)\nonce per twelve (12)-month period on no less than thirty (30) Days’ notice; and\n(b)\nwithout advance notice and more than once in any twelve (12) month period, if CME reasonably suspects a material\nbreach of the Agreement by any Licensee Group entity. All information observed during an audit will be treated in\naccordance with the confidentiality provisions hereunder and used only to verify compliance with the Agreement.\nCME will comply with Licensee’s reasonable safety and security rules and regulations at all times when on site at\na Licensee Group location throughout the audit.",
+      "page": 5
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": "Licensee must pay any outstanding Fees revealed by an audit within thirty (30) Days of receipt of an invoice from CME\nand will be subject to interest pursuant to section 6.2.",
+      "page": 5
+    },
+    {
+      "number": "8.4",
+      "title": "",
+      "text": "If CME identifies a lack of records or failure of Internal Controls such that the amount of any under-reported access to the\nInformation during the audit period and the applicable Fees cannot be established with reasonable certainty or agreed\nby the parties, CME may appoint an independent professional auditor to determine the Fees owed to CME at Licensee’s\nsole cost and expense. CME and Licensee will accept the determination of the appointed independent professional\nauditor.",
+      "page": 5
+    },
+    {
+      "number": "8.5",
+      "title": "",
+      "text": "If an audit reveals an underpayment of 5% or more, Licensee shall bear the reasonable costs and expenses of the\naudit.",
+      "page": 5
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": ". Representations, Warranties, Indemnities & Limitation of Liability",
+      "page": 5
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": "CME represents and warrants, that it has the right to supply Information for the purposes specified in this\nAgreement.",
+      "page": 5
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, NO CME GROUP ENTITY, NOR ANY OF THEIR RESPECTIVE\nOFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AGENTS, CONSULTANTS, OR LICENSORS SHALL BE LIABLE\nFOR: (A) ANY DELAY, INACCURACIES, ERRORS, OMISSIONS, OR INTERRUPTION OF ANY KIND IN RELATION\nTO THE INFORMATION OR FOR ANY RESULTING LOSS OR DAMAGE; OR (B) LOSS OR DAMAGE ARISING FROM\nUNAUTHORIZED ACCESS TO OR MISUSE OF INFORMATION.",
+      "page": 5
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": "EXCEPT AS EXPRESSLY SET OUT IN THIS SECTION 9, NO CME GROUP ENTITY NOR ANY CME GROUP\nLICENSORS, MAKE ANY REPRESENTATIONS OR WARRANTIES AND EACH HEREBY DISCLAIMS AND SHALL\nHAVE NO LIABILITY FOR ALL OTHER REPRESENTATIONS AND WARRANTIES, EXPRESS OR IMPLIED, INCLUDING\nWITHOUT LIMITATION TO THE MERCHANTABILITY, QUALITY OF THE INFORMATION OR ITS FITNESS FOR A\nPARTICULAR PURPOSE, UNINTERRUPTED SERVICE OR ERROR-FREE SERVICE, OR THE SEQUENCE,\nTIMELINESS, ACCURACY OR COMPLETENESS OF THE INFORMATION. THE INFORMATION IS PROVIDED ON AN\n\"AS IS\" BASIS AT LICENSEES SOLE RISK.",
+      "page": 5
+    },
+    {
+      "number": "9.4",
+      "title": "",
+      "text": "CME will indemnify and hold Licensee, its officers, directors, employees and agents harmless from and against any and\nall Damages directly incurred by Licensee resulting from any Claims that CME owned Information used in compliance\nwith the terms and conditions of this Agreement, excluding the format or processing of such Information, infringes any\nthird party intellectual property right other than patent rights, provided that the relevant Claim does not arise out of: (i)\nany derivative works or modification to the Information made by Licensee; (ii) the combination of the Information with other\nproducts or technology not supplied by CME or (iii) any breach of this Agreement. CME shall have sole authority to defend\nor settle such Claim. If the relevant Claim is based on content obtained from a third party, CME will indemnify and hold\nharmless Licensee, its officers, directors, employees and agents only to the extent the third party has indemnified\nCME; provided that this indemnity may be limited by the amount recovered by CME from the relevant third party in\nproportion to other claims (actual or potential) arising out of the alleged infringement, after deducting CME’s expenses\nassociated with such relevant Claim. Licensee shall not be considered a third party beneficiary of any indemnity obtained\nby CME from a third party for any content included in the Information. If the Information becomes, or CME believes is\nlikely to become, subject to an infringement Claim, CME may, at its sole discretion and expense: (a) replace or modify\nthe Information, or any portion thereof, so that it becomes non-infringing; (b) obtain for Licensee a license to continue using\nthe infringing part of the Information, or (c) terminate this Agreement as to the infringing part of the Information. The\nforegoing states CME’s entire liability and Licensee’s sole and exclusive remedies for infringement claims and actions of\nany kind.",
+      "page": 5
+    },
+    {
+      "number": "9.5",
+      "title": "",
+      "text": "Licensee will indemnify, defend and hold harmless each of the CME Group entities and their respective officers, directors,\nmembers, employees, agents, consultants and licensors against all Claims and Damages which any of them has or\nhave incurred or paid to any third party arising from: (a) access to or use of Information by any Licensee Group entity, or\nany recipient of Information from any Licensee Group entity, including for example, Claims and Damages arising from the\ncreation of any Product(s), except where the losses or claims arise from willful misconduct on the part of CME or its officers;\nor (b) a breach of warranties under this Agreement by any Licensee Group entity.",
+      "page": 6
+    },
+    {
+      "number": "9.6",
+      "title": "",
+      "text": "The indemnified party shall promptly notify the indemnifying party in writing of any such Claims that would affect its\nindemnification obligations. The indemnifying party shall have sole control of the defense and settlement of any Claim to\nwhich the indemnity relates. The indemnified party shall cooperate reasonably to facilitate any defense or settlement of the\nClaim.",
+      "page": 6
+    },
+    {
+      "number": "9.7",
+      "title": "",
+      "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO CIRCUMSTANCES SHALL ANY CME GROUP ENTITY OR\nANY OF THEIR RESPECTIVE OFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AGENTS, CONSULTANTS OR\nLICENSORS BE LIABLE HEREUNDER TO ANY LICENSEE GROUP ENTITY OR TO OTHERS DIRECTLY OR\nINDIRECTLY MAKING USE OF INFORMATION, FOR ANY LOST PROFITS, INDIRECT, INCIDENTAL, SPECIAL,\nEXEMPLARY OR CONSEQUENTIAL DAMAGES, ARISING UNDER THIS AGREEMENT, EVEN IF CME HAS BEEN\nADVISED OF THE POSSIBILITY THEREOF AND EVEN IF DUE TO CME’S ERROR, OMISSION, OR NEGLIGENCE.",
+      "page": 6
+    },
+    {
+      "number": "9.8",
+      "title": "",
+      "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE AGGREGATE LIABILITY OF ANY CME\nGROUP ENTITY OR ANY OF THEIR RESPECTIVE OFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AGENTS,\nCONSULTANTS OR LICENSORS HEREUNDER EXCEED THE LESSER OF: (a) ONE MILLION US DOLLARS\n($1,000,000); OR(b) THE FEES PAID TO CME BY LICENSEE HEREUNDER IN THE TWELVE (12) MONTHS\nIMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM, REGARDLESS OF WHETHER SUCH\nDAMAGES ARE BASED IN CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE. THIS LIMITATION SHALL\nSURVIVE FAILURE OF ESSENTIAL PURPOSE OF ANY REMEDIES THAT MAY BE PROVIDED IN THIS AGREEMENT.",
+      "page": 6
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ". Confidentiality",
+      "page": 6
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": "Confidential Information will be held in confidence by the receiving party and not be disclosed without the disclosing\nparty’s consent to any third party except to any CME Group entity, CME Group licensors and any Licensee Group entity,\nand each of their respective agents, consultants and third-party advisors, provided they are bound by substantially similar\nconfidentiality provisions as are set out in this Agreement.",
+      "page": 6
+    },
+    {
+      "number": "10.2",
+      "title": "",
+      "text": "Confidential Information does not include Information that:\n(a)\nat the time of disclosure is already publicly available;\n(b)\nis already known to the receiving party prior to disclosure by the disclosing party;\n(c)\nafter disclosure becomes publicly available through no fault of the receiving party;\n(d)\nbecomes rightfully known to either party without restriction from another source;\n(e)\nis developed independently by the receiving party without use of the disclosing party’s Confidential Information; or\n(f)\nis required to be disclosed by order of legal or regulatory authorities, or is requested by agency action of a\nregulatory authority with jurisdiction over the receiving party, provided that the receiving party provides reasonable\nnotice to the disclosing party of such required disclosure and reasonably cooperates with the disclosing party in\npreventing or limiting such disclosure.",
+      "page": 6
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": ". General",
+      "page": 6
+    },
+    {
+      "number": "11.1",
+      "title": "",
+      "text": "The order of priority of the documents that form this Agreement in descending order is: (i) the Information Policies; (ii)\nthe Schedules; and (iii) this Information License Agreement.",
+      "page": 6
+    },
+    {
+      "number": "11.2",
+      "title": "",
+      "text": "Amendments\n(a)\nThis Agreement may only be amended by the signed written agreement of both parties, unless otherwise\nexpressly permitted within the Agreement.\n(b)\nCME may amend any part of this Agreement including the Fees  on at least ninety (90) Days’ written notice to\nLicensee unless CME is required by law/regulation, to implement the amendment sooner, in which case, CME\nwill provide such notice as CME is legally permitted.\n(c)\nCME may add or delete Information and change its technical specifications. Unless precluded by malfunction,\nemergency or regulatory requirement, CME will use commercially reasonable efforts to provide Licensee with: (i)\nadvance notice of any such changes; or (ii) ninety (90) Days’ advance notice for material changes. Licensee may\npropose amendments to Licensee sections of the Schedules by submitting amended Schedules to CME. Such\namendments shall be effective on the effective date of the applicable Schedule.",
+      "page": 6
+    },
+    {
+      "number": "11.3",
+      "title": "",
+      "text": "This Agreement may not be assigned without the written consent of the other party, such consent not to be unreasonably\nwithheld. Notwithstanding the foregoing, CME may assign or transfer this Agreement to: (i) a CME Group entity; or (ii)\nto another party in connection with a merger, reorganization or sale of all or substantially all of the assets of CME or\nsimilar business transaction.",
+      "page": 7
+    },
+    {
+      "number": "11.4",
+      "title": "",
+      "text": "Neither party shall be liable for delay or failure to perform any of its obligations under this Agreement (other than payment\nof Fees), due to any cause beyond its reasonable control. Such a cause must not be an intentional act by either party\nor an act of gross negligence by either party and may include, but not be limited to extraordinary environmental\nconditions, fire, war, terrorism, riot, dispute or act of government.",
+      "page": 7
+    },
+    {
+      "number": "11.5",
+      "title": "",
+      "text": "If any part, term or provision of this Agreement is held illegal, invalid or unenforceable, the validity or enforceability of\nthe remainder of the Agreement shall not be affected.",
+      "page": 7
+    },
+    {
+      "number": "11.6",
+      "title": "",
+      "text": "All notices shall be sent in writing by email, overnight delivery by a nationally recognized express transportation company\nor registered mail and shall be sent:\n(a)\nfor Licensee, to the Authorized Contact for Notices using that person’s email address or the Licensee postal\naddress at Schedule 1; and\n(b)\nfor CME, to legalnotices@cmegroup.com with a copy to marketdata@cmegroup.com or to General Counsel at\nthe address at the caption of this Agreement; or such other address as may be specified by a party to the other\nparty pursuant to notice giving in accordance with this section.",
+      "page": 7
+    },
+    {
+      "number": "11.7",
+      "title": "",
+      "text": "CME is entitled to rely on the validity of representations, notices and communications from Authorized Contacts and\nofficers of the Licensee. Licensee will promptly submit an amended Schedule 1 in the event of any change of Authorized\nContacts.",
+      "page": 7
+    },
+    {
+      "number": "11.8",
+      "title": "",
+      "text": "The failure of either party to exercise any right or remedy under this Agreement or at law shall not prevent any further\nexercise of that right or remedy.",
+      "page": 7
+    },
+    {
+      "number": "11.9",
+      "title": "",
+      "text": "This Agreement is the complete and exclusive statement of the agreement between the parties and supersedes all prior\nagreements, oral or written, and all other communications between the parties concerning the subject matter of this\nAgreement. Each party acknowledges that no reliance is placed on any representation not embodied in this Agreement.",
+      "page": 7
+    },
+    {
+      "number": "11.10",
+      "title": "",
+      "text": "This Agreement and any Schedules or amendments, and all of which together shall constitute one and the same\ninstrument, may be executed in two or more separate counterparts, each of which shall be deemed an original as a click\nand accept online agreement or electronically using electronic signature.",
+      "page": 7
+    },
+    {
+      "number": "11.11",
+      "title": "",
+      "text": "The provisions of sections 3, 6, 7, 8, 9, 10 and 11 shall survive termination of the Agreement. Termination or expiry of\nthis Agreement shall not affect any accrued rights or liabilities of the parties.",
+      "page": 7
+    },
+    {
+      "number": "11.12",
+      "title": "",
+      "text": "The language of the Agreement is English and all obligations under and communications relating to the Agreement shall\nbe conducted in English.",
+      "page": 7
+    },
+    {
+      "number": "11.13",
+      "title": "",
+      "text": "This Agreement shall be governed by the internal laws of the State of Illinois, and the federal laws of the United States,\nwithout regard to conflicts of laws principles. Any controversy or claim arising out of or relating to this Agreement, or the\nbreach thereof, shall be settled by arbitration administered by the American Arbitration Association in accordance with\nits Commercial Arbitration Rules and judgment on the award rendered by the arbitrator(s) may be entered in any court\nhaving jurisdiction thereof. The place of arbitration shall be Chicago, Illinois. The arbitration shall be in English and shall\nbe governed by the laws of the State of Illinois. The parties acknowledge that a material breach relating to certain\nprovisions of this Agreement by a party (such as confidentiality or scope of licensed use) may, by its gravity or nature,\ncause immediate or irreparable injury to the other party that cannot be adequately compensated for in damages.\nAccordingly, notwithstanding anything to the contrary in this Agreement, in the event of any such material breach and\nin addition to all other remedies available herein, the non-breaching party may seek solely injunctive relief (including a\ntemporary restraining order, preliminary injunction or permanent injunction) from any court of competent jurisdiction,\nwithout posting a bond or other security.\n[signature page follows]\nIN WITNESS WHEREOF, each of the parties has caused this Agreement to be duly executed in its name and on its behalf\nby the officer or representative duly authorized.\nLicensee\nCME\nSignature\nPrint Name\nTitle\nLicensee\nDate of Signature",
+      "page": 7
+    }
+  ]
+}

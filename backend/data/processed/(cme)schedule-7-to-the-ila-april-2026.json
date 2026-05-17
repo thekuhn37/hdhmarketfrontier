@@ -1,0 +1,495 @@
+{
+  "exchange": "CME",
+  "agreement_type": "information",
+  "agreement_title": "CME Information License Agreement",
+  "version": "5.01",
+  "definitions": {
+    "Application": "a system or computer software that uses Information for Non-Display Use.",
+    "As Needed": "requires Licensee to report Internal Use Packages, Internal Non-Display Use Packages and Distribution Packages added or removed during the month, in the month they were added or removed.",
+    "Benchmark Information": "Information designated by CME as benchmark information in the Information Policies and this Schedule.",
+    "Category Use": "the terms and conditions governing the use of the Benchmark Information for the purpose defined in each of the categories as set forth in the Appendices.",
+    "Client": "any natural person, firm, corporation or other organization for whom a Licensee Group entity provides access to a Product.",
+    "Delayed Benchmark Information": "Benchmark Information that is made available more than twenty four (24) hours, but not more than seven (7) days, after initial publication of the index or benchmark as applicable.",
+    "Delayed Intraday Index": "the Intraday Index that is made available more than ten (10) minutes, but less than eight (8) hours after initial calculation.",
+    "Direct Receipt of Benchmark Information": "a feed, connection, or access point to Benchmark Information from CME.",
+    "Historical Benchmark Information": "Benchmark Information that is made available more than seven (7) days after initial publication of the index or benchmark as applicable.",
+    "Historical Intraday Index": "the Intraday Index that is not Real Time Intraday Index or Delayed Intraday Index, that is made available at least eight (8) hours after initial publication of the applicable Information.",
+    "Internal Display Device": "a Device that is used to display Information to employees of Licensee Group entities.",
+    "Indirect Receipt of Benchmark Information": "a feed, connection, or access point to Benchmark Information from a Data Provider.",
+    "Index Constituent Data": "all such data that is used to compile the index, such as prices, weights, referential data or similar data elements.",
+    "Index Values": "the value(s) calculated from the Index Constituent Data using the prescribed index methodology.",
+    "Informational Material": "all Prospectus, and all advertisements, brochures, promotional and other similar informational material that in any way use or refer to CME, the Information or the Products.",
+    "Intranet": "display of Information on a Licensee Group entity site on a private network that is accessible only to Licensee or Licensee Group employees and on-site independent contractors providing services to such entity.",
+    "Intraday Index": "The index setting out the Index Values that are calculated during the product calculation window as defined in the calculation guide.. Non-Display Benchmark Use: non-viewable use of Benchmark Information: (1) in Automated Trading System(s); and/or (2) in electronic systems or computer software operated by a Licensee Group entity for any of the following uses: ● Risk management ● Research and analysis ● Valuations of financial assets, securities and financial derivatives (such as the creation of portfolios, price verifications, cash flow calculations, creation of pricing and discount curves); and/or (3) in connection with a Benchmark Information use license set forth in the Section 1 table in an Appendix to this Schedule 7; and/or (4) for other non-display Benchmark Information use, with prior written approval from CME.",
+    "Product": "Licensee Group derivative work listed in each applicable Appendix including the values and pricing thereof.",
+    "Prospectus": "any prospectus, contract, offering memorandum or similar writing issued in connection with any Product.",
+    "Real Time Benchmark Information": "Benchmark Information that is made available within 24 hours of initial publication of the index/benchmark.",
+    "Real Time Intraday Index": "The Intraday Index that is made available within ten (10) minutes of initial calculation."
+  },
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "limited, non-exclusive, non-transferable, non-sublicensable license",
+    "territory": null,
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to: (a) receive Information from CME and Data Provider; (b) use Information as permitted in Schedules; and (c) create limited derivative works based on Information solely for internal business purposes, provided derivative works may only be disclosed internally and not distributed to third parties without prior written CME consent. Separate license required for derivative works beyond this scope."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission by the originator.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information that is not Real Time or Delayed, first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Receive Information from CME and Data Provider.",
+      "conditions": [
+        "Subject to Information Policies and Agreement terms"
+      ],
+      "source_section": "2.1(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information as permitted in the Schedules.",
+      "conditions": [
+        "As specified in Schedules"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Create limited derivative works based on Information solely for internal business purposes.",
+      "conditions": [
+        "Internal disclosure only",
+        "No distribution to third parties without prior written CME consent",
+        "Separate license required for derivative works beyond this scope",
+        "Must comply with Information Policies"
+      ],
+      "source_section": "2.1(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information or any part thereof.",
+      "conditions": [],
+      "source_section": "2.2(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.2(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information in the creation, distribution, calculation, issuance, settlement or maintenance of any derivative work including but not limited to: financial products, futures contracts, options on futures, synthetic instruments, indexes, index-linked instruments, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), or any analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.2(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information only for internal business purposes.",
+      "conditions": [
+        "Except as expressly permitted under the Agreement"
+      ],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Text and data mining as defined in EU Directive 2019/790.",
+      "conditions": [],
+      "source_section": "3.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use or access Information for any illegal purpose.",
+      "conditions": [],
+      "source_section": "2.4",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of date of invoice issued by CME.",
+    "late_penalty": "Daily interest on overdue Fees at lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "",
+    "refund": "If Licensee terminates, Fees paid in advance retained by CME. If CME terminates under 5.2(a) or 5.6, or is breaching party, or Licensee terminates under 5.3, advance Fees for post-termination period refunded.",
+    "tax": "Fees exclusive of applicable taxes, fees or charges (sales, distribution, use, VAT, etc. except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "",
+    "unit_of_count": "Device (default). If a Device accesses multiple Services, each access counts as one Unit of Count.",
+    "reporting_requirements": "Licensee must report all Units of Count that have the ability to access Information.",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "internal_controls",
+      "description": "All Licensee Group entities must maintain effective Internal Controls at all times.",
+      "duration": "",
+      "details": [
+        "Identify ability to access Information",
+        "Permit access using defined Unit of Count",
+        "Prevent unauthorized access to Information",
+        "Retain auditable records",
+        "Licensee responsible for Fees for all Units of Count with ability to access, whether Internal Controls used or not",
+        "Must maintain auditable evidence of Internal Controls operation throughout Term"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "All access to Information must be identified and recorded using Unit of Count per Device.",
+      "duration": "",
+      "details": [
+        "Unless stated otherwise in Schedules"
+      ]
+    },
+    {
+      "type": "attribution",
+      "description": "Information must not be misrepresented and must include proper attribution.",
+      "duration": "",
+      "details": [
+        "Legend: \"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+        "Trademarks/proprietary notices transmitted with Information must not be amended",
+        "Delayed Information must be clearly labelled with period of delay",
+        "Comply with other reasonable display requirements from CME Group"
+      ]
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME of any unlicensed activity relating to Information and immediately implement remedial actions.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME in writing if it becomes aware of non-compliance by any Licensee Group entity.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books and records relating to all Units of Count and Internal Controls.",
+      "duration": "During Term and 24 months thereafter, for most recent 5-year period.",
+      "details": []
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated confidentially, used only for compliance verification",
+        "Outstanding Fees from audit due within 30 days",
+        "CME may appoint independent auditor at Licensee's cost if records inadequate",
+        "Underpayment >=5% means Licensee bears audit costs"
+      ]
+    },
+    {
+      "type": "personal_data",
+      "description": "Licensee must collect, hold, process and provide Personal Data in accordance with all applicable laws.",
+      "duration": "",
+      "details": [
+        "Must obtain valid consents or satisfy applicable legal basis for data processing",
+        "Must ensure cross-border transfers satisfy applicable laws",
+        "Must make individuals aware of CME Group's data processing (Privacy Center)",
+        "Subject to CME Group's Data Processing Addendum"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, CME licensors, Licensee Group, and their agents/advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, becomes public through no fault, rightfully known from another source, required by law/regulation"
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages from access/use of Information or breach of warranties, except CME willful misconduct.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "convenience",
+      "initiated_by": "either",
+      "notice_period": "30 days written notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "liquidation",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If other party enters liquidation, has receiver appointed, or presents winding-up petition."
+    },
+    {
+      "trigger": "material_breach_irremediable",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "Irremediable breaches include: misrepresentation of Information, failure to use effective Internal Controls, failure to prevent unauthorized use/distribution."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "30 days to remedy after written notice",
+      "consequences": "If other party fails to remedy material breach within 30 days."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from date change takes effect",
+      "consequences": "If changes to Information significantly alter its nature or materially reduce quality."
+    },
+    {
+      "trigger": "sublicense_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If CME's rights to sublicense Information substantially change, or if third-party source rights substantially change."
+    }
+  ],
+  "wind_down": null,
+  "redistribution_restrictions": [
+    {
+      "description": "No distribution or redistribution of Information or any portion thereof in any manner.",
+      "exceptions": [
+        "Limited derivative works for internal business purposes only (with CME consent for external distribution)"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [
+    {
+      "legend_text": "\"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+      "trademark_rules": "Any trademarks or proprietary notices transmitted with the Information must not be amended.",
+      "delay_labeling": "Delayed Information must be clearly labelled with the period of delay.",
+      "display_conditions": [
+        "Legend must be used to credit CME as source of Information",
+        "If not possible to use legend alongside Information, permitted recipients must receive and acknowledge the legend",
+        "Information must not be misrepresented or used to create false/misleading impressions as to origin or value"
+      ]
+    }
+  ],
+  "internal_control_requirements": [
+    {
+      "description": "Electronic systems, network configurations, rules, procedures and policies that satisfy CME requirements.",
+      "requirements": [
+        "Identify the ability to access Information",
+        "Permit access to Information using a defined Unit of Count",
+        "Prevent any unauthorized access to Information",
+        "Retain auditable records of the foregoing",
+        "Fee liability applies to all Units with ability to access, regardless of whether Internal Controls were used",
+        "Must assist CME with prevention, identification and curtailing of unlicensed activity",
+        "Must maintain auditable evidence of Internal Controls throughout Term"
+      ]
+    }
+  ],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $1,000,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$1,000,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk",
+      "No representations/warranties except as expressly stated (merchantability, fitness, accuracy, etc. disclaimed)"
+    ],
+    "indemnification": "Bilateral: CME indemnifies Licensee for IP infringement claims (non-patent) for CME-owned Information used in compliance, subject to exceptions (derivative works, combination with non-CME products, breach). Licensee indemnifies CME Group for all Claims from access/use of Information or breach, except CME willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": ". Definitions\nApplication: a system or computer software that uses Information for Non-Display Use.\nAs Needed: requires Licensee to report Internal Use Packages, Internal Non-Display Use Packages and\nDistribution Packages added or removed during the month, in the month they were added or removed.\nBenchmark Information: Information designated by CME as benchmark information in the Information\nPolicies and this Schedule.\nCategory Use: the terms and conditions governing the use of the Benchmark Information for the purpose\ndefined in each of the categories as set forth in the Appendices.\nClient: any natural person, firm, corporation or other organization for whom a Licensee Group entity\nprovides access to a Product.\nDelayed Benchmark Information: Benchmark Information that is made available more than twenty four\n(24) hours, but not more than seven (7) days, after initial publication of the index or benchmark as\napplicable.\nDelayed Intraday Index: the Intraday Index that is made available more than ten (10) minutes,\nbut less than eight (8) hours after initial calculation.\nDirect Receipt of Benchmark Information: a feed, connection, or access point to Benchmark\nInformation from CME.\nHistorical Benchmark Information: Benchmark Information that is made available more than seven (7)\ndays after initial publication of the index or benchmark as applicable.\nHistorical Intraday Index: the Intraday Index that is not Real Time Intraday Index or Delayed Intraday\nIndex, that is made available at least eight (8) hours after initial publication of the applicable\nInformation.\nInternal Display Device: a Device that is used to display Information to employees of Licensee Group\nentities.\nIndirect Receipt of Benchmark Information: a feed, connection, or access point to Benchmark\nInformation from a Data Provider.\nIndex Constituent Data: all such data that is used to compile the index, such as prices, weights,\nreferential data or similar data elements.\nIndex Values: the value(s) calculated from the Index Constituent Data using the prescribed index\nmethodology.\nInformational Material: all Prospectus, and all advertisements, brochures, promotional and other similar\ninformational material that in any way use or refer to CME, the Information or the Products.\nIntranet: display of Information on a Licensee Group entity site on a private network that is accessible only\nto Licensee or Licensee Group employees and on-site independent contractors providing services to such\nentity.\nIntraday Index: The index setting out the Index Values that are calculated during the product calculation\nwindow as defined in the calculation guide..\nNon-Display Benchmark Use: non-viewable use of Benchmark Information:\n(1) in Automated Trading System(s); and/or\n(2) in electronic systems or computer software operated by a Licensee Group entity for any of the\nfollowing uses:\n● Risk management\n● Research and analysis\n● Valuations of financial assets, securities and financial derivatives (such as the creation of portfolios,\nprice verifications, cash flow calculations, creation of pricing and discount curves); and/or\n(3) in connection with a Benchmark Information use license set forth in the Section 1 table in an\nAppendix to this Schedule 7; and/or\n(4) for other non-display Benchmark Information use, with prior written approval from CME.\nProduct: Licensee Group derivative work listed in each applicable Appendix including the values and pricing\nthereof.\nProspectus: any prospectus, contract, offering memorandum or similar writing issued in connection with any\nProduct.\nReal Time Benchmark Information: Benchmark Information that is made available within 24 hours of initial\npublication of the index/benchmark.\nReal Time Intraday Index: The Intraday Index that is made available within ten (10) minutes of initial\ncalculation.",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". License Restrictions and Fee",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ". In addition to the other restrictions set out in this Agreement, no Licensee Group entity may distribute the\nBenchmark Information outside of Licensee Group entities for any purpose whatsoever without the prior written\nconsent of CME.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ". In addition to the other restrictions set out in this Agreement, each Licensee Group entity agrees that it will not\nengage in conduct in any way which may reasonably be considered to bring or have the effect of bringing the\nBenchmark Information or any CME Group entity into disrepute.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ". Licensee must report all use of Benchmark Information in accordance with Schedule 3, Reporting, on a per\nDevice Unit of Count, unless a different Unit of Count is identified in section 1 of each Appendix to this Schedule.\nThe frequency of reporting is identified in section 1 of each Appendix to this Schedule.",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": ". The Fees for the use of Benchmark Information hereunder are set forth in section 1 of each Appendix.\nAnnual Fees are prorated in the first calendar year, are charged in advance and are not refundable.",
+      "page": 2
+    },
+    {
+      "number": "2.5",
+      "title": "",
+      "text": ". As of the Schedule 7 Effective Date, this Schedule 7 supersedes every prior Schedule 7 executed between\nthe parties.",
+      "page": 2
+    },
+    {
+      "number": "2.6",
+      "title": "",
+      "text": ". All Fees payable under this Schedule 7 will automatically increase on an annual basis, from January 1 of each\ncalendar year by a percentage amount based on inflation measured by the consumer price index data collected and\npublished by the International Monetary Fund, provided that CME may choose to waive one or more annual Fee\nincreases on notice to Licensee.",
+      "page": 3
+    },
+    {
+      "number": "2.7",
+      "title": "",
+      "text": ". Licensee accepts the terms and conditions of this Agreement on behalf of Licensee Group and is responsible\nfor the actions or inactions of all entities in Licensee Group, as if such actions were Licensee’s own. Licensee will be\nresponsible for the payment of all Fees on behalf of itself and each entity in the Licensee Group.",
+      "page": 3
+    },
+    {
+      "number": "2.8",
+      "title": "",
+      "text": ". No Licensee Group entity shall have any rights to use the Benchmark Information for purposes other than\nthose solely set forth in this Agreement and in the Information Policies including, but not limited to, the creation,\ncalculation, issuance, distribution, settlement, maintenance or support of any derivative works, including, but not\nlimited to: indexes, exchange traded products (ETP) (e.g. exchange traded funds (ETF), exchange traded notes\n(ETN)), quotes, price assessments, spot or amalgamated prices or values, ratios, curves, surfaces, charts,\ncertificates, warrants, contracts for difference (CFDs) and other leveraged products, ETP values (e.g. indicative\noptimized portfolio values (IOPV), net asset values (NAV or iNAV)), any analytical reference figures or values\ncalculated from Benchmark Information for purposes of fund administration or portfolio management services, pre\nand post-trade risk management services, or valuation services.",
+      "page": 3
+    },
+    {
+      "number": "2.9",
+      "title": "",
+      "text": ". Licensee agrees that the Product must be created as a result of a material calculation, modification, manipulation,\nalteration, or change to the Benchmark Information or any portion thereof, whereby: (i) the original values of the\nBenchmark Information are no longer discernible; (ii) the Products cannot be used as a substitute for the Benchmark\nInformation; (iii) the Benchmark Information may not be readily reverse engineered from the Product as CME may\ndetermine in its sole discretion; or (iv) the Benchmark Information is used in whole, or in part, in conjunction,\naggregation or combination with other Information or data to process, develop, create, or otherwise calculate a price\nor value. CME reserves the right to determine in its sole discretion whether a Product meets the requirements of this\nSection 2.9.",
+      "page": 3
+    },
+    {
+      "number": "2.10",
+      "title": "",
+      "text": ". Licensee must execute an updated Appendix or amendment with CME in order to add a new product to this\nAgreement or expand any Licensee Group entity’s use of Benchmark Information beyond the scope of the rights\ngranted in this Agreement. CME may determine whether to accept any addition of products to an Appendix, however\nsuch acceptance shall not be unreasonably withheld or delayed or conditioned. Either party can remove a Product\nby giving written notice of at least ninety (90) days. Licensee may remove any affected Product in the event of a\nrevision of Fees by CME by providing notice in writing within thirty (30) days of the date of the fee increase notice.",
+      "page": 3
+    },
+    {
+      "number": "2.11",
+      "title": "",
+      "text": ". Except as expressly permitted under this Agreement, no Licensee Group entity may: (a) copy, modify, reverse\nengineer, reverse assemble or reverse compile the Benchmark Information or any part thereof; (b) license,\nsublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Benchmark Information\nor any portion thereof in any manner; or (c) use the Benchmark Information or any portion thereof in the creation of\nderivative works as may be determined in CME’s sole discretion.",
+      "page": 3
+    },
+    {
+      "number": "2.12",
+      "title": "",
+      "text": ". Nothing in this Agreement shall restrict or limit CME or its Affiliates, from making products available for trading\nor from granting any rights to third parties that permit the issuance or trading of products that are identical to, similar\nto or which compete with a Product.",
+      "page": 3
+    },
+    {
+      "number": "2.13",
+      "title": "",
+      "text": ". Each Licensee Group entity will include the disclaimer set out below in all Informational Materials, and upon\nrequest provide a copy thereof to CME:\n“CME GROUP MARKET DATA IS USED UNDER LICENSE AS A SOURCE OF INFORMATION FOR CERTAIN [INSERT NAME\nOF LICENSEE/LICENSEE GROUP] PRODUCTS. CME GROUP HAS NO OTHER CONNECTION TO [INSERT NAME OF\nLICENSEE/LICENSEE GROUP] PRODUCTS AND SERVICES AND DOES NOT SPONSOR, ENDORSE, RECOMMEND OR\nPROMOTE ANY [INSERT NAME OF LICENSEE/LICENSEE GROUP] PRODUCTS OR SERVICES. CME GROUP HAS NO\nOBLIGATION OR LIABILITY IN CONNECTION WITH THE [INSERT NAME OF LICENSEE/LICENSEE GROUP] PRODUCTS\nAND SERVICES. CME GROUP DOES NOT GUARANTEE THE ACCURACY AND/OR THE COMPLETENESS OF ANY\nMARKET DATA LICENSED TO [INSERT NAME OF LICENSEE/LICENSEE GROUP] AND SHALL NOT HAVE ANY LIABILITY\nFOR ANY ERRORS, OMISSIONS, OR INTERRUPTIONS THEREIN. THERE ARE NO THIRD-PARTY BENEFICIARIES OF ANY\nAGREEMENTS OR ARRANGEMENTS BETWEEN CME GROUP AND [INSERT NAME OF LICENSEE/LICENSEE GROUP].\nCME will provide Licensee with thirty (30) days’ written notice of any changes to the disclaimer, unless\namendments are required under law or regulation.",
+      "page": 3
+    },
+    {
+      "number": "2.14",
+      "title": "Index Constituent Data.",
+      "text": "Notwithstanding anything to the contrary elsewhere in the Agreement, display and  Non-Display Benchmark\nUse of Index Constituent Data must adhere to this section 2.14.",
+      "page": 4
+    },
+    {
+      "number": "2.14.1",
+      "title": "",
+      "text": "Permitted Internal Use. Licensed internal use of Index Constituent Data for display and Non-Display\nBenchmark Use by Licensee Group is solely to facilitate reconciliation of the corresponding index (the “Permitted\nInternal Use”).",
+      "page": 4
+    },
+    {
+      "number": "2.14.2",
+      "title": "",
+      "text": "Prohibited Use. The Licensee Group shall ensure that the Index Constituent Data is used solely for the Permitted\nInternal Use set out at section 2.14.1 above. Any other use must be mutually agreed to in writing and signed by\nauthorized representatives of both Parties. Specifically the Licensee Group is prohibited from using Index Constituent\nData to (i) enhance or validate the Licensee Group’s own reference or pricing database; (ii) for accounting purposes;\n(iii) value securities within the Licensee Group’s fund or portfolio.",
+      "page": 4
+    },
+    {
+      "number": "2.14.3",
+      "title": "",
+      "text": "Acknowledgement. Licensee (on behalf of Licensee Group) acknowledges that the Index Constituent Data\ncomprises the data utilized to calculate the indices and, as a result, any specific data point may differ from data\nprovided by third-party suppliers. Licensee assumes all risk and liability for any such difference.",
+      "page": 4
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". Notices of Miscalculation Error or Restatement",
+      "page": 4
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": "The benchmark administrator for Benchmark Information is CME Group Benchmark Administration Ltd.\n(“CBA”).",
+      "page": 4
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": "CBA or CME will provide prompt written notice of any miscalculation, error, or restatement in accordance with\npublished methodologies for any index or benchmark.\nIN WITNESS WHEREOF, each of the parties has caused this Schedule to be duly executed in its name and on its\nbehalf by the officer or representative duly authorized.\n[Insert Signature Block]",
+      "page": 4
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

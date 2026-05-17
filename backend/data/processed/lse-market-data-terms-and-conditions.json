@@ -1,0 +1,928 @@
+{
+  "exchange": "LSE",
+  "agreement_type": "fee_schedule",
+  "agreement_title": "LSE Market Data Agreement",
+  "version": "",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": null,
+  "data_categories": [],
+  "use_policies": [],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": null,
+  "compliance_obligations": [],
+  "termination_provisions": [],
+  "wind_down": null,
+  "redistribution_restrictions": [],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": null,
+  "dispute_resolution": null,
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "London Stock Exchange Market Data\nTERMS AND CONDITIONS\n(Applicable for both London Stock Exchange and Turquoise Market Data)",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "London Stock Exchange Market Data Terms and Conditions",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "Terms and Conditions\nFOREWORD AND INTERPRETATION\nThis document sets out the general terms and conditions for the use of Data as provided by the London Stock Exchange plc (“LSE”) and/or Turquoise\nGlobal Holdings Limited (“TGHL”).\nThis document provides a unified set of terms for Customers of all or either of the Exchange’s Data Products, and together with the Schedules, and\nthe applicable Order Form, form the Agreement and independent legal relationship between each of the Exchanges and the Customer.\nIf an Order Form is executed by:\n(a) the Customer and LSE only, the parties to the Agreement shall be the Customer and LSE;\n(b) the Customer and TGHL only, the parties to the Agreement shall be the Customer and TGHL;\n(c) the Customer, LSE and TGHL, the effect of the Agreement will be to create independent legal relationships on identical terms: (i) one\nbetween the Customer and LSE; and (ii) one between the Customer and TGHL.\nThe Data Shop Agreement shall be an independent and separate agreement for Data Shop Products between the Customer and the relevant\nExchange. All other Data Products shall be subject to the Agreement.\nPlease also refer to the relevant policies and price lists applicable to your subscription set out in the Schedules for further rules and guidance.",
+      "page": 2
+    },
+    {
+      "number": "1",
+      "title": "SERVICE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "1.1",
+      "title": "",
+      "text": ". Each Exchange (where relevant) shall take all reasonable steps to provide the Service to the Customer on the terms and conditions contained\nin the Agreement.",
+      "page": 2
+    },
+    {
+      "number": "1.2",
+      "title": "",
+      "text": ". Notwithstanding anything else in the Agreement, the parties acknowledge and agree that:",
+      "page": 2
+    },
+    {
+      "number": "1.2.1",
+      "title": "",
+      "text": ". LSE is solely responsible for providing the Service (and any related obligations) to the Customer to the extent the Service or related\nobligation relates to LSE Data; and",
+      "page": 2
+    },
+    {
+      "number": "1.2.2",
+      "title": "",
+      "text": ". TGHL is solely responsible for providing the Service (and any related obligations) to the Customer to the extent the Service or related\nobligation relates to TGHL or TGHE Data.",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ". Subject to the Customer’s compliance with the terms of the Agreement, each Exchange hereby grants the Customer a non-exclusive, non-\ntransferable, revocable, worldwide licence during the Initial Term and each Renewal Term (as applicable) to:",
+      "page": 2
+    },
+    {
+      "number": "2.1.1",
+      "title": "",
+      "text": ". use the Data for limited internal use;",
+      "page": 2
+    },
+    {
+      "number": "2.1.2",
+      "title": "",
+      "text": ". utilise, distribute, or extract limited, inconsequential, insubstantial (including qualitatively and quantitatively) amounts of Data on an ad-hoc,\nnon-systematic basis, provided that such utilisation, or extraction is not continuous, is infrequent and/or irregular, cannot be used as a substitute\nfor the Data, and has no separate commercial value;",
+      "page": 2
+    },
+    {
+      "number": "2.1.3",
+      "title": "",
+      "text": ". back up and store the Data in so far as it is necessary for:\n2.1.3.1. compliance with the Reporting and Audit Schedule;\n2.1.3.2. reasonable internal financial record keeping; and\n2.1.3.3. compliance with the laws and regulations applicable to the Customer,\ntogether, the “Limited Licence”.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ". Subject to any further licence granted in accordance with clause 2.3, each Exchange hereby expressly reserves all rights (including Intellectual\nProperty Rights), licences and permissions in and to the Data and the Trade Marks, other than the limited rights granted under clause 2.1.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ". In the event that the Customer wishes to licence the Data for the Licensable Activities in addition to the Limited Licence, from the\nCommencement Date as stated on an executed Order Form, each Exchange hereby grants the Customer a non-exclusive, non-transferable,\nrevocable, worldwide licence during the Initial Term and each Renewal Term (as applicable) to use the Data for the Licensable Activities\nspecified on the Order Form subject to:",
+      "page": 2
+    },
+    {
+      "number": "2.3.1",
+      "title": "",
+      "text": ". compliance with the further terms relevant to each Licensable Activity as set out in the Market Data Policy Schedule (as applicable);",
+      "page": 2
+    },
+    {
+      "number": "2.3.2",
+      "title": "",
+      "text": ". in respect of the Customer’s own use of the Data, the terms of the Limited Licence;",
+      "page": 2
+    },
+    {
+      "number": "2.3.3",
+      "title": "",
+      "text": ". in the event that the Customer provides access to the Data to any third party (for example as a result of the Customer having a Redistribution\nLicence) the Customer shall procure that the third party complies with the terms of the Limited Licence; and",
+      "page": 2
+    },
+    {
+      "number": "2.3.4",
+      "title": "",
+      "text": ". the Customer attributing the source of the Data to the Exchange, using the relevant Trade Mark.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "SUBSIDIARIES",
+      "text": "London Stock Exchange Market Data Terms and Conditions",
+      "page": 2
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": ". The Customer’s Subsidiaries specifically listed on an executed Order Form may use the relevant Data, provided that:",
+      "page": 3
+    },
+    {
+      "number": "3.1.1",
+      "title": "",
+      "text": ". the Customer shall procure that the Subsidiaries comply with the Customer’s relevant obligations under the Agreement (other than payment\nof the Charges) and shall be liable for any breach by a Subsidiary;",
+      "page": 3
+    },
+    {
+      "number": "3.1.2",
+      "title": "",
+      "text": ". the Subsidiaries shall not be third party beneficiaries under the Agreement and the Customer shall procure that no Subsidiaries bring a Claim\nagainst either Exchange in relation to the Agreement, provided that any Losses incurred by a Subsidiary in relation to the Data shall be\nrecoverable by the Customer to the extent such Losses would be recoverable if incurred by the Customer; and",
+      "page": 3
+    },
+    {
+      "number": "3.1.3",
+      "title": "",
+      "text": ". unless otherwise stated, notices served upon the Customer shall be deemed to be served at the same time upon the Subsidiaries.",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "CUSTOMER OBLIGATIONS",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": ". The Customer shall provide the Exchanges with any applicable reporting in accordance with the Market Data Policy Schedule and the Reporting\nand Audit Schedule (except for Customers solely subject to the Data Shop Agreement).",
+      "page": 3
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": ". The Customer shall allow each Exchange and their agents access to operational controls, systems, records and other documents relating to\nthe Service, permit each Exchange to take copies or extracts, and supply copies on demand to the relevant Exchange to verify compliance with\nthe Agreement in accordance with the Reporting and Audit Schedule.",
+      "page": 3
+    },
+    {
+      "number": "5",
+      "title": "TERM AND TERMINATION OF AGREEMENT",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": ". The Agreement will become effective on the Commencement Date and shall remain in force until the end of the Initial Term. Upon expiry of the\nInitial Term, the Agreement will continue for each Renewal Term, unless and until terminated in accordance with the terms of the Agreement.",
+      "page": 3
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": ". Either party may terminate the Agreement effective on the expiration of the Initial Term, or twelve (12) months following the Commencement\nDate, whichever is later, with at least ninety (90) calendar days’ written notice. Following the expiration of the Initial Term or the first twelve (12)\nmonths of the Commencement Date, whichever is later, either party may terminate the Agreement with at least ninety (90) calendar days’ written\nnotice.",
+      "page": 3
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": ". Either party may terminate a specific use within the list of Licensable Activities on an Order Form, with at least ninety (90) calendar days’ written\nnotice to the other party, unless otherwise agreed in writing by the relevant Exchange. All other uses and the licences held for such uses within\nthe Licensable Activities listed on the Order Form shall remain unaffected by such termination and shall continue in full force and effect for the\nremainder of the Initial Term and any subsequent Renewal Term unless terminated earlier in accordance with the terms of the Agreement. .",
+      "page": 3
+    },
+    {
+      "number": "5.4",
+      "title": "",
+      "text": ". Any notice given in accordance with 5.2 above will be effective from the last calendar day of the month in which the notice is given.",
+      "page": 3
+    },
+    {
+      "number": "5.5",
+      "title": "",
+      "text": ". Either party may terminate the Agreement immediately by giving the other party written notice if that other party:",
+      "page": 3
+    },
+    {
+      "number": "5.5.1",
+      "title": "",
+      "text": ". becomes unable to pay its debts in the ordinary course of business, passes a resolution for winding up or has a receiver or administrator\nappointed over all or any of its assets, becomes insolvent (whether voluntarily or involuntarily), is placed in liquidation, or ceases to carry on\nbusiness as a going concern or the equivalent occurs in any jurisdiction; or",
+      "page": 3
+    },
+    {
+      "number": "5.5.2",
+      "title": "",
+      "text": ". materially breaches any of its obligations under the Agreement (including but not limited to, in the case of Customer, payment of Charges to\nthe Exchanges and use of the Data in accordance with the Limited Licence at clause 2) and does not remedy such failure, if capable of remedy,\nwithin 30 (thirty) days of receiving notice from the Exchange requiring it to do so.",
+      "page": 3
+    },
+    {
+      "number": "5.6",
+      "title": "",
+      "text": ". Either Exchange may terminate the Agreement or suspend all or part of the Service without liability if:",
+      "page": 3
+    },
+    {
+      "number": "5.6.1",
+      "title": "",
+      "text": ". where in respect of Data sourced directly from the Exchange, the Customer ceases to have satisfactory communications facilities in place in\naccordance with clause 9, within 30 (thirty) days of receiving notice from the Exchange;",
+      "page": 3
+    },
+    {
+      "number": "5.6.2",
+      "title": "",
+      "text": ". it is required to do so by applicable law, is directed to do so by a competent regulator, or where such competent authority terminates its\nauthorisation to manage the relevant financial markets for which it redistributes the Data pursuant to the Agreement;",
+      "page": 3
+    },
+    {
+      "number": "5.6.3",
+      "title": "",
+      "text": ". the Service is generally terminated or suspended by the relevant Exchange;",
+      "page": 3
+    },
+    {
+      "number": "5.6.4",
+      "title": "",
+      "text": ". the Exchange reasonably believes that this is necessary to maintain the security or integrity of the Service or the Exchange’s operations or to\nprevent their misuse; or",
+      "page": 3
+    },
+    {
+      "number": "5.6.5",
+      "title": "",
+      "text": ". for a reason beyond the Exchange’s reasonable control.",
+      "page": 3
+    },
+    {
+      "number": "5.7",
+      "title": "",
+      "text": ". Post-termination, the Customer may store and use the Data collected during the term of the Agreement only where such storage and use of\nsuch Data is for compliance with applicable laws, regulatory obligations, or other such reasons approved in writing by the Exchange.",
+      "page": 3
+    },
+    {
+      "number": "5.8",
+      "title": "",
+      "text": ". Where the provision of the Service is suspended by the Exchange under clause 5.6.3, the relevant Exchange shall, at the request of Customer,\nrefund any pre-paid Charges on a pro-rata basis.",
+      "page": 3
+    },
+    {
+      "number": "5.9",
+      "title": "",
+      "text": ". Where the provision of the Service is terminated by the Customer under clause 5.2, the relevant Exchange shall, at the request of Customer,\nrefund any pre-paid Charges on a pro-rata basis.",
+      "page": 3
+    },
+    {
+      "number": "6",
+      "title": "CHARGES",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": ". The Customer shall pay the applicable Charges for the Service as set out in the Price List and Data Product Schedule, and/or Market Data\nPolicy Schedule. Charges shall be payable within 30 (thirty) days of receipt of the Exchange’s invoice. Charges should be paid by bank transfer.",
+      "page": 3
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": ". All Charges are subject to Value Added Tax at the prescribed rate where applicable, and any other tax, duty or levy imposed by legislation. The\nCustomer shall be responsible for the timely payment of, or reimburse the Exchange on demand for, the full amount of all such taxes at the rate\napplicable at the time. Where the laws of the Customer’s territory require the Exchange to make such deductions from a payment due to the\nExchange, then the amount due from the Customer to the Exchange shall be increased to an amount, which after making such tax deductions,\nleaves an amount equal to the amount originally due to the Exchange.",
+      "page": 3
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": ". The Exchange may charge interest on overdue payments at the rate of the Bank of England base rate plus 8% per annum or the maximum\namount permitted by law (whichever is lower), accrued on a daily basis.",
+      "page": 3
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": ". Notwithstanding any other rights the Exchange may have under the Agreement, the Exchange shall have the right to suspend its Service in the\nevent that: (i) the Customer breaches clause 6.1 and such breach lasts for more than 30 (thirty) calendar days; and/or (ii) any submission of\nLondon Stock Exchange Market Data Terms and Conditions",
+      "page": 3
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "information to the Exchange as specified in the Reporting and Audit Schedule is sent to the Exchange with more than 30 (thirty) calendar days\nof delay.",
+      "page": 4
+    },
+    {
+      "number": "7",
+      "title": "INTELLECTUAL PROPERTY RIGHTS",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": ". The Customer agrees (including on behalf of the Customer’s Subsidiaries) that:",
+      "page": 4
+    },
+    {
+      "number": "7.1.1",
+      "title": "",
+      "text": ". all Intellectual Property Rights and any other rights of whatever nature in and relating to the Service and the Data shall remain the property of\nthe relevant Exchange;",
+      "page": 4
+    },
+    {
+      "number": "7.1.2",
+      "title": "",
+      "text": ". it shall have no rights in or to the Data other than the right to use them in accordance with the express terms of the Agreement;",
+      "page": 4
+    },
+    {
+      "number": "7.1.3",
+      "title": "",
+      "text": ". the Exchanges have (or each has) made and will continue to make substantial investment in the obtaining, verification, selection, co-ordination,\ndevelopment, presentation, and supply of the Data; and",
+      "page": 4
+    },
+    {
+      "number": "7.1.4",
+      "title": "",
+      "text": ". any goodwill generated through the Customer's use of the Trade Marks shall belong only to the relevant Exchange.",
+      "page": 4
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": ". Nothing in the Agreement shall transfer to the Customer any right or interest in any Intellectual Property Rights and the Customer shall have no\nrights to use the same except as expressly set out in the Agreement.",
+      "page": 4
+    },
+    {
+      "number": "8",
+      "title": "WARRANTIES, INDEMNITIES AND LIABILITY",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": ". Each party represents and warrants that it shall perform its obligations in relation to the Agreement in compliance with applicable law.",
+      "page": 4
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": ". To the fullest extent permitted by law, the Service and the Data is provided “as is” and on an “as available” basis. Neither Exchange makes any\nwarranties of any kind, whether express, implied, statutory, or otherwise, and each Exchange disclaims all implied warranties, including any\nwarranties of merchantability, fitness for a particular purpose, good title, satisfactory quality and non-infringement. Neither Exchange shall be\nliable to the Customer or any third party for any decisions based on the Data, for any inaccuracy, incompleteness, or error in the Data or in the\nevent that the Service is interrupted, changed or becomes unavailable for any reason. Neither Exchange warrants that the Service or the Data\nwill meet the Customer’s specific needs, achieve a particular result, be error free, complete or provided on a timely basis or not be susceptible\nto intrusion, attack or computer virus infection.",
+      "page": 4
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": ". Subject to clauses 8.4 and 8.5, neither party shall be liable to the other, whether in contract, tort (including negligence), breach of statutory duty\nor otherwise, for:",
+      "page": 4
+    },
+    {
+      "number": "8.3.1",
+      "title": "",
+      "text": ". any indirect, special, or consequential Loss;",
+      "page": 4
+    },
+    {
+      "number": "8.3.2",
+      "title": "",
+      "text": ". any Loss of profits, Loss of revenue, Loss of anticipated savings, Loss of goodwill, Loss of opportunity, or wasted expenditure;",
+      "page": 4
+    },
+    {
+      "number": "8.3.3",
+      "title": "",
+      "text": ". Loss of, damage to, or corruption of, data; or",
+      "page": 4
+    },
+    {
+      "number": "8.3.4",
+      "title": "",
+      "text": ". in the case of each Exchange, Loss or damage arising from any Claim made, or Loss incurred by, a client of the Customer, in each case,\nregardless of whether such Loss is foreseen or foreseeable.",
+      "page": 4
+    },
+    {
+      "number": "8.4",
+      "title": "",
+      "text": ". Nothing in the Agreement excludes or limits a party’s liability for death or personal injury caused by negligence, fraud or fraudulent\nmisrepresentation, or any other liability that cannot be excluded or limited by law.",
+      "page": 4
+    },
+    {
+      "number": "8.5",
+      "title": "",
+      "text": ". The liability of each Exchange for its obligations under the Agreement shall be several and shall, subject to clause 8.4, extend only to any direct\nLoss or damage arising out of its own total or partial failure to perform any obligation under the Agreement in respect of its Data. The Customer\nagrees that it shall only bring a Claim against: (i) LSE in respect of any failures relating to LSE Data; and (ii) TGHL in respect of any failures\nrelating to TGHL or TGHE Data.",
+      "page": 4
+    },
+    {
+      "number": "8.6",
+      "title": "",
+      "text": ". Subject to clause 8.4, each Exchange’s liability for direct Loss or damage arising from its total or partial failure to perform any obligation under\nthe Agreement shall, in respect of any one incident or series of incidents attributable to the same cause, be limited in aggregate to:",
+      "page": 4
+    },
+    {
+      "number": "8.6.1",
+      "title": "",
+      "text": ". in respect of LSE, the total Charges paid by the Customer for the LSE Service in the 12 (twelve) months immediately preceding the date on\nwhich the first event giving rise to the Claim occurred;",
+      "page": 4
+    },
+    {
+      "number": "8.6.2",
+      "title": "",
+      "text": ". in respect of TGHL, the total Charges paid by the Customer for the TGHL Service in the 12 (twelve) months immediately preceding the date\non which the first event giving rise to the Claim occurred.",
+      "page": 4
+    },
+    {
+      "number": "8.7",
+      "title": "",
+      "text": ". Nothing in the Agreement excludes or limits:",
+      "page": 4
+    },
+    {
+      "number": "8.7.1",
+      "title": "",
+      "text": ".  the Customer’s liability arising from:\n8.7.1.1. the Customer’s breach of any terms of the Agreement relating to the use of Data including, without limitation, clause 2;\n8.7.1.2. the indemnity given at clause 8.10.",
+      "page": 4
+    },
+    {
+      "number": "8.7.2",
+      "title": "",
+      "text": ". the Exchange’s liability arising from:\n8.7.2.1. the indemnity at clause 8.8.",
+      "page": 4
+    },
+    {
+      "number": "8.8",
+      "title": "",
+      "text": ". The relevant Exchange shall indemnify Customer and its directors, officers, employees and agents from third party Claims and Losses (other\nthan by a Group Company of Customer) to the extent the same arises out of or in connection with any allegation that the use by Customer of\nany Data or Trade Marks licensed under the Agreement (other than any Trade Mark of a third-party information or services provider) infringes\nsuch third party's Intellectual Property Rights. The foregoing shall be Customer’s sole remedy in respect of Claims and Losses to which this\nindemnity applies.",
+      "page": 4
+    },
+    {
+      "number": "8.9",
+      "title": "",
+      "text": ". The relevant Exchange shall have no liability under the indemnity in clause 8.8 arising from or in relation to:",
+      "page": 4
+    },
+    {
+      "number": "8.9.1",
+      "title": "",
+      "text": ". the use of any Data or Trade Marks in combination with anything not provided by the relevant Exchange, or after the termination date of the\nrelevant Service;",
+      "page": 4
+    },
+    {
+      "number": "8.9.2",
+      "title": "",
+      "text": ". any content forming part of the Data that is not wholly owned or created solely by, or on behalf of, the relevant Exchange; or",
+      "page": 4
+    },
+    {
+      "number": "8.9.3",
+      "title": "",
+      "text": ". any error in data collection or storage by the Customer.",
+      "page": 4
+    },
+    {
+      "number": "8.10",
+      "title": "",
+      "text": ". The Customer shall indemnify each Exchange from third party Claims and Losses:",
+      "page": 4
+    },
+    {
+      "number": "8.10.1",
+      "title": "",
+      "text": ". to the extent the same arise out of, or in connection with, the use of the Service by the Customer or any third party because of the Customer;\nor",
+      "page": 4
+    },
+    {
+      "number": "8.10.2",
+      "title": "",
+      "text": ". brought by the Customer’s Subsidiaries in respect of the Agreement, and any liability, costs, or expenses (including any reasonable legal costs\nand any other reasonable expenses) included therewith.",
+      "page": 4
+    },
+    {
+      "number": "8.11",
+      "title": "",
+      "text": ". In relation to any Claim or Loss to which clauses 8.8 or 8.10 apply, the indemnified party shall:",
+      "page": 4
+    },
+    {
+      "number": "8.11.1",
+      "title": "",
+      "text": ". promptly notify the other party;\nLondon Stock Exchange Market Data Terms and Conditions",
+      "page": 4
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "8.11.2",
+      "title": "",
+      "text": ". not make any admission in relation to or settle, or attempt to settle, the Claim or Loss without the prior written consent of the indemnifying party\n(not to be unreasonably withheld or delayed);",
+      "page": 5
+    },
+    {
+      "number": "8.11.3",
+      "title": "",
+      "text": ". allow the indemnifying party on request to have sole conduct of the Claim, provided that indemnifying party shall not settle, or attempt to settle,\nthe Claim without the prior written consent of the indemnified party (not to be unreasonably withheld or delayed);",
+      "page": 5
+    },
+    {
+      "number": "8.11.4",
+      "title": "",
+      "text": ". give the indemnifying party all assistance reasonably requested in dealing with the Claim or Loss; and",
+      "page": 5
+    },
+    {
+      "number": "8.11.5",
+      "title": "",
+      "text": ". subject to sub-clauses 8.11.1 – 8.11.4, take all reasonable steps to mitigate any Losses that are the subject of the indemnity.",
+      "page": 5
+    },
+    {
+      "number": "8.12",
+      "title": "",
+      "text": ". In relation to any Claim or Loss to which the indemnity in clause 8.8 relates, the Exchange may, in its sole discretion and at its expense:",
+      "page": 5
+    },
+    {
+      "number": "8.12.1",
+      "title": "",
+      "text": ". procure for Customer the right to continue to use any of the allegedly infringing Data licensed under the Agreement; and/or",
+      "page": 5
+    },
+    {
+      "number": "8.12.2",
+      "title": "",
+      "text": ". replace or modify any of such allegedly infringing Data to make it non-infringing.",
+      "page": 5
+    },
+    {
+      "number": "9",
+      "title": "TECHNICAL COMPLIANCE AND CHANGES TO THE SERVICE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": ". Each Exchange reserves the right to determine the form and contents of the Service and, in particular, to modify and supplement from time to\ntime the technical, functional, administrative and operative methods of supply of the Service itself, wherever necessary for complying with\nprovisions of law or due to a change in the organisation of the financial markets or modifications or supplements to the Technical Specifications.\nThe relevant Exchange shall communicate to the Customer such modifications or supplements at least 30 (thirty) calendar days prior to their\nentry into effect unless such modifications or supplements are a consequence of the compliance with provisions of law or due to an emergency\nin which case no notice shall be provided to the Customer. In the event of modifications or supplements pursuant to this clause, the Customer\nshall have the right to terminate the Agreement by providing 30 (thirty) calendar days’ written notice to the Exchange. The parties agree that\nshould such modifications or supplements prevent the Customer from receiving any Service for at least 14 (fourteen) consecutive calendar\ndays, then the variable component of the relevant Charges shall be reduced in proportion to the period in which the relevant Service has not\nbeen utilised, it being understood that the Customer is obliged to communicate such impediments in a timely manner.",
+      "page": 5
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": ". The Customer undertakes that, in addition to the Agreement, it shall comply with applicable provisions contained in the Technical Specifications\n(which the Customer acknowledges it has received or has access to on the Exchange’s website).",
+      "page": 5
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": ". The Customer acknowledges that the implementation of all operations necessary for the connection of its equipment (hardware and software)\nwith the Systems, as well as the maintenance of the above-mentioned equipment, shall not be the responsibility or cost of either Exchange.",
+      "page": 5
+    },
+    {
+      "number": "9.4",
+      "title": "",
+      "text": ". Neither Exchange shall have any obligations to provide the Service directly to the Customer under the Agreement unless the Customer has in\nplace satisfactory communication infrastructure to receive the Service, in accordance with such arrangements as may have been approved in\nadvance by the relevant Exchange in writing.",
+      "page": 5
+    },
+    {
+      "number": "10",
+      "title": "CONFIDENTIALITY",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": ". Subject to clause 10.2, the parties shall keep confidential all Confidential Information.",
+      "page": 5
+    },
+    {
+      "number": "10.2",
+      "title": "",
+      "text": ". Either party may disclose Confidential Information to the following persons to the extent that such parties need to know the Confidential\nInformation for the purposes contemplated by the Agreement:",
+      "page": 5
+    },
+    {
+      "number": "10.2.1",
+      "title": "",
+      "text": ". its auditors, lawyers, or other professional advisers;",
+      "page": 5
+    },
+    {
+      "number": "10.2.2",
+      "title": "",
+      "text": ". its Group; and",
+      "page": 5
+    },
+    {
+      "number": "10.2.3",
+      "title": "",
+      "text": ". competent regulatory or governmental authorities to which either party is subject or reasonably submits, to the extent required by such\nregulatory or governmental authority.",
+      "page": 5
+    },
+    {
+      "number": "10.3",
+      "title": "",
+      "text": ". The receiving party shall ensure that any recipients of the disclosing party’s Confidential Information are bound by confidentiality obligations\nsimilar to those contained herein and shall be fully responsible for any breach of such confidentiality obligations by the recipient.",
+      "page": 5
+    },
+    {
+      "number": "11",
+      "title": "CHANGES TO THE AGREEMENT",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "11.1",
+      "title": "",
+      "text": ". Either Exchange may amend:",
+      "page": 5
+    },
+    {
+      "number": "11.1.1",
+      "title": "",
+      "text": ". these Terms and/or the Price List and Data Product Schedule at any time on 90 (ninety) calendar days’ written notice; or",
+      "page": 5
+    },
+    {
+      "number": "11.1.2",
+      "title": "",
+      "text": ". subject to clause 11.1.1, any Schedule that forms part of the Agreement on 30 (thirty) calendar days’ notice.",
+      "page": 5
+    },
+    {
+      "number": "11.1.3",
+      "title": "",
+      "text": ". any part of the Agreement where required for legal and/or regulatory reasons with as much notice as practicable.",
+      "page": 5
+    },
+    {
+      "number": "11.2",
+      "title": "",
+      "text": ". In the event the Customer considers any such amendment to be unfavourable, it may terminate the Agreement on the date the amendment\ncomes into effect, provided it gives the relevant Exchange at least 30 (thirty) days’ notice in writing, such termination to be effective on the date\nthe amendment in question is to come into effect.",
+      "page": 5
+    },
+    {
+      "number": "11.3",
+      "title": "",
+      "text": ". Except as provided in clause 11, the Agreement may only be amended in writing by duly authorised representatives of the parties.",
+      "page": 5
+    },
+    {
+      "number": "12",
+      "title": "NOTICES",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "12.1",
+      "title": "",
+      "text": ". Subject to clause 12.2, any notice given under or in connection with the Agreement shall be in writing and shall be served by email to: (i) in the\ncase of each Exchange, marketdata@lseg.com or such other email address as either Exchange may notify the Customer in writing from time\nto time; or (ii) in the case of the Customer, such email address as the Customer may notify the relevant Exchange from time to time. The deemed\neffective date shall be the date of transmission.",
+      "page": 5
+    },
+    {
+      "number": "12.2",
+      "title": "",
+      "text": ". Any legal Claims or other documents related to any legal proceedings under the Agreement must be served in accordance with the laws or\nrules applicable to such proceedings.",
+      "page": 5
+    },
+    {
+      "number": "13",
+      "title": "ASSIGNMENT",
+      "text": "London Stock Exchange Market Data Terms and Conditions",
+      "page": 5
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "13.1",
+      "title": "",
+      "text": ". The Customer may not assign or transfer any rights or obligations under the Agreement without the relevant Exchange’s prior written consent,\nsuch consent not to be unreasonably withheld or delayed.\nEach Exchange shall have the right to assign any of its rights and/or obligations under the Agreement to another party, such assignment to\nbecome effective on written notice to the Customer.",
+      "page": 6
+    },
+    {
+      "number": "14",
+      "title": "NO WAIVER AND ENTIRE AGREEMENT",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "14.1",
+      "title": "",
+      "text": ". No waiver on any breach of any provision of the Agreement shall constitute a waiver of any other breach, and no waiver shall be effective unless\nmade in writing and signed by an authorised representative of the waiving party.",
+      "page": 6
+    },
+    {
+      "number": "14.2",
+      "title": "",
+      "text": ". No failure or delay by any party in exercising any right or remedy under the Agreement shall constitute a waiver of that party's rights or remedies.",
+      "page": 6
+    },
+    {
+      "number": "14.3",
+      "title": "",
+      "text": ". The Agreement is the parties' entire understanding of the contract between them with respect to the subject matter and supersedes all prior\nagreements, representations, and proposals, oral or written.",
+      "page": 6
+    },
+    {
+      "number": "14.4",
+      "title": "",
+      "text": ". Each party confirms that:",
+      "page": 6
+    },
+    {
+      "number": "14.4.1",
+      "title": "",
+      "text": ". in any event, without prejudice to any liability for fraudulent misrepresentation or fraudulent misstatement, neither party shall be under any\nliability or shall have any remedy in respect of misrepresentation or untrue statement unless and to the extent that a Claim lies under the\nAgreement; and",
+      "page": 6
+    },
+    {
+      "number": "14.4.2",
+      "title": "",
+      "text": ". in entering into the Agreement, it has not relied on any representation or warranty or undertaking which is not expressly set out in the\nAgreement.",
+      "page": 6
+    },
+    {
+      "number": "15",
+      "title": "SEVERABILITY AND SURVIVAL",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "15.1",
+      "title": "",
+      "text": ". If any provision of the Agreement is held by any competent authority to be invalid or unenforceable in whole or in part, the validity of all other\nprovisions (and, if applicable, the remainder of the provision in question) shall not be affected.",
+      "page": 6
+    },
+    {
+      "number": "15.2",
+      "title": "",
+      "text": ". All provisions of the Agreement that may reasonably be construed as surviving the termination of the Agreement shall survive such termination.\nWithout prejudice to the foregoing, the provisions of clauses 5.7, 5.8, 6, 7, 8.7, 10, 14, 15, 16 and 17 will survive the termination of the Agreement.",
+      "page": 6
+    },
+    {
+      "number": "16",
+      "title": "RIGHTS OF THIRD PARTIES",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "16.1",
+      "title": "",
+      "text": ". Except as expressly provided otherwise, no term of the Agreement is enforceable under the Contracts (Rights of Third Parties) Act 1999 by a\nperson who is not a party to the Agreement.",
+      "page": 6
+    },
+    {
+      "number": "17",
+      "title": "CHOICE OF LAW",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "17.1",
+      "title": "",
+      "text": ". The Agreement shall be governed by, and construed in all respects in accordance with, the laws of England and Wales and subject to the\nexclusive jurisdiction of the courts of England and Wales.",
+      "page": 6
+    },
+    {
+      "number": "18",
+      "title": "ORDER OF PRECEDENCE",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "18.1",
+      "title": "",
+      "text": ". Where there is a conflict between any of: i) these Terms; ii) any Schedules; and iii) an Order Form, the prevailing terms shall be those contained\nin the following documents in prevailing order:",
+      "page": 6
+    },
+    {
+      "number": "18.1.1",
+      "title": "",
+      "text": ". the Order Form;",
+      "page": 6
+    },
+    {
+      "number": "18.1.2",
+      "title": "",
+      "text": ". where applicable, the Data Shop Schedule;",
+      "page": 6
+    },
+    {
+      "number": "18.1.3",
+      "title": "",
+      "text": ". these Terms;",
+      "page": 6
+    },
+    {
+      "number": "18.1.4",
+      "title": "",
+      "text": ". the Price List and Data Product Schedule;",
+      "page": 6
+    },
+    {
+      "number": "18.1.5",
+      "title": "",
+      "text": ". the Schedules other than the Price List and Data Product Schedule.",
+      "page": 6
+    },
+    {
+      "number": "19",
+      "title": "DEFINITIONS",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "19.1",
+      "title": "",
+      "text": ". In the Agreement, unless the context requires otherwise, the following words shall have the following meanings:\nAgreement\nmeans these Terms, an Order Form, and the applicable Schedules.\nClaim\nmeans a claim, demand, action, suit, or similar proceeding.\nCommencement Date\nmeans the date agreed by the parties in the executed Order Form, and if no date is specified, the\nlatest date of signature on the relevant Order Form.\nLondon Stock Exchange Market Data Terms and Conditions",
+      "page": 6
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "Confidential Information\nmeans (i) the terms of the Agreement; (ii) any confidential or proprietary information supplied by\nany party to any other with respect to its financial affairs or business operations; and (iii) all\ncommunications between the parties relating to the Agreement or the Service. Confidential\nInformation shall not include any information which (a) is available in the public domain other than\nthrough a breach of the Agreement; (b) is, when it is supplied, already known to, or has been\nindependently obtained by, the recipient in circumstances in which they are not prevented from\ndisclosing it to others; (c) is required to be disclosed by applicable law; or (d) is developed by either\nExchange independently of the information disclosed by the Customer under the Agreement.\nControl\nmeans having control in relation to an entity through equity, voting rights, or constitutional or other\nregulatory documents.\nCustomer\nmeans the natural and/or legal person or entity named in the Order Form.\nCharges\nmeans fees as identified as such in the Price List and Data Product Schedule.\nData\nmeans the data provided by the Exchanges under the Agreement.\nData Products\nmeans the categories of Data content as set out in the Price List and Data Product Schedule and\nas licensed on the Order Form.\nData Shop Agreement\nmeans these Terms, an Order Form and the Data Shop Schedule, applicable only to Customers\nmaking purchases of certain historical and reference data products directly from the Exchanges.\nData Shop Schedule\nmeans Schedule 1 of the Agreement.\nExchange\nmeans either LSE or TGHL, where “Exchanges” shall mean both LSE and TGHL.\nGroup\nmeans in relation to an entity, any other entity that Controls, is Controlled by or is under common\nControl with that entity.\nInitial Term\nmeans the Commencement Date until 31st December in the same calendar year.\nIntellectual Property Rights\nmeans all patents, rights to inventions, utility models, copyright and related rights, trade marks,\nservice marks, trade, business and rights in domain names, rights in trade dress or get-up, rights in\ngoodwill or to sue for passing off, unfair competition rights, rights in designs, rights in computer\nsoftware, database rights, semi-conductor topography rights, moral rights, rights in confidential\ninformation (including know-how and trade secrets) and any other intellectual property rights, in\neach case whether registered or unregistered and including all applications for and renewals or\nextensions of such rights, and all similar or equivalent rights or forms of protection in any part of\nthe world.\nLicensable Activities\nmeans any use of Data which is subject to additional licensing as described in the Market Data\nPolicy Schedule and the Price List and Data Product Schedule.\nLoss or Losses\nmeans damages, losses, settlements, costs, expenses (including reasonable lawyers’ fees and\ncosts) and compensation directly arising from an act or omission.\nLSE\nmeans the London Stock Exchange plc.\nMarket Data Policy Schedule\nmeans Schedule B of the Agreement.\nOrder Form\nmeans the LSE and TGHL Market Data order form for the Service.\nPremises\nmeans premises occupied by the Customer or its Subsidiaries (where applicable).\nPrice List and Data Product\nSchedule\nmeans Schedule A of the Agreement.\nRenewal Term\nmeans a one-year period following the expiry of the Initial Term, commencing on 1st January, and\nending on 31st December.\nReporting and Audit\nSchedule\nmeans Schedule C of the Agreement.\nSchedule\nmeans a schedule to these Terms, as amended by the Exchanges from time to time in accordance\nwith the Agreement.\nService\nmeans the provision by the relevant Exchange (directly or indirectly) of the Data as set out in the\napplicable Order Form.\nSubsidiaries\nmeans those subsidiaries of the Customer as set out in the Order Form.\nTechnical Specifications\nmeans the Service Definition, Data Formats, Network Specification, and Interface Specification\nprovided to the Customer by the Exchanges, as amended and notified to the Customer from time\nto time.\nLondon Stock Exchange Market Data Terms and Conditions",
+      "page": 7
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "Terms\nmeans these Terms and Conditions.\nTrade Marks\nmeans the trade marks, service marks, names, logos, titles and short-form names relating to the\nData from time to time including without limitation the trade marks London Stock Exchange®,\nLondon Stock Exchange Group®, TRADEcho®, Turquoise®.\nTGHE\nmeans Turquoise Global Holdings Europe B.V.\nTGHL\nmeans Turquoise Global Holdings Limited.",
+      "page": 8
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

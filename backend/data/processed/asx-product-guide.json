@@ -1,0 +1,1926 @@
+{
+  "exchange": "ASX",
+  "agreement_type": "product_guide",
+  "agreement_title": "ASX Information Services: Product and Services Guide",
+  "version": "2.30",
+  "definitions": {},
+  "product_families": [
+    {
+      "name": "MarketSource",
+      "description": "Market information containing price, volume, market depth and full order book detail sourced from ASX Trade (equities, ETFs, options, warrants, corporate bonds) and ASX 24 (futures and options on interest rate, equity index, energy, commodity).",
+      "data_categories": [
+        "real_time",
+        "delayed",
+        "end_of_day"
+      ],
+      "use_contexts": [
+        "display",
+        "non_display",
+        "datafeed",
+        "new_original_work",
+        "website",
+        "television",
+        "wallboard"
+      ]
+    },
+    {
+      "name": "ComNews",
+      "description": "News service containing company and market announcements made by issuers listed on the ASX.",
+      "data_categories": [
+        "real_time",
+        "delayed",
+        "announcements"
+      ],
+      "use_contexts": [
+        "display",
+        "new_original_work"
+      ]
+    },
+    {
+      "name": "ReferencePoint",
+      "description": "Reference data and analytics products including securities master list, corporate actions, market share and debt market information. Includes third-party datasets (e.g. GICS) requiring separate redistribution licences.",
+      "data_categories": [
+        "reference_data",
+        "real_time",
+        "end_of_day"
+      ],
+      "use_contexts": [
+        "internal_use",
+        "agency",
+        "display",
+        "datafeed",
+        "website",
+        "print_media"
+      ]
+    }
+  ],
+  "license_scope": null,
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within the delay period of initial dissemination.",
+      "timing_constraint": "within delay period",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information delayed by the prescribed period after dissemination.",
+      "timing_constraint": "after delay period",
+      "delay_period": "ASX: 20 minutes; ASX 24: 10 minutes; ComNews: 20 minutes"
+    },
+    {
+      "category": "end_of_day",
+      "description": "Summary data available at end of trading day.",
+      "timing_constraint": "end of trading day",
+      "delay_period": null
+    },
+    {
+      "category": "announcements",
+      "description": "Company and market announcements from ASX-listed issuers (ComNews).",
+      "timing_constraint": "real-time or 20-minute delay",
+      "delay_period": "20 minutes"
+    },
+    {
+      "category": "reference_data",
+      "description": "Securities master list, corporate actions, market share, debt market information (ReferencePoint).",
+      "timing_constraint": null,
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Display Real Time Information on a Device to End Users in a Closed User Group.",
+      "conditions": [
+        "Requires MarketSource Agreement",
+        "Requires Access & Entitlement System"
+      ],
+      "source_section": "2.2",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Display Delayed and End of Day Information on a Device to End Users in a Closed or Open User Group.",
+      "conditions": [
+        "Requires Delayed Data Licence or payment of real-time enquiry fees"
+      ],
+      "source_section": "2.2",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Create and display Derived Information on a Device.",
+      "conditions": [
+        "Fees for Derived Information are same as for source data timeliness"
+      ],
+      "source_section": "2.2",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Disseminate Information as a Datafeed or API to Subscriber Firms for their internal use only.",
+      "conditions": [
+        "Subscriber Firms must have Access & Entitlement System",
+        "Subscriber Firms must report appropriate Unit of Count monthly"
+      ],
+      "source_section": "2.2",
+      "use_context": "datafeed",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "conditional",
+      "description": "Use Information for creating New Original Works (e.g. financial indices over a basket of securities).",
+      "conditions": [
+        "Requires separate direct agreement with ASX",
+        "Licence fees may apply for external distribution",
+        "ASX reserves right to determine if output qualifies as New Original Work"
+      ],
+      "source_section": "2.2.4",
+      "use_context": "new_original_work",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information internally in Non-Display Applications (algo trading, surveillance, risk management, etc.).",
+      "conditions": [
+        "Requires MarketSource Agreement",
+        "Must report per Application"
+      ],
+      "source_section": "2.2.3",
+      "use_context": "non_display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information within a Reference Based System operated by a Trade Execution Venue.",
+      "conditions": [
+        "Unit of Count is per Trade Execution Venue"
+      ],
+      "source_section": "2.2.3",
+      "use_context": "non_display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "Market Operator regulatory feed for fulfilling ASIC Market Integrity Rules obligations.",
+      "conditions": [
+        "Must be a licensed Market Operator"
+      ],
+      "source_section": "2.2.3",
+      "use_context": "non_display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "MarketSource"
+      ]
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use, store, reproduce, display, modify, transmit or distribute Information without prior ASX permission.",
+      "conditions": [],
+      "source_section": "2.2.1.2",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Feed downloaded Display data into Non-Display Applications.",
+      "conditions": [
+        "Download functionality (e.g. DDE) is for End User research/analysis only"
+      ],
+      "source_section": "2.2.1.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Concurrent usage, contention or licence sharing schemes.",
+      "conditions": [],
+      "source_section": "2.3.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Time-based option to generate snapshots for subsequent off-line viewing.",
+      "conditions": [],
+      "source_section": "2.3.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Honesty statements or manual procedures as substitute for Access & Entitlement Systems.",
+      "conditions": [],
+      "source_section": "2.2.2",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Web-hosting or outsourcing of Real Time Information display requires prior ASX approval per website.",
+      "conditions": [
+        "Must maintain end-to-end technical control",
+        "Must have agreement with website owner/operator",
+        "Must be clearly branded/co-branded",
+        "Distributor unconditionally guarantees compliance",
+        "ASX may require direct agreement at any time"
+      ],
+      "source_section": "2.1.4",
+      "use_context": "website",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Wallboard/ticker display of Delayed or EOD Information in public areas.",
+      "conditions": [
+        "Requires prior ASX approval",
+        "Must clearly indicate data is delayed or EOD",
+        "S&P/ASX indices may be displayed in real-time"
+      ],
+      "source_section": "2.2.1",
+      "use_context": "wallboard",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Television display: free-to-air limited to Delayed; subscription TV may carry Real Time.",
+      "conditions": [
+        "Unit of Count for subscription TV is subscriber households"
+      ],
+      "source_section": "2.2.1",
+      "use_context": "television",
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Display ComNews Real Time Information in a Closed User Group.",
+      "conditions": [
+        "Requires ComNews Agreement"
+      ],
+      "source_section": "3.2.1",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ComNews"
+      ]
+    },
+    {
+      "classification": "conditional",
+      "description": "ComNews New Original Works extraction requires separate licence.",
+      "conditions": [
+        "Standard ComNews Agreement does not permit extraction for New Original Works"
+      ],
+      "source_section": "3.2.2",
+      "use_context": "new_original_work",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ComNews"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "ReferencePoint Internal Usage: use by personnel with ad-hoc limited extracts to clients.",
+      "conditions": [
+        "Limited to insubstantial amounts of static information"
+      ],
+      "source_section": "4.2",
+      "use_context": "internal_use",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ReferencePoint"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "ReferencePoint Agency Licence: agency/outsourced services (back office, asset administration).",
+      "conditions": [],
+      "source_section": "4.2",
+      "use_context": "agency",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ReferencePoint"
+      ]
+    },
+    {
+      "classification": "permitted",
+      "description": "ReferencePoint Vendor Display: display on a branded Device with Access & Entitlement System.",
+      "conditions": [
+        "Must be branded to identify Distributor",
+        "Must control Access & Entitlement System"
+      ],
+      "source_section": "4.2",
+      "use_context": "display",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ReferencePoint"
+      ]
+    },
+    {
+      "classification": "conditional",
+      "description": "ReferencePoint third-party datasets (e.g. GICS) require separate redistribution licence from originator.",
+      "conditions": [
+        "Internal use permitted",
+        "Redistribution requires licence from data provider (e.g. S&P for GICS)"
+      ],
+      "source_section": "4.2",
+      "use_context": "redistribution",
+      "applicable_user_categories": [],
+      "applicable_product_families": [
+        "ReferencePoint"
+      ]
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [
+    {
+      "description": "Creation of financial indices or other new works over a basket of securities using ASX data. ASX reserves all rights to determine whether processed Information qualifies.",
+      "qualification_criteria": [
+        "Output cannot be recognised as, traced back to or reverse engineered as ASX data",
+        "Must constitute a genuinely new work",
+        "ASX has sole discretion on qualification"
+      ],
+      "requires_separate_agreement": true,
+      "calculator_fees": {
+        "real_time": "$5,000/month per calculator",
+        "delayed": "$4,000/month per calculator",
+        "end_of_day": "$3,000/month per calculator"
+      }
+    }
+  ],
+  "fee_structure": null,
+  "compliance_obligations": [
+    {
+      "type": "access_entitlement_system",
+      "description": "Mandatory Access & Entitlement System for all Real Time Information.",
+      "duration": "",
+      "details": [
+        "Must assign unique IDs to every End User, Device, Application, or Reference Based System",
+        "No sharing of unique User IDs",
+        "No concurrent access from multiple devices with same ID",
+        "Must report specific and unique IDs monthly",
+        "Honesty statements and manual declarations are not acceptable"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "Monthly remittance reports detailing use of Information by Unit of Count.",
+      "duration": "",
+      "details": [
+        "Submit via ASX Data Reporting Module (DRM) at https://asxdrm.com.au",
+        "Accepted formats: CSV, VRXML, VARS, or online DRM form",
+        "Processing Fee charged for non-DRM submission",
+        "All use (fee-waived and fee-liable) must be reported",
+        "Reports must separate ASX vs ASX 24, Professional vs Non-Professional, billable vs non-billable"
+      ]
+    },
+    {
+      "type": "reporting_format",
+      "description": "Reports must include subscriber names, service codes, reporting codes, quantities, and location IDs.",
+      "duration": "",
+      "details": [
+        "Monthly reports due by 22nd of each month/quarter",
+        "Delayed Market Detail: bi-annual reporting (22nd day following July 1 and January 1)",
+        "ReferencePoint Vendor Display: annual reporting within 60 days before June 30"
+      ]
+    },
+    {
+      "type": "record_keeping",
+      "description": "Retain all books, records, system logs and Access & Entitlement records.",
+      "duration": "At least 5 years from date generated.",
+      "details": [
+        "Must validate usage and accurately calculate Fees",
+        "Distributors must ensure customers also retain necessary records",
+        "Print Media: records of publication names, countries, circulation, dates",
+        "Website Licence: quarterly records of website name, owner, URL, scope, dates"
+      ]
+    },
+    {
+      "type": "audit",
+      "description": "Comprehensive program of remote and on-site audits managed through external consultants.",
+      "duration": "Typically covers 5-year timeframe.",
+      "details": [
+        "Must demonstrate Access & Entitlement Systems, billing, administration and collection procedures",
+        "Preliminary report issued after review",
+        "14-day written response window after preliminary report",
+        "Final report prepared considering response",
+        "Audit may extend to Related Bodies Corporate, Service Facilitators, Subscriber Firms",
+        "Covers: receipt/use of Information, controls over Sub-vendors, A&E system validation, Non-Display access"
+      ]
+    },
+    {
+      "type": "disclaimer",
+      "description": "Mandatory disclaimers for delayed and EOD data on all screens, internet pages and wallboard tickers.",
+      "duration": "",
+      "details": [
+        "Must identify that Information is delayed by prescribed period or is EOD Information",
+        "Wallboard tickers: delay message every 90 seconds",
+        "Website display must include IP rights notice and no-responsibility disclaimer"
+      ]
+    },
+    {
+      "type": "attribution",
+      "description": "Limited Extracts must be attributed to ASX. Display Services must be branded to identify Distributor.",
+      "duration": "",
+      "details": [
+        "Web-hosted services must be clearly branded/co-branded",
+        "API Software must mark copies to indicate NASDAQ owns IP rights"
+      ]
+    }
+  ],
+  "termination_provisions": [],
+  "wind_down": null,
+  "redistribution_restrictions": [
+    {
+      "description": "End Users may not redistribute Information except as limited extracts per section 10.1.",
+      "exceptions": [
+        "Ad-hoc, non-continuous limited extracts of static Information in written/oral communication",
+        "Must be attributed to ASX",
+        "Must not constitute regular or systematic distribution",
+        "Must not involve Real Time or continuously updating Information"
+      ],
+      "service_provider_rules": [
+        "Distributors must provide this Guide to Subscriber Firms",
+        "Trade Execution Venue operators may distribute Derived Information from reference-priced trades as part of regular data feed",
+        "Derived Information from Trade Execution Venues may not be used for issuing/pricing financial products or creating New Original Works without separate licence"
+      ]
+    }
+  ],
+  "attribution_requirements": [
+    {
+      "legend_text": "ASX, ASX Group, suppliers and their licensors reserve all Intellectual Property Rights in the Information. They accept no responsibility for any claim, loss or damage arising from the display of Information or any use thereof.",
+      "trademark_rules": "Must not alter or remove trade/service marks on API Software (NASDAQ IP).",
+      "delay_labeling": "Delayed Information must be clearly labelled with the period of delay. Wallboard tickers must show delay message every 90 seconds.",
+      "display_conditions": [
+        "Display Services must be prominently branded to identify the Distributor",
+        "Web-hosted services must be clearly branded or co-branded",
+        "Limited Extracts must be attributed to ASX"
+      ]
+    }
+  ],
+  "internal_control_requirements": [
+    {
+      "description": "Access & Entitlement System requirements for all Real Time Information.",
+      "requirements": [
+        "Assign unique user ID and password or approved security mechanism to every End User",
+        "Ensure End Users do not share unique User IDs",
+        "Ensure unique user ID cannot access Information on more than one Device simultaneously",
+        "Track and report all Units of Count (End Users, Devices, Applications, Reference Based Systems)",
+        "No concurrent usage, contention or licence sharing schemes"
+      ]
+    }
+  ],
+  "access_entitlement_requirements": [
+    {
+      "description": "All Distributors and Subscriber Firms must use an Access & Entitlement System to permission and record access to Real Time Information.",
+      "unique_id_required": true,
+      "concurrent_access_prohibited": true,
+      "qualification_test_required": true,
+      "approved_system_required": true
+    }
+  ],
+  "liability": null,
+  "dispute_resolution": null,
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": ".\nIntroduction",
+      "page": 2
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".\nMarketSource",
+      "page": 2
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ".\nIntroduction",
+      "page": 2
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ".\nLicensed Use",
+      "page": 2
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ".\nUnit Of Count",
+      "page": 2
+    },
+    {
+      "number": "17",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": ".\nAccess & Entitlement Systems",
+      "page": 2
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ".\nComNews",
+      "page": 2
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": ".\nAgreement",
+      "page": 2
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": ".\nLicensed Use",
+      "page": 2
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.3",
+      "title": "",
+      "text": ".\nUnit of Count",
+      "page": 2
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ".\nReferencePoint",
+      "page": 2
+    },
+    {
+      "number": "23",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": ".\nAgreement",
+      "page": 2
+    },
+    {
+      "number": "23",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": ".\nLicensed Use",
+      "page": 2
+    },
+    {
+      "number": "23",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": ".\nAccess & Entitlement Systems",
+      "page": 2
+    },
+    {
+      "number": "24",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": ".\nRecords",
+      "page": 2
+    },
+    {
+      "number": "24",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "4.5",
+      "title": "",
+      "text": ".\nReporting",
+      "page": 2
+    },
+    {
+      "number": "24",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ".\nConnectivity",
+      "page": 2
+    },
+    {
+      "number": "25",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": ".\nIntroduction",
+      "page": 2
+    },
+    {
+      "number": "25",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": ".\nASX Net",
+      "page": 2
+    },
+    {
+      "number": "25",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": ".\nASX Australian Liquidity Centre",
+      "page": 2
+    },
+    {
+      "number": "25",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.4",
+      "title": "",
+      "text": ".\niVPN (internet Virtual Private Network)",
+      "page": 2
+    },
+    {
+      "number": "26",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.5",
+      "title": "",
+      "text": ".\nASX-Online",
+      "page": 2
+    },
+    {
+      "number": "26",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.6",
+      "title": "",
+      "text": ".\nSupply via Nominated Third Party (“NTP”)",
+      "page": 2
+    },
+    {
+      "number": "26",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.7",
+      "title": "",
+      "text": ".\nApplication Service Provider (ASP)",
+      "page": 2
+    },
+    {
+      "number": "27",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.8",
+      "title": "",
+      "text": ".\nBroker Service Provider (BSP)",
+      "page": 2
+    },
+    {
+      "number": "27",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.9",
+      "title": "",
+      "text": ".\nManaged Service Provider (MSP)",
+      "page": 2
+    },
+    {
+      "number": "28",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "5.10",
+      "title": "",
+      "text": ".\nNetwork Service Provider (NSP)",
+      "page": 2
+    },
+    {
+      "number": "28",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ".\nProtocols & Formats",
+      "page": 2
+    },
+    {
+      "number": "29",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": ".\nIntroduction",
+      "page": 2
+    },
+    {
+      "number": "29",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": ".\nChanges to Content or Format of the MarketSource Services",
+      "page": 2
+    },
+    {
+      "number": "29",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": ".\nASX Trade Protocols",
+      "page": 2
+    },
+    {
+      "number": "29",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": ".\nASX Trade 24 Protocol",
+      "page": 2
+    },
+    {
+      "number": "31",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "6.5",
+      "title": "",
+      "text": ".\nASX 24 Market Data Protocol",
+      "page": 2
+    },
+    {
+      "number": "31",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ".\nSupport",
+      "page": 2
+    },
+    {
+      "number": "32",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": ".\nAccount Management Support",
+      "page": 2
+    },
+    {
+      "number": "32",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": ".\nTechnical Support",
+      "page": 2
+    },
+    {
+      "number": "32",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": ".\nRecords & Reports",
+      "page": 2
+    },
+    {
+      "number": "33",
+      "title": "",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": ".\nRecords",
+      "page": 2
+    },
+    {
+      "number": "33",
+      "title": "",
+      "text": "© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 3/46",
+      "page": 2
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": ".\nRecord Retention",
+      "page": 3
+    },
+    {
+      "number": "34",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": ".\nFormat and Content of Monthly Remittance Reports",
+      "page": 3
+    },
+    {
+      "number": "34",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.4",
+      "title": "",
+      "text": ".\nTiming for Monthly Remittance Reports",
+      "page": 3
+    },
+    {
+      "number": "34",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.5",
+      "title": "",
+      "text": ".\nRevised Reporting",
+      "page": 3
+    },
+    {
+      "number": "34",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.6",
+      "title": "",
+      "text": ".\nReporting of Datafeed Usage",
+      "page": 3
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.7",
+      "title": "",
+      "text": ".\nPrint Media Licence",
+      "page": 3
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.8",
+      "title": "",
+      "text": ".\nWebsite Licence",
+      "page": 3
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.9",
+      "title": "",
+      "text": ".\nTrial and Demonstration Usage",
+      "page": 3
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.10",
+      "title": "",
+      "text": ".\nAdministrative Usage",
+      "page": 3
+    },
+    {
+      "number": "35",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "8.11",
+      "title": "",
+      "text": ".\nDisaster Recovery / BCP Sites",
+      "page": 3
+    },
+    {
+      "number": "36",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": ".\nAudit & Inspections",
+      "page": 3
+    },
+    {
+      "number": "37",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": ".\nOverview",
+      "page": 3
+    },
+    {
+      "number": "37",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": ".\nOn-site Review Process",
+      "page": 3
+    },
+    {
+      "number": "37",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": ".\nFinalising the Audit",
+      "page": 3
+    },
+    {
+      "number": "38",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ".\nGeneral Provisions",
+      "page": 3
+    },
+    {
+      "number": "39",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": ".\nLimited Extracts",
+      "page": 3
+    },
+    {
+      "number": "39",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "10.2",
+      "title": "",
+      "text": ".\nDerived Information",
+      "page": 3
+    },
+    {
+      "number": "39",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "10.3",
+      "title": "",
+      "text": ".\nMandatory Disclaimers",
+      "page": 3
+    },
+    {
+      "number": "39",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "10.4",
+      "title": "",
+      "text": ".\nAcademic Waivers",
+      "page": 3
+    },
+    {
+      "number": "39",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": ".\nGlossary",
+      "page": 3
+    },
+    {
+      "number": "41",
+      "title": "",
+      "text": "© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 4/46",
+      "page": 3
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ". Introduction\nASX operates a number of Market Information Systems used to create, process and distribute Information. The\nInformation Services offered by ASX fall into the following service families:\nMarketSource™ covers market information, containing price, volume, market depth and full order book detail sourced\ndirectly from the exchange’s trading and information systems, in respect of all markets operated by the ASX Group.\nReferencePoint® covers a range of reference and analytics products including securities master list and corporate\naction, market share and debt market information.\nComNews® is the news service containing company and market announcements made by issuers listed on the ASX.\nRecipients of ASX’s Information Services are broadly categorised as either Distributors or Subscriber Firms. A\nDistributor subscribes to the Information for the purpose of providing it to Subscriber Firms or directly to End Users. By\ncontrast consumers of the Information are referred to as Subscriber Firms or End Users. In some instances a single\norganisation can be both a Subscriber Firm as well as a Distributor within different parts of its business; an example\nbeing a broker systematically providing Information to its retail clients and also consuming Information as part of its\nproprietary trading operations.\nThe requirements specified in this ASX Information Services - Products & Services Guide (the “Guide”) form part of the\nAgreement that You enter into with Us. This Guide contains details of the terms that apply to the provision of the\nInformation Services by Us and forms an essential part of Our licensing and administrative framework. It is important\nthat You are aware of and fully understand the details contained in this Guide, and any updated or amended versions\nthat We may publish from time to time in line with product, industry and technological changes. Updated versions of\nthis Guide will be published on ASX-Online and asx.com.au. If You have any queries concerning this Guide, any of Our\nrequirements or how they apply to Your business, please do not hesitate to contact Your ASX Account Manager or the\nInformation Services team (information.services@asx.com.au); contact details can be found in Section 7.1 of this\ndocument.\nPlease note that not all the terms in this Guide will apply to You. The terms that apply to You will depend on the\nInformation Services to which You subscribe, Your chosen means of connectivity, the Units of Count which You have\nutilised, and the nature of the business that You operate, all of which should be reflected in Your current Order Form(s).\nIf You would like to change Your existing subscription or subscribe to additional Information Services, please contact Us\nto obtain a quote. If You decide to proceed with the quote, the new details will be set out in an updated Order Form\nthat will be provided to you for execution.\nDistributor\nSubscriber Firm\nEnd User\nASX Group\nSub-vendor\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 5/46\nAgreement\nOur contractual framework consists of General Terms and Conditions (dealing with Licences, Liability, Warranties,\nIntellectual Property, Term and Termination and similar all-encompassing terms), this Guide, a Schedule of Fees and an\nOrder Form to be signed by You along with any other applicable schedule or addendum.\nCollectively these documents detail the Services that You have elected to receive from Us, the use that You are Licensed\nfor, the means by which You connect to the Information and the protocol or format through which the Information is\naccessed.\nInterpretation\nIn this Guide, references to “We”, “Us” or “Our” are to ASX Operations Pty Ltd and references to “You” or “Your” are to\nthe customer, whose name appears on the Order Form.\nCapitalised terms used in this Guide have the same meaning given to them in the General Terms and Conditions, unless\nit has been modified by this Guide or the context requires otherwise. The Glossary at the end of this Guide includes\nsome additional definitions that assist with interpretation of this document.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 6/46",
+      "page": 4
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". MarketSource",
+      "page": 6
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ".\nIntroduction\nMarketSource refers collectively to various price data feeds created from the markets operated by the ASX Group.\nASX - ASX Trade is ASX’s cash market trading platform, covering equities, ETF’s, options, warrants and\ncorporate bonds. With the information consisting of data originating from TradeMatch, Centre Point Orders\nand ASX’s Trade Reporting Facility (TRF), where Over the Counter (OTC) transactions are reported to ASX.\nThe ASX Trade OMnet and the ITCH Multicast Protocol are the means through which direct access to ASX\nMarket Information is provided.\nASX 24 - Comprising data from ASX Trade24, the ASX’s 24 hour trading platform. Key products listed on ASX\nTrade24 include Australia’s key benchmark futures and options contracts listed over Interest Rate, Equity\nIndex, Energy and Commodity. The ASX Trade24 FIX and Multicast Market Data Protocol are the means\nthrough which direct access to ASX 24 Market Information is provided.\nThe MarketSource framework has sufficient flexibility to be able to provide customers, whether they are Distributors or\nSubscriber Firms, with a Licence to facilitate the traditional Display of Information via in-house or vendor terminals, or\nto cater for the consumption of information within Non-Display applications. The below hierarchy provides a\nbreakdown of the services currently offered by ASX. The fees associated with these services are set out in the ASX\nInformation & Tech Services Schedule of Fees.\nDisplay Devices\nMarket Professionals\nASX\nASX 24\nNon-Professional Investors\nASX\nASX 24\nNon-Display Usage\nApplication\nASX (revenue generating application)\nASX (non-revenue generating application)\nASX 24 (revenue generating application)\nASX 24 (non-revenue generating application)\nTrade Execution Venues\nASX Reference Venue\nASX 24 Reference Venue\nMarket Operators\nASX Reference Venue\nASX Regulatory Feed\nASX 24 Reference Venue\nASX 24 Regulatory Feed\nCreation of New Original Works\nBenchmark / Index\nFair value calculation; iNAV, IOPV,\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 7/46\nAssociated with each Licensed Use is the appropriate Unit of Count, for example the number of End Users in the case of\na real-time Display Device or the number of Applications, Trade Execution Venues or Market Operators in the case of\nNon-Display use.\nIt should be noted that whilst the contractual framework deals collectively with Information from the various markets\noperated by the ASX Group, those Distributors or Subscriber Firms wishing to receive Information via a direct\nconnection from Us in respect of multiple MarketSource Information Services may be required to interface to separate\ntechnical datafeeds.\nDepending on how You propose to use the Information, You may be broadly categorised as a Distributor or Subscriber\nFirm.",
+      "page": 6
+    },
+    {
+      "number": "2.1.1",
+      "title": "",
+      "text": "Distributors\nA Distributor, or sometimes referred to as a vendor or an information or data vendor,  is any organisation engaged in\nthe dissemination of the Information outside of its own organisation, including to End Users or Subscriber Firms. This\nincludes the Display of the Information to the Subscriber Firms staff using a traditional “vendor terminal” or the\ndissemination of the Information via a Datafeed or API to Subscriber Firms for use in Display or Non-Display\nApplications.  Subject to the appropriate licence being in place;\n•\na Distributor provides Information to Subscriber Firms, directly to End Users or to other Distributors (Sub-vendors)\n•\na Distributor may disseminate Real Time, Delayed or End of Day Information\n•\na Distributor may disseminate Information either for Display or for Non-Display purposes\n•\na Distributor may use the Information for the creation of New Original Works\nIn a scenario where an Independent Software Vendor (ISV) disseminates Information, it is required to have an Access &\nEntitlement System, and is similarly classified as a Distributor, requiring an Agreement with Us. Where control of the\nAccess & Entitlement System rests with the customer of the ISV, the customer, being a Subscriber Firm, is required to\nhave an Agreement in place with Us.\nAny Display Service provided by a Distributor that includes the Information must:\n2.1.1.1\nBe branded so it clearly identifies the Distributor;\n2.1.1.2\nThe Access & Entitlement System must be controlled by the Distributor; and\n2.1.1.3\nThe Distributor must have a direct agreement with all End Users or Subscriber Firms concerning access\nto the Information Service.\nIf a Distributor provides the Information to a Subscriber Firm via a Datafeed or API for the Subscriber Firm to Display the\nInformation to their staff or to use the Information within Non-Display Applications;\n2.1.1.4\nan Access & Entitlement System to control access to the Information must be in place;\n2.1.1.5\nthe Distributor must seek Our prior approval; and\n2.1.1.6\nthe Distributor must report to ASX on their monthly remittance report all datafeed recipients\n2.1.1.7\nthe Distributor must report to ASX on their monthly remittance report the relevant Unit of Count in\nrespect of any real-time Display Usage",
+      "page": 7
+    },
+    {
+      "number": "2.1.2",
+      "title": "",
+      "text": "Service Facilitators\nThere are situations where a Distributor chooses to market their products via a Service Facilitator. We will determine in\nOur sole discretion whether a person or organisation is a Service Facilitator, for the purpose of this Agreement, and\nthus We may exempt them from needing to enter into a MarketSource Agreement with Us.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 8/46\nAny Display Service provided by a Service Facilitator that includes the Information:\n2.1.2.1\nMust be prominently branded so it clearly identifies the Distributor as the source of the Information;\n2.1.2.2\nMust maintain an Access & Entitlement System controlled by the Distributor;\n2.1.2.3\nRequires the Distributor to have a direct agreement with all Subscriber Firms or End Users concerning\naccess to the Information;\n2.1.2.4\nRequires the Distributor to maintain responsibility for reporting and payment of the relevant Fees to Us;\n2.1.2.5\nRequires the Service Facilitator to be subject to the same audit terms as the Distributor.",
+      "page": 7
+    },
+    {
+      "number": "2.1.3",
+      "title": "",
+      "text": "Subscriber Firm\nA Subscriber Firm is a consumer of the Information, with the Information having been sourced either directly from Us or\nfrom a Distributor or Sub-vendor. Subject to the appropriate licence being in place, a Subscriber Firm may:\n•\nuse the Information for the creation of New Original Works\n•\nDisplay the Information to its staff, who in turn are End Users\n•\nuse the Information in Non-Display Applications\n•\nuse the Information for the purpose of operating a Trade Execution Venue\nA Subscriber Firm sourcing the Information directly from Us or from a Distributor, for the purpose of Non-Display usage,\nis required to enter into a MarketSource Agreement with Us and report the appropriate Unit of Count to ASX on a\nmonthly basis.",
+      "page": 8
+    },
+    {
+      "number": "2.1.4",
+      "title": "",
+      "text": "Web-hosting & other Outsourcing Arrangements\nThere are situations where owners or operators of Websites seek to outsource the provision of content and related\ntechnical services to Distributors through means that include, without limitation, web services, white-labelling and web-\nhosting. Unless otherwise specified, if a Distributor’s dissemination of Real Time Information is to be included as part of\nan outsourced arrangement and be covered by the Distributor’s existing MarketSource Agreement with Us, the\nfollowing terms and conditions apply to the Distributor:\n2.1.4.1\nYou must first obtain Our approval for each Website or other\nsimilar service that You propose to use as a means to distribute\nthe Information to End Users, details of which will be included in\nYour Order Form as part of Your Services;\n2.1.4.2\nThe Website owner or operator has no right or entitlement to\naccess the Information outside of Your Service. You must\ntherefore retain full control and responsibility over the\nInformation and technical solution from end-to-end, which\nincludes full control of the Access & Entitlement System,\nintegration of Real Time Information into the Website and the\ndisplay of the Information to End Users, so that the owner or\noperator of the Website is not capable of accessing,\ndownloading or otherwise being able to use, store or distribute\nthe Information in any way;\n2.1.4.3\nFor the avoidance of doubt, any system or technical architecture\nthat allows the owner or operator of the Website to download\nor cache the Real Time Information on any part of their system\ntakes it outside ‘Your Service’, under these terms, and the owner\nor operator of the Website will require a MarketSource\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 9/46\nSeparate provisions apply for distribution of Delayed Information and EOD Information via Websites, web services,\nwhite-labelling and web-hosting, please refer to section 2.2.5 and 2.2.6 for further details.",
+      "page": 8
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ".\nLicensed Use\nThis section sets out the different Licensed Uses and services available. Each of the Licensed Uses and services identified\nin this section is subject to the MarketSource Agreement, the detail specified in Your Order Form and payment of the\nrelevant Fees. The distinct sub-categories of Display and Non-Display head the range of Licensed Uses offered. We may\nalso licence You to create a New Original Works, or to provide Your Subscriber Firms with a Datafeed or API connection,\nwhich may either be utilised by the Subscriber Firm for Display or Non-Display purposes.\nIf You have any queries about the available Licensed Uses and Services or how they apply to Your circumstances, please\ncontact Your Account Manager.\nFor Distributors, the available Licensed Uses are as follows:\nLicensed Use\nCategory\nTo display Real Time Information on a Device provided by You to End Users in a Closed User\nGroup\nDisplay\nTo display Delayed Information and End of Day Information on a Device provided by You to\nEnd Users in a Closed User Group or Open User Group\nDisplay\nTo create and display Derived Information on a Device provided by You\nDisplay\nAgreement with us for access to and distribution of the\nInformation.\n2.1.4.4\nYou must have an agreement with the owner or operator of the\nWebsite governing access to and use of the Information by the\nEnd Users;\n2.1.4.5\nThe provision of Your service via the Website must be clearly\nbranded or co-branded as a service provided by You;\n2.1.4.6\nYou unconditionally guarantee to Us and accept responsibility\nfor performance of all obligations under the Agreement in\nrespect of Real Time Information distributed via the proposed\nWebsite;\n2.1.4.7\nWe reserve the right to inspect and audit Your Access &\nEntitlement System for control of access to Real Time\nInformation via Websites, the Subscriber Agreements and\ncontrols relating to the use of Information in the way\ncontemplated by these Web-hosting & outsourcing\narrangements;\n2.1.4.8\nWe reserve all rights to withdraw any approval for any\noutsourcing arrangement for a Website and/or to require the\nowner or operator of the Website to enter into a direct\nagreement with Us concerning their access to and use of the\nReal Time Information;\n2.1.4.9\nYou are required to report usage of Real Time Information to Us\nseparately for each Website. Any volume discounts will apply on\na Website-by-Web site basis.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 10/46\nTo disseminate the Information as a Datafeed or via an API connection to Subscriber Firms for\ntheir internal use only\nDatafeed\nTo use the Information for the purpose of creating New Original Works\nNew Original Works\nFor Subscriber Firms with a direct connection to Us or a Datafeed of the Information via a Distributor, the following\nLicensed Uses are currently available:\nLicensed Use\nCategory\nTo display Real Time Information on a Device provided by the Subscriber Firm to End Users in\na Closed User Group\nDisplay\nTo display Delayed Information and End of Day Information on a Device provided by the\nSubscriber Firm to End Users in a Closed User Group or Open User Group\nDisplay\nTo create and display Derived Information on a Device provided by the Subscriber Firm\nDisplay\nTo use the Information for the purpose of creating New Original Works\nNew Original Works\nTo use the Information internally in Non-Display Applications\nNon-Display\nWhere the Subscriber Firm operates a Trade Execution Venue, to use the Information within a\nReference Based System\nNon-Display\nMeeting the Market Operator’s regulatory obligations (in particular, for aligning trading on\nthe venue in financial products of ASX Listed Entities with changes in the trading status of\nthose financial products on ASX’s market)\nNon-Display\nIf You wish to use or distribute the Information in a way not covered by the above, please contact Us to discuss Your\nneeds.\nIt remains a key requirement under all Licensed Uses that there must be an Access & Entitlement System in place to\npermission access to the Information and be able to report the appropriate Unit of Count associated with each\ncategory. Who is responsible for controlling and managing such a system will depend on the nature of Your contract\nwith Us and the terms in this Guide.",
+      "page": 9
+    },
+    {
+      "number": "2.2.1",
+      "title": "",
+      "text": "Display Licence\nThe Display Licence covers the presentation of Information on a range of Display devices or computer terminals for\nviewing by a natural person. Please note that these Licensed Use categories apply equally to any information derived in\nany way from the reformatting, manipulation or processing of the Information, unless otherwise specified.\nDistributors may include the Information in their Display Services for use by Subscriber Firms and End Users provided\nthey control the Access & Entitlement System down to the End User level in a way that complies with the Units of\nCount.\nThe following is a list of the range of Display devices that are currently permitted:\n•\nFixed Display Terminal;\n•\nNetworked Display Terminal;\n•\nWebsite Display;\n•\nMobile Phone & Hand-held Display;\n•\nWallboard & Ticker Displays; and\n•\nTelevision.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 11/46\nUnless otherwise specified below, Real Time Information may only be for Display in a Closed User Group. Delayed\nInformation and End of Day Information may be for Display in a Closed User Group and an Open User Group. Additional\nspecific terms to the various permitted Display Devices are set out below.\nInformation Download Functionality:\n2.2.1.1\nMany Display Devices include functionality that enables Information to be downloaded by End Users;\nDynamic Data Exchange (“DDE”) is an example of this type of functionality.\nNotwithstanding that the licence in this section limits You to the Display of the Information on a Device;\nDisplay Devices may permit End Users to make use of information download functionality such as DDE,\nsubject to the following terms:\na.\nThe download facility should be designed to allow limited downloads of the Information for\nthe purpose of End User research, analysis and review;\nb. You must have controls to either preclude End Users from downloading the entire market\npicture or identify where such downloads go beyond ad-hoc downloads and take on the\nnature of regular or systematic downloading of Information;\nc.\nSubscriber Firms and End Users are not permitted to redistribute the Information\ndownloaded except to the limited extent permitted in section 10.1 of this Guide and the\nMarketSource Agreement;\nd. Subscriber Firms and End Users are not permitted to feed the information into Non-Display\nApplications.\nEnd User\nAn End User is a consumer of the Information, with the Information having been sourced from either a Subscriber Firm\nor from a Distributor. An End User may use the Information on a Display Device.\nFixed Display Terminal\nThis is usually a fixed Device that is permissioned to access the Information on a standalone basis. It may be accessible\nby more than one End User provided each End User does so at the same fixed location using the same physical\ncomputer Device. Typical examples of this type of fixed Device are a library or other central location where a Fixed\nDisplay Terminal is provided as a corporate resource. The appropriate Unit of Count is “per Device”.\nNetworked Display Terminal\nInformation delivered over a network to a Display Terminal where End Users are capable of accessing the Information\nby using a unique End User identifier to log on to a Device on the network. The appropriate Unit of Count is “per End\nUser” or the applicable Single Enquiry option. It is understood that an End User may log on via different Devices,\nutilising a single End User identifier, however only one Device may be logged on at any one point in time.\nWebsite Display\nInformation delivered via Your Website, or a thin or fat client application that connects via a URL or other internet\nenabled service, is subject to Our standard terms requiring an Access & Entitlement System for Real Time Information.\nThe appropriate Unit of Count is “per End User” or the applicable Single Enquiry option.\nAny Website Display that includes Delayed Information or End of Day Information must incorporate or include a\nprominent notification advising End Users that access to the Delayed or End of Day Information is subject to the\nfollowing conditions:\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 12/46\n2.2.1.2\nIt is prohibited to use, store, reproduce, display, modify, transmit or distribute the Information without\nOur prior permission;\n2.2.1.3\nWe, members of the ASX Group, Our Suppliers or their respective licensors reserve all Intellectual\nProperty Rights in the Information to the extent that those Intellectual Property Rights exist under the\nlaw from time to time;\n2.2.1.4\nWe, members of the ASX Group, Our Suppliers and their respective licensors accept no responsibility for\nany claim, loss or damage arising from the display of Information on the Website or any use of the\nInformation displayed on the Website.\nThe exact wording of this statement is left to Your discretion.\nWallboard & Ticker Displays\nDelayed Information or End of Day Information may be Displayed on wallboards or tickers in public areas with our prior\napproval. Any person with access to Information via these displays is not required to enter into a Subscriber Agreement.\nRegardless of whether the Information is supplied directly by Us or a Distributor, You are responsible for any\ndissemination and licence fees as well as imposing the delay on the Information prior to its display.\nThe wallboard or ticker display must make it clear that the Information displayed is Delayed Information or End of Day\nInformation. All S&P/ASX indices may be displayed in real-time unless otherwise specified.\nTelevision\nFree-to-air broadcast television stations may display Delayed Information to broadcast viewers.\nSubscription television, including Cable TV services may disseminate Real Time Information or Delayed Information to\nsubscriber households. We define subscriber households, being the applicable Unit of Count, as all households that are\nable to access the subscription TV broadcast. Subscriber households are not based on ratings or other measures of\nviewership. This licence is not available for free-to-air broadcast television.",
+      "page": 10
+    },
+    {
+      "number": "2.2.2",
+      "title": "",
+      "text": "Datafeeds\nThe provision by a Distributor of a Datafeed to a Subscriber Firm or Sub-Vendor, in a format largely identical to that\nprovided by ASX, attracts the published ‘Direct Market Access Fee’, payable by the recipient of the datafeed.\nThe provision by a Distributor of an uncontrolled Datafeed or API to a Sub-Vendor, in a normalised format, attracts the\npublished ‘Indirect Market Access Fee – Redistribution’, payable by the Sub-Vendor; We must have provided a letter of\nauthority confirming that the Sub-vendor has entered into the necessary distribution agreement with Us.\nThe provision by a Distributor of an uncontrolled Datafeed or API connectivity to a Subscriber Firm, in a normalised\nformat, requires the Distributor to have our prior approval. This licence attracts the published ‘Indirect Market Access\nFee – Internal Use’ and is reported and payable by the Distributor on a per production datafeed basis; i.e. a redundant\ndatafeed pair is to be reported as a single instance of the Indirect Market Access – Internal Usage.  This fee is waived if\nthe Subscriber Firm is paying an ‘Indirect Market Access Fee – Redistribution’ in respect of a datafeed provided by You.\nThe Distributor must also report and pay for any Display usage to Us. Note, Subscriber Firms, who disseminate ASX\nMarket Information to external users, must enter into a direct Agreement with Us and are, for that part of their\nbusiness, regarded as a Distributor in their own right.\nNeed for Access & Entitlement System\nIf Distributors provide the Information to Subscriber Firms via a Datafeed, the Subscriber Firms are responsible for\nensuring that the correct Units of Count are reported to Us for Non-Display Services. Where Distributors provide the\nInformation to Subscriber Firms via a Datafeed in respect of Display Services, the Distributors are responsible for\nensuring that the correct Units of Count are reported to Us. Distributors and Subscriber Firms must therefore ensure\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 13/46\nthat they have an Access & Entitlement System to properly permission and report access to the Information so they\ncan report and pay the appropriate Fees to Us. The responsibility to report and pay the appropriate Fee rests with the\nDistributor and in some cases the Subscriber Firm. So that Subscriber Firms understand their reporting obligations,\nDistributors must also provide them a copy of this Guide.\nDistributors may have existing Datafeeds in place where the Subscriber Firm does not currently have an Access &\nEntitlement System and usage of the Information is currently reported by means of an honesty statement, information\naccess declaration or other form of manual procedure. With the introduction of a requirement that any recipient of a\nDatafeed must have an Access & Entitlement System, honesty statements and other manual information access\ndeclarations are not an acceptable means of tracking and reporting use of the Information.",
+      "page": 12
+    },
+    {
+      "number": "2.2.3",
+      "title": "",
+      "text": "Non-Display\nThe Non-Display Licence category encompasses accessing, processing, or consumption of Real Time ASX and ASX 24\nInformation for a purpose other than in support of its Display or distribution. A Device, such as a server, that merely\naids in the distribution of the Real Time Information to Subscriber Firms and/or End Users is not regarded as a Non-\nDisplay Application for the purpose of assessing fees. Similarly a Display Device that includes some automate\nfunctionality, such as auto spreading, is not regarded as a Non-Display Application.\nIncluded within the scope of this Licence category is a Subscriber Firm’s usage of Non-Display Applications for the\npurpose of monitoring trading activity, security status, generating quotes or executing transactions in an automated\nfashion. This type of usage is often referred to by other exchanges as either Trading as Broker, Trading as Principal,\nFacilitating Client Business or Trading on behalf of Clients.\nIt further encompasses the use of the Information by a Market Operator for the purpose of meeting its regulatory\nobligations under Part 7.2 of the Corporations Act (in particular the operator’s obligations to align the trading status of\nASX quoted financial products traded on the venue with the trading status on ASX’s market).\nA Trade Execution Venue using the Information within a Reference Based System is similarly an example of Non-Display\ndata usage, other exchanges may refer to this use case as Trading via a Multilateral Trading Facilities, Trading on\nAlternative Venue or Information Usage for Off-Exchange Transaction.\nAny Non-Display Application that accesses the Real Time Information is fee liable; the applicable fees and the Unit of\nCount may differ depending on the business function; specifically on whether the Information is deemed to be used\nwithin a revenue generating (front office) or non-revenue generating (back office) application or used within a\nReference Based System maintained by a Trade Execution Venue, including a Market Operator; fees are specified in the\nSchedule of Fees.\nPlease note that Non-Display usage fees extend to managed services or infrastructure located in the cloud, including\nshared infrastructure; an example of a managed Non-Display Application is one that is hosted by a Vendor or ISV,\ntypically with the Access & Entitlement System also controlled by the Vendor or ISV.  In the case of managed Non-\nDisplay services a Distributor may choose to report to ASX and pay on behalf of each Subscriber Firm utilising the\nmanaged Non-Display service.  .\nWhilst a New Original Works calculated by a Subscriber Firm’s Non-Display Application may be displayed to its staff, any\non-dissemination of underlying Information to End Users is not covered by the Non-Display Licence category or Fees.\nFor the avoidance of doubt any End User, including a developer, with the ability to view Information, alter or control a\nreal-time Non-Display Application is subject to additional Display Fees.\nRevenue and Non-Revenue Generating Applications\nAs a matter of general principal, those Applications utilised in the front office are deemed to be revenue generating,\nincluding but not limited to:\n•\nalgorithmic trading\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 14/46\n•\nprogram trading\n•\nauto quoting / order generation\n•\nmarket making application\n•\nbasket trading application\n•\norder routing (SOR)\n•\ninternalisation engines\n•\nexecution algorithms\nThe following are examples of non-revenue generating Non-Display Applications:\n•\nsurveillance systems\n•\nrisk management applications\n•\nprice vetting engine\n•\ncurve generation\n•\nportfolio management\n•\nvaluation application\n•\nP&L calculation\nTrade Execution Venue: Reference Based System\nThe systematic utilisation of Information (including bids, offers, trades or listed security status) in a Reference Based\nSystem by the operator of a Trade Execution Venue is similarly classified as Non-Display usage. The applicable price\npoints are included in the Schedule of Fees, with the Unit of Count for a Reference Based System being each Trade\nExecution Venue. A Reference Based System is any system operated by a Trade Execution Venue which references\nprices or security status to ASX Information. The following are examples of the use of Information within a Reference\nBased System.\n•\nreference price calculation\n•\nreference price orders\n•\nreference price trades\n•\nreference ASX listed security status\n•\noperating multilateral trading facilities/dark pools, systematic internalisers\nPrices of orders and trades on a Trade Execution Venue that are reference priced to Information is “Derived\nInformation” within the definition of that term contained in the ASX MarketSource™ General Terms and Conditions.\nThis applies irrespective of whether such orders and trades are separately distributed, identified or identifiable as\nreference price orders and trades.\nThe operator of a Trade Execution Venue which is licensed to use Information in a Reference Based System is\nauthorised to distribute, as part of any regular data feed that it makes available to third parties, Derived Information\ncomprising the prices of trades executed on the Trade Execution Venue that have resulted from “dark” reference price\norders (that is, orders in respect of which the operator of the Trade Execution Venue does not make available pre-trade\ninformation).\nThe operator of a Trade Execution Venue which is licensed to use Information in a Reference Based System is not\nauthorised to:\ni.\npermit any third party to use the Derived Information for the purpose of issuing or pricing the issue of\nfinancial products; or\nii.\nuse, or to permit any third party to use, the Derived Information for the purpose of creating New Original\nWorks (in relation to which clause 6.7 of the ASX MarketSource™ General Terms and Conditions applies).\nThe use of Information for any of these purposes must be separately licensed by agreement with ASX.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 15/46\nMarket Operator: Regulatory Feed\nA Market Operator is licensed to use the Information in its own internal business and operations for the purposes of\nfulfilling its obligations under ASIC Market Integrity Rules (to be determined). This includes enabling the Market\nOperator to:\n•\nmanage the operations of its Trade Execution Venue in relation to the trading status of financial products quoted or\nadmitted to trading status on the venue;\n•\notherwise fulfil the customer’s regulatory obligations under law as a Market Operator.",
+      "page": 13
+    },
+    {
+      "number": "2.2.4",
+      "title": "",
+      "text": "New Original Works\nA Distributor or Subscriber Firm may use the Information for the purpose of creating New Original Works, subject to a\nseparate direct agreement with Us. Licence fees may apply where the New Original Work is being distributed externally.\nWe reserve all rights to determine whether or not any processed Information constitutes a New Original Work (an\nexample of a New Original Work being the creation of financial indices over a basket of securities).\nCalculator\nA licensed entity can act as a calculator of New Original Works, either for itself and/or on behalf of one or multiple Licence\nHolders. Fees are payable by market and fees for the use of Real Time Information include Delayed and End of Day,\nsimilarly Delayed include End of Day.\nLicence Holder\nA separate licence is required for each distinguishable New Original Work. Given the unique nature of a New Original\nWork, the Licence Holder fees are determined based on a number of factors including but not limited to the number of\ninstruments created, the timeliness of dissemination, whether tradable products will be issued and the extent of\ndistribution for each distinguishable New Original Work.",
+      "page": 15
+    },
+    {
+      "number": "2.2.5",
+      "title": "",
+      "text": "Delayed Information\nThe period of delay for Delayed Information in respect of ASX venues is currently 20 minutes after the Information is\ndisseminated by Us; in respect of ASX 24 the delay is currently 10 minutes after the Information is disseminated by\nUs.\nDelayed Information Licence\nIf You subscribe to a Delayed Information Licence, Delayed Information may be displayed to End Users on a Device\nprovided by You to Closed User Groups and Open User Groups, or distributed to Subscriber Firms via a Datafeed for\nNon-Display purposes, without the need to pay real-time Enquiry Fees. Delayed Information is restricted to provision of\nTop of Market Information only. For the avoidance of doubt, Delayed Information does not include market depth or\ndetail for a security. If You are disseminating Delayed Information You must identify to End Users (on the screen or in a\ndisclaimer) that the Information is delayed by the prescribed period.\nIf You do not subscribe to a Delayed Information Licence, You are required to remit Real Time royalties, be that per End\nUser, Single Enquiries or Time-based Enquiries, in perpetuity in respect of any distribution of the Information.\nThe Delayed Information Licence applies equally to organisations receiving Information directly from Us or via a\nDistributor.\nSeparate Delayed Information Licences are available in respect of Information derived from ASX markets and\nInformation derived from the ASX 24 market.\nWhere owners or operators of Websites seek to outsource the provision of content and related technical services to\nDistributors through means that include, without limitation, web services, white-labelling and web-hosting, each owner\nor operators of Websites must enter into their own MarketSource Agreement with Us.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 16/46\nDelayed Market Detail distribution Licence\nDelayed Market Detail Information means bid and offer (ask) data contained within the order book for a specific\nsecurity.  More specifically this licence refers to data beyond that covered under Top of Market Information; in other\nmarkets this data may also be referred to as market by price, market by order, level 2, level 3 aggregated order book,\nconflated order book, market depth or depth of book.  If You subscribe to a Delayed Market Detail distribution Licence,\nDelayed Market Detail Information may be displayed on a Device provided by You to End Users in a Closed User Group\nor distributed to Subscriber Firms via a Datafeed for Non-Display purposes, without the need to pay real-time Enquiry\nFees. For the avoidance of doubt, to subscribe to Delayed Market Detail distribution Licence (order book information),\nYou must also subscribe to a Delayed Display Licence covering Top of Market Information.\nIf You are disseminating Delayed/EOD Market Detail Information You must identify to End Users (on the screen or in a\ndisclaimer) that the Information is delayed by the prescribed period or is EOD Information. If You do not subscribe to a\nDelayed Market Detail Distribution Licence, You are required to remit Real Time royalties, be that per End User, Single\nEnquiries or Time-based Enquiries, in perpetuity in respect of any distribution of such Information.\nThe Delayed Market Detail Distribution Licence applies equally to organisations receiving Information directly from Us\nor via a Distributor. Separate Delayed Market Detail distribution licences are available in respect of Information derived\nfrom ASX markets and Information derived from the ASX 24 market or a combined licence for using both markets.\nOn a bi-annual basis You must report to Us the total number of End Users that are capable of accessing the Delayed\nMarket Detail Information through Your Services. The report is to be submitted by sending an email\nto marketdata.admin@asx.com.au. The notice must be lodged with Us no later than the 22nd day following the\nreporting dates of 1st of July and 1st of January.",
+      "page": 15
+    },
+    {
+      "number": "2.2.6",
+      "title": "",
+      "text": "End Of Day (EOD) Information\nEnd of Day (EOD) Information is available after close of trading.\nEOD Information Licence\nIf You subscribe to the EOD Information Licence, EOD Information may be displayed to End Users on a Device provided\nby You to Closed User Groups and Open User Groups, or distributed to Subscriber Firms via a Datafeed or other means\nthat uses the EOD Information for Non-Display purposes, without the need to pay real-time Enquiry Fees. EOD\nInformation is restricted to provision of Top of Market Information only. For the avoidance of doubt, EOD Information\ndoes not include market depth or detail for a security. If You are disseminating EOD Information You must identify to\nEnd Users (on the screen or in a disclaimer) that the information is EOD Information.\nIf You do not subscribe to a EOD Information Licence or a Delayed Information Licence, You are required to remit Real\nTime royalties, be that per End User, Single Enquires or Time-based Enquiries, in perpetuity in respect of any\ndistribution of the Information.\nThe EOD Information Licence applies equally to organisations receiving Information directly from Us or via a third party\nDistributor.\nWhere owners or operators of Websites seek to outsource the provision of content and related technical services to\nDistributors through means that include, without limitation, web services, white-labelling and web-hosting, each owner\nor operators of Websites must enter into their own MarketSource Agreement with Us.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 17/46",
+      "page": 16
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ".\nUnit Of Count\nThis Section outlines the Units of Count that apply to use and dissemination of Real Time Information. This applies\nequally to Derived Information unless otherwise specified.\nThe following options are available for the display of Real Time Information:\n•\nDisplay\n‒\nContinuous Enquiry – per End User or per Device\n‒\nSingle Enquiry – per quote or per depth/detail request\n‒\nTime-based\n‒\nCapped End User\n•\nNon-Display\n‒\nApplication (revenue generating application)\n‒\nApplication (non-revenue generating application)\n‒\nTrade Execution Venue\n‒\nMarket Operator\nFor the avoidance of doubt, if a single application has the attributes of both a Display Service and a Non-Display\nApplication, it is to be included as a Unit of Count under both Licence categories.",
+      "page": 17
+    },
+    {
+      "number": "2.3.1",
+      "title": "",
+      "text": "Continuous Enquiries\nFor Distributors, the default Unit of Count in relation to any Display Service is each End User capable of accessing the\nInformation via or through Your Display Service. An End User must be allocated a unique user ID and password or other\nacceptable security mechanism approved by Us as part of an Access & Entitlement System. Distributors must ensure\nthat End Users do not share their unique User ID, and that a unique user ID cannot access the Information on more than\none Device simultaneously.\nFor standalone Devices, i.e. a physical computer terminal located centrally and utilised by more than one End User, we\nwill accept unique “Device-based” reporting.\nFor Subscriber Firms, the same Unit of Count applies. Many large Subscriber Firms manage multiple Datafeeds from\ndifferent Distributors. As a statement of general principle there is a requirement to report to each Distributor, each\nunique End User, Device or Non-Display Application that can access the Information. That is, the netting of End Users or\nNon-Display Applications across different Datafeed Distributors is not permitted.\nDisplay Examples\n•\nan End User has two Display Services provided and permissioned by a single Distributor, i.e. Eikon/Workspace and\nLSEG REDI EMS, this would be considered as one unique End User. As such the Distributor may report this to ASX as\none End User, incurring one Continuous Enquiry Fee;\n•\nan End User has two Display Services via separate Distributors, i.e. one Display Service provided by IRESS and the\nother by Bloomberg, this would be one unique End User accessing two separate market information platforms.\nBoth Bloomberg and IRESS would separately report this to ASX as one End User each, meaning that two\ninformation fees would be payable in respect of that End User;\n•\nan End User has a number of in-house or other proprietary Display Services (such as access to a trade blotter, risk\nmanagement systems, order management and/or portfolio systems etc) all connected to a single Distributor , i.e.\nLSEG Real Time Direct Solution or a MarketPrizm datafeed, all permissioned via the one integrated permissioning\nsystem, i.e. DACS. This would be treated as one unique End User accessing one or multiple in-house Display\nServices via the one Distributors Datafeed. Consequently only one Continuous Enquiry Fee would be payable;\n•\nan End User has an in-house developed or other proprietary Display Service connected to a Datafeed and a vendor\nprovided Display Service provided by the same Distributor, all permissioned via the one integrated system. This\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 18/46\nwould be treated as one unique End User accessing multiple in-house or vendor Display Services from the one\nDistributor. Consequently only one information fee would be payable;\n•\na Sub-Vendor sources data from multiple Distributors, i.e. an ASX direct feed and a SIX Telekurs datafeed, and\npresents the information to End Users on a webpage, with access controlled by the Sub-Vendor via one\npermissioning system. This would be considered one unique End User, incurring one Continuous Enquiry Fee;\n•\nan End User has an in-house developed or other proprietary Display Service connected to a Datafeed, with the\npermissioning system controlled by the End User firm and a vendor provided Display Service provided by the same\nDistributor, however controlled via separate permissioning by the vendor. Consequently two information fees\nwould be payable;\n•\nAny system based on concurrent usage, contention or licence sharing is inconsistent with the basis on which We\nlicense the use of the Information. There are many different variations of what constitutes concurrent usage,\ncontention or licence sharing. If You are uncertain or have any queries as to whether a proposal will comply with\nthe Continuous Enquiry Unit of Count, please contact Your account manager to discuss before implementation.\nNon-Display Examples\n•\nAn application, such as an algo trading system, sourcing Information either directly from an ASX datafeed or from a\ndatafeed provided by a Distributor is required to be remitted as one Non-Display Application.\n•\nAn application, such as an algo trading system, sourcing Information both directly from an ASX datafeed as well as\nfrom a datafeed provided by a Distributor is required to be remitted as two Non-Display Applications.\n•\nA Subscriber Firm may choose to enter into an Enterprise Licence with ASX in respect of multiple Non-Display\nApplications sourcing Information from one or multiple Distributors or directly from ASX.\n•\nThe operator of a Trade Execution Venue which provides a system executing trades for ASX Quoted Financial\nProducts at a price determined by reference to ASX Market Information is required to remit a Non-Display fee in\nrespect of the venues it operates.",
+      "page": 17
+    },
+    {
+      "number": "2.3.2",
+      "title": "",
+      "text": "Single Enquiries\nA \"Single Enquiry\" means any request for the Information from an End User and includes, for example, a user hitting the\n<Enter> key of their keyboard to request Information from the system, or a user requesting to have Information sent on\na periodic basis. You are required to count all Single Enquiries which result in the access, use or processing of\nInformation irrespective of whether this Information is disseminated to End Users in response to a Single Enquiry or not\nand whether the price of a particular security has changed or not.\nThe Single Enquiry Unit of Count does not entitle You to \"broadcast\" single or multiple quotes to multiple End Users.\nThe Single Enquiry plans are intended to be used on a static request-by-request basis, and not as a real-time streaming\noption. If You wish to provide streaming or continuously updating Information, You must use either the Continuous\nEnquiry or Time-Based options.\nIf You have a Delayed Information Licence in respect of the ASX MarketSource Services, You must count real-time Single\nEnquiries disseminated by Your system from 30 minutes prior to market open until 1 hour after the completion of the\nclosing price auction. If You do not have a Delayed Information Licence or End Of Day Information Licence, Single\nEnquiries are payable in perpetuity. Devices covered by Single Enquiry recording systems can include mobile apps,\npagers, faxes, websites, display terminals, telephone information services and SMS messaging.\nSingle Enquiry Unit of Count Options:\nPer Quote\nPayment of the ‘per quote’ enquiry allows a customer to provide one real-time quote to a single End User for one ASX\ninstrument. For the purpose of this charging mechanism, a quote may only include ASX code, best bid & offer, open,\nhigh, low, last, market status, volume and value. The dissemination of market depth, detail or course of sales is not\npermitted under this option. Please note that if this method is applied to portfolios or a watchlist, each individual quote\nincluded in the portfolio or watchlist is to be remitted at the per quote fee.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 19/46\nPer Market Depth/Detail or Premium Data Request\nSingle Enquiry market depth (being an aggregate of all orders at one price step for a security), or detail (being every\norder in the order book for a security) may be disseminated using the per depth/detail request.\nMarket Depth\nMarket Detail\nIn addition to disseminating market depth/detail for a security, customers may include ASX code, best bid & offer,\nopen, high, low, last, market status, volume and value as part of this option.\nThe same price-point used for market depth/detail may also be used for the provision of a course of sales be it in\ntabular format or as an intraday tick chart in respect of a single security.\nCourse of Sales table\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 20/46\nNote: Single Enquiry Units of Count apply where Information has been accessed, used or processed in order for\ninformation to be provided irrespective of whether or not that information is the information actually provided in the\nquote given to the End User.\nData resulting from a Single Enquiry may be displayed to the End User in either a numerical/tabular format or a\ngraphical/chart format or a combination of the two.",
+      "page": 18
+    },
+    {
+      "number": "2.3.3",
+      "title": "",
+      "text": "Time-based\nThis Unit of Count is calculated by reference to the number of minutes (or part thereof) that any End User was capable\nof accessing the Information.\nThe Time-based option may be used for disseminating full market depth and detail on a streaming or continuously\nupdating basis.\nThe Time-based option is to be used for the purpose of viewing the market in real-time, and is not to be used for\ngenerating snapshots of the Information for subsequent off-line viewing. An End User may choose to be logged off by\nthe supplier after a reasonable period of time or defined periods of inactivity.",
+      "page": 20
+    },
+    {
+      "number": "2.3.4",
+      "title": "",
+      "text": "Capped End Users\nA Capped End User is any End User accessing the Information under the Single Enquiry or Time-based Unit of Count and\nwhose access to the Information has reached the cap threshold. The Unit of Count for Capped End Users is the same as\napplies for Continuous Enquiries – i.e. it is linked to a uniquely identified End User, who must be allocated a unique user\nID and password or other acceptable security mechanism approved as part of an Access & Entitlement System, whose\nuse of the Information under either the Single Enquiry or Time-based option has exceeded the defined cap. Distributors\nmust ensure that End Users do not share their unique User ID, and that a unique user ID cannot access the Information\non more than one Device simultaneously.\nWe only accept capped monthly usage if:\n•\nYou have the ability to track (and retain records of) the number of Single Enquires or number of minutes used by\neach unique End User; and\n•\nYour system does not allow a single End User to access the system through multiple Devices simultaneously.\nIf You choose not to cap the Information usage for each End User, You are not required to retain records of each End\nUser’s access to the Information, and only need record the aggregate amount of time or number of Single Enquiries\nacross all of Your End Users.\nThe capping of End Users in this way is a concession that is only available if You implement systems to track End User\nenquiries. Failure to make use of the capping option does not amount to overpayment of fees and We will not consider\nany such claim.",
+      "page": 20
+    },
+    {
+      "number": "2.3.5",
+      "title": "",
+      "text": "Non-Display Services\nFor Subscriber Firms, the default Unit of Count for Non-Display Service is each Application capable of accessing the\nInformation. Each Non-Display Application must be allocated a unique ID and password or other acceptable security\nmechanism as part of an Access & Entitlement System. Subscriber Firms must ensure that a unique ID cannot access the\nInformation on more than one Non-Display production Application simultaneously.\nWhere the same Application is either operating on multiple physical servers for performance/scale reasons or operating\nin multiple data centres (primary, BCP, co-lo etc), this is considered a single Application. Similarly, a single application\nsplit across multiple servers in order to load balance, is considered a single Application.\nMany large Subscriber Firms manage Datafeeds from multiple different Distributors. As a statement of general\nprinciple, there is a requirement to report to ASX, each Non-Display Application within each Unit of Count category that\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 21/46\ncan access the Information from each Distributor. That is, netting of Non-Display Application across Information\nsourced from different Datafeed providers is not permitted.\nASX also offers Subscriber Firms the option of a Non-Display Enterprise Licences for either ASX or ASX 24 Information,\ncovering all of the Subscriber Firms Applications and venues globally, irrespective of whether the Information is\nprovided directly by ASX or by one or more Distributors.\nFor the avoidance of doubt, any application hosted by a Subscriber Firm on behalf of its clients is not covered by this\nEnterprise Licence. In such a scenario the Subscriber Firm can either report the clients Application, in addition to its\nEnterprise Licence, and pay per Application fees or alternatively the client can contract directly with ASX and either pay\nper Application or enter into its own Enterprise Licence.\nNon-Display Fees, for use of the ASX and ASX 24 Market Information in respect of Reference Based Systems are\nassessed on the basis of the number of venues operated by the Trade Execution Venue. Users of this service must\nreport the number of venues on a monthly basis.",
+      "page": 20
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": ".\nAccess & Entitlement Systems\nRequirements for Real Time Information\nDistributors or Subscriber Firms must use an Access & Entitlement System to permission and record those End Users,\nDevices, Applications or Reference Based Systems capable of accessing the Real Time Information at any time during\nthe month. Reports must include if applicable the number of Single Enquiries, Capped Single Enquiry, Time-based\nEnquiries, Datafeeds, Applications, Reference Based Systems and End Users in a given month. The system must report a\nspecific and unique user ID, device ID, application ID or venue ID for each Application, Device, Datafeed, Reference\nBased Systems or End User that was capable of accessing Information and retain these records for at least 5 years.\nWhere multiple price points are offered, such as Professional and Non-Professional Investors or differing uses of Non-\nDisplay information, this is to be reported separately.\nWhere Information in respect of multiple and distinct Information Services is offered, such as from ASX TradeMatch, or\nASX 24, this is to be reported separately.\nWhere fee exemptions exist, such as for Display Services used by a Distributors sales staff for demonstrational\npurposes, these are to be reported separately at a zero dollar cost.\nIt is an essential requirement that a unique ID and password, or other security mechanism approved by Us, MUST be\nallocated to every End User’s, Device, Reference Based System or Application that is capable of accessing the\nInformation and it must not be used by more than one person, more than one Device or by more than one Application\nor Reference Based System at a time. Honesty statements, manual procedures or other non-system based approaches\nto permissioning and recording access to the Information does not constitute an Access & Entitlement System.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 22/46",
+      "page": 21
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". ComNews\nComNews is the news service containing company and market announcements made by issuers listed on the ASX.",
+      "page": 22
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": ".\nAgreement\nThe terms in this section of the Guide apply to Distributors and Subscriber Firms who have entered into a ComNews\nAgreement.",
+      "page": 22
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": ".\nLicensed Use",
+      "page": 22
+    },
+    {
+      "number": "3.2.1",
+      "title": "",
+      "text": "Display Service\nDistributors may include the Information in their Display Services for use by End Users provided they control the Access\n& Entitlement System down to the End User level in a way that complies with the Units of Count.\nUnless otherwise specified below Real Time Information may only be displayed in a Closed User Group. Delayed\nInformation and End of Day Information may be displayed in a Closed User Group and an Open User Group. All other\nconditions specific to the various display options are set out in the terms below.",
+      "page": 22
+    },
+    {
+      "number": "3.2.2",
+      "title": "",
+      "text": "Delayed Information\nThe period of delay for ComNews Delayed Information is currently 20 minutes after the Information is released by Us. If\nYou subscribe to a Delayed Information Licence, Delayed Information may be displayed to End Users on a Device\nprovided by You to Closed User Groups and Open User Groups without the need to pay real-time Enquiry Fees. If You\nare disseminating Delayed Information You must identify to End Users (on the screen or in a disclaimer) that the\nInformation is delayed by the prescribed period. If You do not subscribe to a Delayed Information Licence, You are\nrequired to remit Continuous, Single Enquiries or Time-based Enquiries in perpetuity in respect of any distribution of\nthe Information.\nNew Original Works The standard ComNews Agreement does not permit the use of ComNews for extraction and\non-dissemination of New Original Works. Should You require the ability to do this please contact an Information\nServices Account Manager to discuss Your needs and the appropriate licence.",
+      "page": 22
+    },
+    {
+      "number": "3.3",
+      "title": "",
+      "text": ".\nUnit of Count",
+      "page": 22
+    },
+    {
+      "number": "3.3.1",
+      "title": "",
+      "text": "Continuous Enquiry Policy\nASX ComNews is offered on a Continuous Enquiry basis. That is, You may distribute real-time1– announcements from\nComNews to an End User. For each End User capable of accessing real-time ComNews announcements a Continuous\nEnquiry Fee per month is payable.",
+      "page": 22
+    },
+    {
+      "number": "3.3.2",
+      "title": "",
+      "text": "Single Enquiry Policy for Non-Professional Investors\nPayment of the per announcement fee allows You to provide one company announcement to a single End User. Please\nnote that this Single Enquiry option is only available to Non-Professional Investors (NPI2). You must track the number of\nannouncements accessed by each NPI and pay the Single Enquiry Fee in respect of each enquiry. Single Enquiry Fees for\nComNews may be capped at the one (1) user Continuous Enquiry Fee per NPI per month. We only provide this\nconcession if Your system complies with the same requirements that apply to capping of Single Enquiries for\nMarketSource.\nSubject to You having a ComNews Delayed Information Licence, You must count real-time Single Enquiries disseminated\nby Your system from 08:00 to 20:20 Sydney time. If You do not have a Delayed Information Licence, Single Enquiry Fees\nare payable in perpetuity.",
+      "page": 22
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "Real-time means any announcement that is less than 20 minutes old.",
+      "page": 22
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "\"NPI\" means an End User who is a natural person accessing the ASX ComNews Information for his or her personal use only.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 23/46",
+      "page": 22
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ". ReferencePoint\nReferencePoint covers a range of reference data and analytics products including securities master list and corporate\naction, market share and debt market information.",
+      "page": 23
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": ".\nAgreement\nThe terms in this Section of the Guide apply to ReferencePoint Services only.",
+      "page": 23
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": ".\nLicensed Use\nThe Licensing framework provides a range of licences to cater for different use cases and customer groups.  Not all\nlicences are available for all services under the ReferencePoint product suite; as an example the ReferencePoint Real-\nTime Corporate Actions service in datafeed or machine readable format may only be licensed directly to end user firms,\nwith vendors acting as nominated third party suppliers.\nIt should be noted that the ReferencePoint suite does include third party data sets which can be used for internal\npurposes, however these third party data sets will require an appropriate licence from the originating data provider if\nYou wish to disseminate these data sets.  An example of such a third party dataset is the GICS (Global Industry\nClassification Standard) information, which requires a redistribution licence from Standard & Poor’s.\nInternal Usage Licence\nUnder the Internal Usage Licence You and Your Personnel may provide, on an ad-hoc basis in written and oral\ncommunication, insubstantial amounts or limited extracts of static information to Your clients in connection with Your\nordinary business as a provider of financial services or financial advice.\nWe consider the following examples of republication as “limited extract of information”:\n•\nBack Office reports generated by a Participant in the context of its back office operation.\n•\nResearch reports generated by a Participant or Asset Manager for its Registered Clients.\nAgency Licence\nThe Agency Licence allows an Agency Customer providing agency or outsourced services such as an Outsourced Back-\nOffice Service Provider, a Third Party Clearer, an Asset Administrator, a Prime Broker, or Margin Lender to supply\nlimited extract of the information. This Licence does not allow You, Your Agency Customer or a Subscriber Firm to act as\na distributor or vendor.\nDefinitions:\n•\nOutsourced Back-Office Service Provider: A provider of outsourced agency or bureau clearing and related services -\nincluding trade confirmation, clearing and settlement, record keeping, and regulatory compliance - to a Participant.\n•\nThird Party Clearer: A Participant of ASX Clear provides an outsourced service linked to clearing and settlement\nobligation, back office functionality, and related support services to Participants.\n•\nAsset Administrator: A legal entity specialising in financial asset, security and direct equity administration providing\nadministration solutions. It comprises of services in fund accounting and reporting, and custody administration.\nWrap providers are considered Asset Administrators.\n•\nPrime Broker: A Participant offering professional services to hedge funds or other institutional customers - in\naddition to basic brokerage services – such as acting as settlement agent, providing custody for assets and financing\nfor leverage, and preparing daily account statements for its clients.\n•\nMargin Lender: A lender of a loan where the borrower is required to provide financial products held by the\nborrower as security for the loan in accordance with the lender’s valuation ratio.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 24/46\nVendor Display License\nAny Vendor Display Service that includes the Information on a Device provided by a Distributor must comply with the\nfollowing requirements:\n•\nBe branded so it clearly identifies You as the distributor;\n•\nThe Access & Entitlement System must be controlled by You; and\n•\nYou must have a direct agreement with all Subscriber Firms concerning access to the service and the Information by\nRegistered Users.\nAdditional licences currently offered include a Datafeed Licence, a Website Licence as well as a Print Media Licence.",
+      "page": 23
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": ".\nAccess & Entitlement Systems\nYou must retain full technical control over all Display of Information within Your Service.\nYour Access & Entitlement System must be able to track each unique Subscriber Firm and Registered User who is\ncapable of accessing the Information.",
+      "page": 24
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": ".\nRecords",
+      "page": 24
+    },
+    {
+      "number": "4.4.1",
+      "title": "",
+      "text": "Agency Licence\nYou must establish, maintain and keep a record of the number of Agency Customers to whom You provide limited\nextracts of the Information.\nYour records must include:\n•\nThe name of each Agency Customer to whom You provide the Information; and\n•\nFor each Agency Customer, the list of securities that You are holding on behalf of that Agency Customer.\nThese records will provide the ability to ensure that the agency information is supplied according to its definition.",
+      "page": 24
+    },
+    {
+      "number": "4.4.2",
+      "title": "",
+      "text": "Vendor Display Licence\nYou must establish, maintain and keep a record of the number of Devices capable of Displaying ReferencePoint\nInformation and dates that they were permissioned to access the Information.",
+      "page": 24
+    },
+    {
+      "number": "4.5",
+      "title": "",
+      "text": ".\nReporting",
+      "page": 24
+    },
+    {
+      "number": "4.5.1",
+      "title": "",
+      "text": "Vendor Display Licence\nNot more than 60 days prior to the 30th June each year, You must submit to Us a notice specifying the total number of\nRegistered Users that are capable of accessing the Information through Your Services.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 25/46",
+      "page": 24
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ". Connectivity",
+      "page": 25
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": ".\nIntroduction\nWe offer a range of connectivity options in relation to the various Information Services to best meet Your requirements.\nYou may choose to connect to us directly via ASX Net, our fibre network, which provides connectivity to ASX Market\nInformation, Trading, Clearing and Settlement Services.\nIf you want the collocate at the source forconnectivity to Information or to benefit from access to a community of\nservice providers and traders, ASX offers hosting and connectivity services within the ASX Australian Liquidity Centre.\nFor those Services where colocation and speed is less important, such as end of day batch files, our ASX-Online website\nprovides both a highly resilient and cost effective delivery mechanism.\nAnd finally in many cases we are also able to support the wholesale supply of ASX Market Information via an\nInformation Vendor – Nominated Third Party supply.\nNot every means of supply is appropriate for each Service; the table below provides an overview of those that are\ncurrently supported.\nService\nConnectivity Option",
+      "page": 25
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ". MarketSource\nASX Net\nASX Australian Liquidity Centre (colocation facility)\nNominated Third Party",
+      "page": 25
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". ReferencePoint\nASX-Online\nNominated Third Party\nASX Australian Liquidity Centre (colocation facility)\nASX Net\nSWIFTNet",
+      "page": 25
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". ComNews\nASX Net\nASX Australian Liquidity Centre (colocation facility)\nSite to Site VPN\nNominated Third Party",
+      "page": 25
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": ".\nASX Net\nASX offers a fully managed point to point network for the transmission of time critical Information Services. ASX Net\nnetwork provides connectivity, for direct connecting Subscriber Firms and Distributors with a point of presence in\nAustralia, to Our Market Information and Trading Systems known respectively as ASX Trade, ASX Trade 24 and ASX\nMarket Announcements. These systems provide the most direct distributed access to ASX Information.\nIn addition to transmitting ASX Market Information to Distributors and Subscriber Firms; Participants may connect to\nthis network for trading, clearing or settlement purposes.\nIf You have selected connectivity via ASX Net on Your Order Form, there will be terms and conditions that will apply and\nbe discussed with you prior to proceeding  This is something that you can discuss with your business development\nmanager who can assist you with any connectivity queries.",
+      "page": 25
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": ".\nASX Australian Liquidity Centre\nASX is offering services; including hosting of Your infrastructure within the ASX colocation Facility, known as the\nAustralian Liquidity Centre or ALC, through the provision of rack space and a variety or cross connect services in the ASX\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 26/46\ndata centre. Direct access to ASX Market Information systems can be achieved via such cross connections. Distributors\nwill have an ability to distribute their services to other customers within the Facility via ASX managed cross connects.\nFull details on the available services within the ASX Australian Liquidity Centre are available in the ALC Technical\nServices Guide.\nThese services are also subject to their own terms and conditions, which will provided to you prior to completing any\norders.",
+      "page": 25
+    },
+    {
+      "number": "5.4",
+      "title": "",
+      "text": ".\nSite to Site VPN\nWe offer connectivity to a subset of Our Information Services via an Site to Site VPN. This provides a secure connection\nvia the internet. It is a lower cost alternative that You may find useful for some Information Services or for accessing our\nDevelopment Environment(s). It is not suitable for some of the real time feeds that we offer.",
+      "page": 26
+    },
+    {
+      "number": "5.5",
+      "title": "",
+      "text": ".\nASX-Online\nASX-Online is a secure B2B website located at www.asxonline.com It provides both a resilient and cost effective means\nto access batch datafiles, such as our hourly share price files, corporate actions information via our Daily Diary in html\nformat, as well as providing access to the graphically rich ComNews Direct service to mention but a few of the broad\nrange of Services disseminated via this website.\nIf You have selected the ASX-Online option on Your Order Form, the following provisions apply:",
+      "page": 26
+    },
+    {
+      "number": "5.5.1",
+      "title": "",
+      "text": "We will use Our best endeavours to make the Information available on the website in a timely manner.",
+      "page": 26
+    },
+    {
+      "number": "5.5.2",
+      "title": "",
+      "text": "To access ASX-Online You must obtain from Us a security identification and follow any other security\nprocedures specified by Us from time to time.",
+      "page": 26
+    },
+    {
+      "number": "5.5.3",
+      "title": "",
+      "text": "You must satisfy Yourself that the format of the Information available at ASX-Online is suitable for Your\nrequirements.",
+      "page": 26
+    },
+    {
+      "number": "5.5.4",
+      "title": "",
+      "text": "You acknowledge and agree that circumstances may arise where, due to technical issues beyond Our\ncontrol, the Information may not be available at ASX-Online.",
+      "page": 26
+    },
+    {
+      "number": "5.5.5",
+      "title": "",
+      "text": "The security identification must be kept confidential.",
+      "page": 26
+    },
+    {
+      "number": "5.6",
+      "title": "",
+      "text": ".\nSupply via Nominated Third Party (“NTP”)\nYou may utilise a NTP that is an authorised Distributor of the Information (as defined in section 2.1.1 above), to provide\nYou with access to ASX Information. If a NTP is specified in the Order Form as your chosen means of indirect access to\nASX Information, the following provisions will apply:\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 27/46",
+      "page": 26
+    },
+    {
+      "number": "5.6.1",
+      "title": "",
+      "text": "We will use Our best endeavours to supply the Information to that NTP in lieu of supply to You directly.",
+      "page": 27
+    },
+    {
+      "number": "5.6.2",
+      "title": "",
+      "text": "You must make Your own arrangements for transmission of the Information by the NTP to You, and You\nacknowledge and agree that We are not obliged to supply the Information directly to You.",
+      "page": 27
+    },
+    {
+      "number": "5.6.3",
+      "title": "",
+      "text": "On execution of the agreement governing Your access to the Information, We will provide an authority\nto the NTP specified in the Order Form, authorising the dissemination of the relevant Information to\nYou. This authority will be terminated in the event:\na. Our agreement with You is terminated;\nb. Our agreement with the NTP is terminated; or\nc.\nthe NTP fails to comply with the terms of its agreement with Us.",
+      "page": 27
+    },
+    {
+      "number": "5.6.4",
+      "title": "",
+      "text": "",
+      "page": 27
+    },
+    {
+      "number": "5.6.5",
+      "title": "",
+      "text": "In the event the authority is terminated during the term of the agreement, You must make new\narrangements for transmission of the Information via alternate means.",
+      "page": 27
+    },
+    {
+      "number": "5.6.6",
+      "title": "",
+      "text": "If You fail to receive the Information because of an act or omission of a NTP, We are not responsible for\nthe NTP’s failure to supply and will have no liability to You.",
+      "page": 27
+    },
+    {
+      "number": "5.7",
+      "title": "",
+      "text": ".\nApplication Service Provider (ASP)\nAn ASP is a service provider providing Market Connectivity to a Participant in conjunction with a trading or clearing\nfront end solution; typically the service provider is an Information or Application Vendor. The ASP utilises an ASX\nNetwork Connection or ALC hosting service to provide Participants with trading connectivity to ASX Systems.\nAn ASP may host multiple Participants on a single ASX Gateway, subject to that Gateway not being used for the purpose\nof providing BSP services.\nFees are levied upon the ASP in respect of Market Connectivity, fees for liquidity access for the purpose of entering\norders into the market are billed directly to the Participant, and a fee for ASP hosting is also applicable in ASP scenarios,\nand takes the form of either an ASP Licence or a Market Access fee – see further details below.\nASX\nThe Application Service Provider requires an ASP licence where connectivity is being mutualised by that ASP to provide\nservices to multiple Participants.\nASX 24\nA Market Access fee is payable by the Participant where they utilise an ASP, and is billed direct to the Participant.",
+      "page": 27
+    },
+    {
+      "number": "5.8",
+      "title": "",
+      "text": ".\nBroker Service Provider (BSP)\nA BSP means an organisation, typically a Distributor, that at the request of an ASX/ASX 24 Participant, is provided with\nthat Participant’s Restricted Information or Broker Specific Information by Us, solely for the purpose of providing a\nDisplay order management service to that Participant.\nAn ASX BSP may procure from ASX, a dedicated session for access to Participant Restricted Information (broker cross\nreferences etc), for the purpose of integration into that BSP’s front end and display to the Participant, for a fixed\nmonthly fee.\nASX\nIt is a pre-requisite for a Participant who has such a relationship with a BSP, to have signed a BSP Authorisation Letter to\ngrant ASX permission to release their Restricted Information to their nominated BSP. Additionally a BSP Participant\nProvisioning levy has been introduced and is payable by the BSP directly to ASX on a per Participant basis.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 28/46\nASX 24\nAn ASX 24 BSP is required to have their Participant client procure from ASX, an ASX 24 Drop Copy Session which is the\nmechanism through which the ASX 24 Participant’s Restricted Information is made available to their nominated BSP.",
+      "page": 27
+    },
+    {
+      "number": "5.9",
+      "title": "",
+      "text": ".\nManaged Service Provider (MSP)\nA MSP means an organisation, typically a reseller or channel partner, who purchases ALC (Australian Liquidity Centre)\ncabinets and power with the intention of providing managed services to Our mutual customers. These managed\nservices will vary based on the customer requirement; however a typical use case is to aggregate space and power for\nthose customers who do not require an entire cabinet.\nOnce a firm has been confirmed by Us as an authorised MSP they must inform the ASX and provide details of each\nindividual and subsequent firm they on-board as a MSP customer.",
+      "page": 28
+    },
+    {
+      "number": "5.10",
+      "title": "",
+      "text": ".\nNetwork Service Provider (NSP)\nA NSP means an organisation, typically a telecommunications company, with a presents in the ALC (Australian Liquidity\nCentre) telco room(s) providing network access to Our mutual customers.  It should be noted that NSP services cannot\nbe provided from an MSP cabinet on the customer co-location floor, even if owned by the same organisation.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 29/46",
+      "page": 28
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ". Protocols & Formats",
+      "page": 29
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": ".\nIntroduction\nThe Information contained within ASX Information Services can be sourced directly from Us in a variety of formats and\nprotocols to best meet Your requirements. Information sourced from ASX is available direct from the trading or Market\nInformation Systems as applicable. The Information is available in the following formats and protocols, and from the\nfollowing Systems:\nASX Trade\nMarket Information from ASX Markets (TradeMatch, VolumeMatch, and Centre Point Order) can be sourced directly\nfrom the ASX Trade trading system in the following formats;\n•\nOMnet API\n•\nITCH (binary format)\nASX Trade 24\nMarket Information from the ASX 24 Market can be sourced directly from the ASX Trade 24 trading system in the\nfollowing formats;\n•\nFIX Format - ASX Trade 24\n•\nMarket Data Protocol (binary format)\nASX Company Announcements (ComNews)\n•\nPDF format, with ASIC headline and metadata, via FTP download\nASX ReferencePoint\n•\nCSV format via ASX-Online\n•\nISO 20022 format via SWIFTNet\n•\nXML files on ASX FTP server available to connect to via ASX Net or an ALC Service Connection",
+      "page": 29
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": ".\nChanges to Content or Format of the MarketSource Services\nIf You have selected any of the above Formats in the Order Form; We have the right to make changes to the content or\nformat in accordance with the applicable General Terms and Conditions.",
+      "page": 29
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": ".\nASX Trade Protocols\nIf You have selected a direct connection to ASX Trade in Your Order Form the following provisions will apply:",
+      "page": 29
+    },
+    {
+      "number": "6.3.1",
+      "title": "",
+      "text": "Licence Conditions\n6.3.1.1\nWe grant to You a non-transferable, non-exclusive licence to use API Software on Your System at the\nLocation during the Term for the purpose of accessing MarketSource.\n6.3.1.2\nYou:\na. must not use the Software for any purpose other than obtaining access to MarketSource;\nb. must not, without Our prior written consent, copy all or any part of the Software nor procure\nthe doing of any such acts except that You may copy the Software as reasonably required by\nYou exclusively for backup and archival purposes provided that You:\ni.\nmaintain accurate records of the number of copies of the Software made and the precise\nlocation of every copy of the Software; and\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 30/46\nii.\nfurnish Us promptly upon request with all relevant details of any copies made and their\nprecise location;\nc.\nmust not recreate, reverse engineer, disassemble, reverse compile, translate or in any other\nway derive the whole or any part of the source code or object code of the Software nor, directly\nor indirectly, permit any third person to do so;\nd. must apply suitable security measures and a degree of care in relation to the Software so as to\nsafeguard each copy (or part copy) of the Software from any unauthorised disclosure, copying\nor use;\ne. warrant and represent that You shall not sublicense or otherwise transfer or assign the\nSoftware licence to any other person;\nf.\nmust mark each copy (or part copy) of the Software to clearly indicate that NASDAQ owns the\nintellectual property rights in the Software;\ng.\nmust not alter or remove any trade or service marks applied to or used in the Software or\nDocumentation;\nh. except as permitted (in the case of API Software) pursuant to the terms of a Development\nAgreement entered into by You, must not modify or alter the Software or merge any of the\nSoftware with any other computer program without Our prior written approval; and\ni.\nmust take all necessary steps to ensure that these licence conditions are complied with.",
+      "page": 29
+    },
+    {
+      "number": "6.3.2",
+      "title": "",
+      "text": "Upgraded and Additional Software\n6.3.2.1\nYou acknowledge that any Updates of the API Software that become available will be provided by Us to\nAuthorised Developers and if You are not an Authorised Developer and wish to acquire any such\nUpdates, You will need to make appropriate arrangements with an Authorised Developer.\n6.3.2.2\nIf We acquire from an Authorised Developer additional copies of or Updates to the API Software, We\nwill issue to You an amended Order Form to record any changes made to the Software supplied to You\nand licensed under this Agreement.",
+      "page": 30
+    },
+    {
+      "number": "6.3.3",
+      "title": "",
+      "text": "Documentation\n6.3.3.1\nWe will licence and supply to You one copy of the Documentation for each site comprising the Location\nas specified in the Order Form.\n6.3.3.2\nUpon request by You, We may supply additional copies of all or part of the Documentation upon\npayment by You of the fees charged by Us for any such documents.\n6.3.3.3\nWe will provide to You, as soon as practicable, free of charge, a copy for each site comprising the\nLocation of any amended, revised or supplementary Documentation that is published and that is not\notherwise available on www.asxonline.com.\n6.3.3.4\nYou must:\na. not (except as expressly permitted under this Agreement) use, copy or modify all or any part of\nthe Documentation, nor permit any third person to do so, without Our prior written consent;\nb. ensure that each authorised copy of the Documentation is marked to clearly indicate the owner\n(whether OMX or ASXO) of the intellectual property rights in the Documentation; and\nc.\nnot alter or remove any trade or service marks applied to or used in the Documentation.",
+      "page": 30
+    },
+    {
+      "number": "6.3.4",
+      "title": "",
+      "text": "Qualification and Connectivity Tests\n6.3.4.1\nYou must undertake a Qualification Test and a Connectivity Test for Your System.\n6.3.4.2\nIf, after Your System is connected to MarketSource, You provide a notice to Us in relation to Your\nproposed use of an system which is new or materially different to the System previously notified to Us,\nYou must upon Our request, make available the proposed System for the purpose of enabling a further\nQualification Test and Connectivity Test to be undertaken.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 31/46",
+      "page": 30
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": ".\nASX Trade 24 Protocol\nAccess by Distributors to the ASX Trade 24 system shall be restricted to the receipt of Information only.\nThe ASX Trade 24 protocol is a FIX protocol and is accessible via the ASX 24 Market Gateway (previously known as the\nAOEI) and is based on version 5.0 SP2. Offering different subscriptions options, including either full depth or aggregated\nmarket picture.\nDetailed technical documentation can be found here: https://www.asx.com.au/services/ntp/document-library.htm",
+      "page": 31
+    },
+    {
+      "number": "6.5",
+      "title": "",
+      "text": ".\nASX 24 Market Data Protocol\nThe ASX 24 Market Data Protocol is the premium ultra-low latency protocol for accessing ASX 24 Market Information,\ndelivering full depth of book via a multicast connection directly from the ASX Trade24 platform. The ASX 24 Market\nData Protocol has been developed as a comprehensive market data offering, utilising standards based messaging.\nIn addition to offering full orderbook information for all contracts, including spreads and custom market, The ASX 24\nMarket Data Protocol also provides a trade type code. This allows subscribers to determine transaction sources, such as\nNormal Trade, Auction Trade, Spread-to-Underlying trade, Intra-Spread-to-Intra-Spread trade, Inter-Spread-to-Inter-\nSpread trade and Custom-to- Custom trade.\nDetailed technical documentation can be found here: https://www.asx.com.au/services/ntp/document-library.htm\n6.3.4.3\nYou acknowledge that We are under no obligation to provide You with access to MarketSource unless\nand until Your System (including any new system or system which is materially different from the\nSystem previously tested) successfully passes to Our reasonable satisfaction the Qualification Test and\nthe Connectivity Test.\n6.3.4.4\nIf We consent to any change notified by You under clause 6.3.4.2:\na. We will issue You an amended Order Form to record any changes made to the Software\ninstalled at the Location, Your Gateway Sessions and Your System; and\nb. the parties agree to be bound by this Agreement as amended by the Order Form (without the\nneed for its re-execution) on and from the date of Your receipt of the amended Order Form.",
+      "page": 31
+    },
+    {
+      "number": "6.3.5",
+      "title": "",
+      "text": "Connection\n6.3.5.1\nYou must ensure that, at all times, Your System:\na. meets the minimum requirements set out in the Manual;\nb. is compatible with and configured for effective use in conjunction with the Communications\nEquipment and Software; and\nc.\nis otherwise suitable for use in connection with Our System.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 32/46",
+      "page": 31
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ". Support",
+      "page": 32
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": ".\nAccount Management Support\nPlease contact your Account Manager in respect of any business, pricing or policy questions you may have on either\nphone:\nemail: Information.Services@asx.com.au\nWe currently provide Account Management support for all services covered by this Guide between the hours of 08:30\nAEST to 17:30 AEST on designated Trading Days.",
+      "page": 32
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": ".\nTechnical Support\nThe terms in this section apply to MarketSource, ReferencePoint and ComNews.\nWe currently provide content and technical support for all products and services covered by this Guide between the\nhours of 08:00 AEST to 18:00 AEST on designated Trading Days.\nTechnical Support is provided through our Customer Technical Support team who may be contacted on the following\nnumber:",
+      "page": 32
+    },
+    {
+      "number": "1800",
+      "title": "",
+      "text": "663 053\nOR via email to: CTS@asx.com.au\nIf You require after-hours support for production or connectivity problems You can request assistance by contacting\n+61 2 9227 0821. Please note that information content queries are not currently supported after hours.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 33/46",
+      "page": 32
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": ". Records & Reports\nThe terms in this section apply to all Services. Special provision may also be contained within each section above.",
+      "page": 33
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": ".\nRecords",
+      "page": 33
+    },
+    {
+      "number": "8.1.1",
+      "title": "",
+      "text": "Real Time Information\nFor all Real Time Information You are required to declare Your use of Information in accordance with the Units of\nCount. Similarly Distributors, and Subscriber Firms in receipt of a datafeed for Non-Display purposes, are required to\nsubmit monthly remittance reports detailing use of Information in accordance with the Units of Count.\nAll remittance reports are to be submitted via the online Data Reporting Module (DRM) located at\nhttps://asxdrm.com.au. The DRM has been designed so You can report in a simple and secure manner. DRM allows You\nto:\n•\nReview the licenses that You hold for market data products\n•\nSubmit remittance reports via one of the following mechanisms; smart web form, Excel spreadsheet, VARS or\nVRXML file standards\n•\nReview previous market data usage reports.\nAll use, whether fee waived or fee liable must be reported. Distributors should report as non-billable those Units of\nCount reported directly to ASX by Subscriber Firms, such as those Display Terminals subject to a direct bill arrangement.\nDistributors and, where appropriate, Participants and Subscriber Firms, must retain all books and records necessary to\nvalidate Your usage of the Information and to accurately calculate Fees payable to Us. This includes retaining auditable\nsystem logs and other records from Your Access & Entitlement System.\nDistributors and Sub-vendors must ensure that their customers also retain all necessary books and records, including\nsystem logs and records to validate usage of the Information.",
+      "page": 33
+    },
+    {
+      "number": "8.1.2",
+      "title": "",
+      "text": "Print Media Licence\nYou must establish, maintain and keep a record of all Print Media publishing the Information. Your records must\ninclude:\n•\nThe name and country of the print media publication that includes the Information;\n•\nThe latest circulation figure of each of the print media publishing the Information; and\n•\nDates or periods when the Information was published.",
+      "page": 33
+    },
+    {
+      "number": "8.1.3",
+      "title": "",
+      "text": "Website Licence\nYou must establish, maintain and keep a record of all Websites You provide the Information to for display. Your records\nmust include:\n•\nName of the owner or operator of the Website;\n•\nName of the Website;\n•\nThe name and URL of the Website; and\n•\nDates or periods when the Information was available to each Website.\nFor each Website, the records must include the scope of Information displayed.",
+      "page": 33
+    },
+    {
+      "number": "8.1.4",
+      "title": "",
+      "text": "Wallboard & Ticker Displays\nYou must establish, maintain and keep a record of all Wallboard & Ticker Displays You provide the Information to. Your\nrecords must include the location at which each Wallboard & Ticker Display is installed.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 34/46",
+      "page": 33
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": ".\nRecord Retention\nYou must ensure these records are kept up to date and retain them at Your premises for a period of at least 5 years\nfrom the date they were generated.",
+      "page": 34
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": ".\nFormat and Content of Remittance Reports\nMonthly or quarterly emittance reports are required to be lodged with Us online using the ASX Data Reporting Module\n(DRM) located at https://asxdrm.com.au or any other specified electronic report system(s).  Submission of reports via\nany other means, will result in You being charged a monthly Processing Fee. The Data Reporting Module (DRM) was\nintroduced by Us for all Distributors to ensure that:\n•\nthe administrative effort and costs on both sides are kept to a minimum\n•\ninvoices reflect variable usage fees in accordance with the applicable Unit of Count and are generated promptly\n•\nthe onward dissemination of the Information to Sub-Vendors, Subscriber Firms and End Users is recorded\nappropriately\nMonthly or quarterly remittance reports are accepted in CSV (template available from ASX), VRXML, VARS format, or via\ncompletion of the relevant online form within the DRM system.\nUnless otherwise specified, ASX requires You to report some or all of the following information in addition to such other\ninformation as may reasonably be required by ASX:\n•\nSubscriber Names - the entity that has entered into the Subscriber Agreement for the Information\n•\nServices - name of the reported service as listed in the Information & Tech Services Schedule of Fees; i.e. ASX –\nProfessional Enquiry Fee\n•\nReporting Codes - unique numeric identifiers as listed in the Information & Tech Services Schedule of Fees for the\nService being reported; i.e. 34000146\n•\nReported Quantity - the appropriate Unit of Count being reported for each Service; i.e 37 Unique End-Users\n•\nLocation IDs - unique identifier for each location at which Sub-vendor, Subscriber Firm or End User receives\nInformation\n•\nLocation Addresses - postal address for the location of the entity that receives Information",
+      "page": 34
+    },
+    {
+      "number": "8.4",
+      "title": "",
+      "text": ".\nTiming for Remittance Reports\nMonthly remittance reports must be lodged with Us no later than the 22nd day of each month, reporting usage for the\nimmediately preceding month. We will issue an invoice based upon Your monthly remittance report with 14 days\npayment terms.\nQuarterly remittance reports must be lodged with Us no later than the 22nd day of the first month of each quarter,\nreporting usage for the immediately preceding quarter. We will issue an invoice based upon Your quarterly remittance\nreport with 14 days payment terms.",
+      "page": 34
+    },
+    {
+      "number": "8.5",
+      "title": "",
+      "text": ".\nRevised Reporting\nIf You have made an error in a monthly remittance report, that You believe has overstated the Fees payable to Us, We\nallow a period of sixty (60) days from the date the initial report was due to be received by Us where You may approach\nUs and make submissions seeking to revise or correct a monthly remittance report.\nIf We accept those submissions, We will issue You a credit for the overpaid amount and that credit may be offset\nagainst future Fees. No credits will be provided for any claims to correct a monthly remittance report where the claim is\nmade more than sixty days after the date the initial report was due to be lodged with Us.\nThis provision does not limit Your liability for any underreporting of usage to Us, nor does it affect Your obligation to\nraise this with Us as soon as You become aware and settle payment of all outstanding Fees.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 35/46",
+      "page": 34
+    },
+    {
+      "number": "8.6",
+      "title": "",
+      "text": ".\nReporting of Datafeed Usage\nIf You provide Information to customers via an uncontrolled Datafeed, You require Our prior approval, you also\ncontinue to be responsible for ensuring that the correct Units of Count in respect of Display usage are reported to Us\nand the appropriate Fees paid. You must also ensure that You include these datafeed customers, along with the\nrelevant contact person in Your reporting to Us. We may contact any Datafeed customer to discuss potential Non-\nDisplay usage and direct reporting obligations.",
+      "page": 35
+    },
+    {
+      "number": "8.7",
+      "title": "",
+      "text": ".\nPrint Media Licence\nIf you are providing information for the purpose of publication in Print Media, not more than 60 days prior to the expiry\nof the Initial Term and the expiry of each subsequent term, You must submit to Us Your latest and up to date Print\nMedia Licence record.",
+      "page": 35
+    },
+    {
+      "number": "8.8",
+      "title": "",
+      "text": ".\nWebsite Licence\nIf you are providing information as part of a Website Licence, on the  22nd day of the last month of each quarter You\nmust submit to Us Your latest and up to date Website Licence record.",
+      "page": 35
+    },
+    {
+      "number": "8.9",
+      "title": "",
+      "text": ".\nTrial and Demonstration Usage\nWe permit You to provide trial or demonstration access to Real Time Information when marketing Your Services. Please\nnote that We have a separate Administrative Usage policy (see 8.10 below) for Devices located within Your premises.\nYou are permitted to provide Real Time Information to a limited number of End Users and Non-Display Applications\nlocated outside Your premises for a limited amount of time. This option is to be used strictly for trial and demonstration\npurposes and may not be used to provide discounted rates of service. This policy applies to specific identifiable End\nUsers and Non-Display application and is subject to compliance with the following further requirements.",
+      "page": 35
+    },
+    {
+      "number": "8.9.1",
+      "title": "",
+      "text": "Number of demonstration accounts\nAt any given time, Your total number of demonstration End Users and Non-Display Applications cannot exceed the\ngreater of 50; or 5% of the total number of Continuous Enquiries You have reported, unless approved otherwise by Us\nin writing.",
+      "page": 35
+    },
+    {
+      "number": "8.9.2",
+      "title": "",
+      "text": "Duration\nDemonstration unit usage may not exceed more than 30 days from when it commenced. Additionally, a particular\nDevice, End User or Non-Display Application can only be granted ASX demonstration status once in its “lifetime”.",
+      "page": 35
+    },
+    {
+      "number": "8.9.3",
+      "title": "",
+      "text": "Device Eligibility Provisions\nAn End User or Non-Display Application currently receiving the Information is not permitted to be converted to a\ndemonstration account in order to avoid payment of fees.",
+      "page": 35
+    },
+    {
+      "number": "8.9.4",
+      "title": "",
+      "text": "Reporting\nYou must disclose to Us the number of trial, or demonstration Devices, End Users or Non-Display Application on Your\nremittance reports.\nShould You wish to undertake a marketing/sales campaign that that goes beyond what has been envisaged above, We\ninvite You to contact Your Account Manager to discuss the proposal.",
+      "page": 35
+    },
+    {
+      "number": "8.10",
+      "title": "",
+      "text": ".\nAdministrative Usage\nSubject to the paragraph below, if You are a Distributor or Subscriber Firm connecting directly to ComNews or\nMarketSource no End User fees shall be payable by You, Your Related Bodies Corporate, contractors or Service\nFacilitators acting on Your behalf where the Information is used for the purposes of technical development and\noperations, product development, quality assurance, quality control, customer support, sales and marketing. The scope\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 36/46\nof this fee waiver is limited to datafeeds sourced directly from ASX and does not apply to normalised feeds provided by\nVendors. You shall not be required to include such usage as part of Your remittance report, but shall provide\ninformation on such usage at Our request (such request to be limited to once per annum) or in the event of an audit.\nFor the avoidance of doubt, End Users with the ability to alter or control a Non-Display Application are not included in\nthe above fee exemption",
+      "page": 35
+    },
+    {
+      "number": "8.10.1",
+      "title": "Number of Administrative Usage devices",
+      "text": "At any given time, Your total number of Administrative Usage devices cannot exceed the greater of 50; or 5% of the\ntotal number of Continuous Enquiries You have reported, unless approved otherwise by Us in writing.",
+      "page": 36
+    },
+    {
+      "number": "8.11",
+      "title": "",
+      "text": ".\nDisaster Recovery / BCP Sites\nDevices at disaster recovery, back-up or BCP sites typically would not attract Enquiry Fees or Non-Display fees as long as\nthey are intended for the use of customers who normally pay Fees at their live site(s), and as long as the Display Devices\nare never used concurrently with Devices at the live sites. Disaster recovery, back-up or BCP sites should not have\ngreater access to Information than would be expected at their main site. Connectivity and Access Fees still apply to any\nservice We provide to Your disaster recovery, back-up or BCP sites.\nIf Your primary function is to provide emergency dealing facilities for another separate company, You should report on\nthe basis of actual information usage as and when the emergency facilities are being used.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 37/46",
+      "page": 36
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": ". Audit & Inspections",
+      "page": 37
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": ".\nOverview\nWe operate a comprehensive program of remote and on-site customer audits and reviews. The purpose of the review\nprogram is to ensure Your compliance with obligations and policies, as well as undertaken as spot checks to ensure the\ncorrect payments are being made to Us.\nThe audit and review program is typically managed through external industry consultants. The review typically covers a",
+      "page": 37
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "year timeframe unless You have been audited in the last 5 years, in which case the period will be from the end of the\nperiod covered in the previous review. At each review, You will be asked to demonstrate Your Access & Entitlement\nSystems, billing, administration and collection procedures, as well as your applications, books & records and\nInformation display.",
+      "page": 37
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": ".\nAudit and Review Process\nThe audit and review is generally undertaken remotely; it may however also be at Your premises and may be extended\nto the premises of Your Related Bodies Corporate, Your Service Facilitators or Your Subscriber Firms.\nTo facilitate the review process, We ask that You have the required documentation available for the remote or on-site\nreview team’s inspection at the beginning of the review. Without limiting the scope of an audit, an inspection would\ngenerally be expected to cover the following:\n•\nYour receipt and use of the Information within Your systems and Your Service;\n•\ncontrols over use of the Information by any Sub-vendors, Subscriber Firms, Web-hosting arrangements etc;\n•\ncontrols over access to the Information within Your organisation;\n•\nInformation distributed to Closed User Groups and validation of the Access & Entitlement system used;\n•\nInformation distributed to Open User Groups;\n•\nEnd User access to and use of Information;\n•\nNon-Display Application access to the Information;\n•\nDatefeed and API access to the Information\n•\nTrade Execution Venues;\n•\ncompleteness and accuracy of monthly remittance reports; and\n•\nany other issues identified during the course of the audit.\nThe following information should be available the day of the review; You may fall into more than one of the categories\nbelow:\nFor Internal and External Distributors:\n•\nA summary of the sales process, and Your Access & Entitlement System.\n•\nUsage reporting procedures and systems.\n•\nA system-generated list from the Access & Entitlement System of all Non-Display Applications, Devices and/or End\nUsers that are entitled to access Real Time Information, including details such as discrete Application ID’s, Device\nIDs or unique user ID’s or other appropriate security for each End User. This list should be sorted to facilitate cross-\nreferencing to monthly remittance reports.\n•\nA list of all administrative, developmental, or other non-billable users with access to continuously updating\nInformation. This report should include the user’s name, company, department, and reason for the special\nentitlement.\n•\nA demonstration logon and URL address for externally distributed Internet-based products to be provided to ASX\nprior to the review.\n•\nReady access to all executed Subscriber Agreements between You and Your customers and a print out of all\ncustomer details, including any customers to whom You provide a Datafeed for the purposes of them distributing\nthe Information either to their own customers, or in the case of Subscriber Firms, for their internal use.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 38/46\nFor 3rd Party Datafeed Distributors Only:\nA system generated list of all real-time and delayed Datafeed subscribers. Where Delayed Information is supplied to a",
+      "page": 37
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "rd party, You must provide an overview of the process used to delay the Real Time Information.\nSingle Enquiry Distributors Only:\nA detailed written description of the per announcement, and the per quote, counting mechanisms and a copy of the\nreport that totals the Information distributed each month. Where You are “capping” individual users, a detailed report\non a per user basis, listing the user, ASX code, date and time is required.\nTime Based Distributors Only:\nA detailed written description of the time-based counting mechanism and a copy of the report that totals the minutes\ndistributed each month. Where You are “capping” individual users, a detailed report on a per user basis, listing the user,\ndate and amount of time spent accessing ASX Trade Information is required. Accessing of real-time company\nannouncement information cannot be included as part of Time Based remittance.",
+      "page": 38
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": ".\nFinalising the Audit\nAfter the review, We will send a follow-up communication to You summarising the findings in a preliminary report. The\npreliminary report will outline any outstanding items and the follow-up actions that We require of You. You must\nrespond to the preliminary report in writing within 14 days of the date of issue.\nIf you do respond, any comments made by You will be taken into account in preparation of the final report. Any lack of\ndocumentation to support the figures reported to Us by You in your response will also be included in the final report.\nThe lack of such documentation does not, in itself, indicate a reporting error. However, it may result in additional\nenquiries, validation tests, end-user site and/or external service provider visits or other investigations being conducted\nby Us.\nIf You do not respond, the results of the audit, as set out in the preliminary report, will be treated as undisputed and\nwill be used as the basis for determining the final report and the settlement amount, whereupon we will issue an\ninvoice to You. If You raise objections to the report at a later date, You shall bear the full burden of proof.\nIf You do raise any objection to the amount specified in the final report, You will need to provide Us with full\ndocumentary evidence to support the objection and We will work with You to agree a settlement within 30 days of the\ndate on which Your objection is received. If no settlement is agreed within the 14 days of receipt of this final report, and\nboth parties have failed to agree on an alternative means of resolving the dispute, We have the right to bill You an\nestimated amount taking into account any evidence You have provided.\nIf You do not raise any substantive objections within 14 days of receiving the final report, the results of the audit will be\nconsidered to be accepted and will be used as the basis for audit settlement whereupon we will issue an invoice to You\nif We have not already done so.\nYou must respond promptly to the audit report by taking appropriate steps to implement any procedures or processes\nidentified in the audit report to ensure compliance with the Market Information contractual framework.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 39/46",
+      "page": 38
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ". General Provisions\nThis section applies to all products and services covered by this Guide.",
+      "page": 39
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": ".\nLimited Extracts\nLimited Extracts and Systematic Distribution, Display or Processing\nYou may permit End Users to publish, on an ad-hoc and non-continuous basis in written or oral communication,\ninsubstantial amounts or limited extracts of static Information to their clients in connection with the End Users ordinary\nbusiness as a Financial Services provider, provided:\na. it does not constitute regular or systematic distribution, display or processing of the Information;\nb. it does not involve the provision of Real Time Information or any other form of continuously updating or\nstreaming Information; and\nc.\nit is attributed to Us.\nExamples of “limited extracts” include written advertisements, correspondence and ad-hoc business or client reports.\nThis extends to allowing End Users to provide small or insignificant parts of the Information in response to telephone\nenquiries from clients. However, it does not extend to computerised voice, automated information enquiry systems or\nother similar forms of technology.",
+      "page": 39
+    },
+    {
+      "number": "10.2",
+      "title": "",
+      "text": ".\nDerived Information\nYou acknowledge and agree that manipulation of the Information or any other process used to create Derived\nInformation does not impact on or reduce its value. You must ensure that the relevant Fees are paid for any use or\ndistribution of the Derived Information under the Agreement.\nSingle security financial instruments created by You that are tracking ASX securities on a one-to-one basis are classified\nas Derived Information.\nUnless otherwise specified, the Fees payable and applicable Units of Count in respect of Derived Information are those\nthat apply in relation to Real Time Information, Delayed Information or End of Day Information.",
+      "page": 39
+    },
+    {
+      "number": "10.3",
+      "title": "",
+      "text": ".\nMandatory Disclaimers\nWe require that any screens, internet sites, pagers, wallboards or any other Devices that display Delayed Information or\nEnd of Day Information must carry a prominent warning specifying that the Information is time delayed.\nThis warning must take the form of a message or other indictor appearing somewhere on each page that displays the\nInformation or as a time stamp attached to each price, quote or company announcement. In the case of a\nWallboard/Ticker display, the delay message should be interspersed with the market information at least every 90\nseconds. In instances where it is not possible to display such a message on the Device, similar wording needs to form\npart of the end-customer agreement.",
+      "page": 39
+    },
+    {
+      "number": "10.4",
+      "title": "",
+      "text": ".\nAcademic Waivers\nWe offer academic waivers for Real Time Information to qualifying Universities, or other approved educational\npurposes, within Australia to help offset research and training costs. Customers may apply for a waiver of the monthly\nfees associated with those Devices used by students and professors in the research and classroom environments only.\nTo be considered for an academic waiver, the Vice Chancellor or equivalent should submit a written request to the\nMarket Information division of ASX Operations. The request must be printed on university letterhead and include the\nfollowing information:\n•\nname and description of the academic program\n•\ncompany and contact name of the Vendor / Nominated Third Party to provide the Information\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 40/46\n•\nnumber of Devices with access to Real Time Information\n•\napproximate number of students and faculty in program\n•\nbrief description of how the Information will be used in program\n•\na statement that the Information will not be used in any commercial venture\nThe request should be sent to the following address:\nASX Operations Pty Limited\nInformation Services\nLevel 3",
+      "page": 39
+    },
+    {
+      "number": "20",
+      "title": "Bridge Street,",
+      "text": "Sydney NSW 2000\nAustralia\nOnce approved, a letter will be sent to the vendor concerned waiving the requirement to remit monthly fees to Us for\nup to a maximum of 30 Devices, either as standalone terminals or delivered via a server. This process will also require a\nsigned letter from the University acknowledging, among other things, Our Intellectual Property Rights. Responsibility for\ncompliance with Our terms and conditions rests with the NTP and the University.\nIt should be noted that the Academic Waiver Program applies only to the monthly ASX and ASX 24 Enquiry Fees. The\nprogram does not cover NTP’s access or telecommunication charges.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 41/46",
+      "page": 40
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": ". Glossary\nThe following definitions apply to Our Information Services, in addition to those defined in the General Terms and\nConditions:\nApplication\nmeans a computer program accessing, processing, or consuming the Information for a\npurpose other than in support of its Display or distribution.\nAPI\nAPI Software\nmeans the Software (and any Updates of that software) known as ‘OMnet Application\nProgramming Interface’ and the Software known as the 'OMX Application Programming\nInterface' as more fully described in the Open Interface Manual and supplied to You by an\nAuthorised Developer.\nASP (Application\nService Provider)\nmeans an organisation, typically a Distributor, providing trading connectivity to Markets\noperated by the ASX Group through hosting trading infrastructure on behalf of an ASX\nParticipant\nASX 24 Market\nGateway\nHardware and protocol to support connection to the ASX Trade 24 system\nGateway Session\nmeans a logical connection maintained between Your System and Our system.\nASX Quoted Financial\nProducts\nmeans financial products quoted or admitted to trading status on the licensed financial\nmarkets operated by the ASX Group.\nAuthorised Developer\nmeans a person who acquires API Software from Us under a Development Agreement.\nBSP (Broker Service\nProvider)\nmeans an organisation, typically a Distributor, that at the request of an ASX Participant is\nbeing provided that Participant’s Restricted Information or Broker Specific Information by\nUs, solely for the purpose of providing a service to that Participant.\nBroker Specific\nInformation\nPer definition in MarketSource Agreement:\n“Broker Specific Information” means the information specific to a Participant that instigated\na transaction on either the ASX Trade or ASX Trade24 trading system and which is not\ndistributed by Us to other Participants, including but not limited to, the following:\n•\nClient references on orders and trades\n•\nIceberg quantities on orders\n•\nThe Broker Identifier or Broker name associated with an order or trade\n•\nin relation to Cash Market Products other than Warrants\n•\nThe unique identifier of a Trading Participant allocated by the ASX\n•\npursuant to the ASX Market Rules, i.e. the Broker Number, in relation\n•\nto Cash Market Products other than Warrants and ETO\n•\nSome order types, e.g. SHL - Short Sell, PST – Price Stablisation\n•\nSignum (session identifier) on orders and trades\n•\nExpiry dates on orders\n•\nCentre Point Orders and associated execution instructions\n•\nThe short sell parameter on own trades\n•\nTrades with condition codes:\nBP – Booking Purposes\nLN – Loan\nLR – Loan Return\nConnectivity Test\nmeans the tests and procedures described as mandatory connectivity tests in the manuals.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 42/46\nDistributor\nor often referred to as an information vendor, means an organisation subscribing to the\nInformation Services for the purpose of disseminating to Subscriber Firms or End Users. A\nSub-vendor is similarly a Distributor that receives the Information from another Distributor\nrather then directly from Us. Typically a Distributor is not a consumer of the Information.\nDevelopment\nAgreement\nmeans a written agreement with Us (known as the ‘Development Agreement’) governing\nthe supply, incorporation with other software and testing of API Software.\nEnd User\nmeans a natural person and a consumer of the Information. Certain End Users may also be\nclassified as Non-Professional Investors (NPI).\nFinancial Service\nhas the meaning given to that term in the Corporations Act.\nMarket Depth\nmeans an aggregate of all orders at one price step for a security\nMarket Detail\nmeans every order in the order book for a specific security\nMarket Operator\nmeans a person who holds an Australian market licence as defined in the Corporations Act.\nMSP (Managed\nService Provider)\nmeans an organisation, typically a reseller or channel partner, who purchases ALC\n(Australian Liquidity Centre) cabinets and power with the intention of providing managed\nservices to Our mutual customers.\nNon-Display\nApplication\nmeans an application used for accessing, processing, or consuming the Information for a\npurpose other than in support of its display or distribution.\nIncluding consumption of the Information for the purpose of monitoring trading activity,\ngenerating quotes or executing transactions in an automated fashion; it further\nencompasses any uses of the Information within a Reference Based System.\nNPI (Non Professional\nInvestor)\nmeans any person who accesses the Information for their personal and private use. This\nexpressly excludes, without limitation, the following:\n•\nanybody registered with any securities agency, regulatory or self-regulatory body;\n•\nanybody engaged in a financial services business or employed as a financial adviser;\n•\nanybody accessing or using the Information other than for personal use relating to their\nown investment portfolio;\n•\nanybody accessing the Information in the course of their employment or in connection\nwith any form of trade or business;\n•\nanybody engaged in the business of accessing or aggregating information and\nredistributing or otherwise furnishing that information to third parties;\n•\nif the Subscriber Agreement between the End User and the NTP is signed in a name\nother than the name of the End User in their personal capacity.\nThe definition of NPI should be construed as allowing natural persons associated with non-\ncommercial organisations (such as family investment trusts, self-managed super funds, and\ninvestment clubs), to access the Information at the Non-professional Continuous Enquiry\nFee. Please note that the non-commercial organisation itself cannot be construed as a NPI,\nnor can any professional staff paid to support its activities – e.g. lawyers, accountants,\nadministrative staff etc.\nCustomers must verify the status of any End User who requests to use the fee applicable to\nNPI’s.\nNSP (Network Service\nProvider)\nmeans an organisation, typically a telecommunications company, with a presents in the ALC\n(Australian Liquidity Centre) telco room(s) providing network access to Our mutual\ncustomers.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 43/46\nOMX (NASDAQ OMX\nTechnology AB)\nmeans NASDAQ OMX Technology AB of Tullvaktsvägen 15, SE-105 78 Stockholm, Sweden, a\ncompany incorporated in Sweden under the registration number 556314-8138.\nOpen Interface\nManual\nmeans the document titled ‘ASX Trade Open Interface Manual’ published by Us.\nQualification Test\nmeans the ASX Qualification Test published by Us under that title.\nReference Based\nSystem\nmeans any system operated by a Trade Execution Venue which enables orders, trades or\nsecurity status for ASX Quoted Financial Products to be entered, maintained or executed on\nthat venue determined by reference to Information acquired or derived from ASX’s\nInformation, including but not limited to a bid, offer, midpoint, executed or other price, and\nsecurity status.\nRestricted\nInformation\nPer definition in MarketSource Agreement. Also see Broker Specific Information.\nService Facilitator\nmeans a person or organisation to which a Distributor or vendor out-sources the\nresponsibility for managing some aspects of its technical, financial, legal, or operational role\nin distributing the Information. Service Facilitators may be sales agents of the Distributor or\nvendor, software developers, telecommunications providers, facilities managers, property\nmanagers or providers of other support services. Service Facilitators have no right to use\nInformation outside the Distributor’s or vendor’s service.\nSubscriber Firm\nmeans a consumer of the Information either within Non-Display Applications or for the\npurpose of Display to its staff. A Subscriber Firm disseminating Information beyond its staff\nis regarded as a Distributor. As a result, the term Subscriber Firm includes Participants,\nwhich are commonly referred to as brokers or member firms.\nTelecommunication\nLines\nmeans the telecommunication lines organised by Us to enable You to connect to ASX\nInformation Services.\nTrade Execution\nVenue\nis any facility which is used for multilateral trading in financial products, including a\n“financial market” (as defined in Part 7.1 of the Corporations Act) or “dark pool”, whether\nthe facility is licensed or unlicensed and whether it is operated within or outside of Australia.\nTop of Market\nInformation\nmeans best bid and offer, open, high, low, last, volume and value. It expressly excludes\nmarket depth or detail;\nURL\nmeans the address of a resource or file available on the internet containing the resource\nprotocol (e.g. http://), the domain name for the resource, and the hierarchical name for the\nfile (address).\nUpdate\nmeans, in respect of any Software, each upgrade or new version of that Software that is\nintended to correct errors or defects in or provide new functionality or enhancements to\nthat Software\nWebsite\nmeans an internet site determined by Us to be a single website for purposes of reporting or\nFees payment. A website may be:\na.\na home page and/or pages linked to the home page, forming all or part of a single\ndistinct website;\nb. a URL;\nc.\nan individual product, service or publication having its own domain name, identity\nor brand;\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 44/46\nd. any pages linked to the home page of a single distinct website that incorporates a\nWeb-hosted solution provided by a Distributor or Sub-vendor;\ne. a wireless application protocol (WAP) page.\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 45/46\nASX Information Services\nProcedures Certificate – Broker Services Provider\nI [INSERT FULL NAME] of [INSERT ADDRESS], being a duly authorised officer of [INSERT FULL NAME OF CUSTOMER]\n(‘Customer’) and having made all due and proper enquiries, am satisfied that:",
+      "page": 41
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ". the Customer has established and implemented the procedures and systems described below pursuant to Schedule",
+      "page": 45
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "of the MarketSource Agreement dated [INSERT DATE] (‘Agreement’)\n[DESCRIBE HERE ALL RELEVANT DETAILS OF THESE PROCEDURES AND SYSTEMS]",
+      "page": 45
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". the procedures and systems (as described above) are effective to ensure compliance with the Customer’s\nobligations under Schedule 1 of the Agreement.\nDate:\nSignature:\nName:\nPosition:\nOrganisation:\n© 2025 ASX Limited ABN 98 008 624 691 | Version 2.30 | September 2025\nProduct and Services Guide 46/46\nGet in touch\nContent and System Support\nSubscribers with content or connectivity queries\ncan contact the ASX Technical Support team:\nMon-Fri 8.30am – 6.00pm (AEST)\nexcluding public holidays",
+      "page": 45
+    },
+    {
+      "number": "131",
+      "title": "ASX (131 279)",
+      "text": "+61 2 9338 000 (from overseas)\nASX Information Services\nShould you wish to contact the ASX Information Services\nteam to receive further information or discuss products,\nplease email information.services@asx.com.au\nasx.com.au\nASX\nOfficialASX\nASX_official\n@ASX\nASXLtd\nDisclaimer:\nThis Schedule of Fees sets out fees applicable to ASX Technical Services and Information Services, including the MarketSource, ComNews and ReferencePoint\nservices, which are supplied by ASX Operations Pty Limited ABN 42 004 523 782, a wholly owned subsidiary of ASX Limited ABN 98 008 624 691. This Schedule of\nFees also sets out fees applicable to ASX Benchmark Data services, which are supplied by ASX Benchmarks Pty Limited ABN 38 616 075 417, a wholly owned\nsubsidiary of ASX Limited ABN 98 008 624 691. All fees are shown in Australian dollars. All fees are effective from the effective date and are subject to change from\ntime to time. © Copyright 2025 ASX Operations Pty Limited and its related bodies corporate. All rights reserved. The trade marks listed below are trademarks of\nASX. Where a mark is indicated as registered it is registered in Australia and may also be registered in other countries. Nothing contained in this document should\nbe construed as being any licence or right to use any of the trade marks contained within the document.\nASX®, BBSW®, MarketSource TM, ASX Trade®, ASX TradeMatch®, Centre Point Order®, ReferencePoint®, ComNews®, Derivatix®.",
+      "page": 46
+    }
+  ]
+}

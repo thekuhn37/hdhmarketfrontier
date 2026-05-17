@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+docs/
+design.md
+README.md
+CLAUDE.md

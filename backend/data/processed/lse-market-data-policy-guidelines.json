@@ -1,0 +1,460 @@
+{
+  "exchange": "LSE",
+  "agreement_type": "information",
+  "agreement_title": "LSE Market Data Agreement",
+  "version": "",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": null,
+  "data_categories": [],
+  "use_policies": [],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": null,
+  "compliance_obligations": [],
+  "termination_provisions": [],
+  "wind_down": null,
+  "redistribution_restrictions": [],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": null,
+  "dispute_resolution": null,
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "2",
+      "title": "",
+      "text": "London Stock Exchange Market Data Policy\nGuidelines",
+      "page": 2
+    },
+    {
+      "number": "1",
+      "title": "INTRODUCTION",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "1.1",
+      "title": "",
+      "text": ". The purpose of this document is to provide examples and guidance on how policies and reporting are applied in practice. The\ninformation provided is not exhaustive, as such please contact the Market Data team at marketdata@lseg.com  to discuss specific use\ncases and queries.",
+      "page": 2
+    },
+    {
+      "number": "1.2",
+      "title": "",
+      "text": ". The Exchanges reserve the right to update this document from time to time, with additional guidance to assist Customers with\ndetermining applicable licences and policies. The Exchanges will communicate any material change to interpretation and applicability of\nlicences and policies in accordance with the Agreement.",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "GENERAL GUIDANCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ". Licensing under the Agreement is generally technology-agnostic, in so far that the licence is applied based on the ‘what’ the Customer is\ndoing with the Data, instead of ‘how’ this is being done. Accordingly, the policies apply whether the data is being used through traditional\ntechnical set ups, cloud-based arrangements, or solutions powered by artificial intelligence.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ". Licensing discussions with your account manager may determine that licensing should have been in place for a period of time prior to\ndiscussions taking place. In line with our approach to audits, the approach is to put in place any licensing that would have been held if\nthe Customer was compliant with all policies, and accordingly, licences are backdated to either (i) when the Customer commenced the\nLicensable Activity, or (ii) when an activity was made a Licensable Activity by the Exchange. This is integral to maintenance of the level\nplaying field between customers.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ". Audit, and information exchanged as part of an audit are covered by the confidentiality provisions in clause 10 of the Terms and\nConditions.",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": ". In order to benefit from the Agreement, affiliated entities of the Customer must be considered a ‘subsidiary’ as defined in section 1159 of\nthe Companies Act 2006 and must be listed on the Order Form. The Exchanges reserve the right to approve affiliated entities who would\nnot meet the aforementioned criteria due to ownership structure variations where for jurisdictional reasons, but equivalent control can be\nevidenced.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "REDISTRIBUTION GUIDANCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": ". Redistribution licences are required for provision of Data outside of a Customer and/or its Subsidiaries as appropriate.",
+      "page": 2
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": ". There are a number of limited licences which are appropriate for certain restricted use cases, otherwise a standard licence is\nappropriate.",
+      "page": 2
+    },
+    {
+      "number": "3.3",
+      "title": "",
+      "text": ". The below summarises each redistribution licence. The example use cases are not exhaustive, and instead seek to confirm which\nlicence category is typically appropriate for certain uses:\nCore Redistribution\nlicence\nA licence for redistribution to Professional Customers, or both Professional Customers and Private Investors\nTypical use case: provision of Real Time Data via display and/or datafeed products\nPrivate Investor\nRedistribution licence\nA licence for redistribution solely to End Customers who qualify as Private Investors\nTypical use case: provision of Data by retail brokers and specialist Redistributors\nDelayed Data / After\nMidnight Redistribution\nlicence\nA licence for redistribution of Delayed Data and / or After Midnight Data delivered via controlled mechanisms\nrespectively\nTypical use case: website distribution, including customer portals, client reports\nHistorical Redistribution\nlicence\nA licence for redistribution of After Midnight Data delivered via uncontrolled mechanisms\nTypical use case: Cloud-based tick service, delivery of After Midnight Data via datafeed\nPer Price Request licence\nA licence for Data redistribution where the End Customer actively requests a data point, instead of the Data\nautomatically being refreshed\nTypical use case: website distribution, including customer portals, display terminals, telephone information services,\ninteractive services delivered via televisions\nTV Ticker licence\nA licence for redistribution of individual quotes via TV Devices\nTypical use case: news services on TVs\nUnlimited Private Investor\nlicence\nA licence for redistribution of Data to an unlimited number of End Customers who qualify as Private Investors\nTypical use case: redistribution by retail brokers\nLondon Stock Exchange Market Data Policy Guidance\nDate of issue: 01 January 2025",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "Enterprise internal use for\njournalistic purposes\nA licence for consumption of Data by an unlimited number of Users who are conducting journalistic activities\nTypical use case: use within newsroom for internal users\nLive Ticker for Issuers\nlicence\nA licence for provision of the real time share price of a company listed on the LSE, by such company\nTypical use case: investor relations portals\nInvestor Relations licence\nA licence for delayed provision of up to 4 share prices of companies listed on the LSE\nTypical use case: investor relations portals\nLast Trade Price licence\nA licence for redistribution of certain data points on open websites for Private Investors\nTypical use case: website distribution",
+      "page": 3
+    },
+    {
+      "number": "3.4",
+      "title": "",
+      "text": ". Where redistribution of any Delayed Data and/or After Midnight Data occurs under any Licensable Activity, and no commercial benefit is\nreceived from such redistribution, the Customer may request a fee waiver.",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "DERIVED DATA GUIDANCE",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": ". Derived Data licences are required for a number of use cases, and these are broadly carved into four categories of licence:\nIndices/Benchmarks\nlicence\nA licence for creation of Indices/Benchmarks as defined under the Benchmark Regulations\nTypical use case: creation of basket index, used as an underlying for financial instruments\nDerived Data other than\nIndices/Benchmarks\nA licence for creation of Derived Data which is not Indices/Benchmarks, and is not operation of a Derived Data ATP\nor Raw Data ATP\nTypical use cases: risk management applications including risk analysis, indicators/statistics, fundamental and\ntechnical analysis like momentum oscillators, Relative Strength Index, stochastic oscillators, moving averages, acting\nas the calculation agent for the calculation and provision of NAVs/iNAVs on behalf of third parties, the creation and\ndistribution or bespoke or tradeable instruments for or to third parties, the creation and distribution of indicative prices\nbased on the Data, VWAP calculation and distribution, portfolio management tools that provide portfolio\nevaluation/analysis in order to assess the adequacy of the portfolio to certain parameters\nDerived Data ATP\nA licence for creation of certain instruments using Derived Data\nTypical use case: creation of CFDs, spread betting instruments, binary options\nRaw Data ATP\nA licence for creation of certain instruments using Data\nTypical use case: creation of CFDs, spread betting instruments, binary options",
+      "page": 3
+    },
+    {
+      "number": "5",
+      "title": "SERVICE FACILITATION GUIDANCE",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": ". The Exchanges permit two types of Service Facilitator to be recognised under the Agreement.\nRedistribution Service Facilitators",
+      "page": 3
+    },
+    {
+      "number": "5.2",
+      "title": "",
+      "text": ". Redistribution Service Facilitators enable licensed Redistributors to extend their distribution channels to End Customers, whether\nthrough technical or commercial arrangements.",
+      "page": 3
+    },
+    {
+      "number": "5.3",
+      "title": "",
+      "text": ". The following examples provide guidance on how the policy is applied in practice:",
+      "page": 3
+    },
+    {
+      "number": "5.3.1",
+      "title": "",
+      "text": ". Redistribution partner – Redistributor branded solutions\nAs the\nbranding is solely of the\nRedistributor in this scenario, no\nadditional Charge would apply.",
+      "page": 3
+    },
+    {
+      "number": "5.3.2",
+      "title": "",
+      "text": ".\nRedistribution partner –\nPartner branded or co-branded\nsolutions - ‘vendor of record’\nLondon Stock Exchange Market Data Policy Guidance\nDate of issue: 01 January 2025",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "As the branding is not solely of the Redistributor in this scenario, Service Facilitator Licence Charges would apply.",
+      "page": 4
+    },
+    {
+      "number": "5.3.3",
+      "title": "",
+      "text": ". Software developer\nIn this scenario, the software developer has no external clients and has no direct involvement in the provision of Data to End\nCustomers. As such, no additional Charge would apply.",
+      "page": 4
+    },
+    {
+      "number": "5.3.4",
+      "title": "",
+      "text": ". Sales agent\nIn this scenario, the sales agent has no direct external clients and instead promotes the Redistributor’s services and products. As\nsuch, no additional Charge would apply.\nDerived Data White Labels\nLondon Stock Exchange Market Data Policy Guidance\nDate of issue: 01 January 2025",
+      "page": 4
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "5.4",
+      "title": "",
+      "text": ". Customers using the Data in a Derived Data ATP may choose to offer their service as a white label to customers who in turn offer the\nservice, often co-branded, to their own end customers. This is subject to an additional annual fee and must be included in the licence\napplication of the Customer offering the Derived Data ATP.",
+      "page": 5
+    },
+    {
+      "number": "6",
+      "title": "NON-DISPLAY USAGE GUIDANCE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": ". Non-Display Data Usage pertains to ‘trading based activities’ only, and the category of use depends on the type of trading activity –\nwhether a Customer is trading on their own account, on behalf of clients or in operation of a trading platform such as an MTF.",
+      "page": 5
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": ". For the avoidance of doubt, Non-Display Usage in a hosted environment requires a Non-Display Usage licence and for most technical\nset ups, it would be the End Customer of the hosted environment who would require the relevant Non-Display Usage licence.",
+      "page": 5
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": ". Trading on a matched principal basis is used to facilitate client basis, therefore in this scenario, a client facilitation licence is required. If\nnot matched, both principal and client facilitation categories apply.",
+      "page": 5
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": ". Examples of use cases which would require licensing include, but are not limited to:",
+      "page": 5
+    },
+    {
+      "number": "6.4.1",
+      "title": "",
+      "text": ". semi-automated or automated order/quote generation",
+      "page": 5
+    },
+    {
+      "number": "6.4.2",
+      "title": "",
+      "text": ". order pegging including reverse pegging",
+      "page": 5
+    },
+    {
+      "number": "6.4.3",
+      "title": "",
+      "text": ". mid bid / offer pegging",
+      "page": 5
+    },
+    {
+      "number": "6.4.4",
+      "title": "",
+      "text": ". limit order pegging",
+      "page": 5
+    },
+    {
+      "number": "6.4.5",
+      "title": "",
+      "text": ". price referencing for trading purposes (excluding in the operation of an ATP)",
+      "page": 5
+    },
+    {
+      "number": "6.4.6",
+      "title": "",
+      "text": ". automated or semi-automated pre-trade risk verification or assessment processes",
+      "page": 5
+    },
+    {
+      "number": "6.4.7",
+      "title": "",
+      "text": ". smart order routing to facilitate trading",
+      "page": 5
+    },
+    {
+      "number": "6.4.8",
+      "title": "",
+      "text": ". arbitrage",
+      "page": 5
+    },
+    {
+      "number": "6.4.9",
+      "title": "",
+      "text": ". order management",
+      "page": 5
+    },
+    {
+      "number": "6.4.10",
+      "title": "",
+      "text": ". execution management",
+      "page": 5
+    },
+    {
+      "number": "6.4.11",
+      "title": "",
+      "text": ". electronic order flow and liquidity management systems",
+      "page": 5
+    },
+    {
+      "number": "6.4.12",
+      "title": "",
+      "text": ". market making",
+      "page": 5
+    },
+    {
+      "number": "6.4.13",
+      "title": "",
+      "text": ". ‘black box’ trading",
+      "page": 5
+    },
+    {
+      "number": "6.4.14",
+      "title": "",
+      "text": ". program trading",
+      "page": 5
+    },
+    {
+      "number": "6.4.15",
+      "title": "",
+      "text": ". algorithmic trading",
+      "page": 5
+    },
+    {
+      "number": "6.4.16",
+      "title": "",
+      "text": ". operating multilateral trading facilities/dark pools, systematic internalisers.\nNumber of entitlements to applications",
+      "page": 5
+    },
+    {
+      "number": "6.5",
+      "title": "",
+      "text": ". The Unit of Count for the purpose of the Non-Display Usage Licence categories ‘Trading as Principal’ and ‘Client Facilitation’ is the\nnumber of entitlements to applications, meaning the number of Devices capable of accessing, receiving, processing or otherwise using\nthe Data for Non-Display Usage. Where a Device can simultaneously access the data multiple times, each entitlement/instance of the\nDevice is counted.",
+      "page": 5
+    },
+    {
+      "number": "6.6",
+      "title": "",
+      "text": ". For the purposes of counting the number of entitlements to applications for Non-Display Usage licensing, disaster recovery\nentitlements/instances of applications can be omitted, unless such disaster recovery instances run in production environments.",
+      "page": 5
+    },
+    {
+      "number": "6.7",
+      "title": "",
+      "text": ". If the Customer cannot determine the number of entitlements to applications, the Enterprise banding should apply for each category of\nNon-Display Usage.",
+      "page": 5
+    },
+    {
+      "number": "6.8",
+      "title": "",
+      "text": ". Any changes to the number of entitlements to applications, or Data Product should be reported to the Exchange.",
+      "page": 5
+    },
+    {
+      "number": "7",
+      "title": "OTHER APPLICATION USAGE GUIDANCE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": ". Other Application Usage refers to non-trading based activities using the data for purposes other than simple display.",
+      "page": 5
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": ". Any changes to the number of entitlements of applications, or Data Product should be reported to the Exchange.",
+      "page": 5
+    },
+    {
+      "number": "8",
+      "title": "DATA CHARGE AND UNIT OF COUNT GUIDANCE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": ". The following examples provide guidance on applying the Unit of Count as described in the Reporting and Audit Schedule.\nOne data control unit (e.g., keyboard), one Device\nOne Data Charge per Data Source\nLondon Stock Exchange Market Data Policy Guidance\nDate of issue: 01 January 2025",
+      "page": 5
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "One keyboard, more than one Device\nOne Data Charge per Data Source\nTwo stand-alone (i.e., non-networked) Devices on one desk\nOne Data Charge per Data Source per Device\nAssuming one Data Source per Device, this configuration attracts two charges.\nTwo stand-alone Devices connected by a keyboard\nOne Data Charge per Data Source\nDevices which would otherwise be classed as standalone, but which are linked by some form of single keyboard\ndevice are classed as a single chargeable Device.\nSlave Devices (not necessarily on the same desk)\nOne Data Charge per Data Source\nA slave Device mirrors what the controlling Device displays and is incapable of being controlled independently,\nwhether in whole or in part.\nDevices with multiple controls\nOne Data Charge per Data Source\nAlthough in this example there can be more than one user, this configuration attracts only one set of charges\nbecause each keyboard contends for access\nWallboards\nOne Data Charge per Data Source\nPublic display wallboards and other public ‘ticker’ or Data displays attract one Data Charge per Device per Data\nSource for the display of Data.\nRemote Devices\nRemote Devices, such as mobile phones and tablets, which use the same log in credentials to receive Data as an office- based Device do not\nattract additional Data Charges as long as the office-based Device is disabled (i.e., cannot be used) while the remote device is in operation\nand vice versa.\nMultiple applications\nWhere a Unique User ID or Device is permitted access to Data via multiple display applications, the Data Charge applies per Unique User ID\nor Device per Data Source, regardless of the number of display applications.\nElectronic messaging\nFor electronic messaging services (such as text messaging, emails and alerts), the Per-Price Request tariffs apply to the display of Data.\nMember Data Charges",
+      "page": 6
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": ". Certain regulatory authorities in some countries (such as the USA) prevent broker offices, located in those countries, from taking\nadvantage of member Data Charge rates, even though those offices may in fact be conducting London Stock Exchange business\n(routing orders indirectly through to London ‘member’ locations for direct execution). Member firms may additionally register these\nlocations as eligible for these Data Charge discounts.",
+      "page": 6
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": ". This criterion does not include any buy-side business entities that may be subsidiaries of the firm.",
+      "page": 6
+    },
+    {
+      "number": "9",
+      "title": "LICENSING APPLICATIONS AND ONGOING MANAGEMENT",
+      "text": "London Stock Exchange Market Data Policy Guidance\nDate of issue: 01 January 2025",
+      "page": 6
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": ". Licensing applications can be submitted on the London Stock Exchange licensing portal (“Licensing Portal”).",
+      "page": 7
+    },
+    {
+      "number": "9.2",
+      "title": "",
+      "text": ". The Licensing Portal requires submission of relevant information to the Exchanges to ensure the licensing is put in place for all use of the\nData deemed to be Licensable Activities.",
+      "page": 7
+    },
+    {
+      "number": "9.3",
+      "title": "",
+      "text": ". When processing a licensing application, if the Exchange requires more information to determine if the correct licences are being put in\nplace, the order may be returned to the order owner to request further detail.",
+      "page": 7
+    },
+    {
+      "number": "9.4",
+      "title": "",
+      "text": ". Following submission of an order on the Licensing Portal, but prior to approval by the Exchange, a draft Order Form will be generated\nwithin the Licensing Portal.",
+      "page": 7
+    },
+    {
+      "number": "9.5",
+      "title": "",
+      "text": ". Once satisfactory information has been provided, an executable Order Form is generated on the Licensing Portal to reflect the\ninformation submitted. Customers can elect to execute the Order Form, either by use of electronic signature software within the\nLicensing Portal, or alternatively Customers can download, print, sign and upload Order Forms.",
+      "page": 7
+    },
+    {
+      "number": "9.6",
+      "title": "",
+      "text": ". Upon submission of a signed Order Form, the relevant Exchange will provide countersignature. At this point, the licensing order is\ndeemed complete, and any signed documentation will be available in the Documents tab of the Licensing Portal.",
+      "page": 7
+    },
+    {
+      "number": "9.7",
+      "title": "",
+      "text": ". Customers are responsible for ensuring that contact details on the Licensing Portal are correct at all times.",
+      "page": 7
+    },
+    {
+      "number": "9.8",
+      "title": "",
+      "text": ". Changes to licensing requirements should be actioned through submission of an updated order within the Licensing Portal.",
+      "page": 7
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

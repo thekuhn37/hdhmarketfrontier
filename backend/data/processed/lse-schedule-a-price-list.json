@@ -1,0 +1,598 @@
+{
+  "exchange": "LSE",
+  "agreement_type": "fee_schedule",
+  "agreement_title": "LSE Market Data Agreement",
+  "version": "",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": null,
+  "data_categories": [],
+  "use_policies": [],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": null,
+  "compliance_obligations": [],
+  "termination_provisions": [],
+  "wind_down": null,
+  "redistribution_restrictions": [],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": null,
+  "dispute_resolution": null,
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "London Stock Exchange Market Data\nSCHEDULE A – PRICE LIST AND DATA PRODUCTS\n(Applicable for both London Stock Exchange and Turquoise Market Data)\nAnnex to the Terms and Conditions of the London Stock Exchange Market Data Agreement",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "Schedule A – Price List and Data Products",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "Schedule A – Price List and Data Products",
+      "page": 2
+    },
+    {
+      "number": "1",
+      "title": "INTRODUCTION",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "1.1",
+      "title": "",
+      "text": ". This Schedule sets out the Data Products which are available for licensing and/or receipt, and the applicable Charges. Clause 3 below\nsets out the Price List, and clause 4 sets out the Data Products available for licensing/receipt. For additional information on how the\nCharges apply in practice, please refer to the Market Data Policy Schedule.",
+      "page": 2
+    },
+    {
+      "number": "1.2",
+      "title": "",
+      "text": ". Please refer to the Terms, Order Form and the other Schedules for other defined terms used in this Schedule but not defined herein.",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "PRICE LIST INTRODUCTION",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ". Charges as listed in clause 3 of this Schedule apply per Customer, per Unit of Count, per Data Product applicable to the scope of use,\nand on a cumulative basis. Policy details and definitions in respect of Charges are available in the Market Data Policy Schedule, and as\nupdated by the Exchanges from time to time in accordance with the Terms.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ". All Charges exclude VAT and are in UK sterling as denoted. Licence Charges quoted are annual and invoiced annually in advance\nunless approved in writing by the Exchanges. Licence Charges are pro-rated monthly for the Initial Term.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ". Data Charges quoted are monthly unless otherwise stated. Data Charges are invoiced monthly in arrears.",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": ". Any fee waivers are until further notice, unless otherwise specified.",
+      "page": 2
+    },
+    {
+      "number": "2.5",
+      "title": "",
+      "text": ". The Exchanges reserve the right to amend any Charges at their sole discretion in accordance with the Terms.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "PRICE LIST",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": "REDISTRIBUTION LICENCE CHARGES",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1.1",
+      "title": "REAL TIME REDISTRIBUTION LICENCES",
+      "text": "Professional Users\nPrivate Investors 1\nLevel 2\nLevel 1\nPost-trade\nLevel 2\nLevel 1\nUK market Data\n£64,391\n£35,317\n£27,021\n£12,872\n£7,976\nETF/ETP\n£26,725\n£13,362\nAIM\n£26,725\n£13,362\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nInternational market Data\n£32,532\n£17,722\n£13,567\n£9,068\n£3,927\nEuropean market Data\n£17,618\n£8,933\n£6,661\nTurquoise market Data\n£34,520\n£13,809\nFee waived 2\nFee waived 3\nTurquoise Europe market Data\n£27,616\n£11,047\nFee waived 2\nFee waived 3\nSchedule A – Price List and Data Products",
+      "page": 2
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3.1.2",
+      "title": "DELAYED AND AFTER MIDNIGHT REDISTRIBUTION LICENCES",
+      "text": "Delayed Data\nAfter Midnight Data\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nUK market Data\nPer Website\n£12,777\n£5,661\nEnterprise\n£154,350\n£66,150\n£12,777\n£5,661\nInternational market Data\nPer Website\n£6,444\n£2,834\n£6,444\n£2,834\nTurquoise market Data\nEnterprise\n£6,444\n£2,834\n£6,444\n£2,834\nTurquoise Europe market Data 4\nEnterprise\n£5,156\n£2,267\n£5,156\n£2,267",
+      "page": 3
+    },
+    {
+      "number": "3.1.3",
+      "title": "HISTORICAL REDISTRIBUTION LICENCES",
+      "text": "Number of End Customers",
+      "page": 3
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-10",
+      "page": 3
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "-50\nEnterprise\nUK and International market\nData\n£12,278\n£25,555\n£51,110\nTurquoise market Data\n£5,156\n£10,311\n£20,622",
+      "page": 3
+    },
+    {
+      "number": "3.1.4",
+      "title": "OTHER LICENCES",
+      "text": "Per Price Request\nUK and International market Data\n£5,535\nTurquoise market Data\n£2,768\nTV Ticker\nUK and International market Data\n£5,661\nTurquoise market Data\n£2,834\nEnterprise internal use for\njournalistic purposes\nUK and International market Data\n£378,000\nLive Ticker for Issuers\n£5,661\nInvestor Relations\n£593\nLast trade price\nPer Website\nUK and International\nmarket Data\n£101,706\nTurquoise market Data\nFee waived\nEnterprise\nUK and International\nmarket Data\n£441,000",
+      "page": 3
+    },
+    {
+      "number": "3.1.5",
+      "title": "REDISTRIBUTION SERVICE FACILITATOR LICENCES",
+      "text": "Professional Users\nPrivate Investors\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nUK market Data\n£21,463\n£11,773\n£4,572\n£2,833\nInternational market Data\n£10,844\n£5,907\n£3,220\n£1,394\nTurquoise market Data\nFee waived",
+      "page": 3
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "Fee waived for eligible participants of the Retail Broker Order Book Trading Scheme. See the Retail Broker Order Book Trading Scheme Market Data Form for further\ndetails, including the eligibility criteria.",
+      "page": 3
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "Fee waiver applies until 31st December 2025.",
+      "page": 3
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "Fee waiver applies until 31st December 2026.",
+      "page": 3
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "Redistribution of Turquoise Europe market Delayed Data and After Midnight Data is fee waived where no commercial benefit is received.\nSchedule A – Price List and Data Products",
+      "page": 3
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.2",
+      "title": "DERIVED DATA LICENCE CHARGES",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.2.1",
+      "title": "CALCULATION AND REDISTRIBUTION OF INDICES / BENCHMARKS",
+      "text": "Number of End Customers",
+      "page": 4
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-10 (inc.\npublic\nwebsites)",
+      "page": 4
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "-50",
+      "page": 4
+    },
+    {
+      "number": "51",
+      "title": "",
+      "text": "-100",
+      "page": 4
+    },
+    {
+      "number": "101",
+      "title": "",
+      "text": "-250",
+      "page": 4
+    },
+    {
+      "number": "251",
+      "title": "",
+      "text": "-400",
+      "page": 4
+    },
+    {
+      "number": "401",
+      "title": "",
+      "text": "-700\nEnterprise\nUK market Data\n£11,863\n£18,696\n£24,924\n£37,380\n£56,075\n£93,444\n£124,596\nInternational market Data\n£5,943\n£9,343\n£12,456\n£18,696\n£28,027\n£46,722\n£62,292\nTurquoise market Data\nPlease contact LSE for more information",
+      "page": 4
+    },
+    {
+      "number": "3.2.2",
+      "title": "CALCULATION AND REDISTRIBUTION OF DERIVED DATA OTHER THAN INDICES / BENCHMARKS",
+      "text": "Number of End Customers",
+      "page": 4
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-10",
+      "page": 4
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "-50",
+      "page": 4
+    },
+    {
+      "number": "51",
+      "title": "",
+      "text": "-250\nEnterprise\nUK market Data\n£6,075\n£12,781\n£38,318\n£63,855\nInternational market Data\n£3,043\n£6,379\n£19,159\n£31,927\nTurquoise market Data\n£5,434\n£10,878\n£32,623\n£54,369\nTurquoise Europe market Data\n£4,347\n£8,702\n£26,099\n£43,495",
+      "page": 4
+    },
+    {
+      "number": "3.2.3",
+      "title": "RAW DATA ATP",
+      "text": "Level 2\nLevel 1\nUK market Data\n£87,655\n£35,053\nInternational market Data\n£43,827\n£17,527\nTurquoise market Data\n£43,827\n£17,527",
+      "page": 4
+    },
+    {
+      "number": "3.2.4",
+      "title": "DERIVED DATA ATP",
+      "text": "Base Fee (covers up to 500 Natural Users)\nLevel 2\nLevel 1\nUK market Data\n£87,655\n£35,053\nInternational market Data\n£43,827\n£17,527\nTurquoise market Data\n£43,827\n£17,527\nNo. Natural Users",
+      "page": 4
+    },
+    {
+      "number": "501",
+      "title": "",
+      "text": "-2,000",
+      "page": 4
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ",001-5,000",
+      "page": 4
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ",001-10,000\nEnterprise\nAdditional Fee\n+100% Base Fee\n+150% Base Fee\n+200% Base Fee\n+300% Base Fee",
+      "page": 4
+    },
+    {
+      "number": "3.2.5",
+      "title": "DERIVED DATA ATP WHITE LABEL LICENCE",
+      "text": "All market Data\n£6,518\nSchedule A – Price List and Data Products",
+      "page": 4
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "3.3",
+      "title": "NON-DISPLAY USAGE LICENCE CHARGES 5, 6",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "3.3.1",
+      "title": "TRADING AS PRINCIPAL",
+      "text": "Number of entitlements to applications",
+      "page": 5
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-5",
+      "page": 5
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "-10",
+      "page": 5
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "-30\nEnterprise\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nUK market Data\n£40,000\n£16,000\n£45,000\n£18,000\n£50,000\n£20,000\n£60,000\n£24,000\nETF/ETP\n£13,000\n£6,500\n£15,000\n£7,500\n£18,000\n£9,000\n£20,000\n£10,000\nAIM\n£13,000\n£6,500\n£15,000\n£7,500\n£18,000\n£9,000\n£20,000\n£10,000\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nInternational market Data\n£20,000\n£8,000\n£22,500\n£9,000\n£25,000\n£10,000\n£30,000\n£12,000\nTurquoise market Data 7\n£22,000\n£25,000\n£28,000\n£33,000\nSingle segment 8\n£7,260\n£8,250\n£9,240\n£10,890\nTurquoise Europe market Data\n£17,600\n£20,000\n£22,400\n£26,400",
+      "page": 5
+    },
+    {
+      "number": "3.3.2",
+      "title": "CLIENT FACILITATION",
+      "text": "Number of entitlements to applications",
+      "page": 5
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-5",
+      "page": 5
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "-10",
+      "page": 5
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": "-30\nEnterprise\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nUK market Data\n£40,000\n£16,000\n£45,000\n£18,000\n£50,000\n£20,000\n£60,000\n£24,000\nETF/ETP\n£13,000\n£6,500\n£15,000\n£7,500\n£18,000\n£9,000\n£20,000\n£10,000\nAIM\n£13,000\n£6,500\n£15,000\n£7,500\n£18,000\n£9,000\n£20,000\n£10,000\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nInternational market Data\n£20,000\n£8,000\n£22,500\n£9,000\n£25,000\n£10,000\n£30,000\n£12,000\nTurquoise market Data 7\n£22,000\n£25,000\n£28,000\n£33,000\nSingle segment 8\n£7,260\n£8,250\n£9,240\n£10,890\nTurquoise Europe market Data\n£17,600\n£20,000\n£22,400\n£26,400\nSchedule A – Price List and Data Products",
+      "page": 5
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "3.3.3",
+      "title": "TRADING PLATFORM",
+      "text": "Level 2\nLevel 1\nUK market Data\n£80,333\n£33,661\nETF/ETP\n£26,140\n£13,686\nAIM\n£26,140\n£13,686\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nInternational market Data\n£40,167\n£16,826\nTurquoise market Data\n£42,653\nSingle segment 8\n£14,076\nTurquoise Europe market Data\n£34,122",
+      "page": 6
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "Member Firms receive 12% discount on Level 2 Non-Display Usage Charges for UK market Data and International market Data.",
+      "page": 6
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "Entry level discount for new Non-Display Usage licence Customers. The Non-Display Usage Licence Charges will be discounted by 50% of the applicable Charge for\nthe first 12 calendar months from the Commencement Date of the Order Form, for new Customers who do not have an existing Non-Display Usage licence, nor\npreviously have had such licence or paid any Non-Display Usage Licence Charges for any such usage.",
+      "page": 6
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "Fee waiver for Turquoise Post-Trade Data only. Applies until 31st December 2025.",
+      "page": 6
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "Non-Display Usage Licences are available for all Turquoise market Data, or per ‘segment’, where each segment is one of the below sub-sections of data based on\nprimary market: (i) Continental Europe (Austria, Belgium, Czech Republic, France, Germany, Hungary, Netherlands, Poland and Portugal) only, (ii) US only, (iii) Nordics\n(Denmark, Finland, Norway and Sweden) only, (iv) Switzerland, Italy and Spain only, (v) UK, IOB and Ireland only. TGHE offers trading on all the segments listed in\nfootnote 14 above with the exception of UK, IOB, Switzerland and US. Per ‘segment’ Non-Display Usage Licences are not offered for Turquoise Europe market Data. For\nthe avoidance of doubt, Customers holding Turquoise market Data Single Segment Non-Display Licences are covered for that same segment for instruments traded on\nTGHE.",
+      "page": 6
+    },
+    {
+      "number": "3.4",
+      "title": "OTHER APPLICATION USAGE LICENCE CHARGES",
+      "text": "Number of entitlements to applications",
+      "page": 6
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "-3",
+      "page": 6
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "-6",
+      "page": 6
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "-10\nEnterprise\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nLevel 2\nLevel 1\nUK market Data\n£8,317\n£3,336\n£14,966\n£6,000\n£23,943\n£9,593\n£38,416\n£15,347\nETF/ETP\n£4,376\n£2,195\n£7,892\n£3,940\n£12,626\n£6,313\n£20,216\n£10,097\nAIM\n£4,376\n£2,195\n£7,892\n£3,940\n£12,626\n£6,313\n£20,216\n£10,097\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nInternational market Data\n£4,992\n£1,992\n£8,978\n£3,593\n£14,372\n£5,742\n£23,002\n£9,190\nTurquoise market Data\nFee waived\nTurquoise Europe market Data\nFee waived\nLondon Stock Exchange Market Data Products and Price List",
+      "page": 6
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "3.5",
+      "title": "DATA CHARGES",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "3.5.1",
+      "title": "DATA CHARGES",
+      "text": "Fee (per month, per Device)\nMember\nNon-Member\nPrivate Investor\nLevel 2\nLevel 1\nPost-trade\nLevel 2\nLevel 1\nPost-trade\nLevel 2\nLevel 1\nUK market Data\n£174.93\n£48.53\n£20.29\n£180.40\n£51.10\n£20.29\nFee waived\nETF/ETP\n£60.31\n£30.10\n£60.31\n£30.10\nAIM\n£60.31\n£30.10\n£60.31\n£30.10\nOrder Book for Retail Bonds\nFee waived\nTRADEcho\nFee waived\nAnalytics Service\nFee waived\nInternational market Data\n£94.94\n£26.65\n£10.14\n£97.90\n£28.07\n£10.14\nFee waived\nEuropean market Data\n£24.99\n£7.62\n£3.99\n£24.99\n£7.62\n£3.99\nAnalytics Service\nFee waived\nTurquoise market Data\n£15.91\n£7.95\nFee waived\n£15.91\n£7.95\nFee waived\nFee waived\nTurquoise Europe market Data\n£12.73\n£6.36\nFee waived\n£12.73\n£6.36\nFee waived\nFee waived\nAnalytics Service\nFee waived",
+      "page": 7
+    },
+    {
+      "number": "3.5.2",
+      "title": "DIRECT REPORTING DATA CHARGES",
+      "text": "Fee (per month, per Physical User)\nMember\nNon-Member\nLevel 2\nLevel 1\nPost-trade\nLevel 2\nLevel 1\nPost-trade\nUK market Data\n£201.17\n£55.83\n£23.27\n£207.50\n£58.81\n£23.27\nInternational market Data\n£109.20\n£30.72\n£11.58\n£112.60\n£32.35\n£11.58\nEuropean market Data\n£28.81\n£8.74\n£4.56\n£28.81\n£8.74\n£4.56\nTurquoise market Data\n£18.29\n£9.16\n£18.29\n£9.16\nTurquoise Europe market Data\n£14.63\n£7.33\n£14.63\n£7.33",
+      "page": 7
+    },
+    {
+      "number": "3.5.3",
+      "title": "OTHER DATA CHARGES",
+      "text": "Per Price Request Data Charges\nNumber of requests\nUp to 300,000",
+      "page": 7
+    },
+    {
+      "number": "300",
+      "title": "",
+      "text": ",001-4,000,000",
+      "page": 7
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ",000,001+\nPrice per request\nIncluded in Licence Charge\n£0.015\n£0.008\nTV Ticker Data Charges\nNumber of TVs\nUp to 2,000,000",
+      "page": 7
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ",000,001-5,000,000",
+      "page": 7
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ",000,001-10,000,000",
+      "page": 7
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ",000,001+\nPrice per ‘000 TVs\n£1.83\n£1.23\n£0.61\n£0.32\nLondon Stock Exchange Market Data Products and Price List",
+      "page": 7
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "4",
+      "title": "DATA PRODUCTS",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": ". The Exchanges publish various Data, made available to Customers either through direct feeds/services, or indirectly through\nRedistributors. The Data published is arranged into Data Products, which can be subscribed to or licensed directly with either Exchange\nor indirectly with a Redistributor.",
+      "page": 8
+    },
+    {
+      "number": "4.2",
+      "title": "",
+      "text": ". The Data Products made available are as follows:\nDATA PRODUCT\nDESCRIPTION\nAIM\nmeans Data published relevant to securities traded on AIM, the LSE market for small and medium size\ngrowth companies.\nThe AIM Data content includes best price and volume, value traded per security, indicative uncrossing\nvolume, opening prices, trade high and low, individual trades, closing prices, all trades VWAP, cumulative\nvolumes, uncrossing price and volume.\nAnalytics Service\nmeans Data calculated and published by the Exchanges, providing certain value-add analytics relating to\ninstruments traded on LSE and Turquoise venues, including but not limited to orderbook analytics.\nETF / ETP\nmeans Data published relevant to certain instruments traded on the UK markets, namely exchange traded\nfunds (ETFs) and other exchange traded products (ETPs).\nThe ETF / ETP Data content includes best price and volume, value traded per security, indicative\nuncrossing volume, opening prices, trade high and low individual trades, closing prices, all trades VWAP,\ncumulative volumes, uncrossing price and volume.\nEuropean market Data\nmeans Data published relevant to securities traded on the European Quoting Service (EQS), a quote-\ndriven market making and trade reporting platform for liquid equity and equity-like securities.\nThe European market Data content includes best price and volume, value traded per security, indicative\nuncrossing volume, opening prices, trade high and low, individual trades, closing prices, all trades VWAP,\ncumulative volumes, uncrossing price and volume (including Data from the SI quoting service for the\nrelevant securities).\nInternational market\nData\nmeans Data published relevant to securities traded on the LSE international order book (IOB), consisting\nof global depositary receipts (GDRs) from over 30 countries, including European market Data.\nThe International market Data content includes best price and volume, value traded per security, indicative\nuncrossing volume, opening prices, trade high and low, individual trades, closing prices, all trades VWAP,\ncumulative volumes, uncrossing price and volume (including Data from the SI quoting service for the\nrelevant securities).\nOrder Book for Retail\nBonds\nmeans Data relating to the Order Book for Retail Bonds (ORB), consisting of UK gilts and UK corporate\nbonds.\nThe Order Book for Retail Bonds content includes best price and volume, value traded per security,\nindicative uncrossing volume, opening prices, trade high and low, individual trades, closing prices, all\ntrades VWAP, cumulative volumes, uncrossing price and volume.\nTRADEcho\nmeans Data relating to TRADEcho, consisting of off-book on-exchange trade reports, systematic\ninternaliser trade reports and OTC trade reports.\nThe TRADEcho Data content for the SI quoting service includes pre-trade Data, and content for the trade\nreporting activities includes individual trades, number of trades, cumulative volumes for ESMA FIRDS\ninstruments.\nTurquoise Europe\nmarket Data\nmeans Data published relevant to securities traded on Turquoise Europe, a multilateral trading facility\n(“MTF”) operated by Turquoise Global Holdings Europe B.V. (TGHE), with instruments available for trading\nfrom a multitude of countries.\nThe Turquoise Europe market Data content includes best price and volume, value traded per security,\nindicative uncrossing volume, opening prices, trade high and low, individual trades, closing prices, all\ntrades VWAP, cumulative volumes, uncrossing price and volume.\nTurquoise market Data\nmeans (i) Turquoise Europe market Data, and (ii) Data published relevant to securities traded on\nTurquoise, a multilateral trading facility (“MTF”) operated by Turquoise Global Holdings Limited (TGHL)\nwith instruments available for trading from a multitude of countries.\nThe Turquoise market Data content includes best price and volume, value traded per security, indicative\nuncrossing volume, opening prices, trade high and low, individual trades, closing prices, all trades VWAP,\ncumulative volumes, uncrossing price and volume.\nUK market Data\nmeans Data published relevant to securities traded on the LSE UK order books, SETS, SETSqx and\nSEAQ (including AIM, ETF / ETP, Order Book for Retail Bonds Data and Data from the SI quoting service\nfor the relevant securities).\nLondon Stock Exchange Market Data Products and Price List",
+      "page": 8
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 9
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": "The UK market Data content includes best price and volume, value traded per security, indicative\nuncrossing volume, opening prices, trade high and low, individual trades, closing prices, all trades VWAP,\ncumulative volumes, uncrossing price and volume.",
+      "page": 9
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": ". The Data Products are available at various levels of depth:\nLEVEL OF DATA\nDESCRIPTION\nLevel 2\nincludes full depth of the book with all quotes, orders and Level 1 Data including trades, open price, close\nprice, uncrossing price plus volume, best price plus volume.\nLevel 1\nincludes best price and volume, value traded per security, indicative uncrossing volume, opening prices,\ntrade high and low individual trades, closing prices, all trades VWAP, cumulative volumes, uncrossing\nprice and volume, Post-trade Data.\nPost-trade Data\nincludes on-book, on-exchange trade reports and TRADEcho SI quoting for the respective market.",
+      "page": 9
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": ". Where the Customer elects to receive Real Time Data directly from Exchange systems, permissions will be granted to the relevant\nService, as detailed below:\nMARKET DATA\nGROUP\nDESCRIPTION\nDATA PRODUCT\nA\nFTSE 100\nUK market Data\nB\nETFs / ETCs / ETNs – 1\nUK market Data, ETF / ETP\nC\nOther main market equity &\nmiscellaneous\nUK market Data\nD\nETFs / ETCs / ETNs – 2\nUK market Data, ETF / ETP\nE\nAIM\nUK market Data, AIM\nF\nEuropean\nInternational market Data, European market Data\nG\nInternational\nInternational market Data\nH\nFixed income and securitised\nderivatives\nUK market Data, Order Book for Retail Bonds\nJ\nETFs / ETCs / ETNs – 3\nUK market Data, ETF / ETP\nT\nTGHL instruments\nTurquoise market Data\nU\nTGHL instruments\nTurquoise market Data\nV\nTGHE instruments\nTurquoise market Data, Turquoise Europe market Data\nW\nTGHE instruments\nTurquoise market Data, Turquoise Europe market Data\nX\nTGHE instruments\nTurquoise market Data, Turquoise Europe market Data\nY\nTGHE instruments\nTurquoise market Data, Turquoise Europe market Data",
+      "page": 9
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "SI quoting\nTRADEcho",
+      "page": 9
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "Trades\nTRADEcho",
+      "page": 9
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "SI quoting\nTRADEcho",
+      "page": 9
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "Trades\nTRADEcho",
+      "page": 9
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

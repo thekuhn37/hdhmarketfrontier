@@ -1,0 +1,71 @@
+name: Deploy Backend to Cloud Run
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PROJECT_ID: hdhmarketfrontier
+  REGION: asia-northeast3
+  SERVICE_NAME: hdhmarketfrontier-api
+  IMAGE: asia-northeast3-docker.pkg.dev/hdhmarketfrontier/hdhmarketfrontier/backend
+
+jobs:
+  deploy:
+    name: Build & Deploy Backend
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/816338366615/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: github-deployer@hdhmarketfrontier.iam.gserviceaccount.com
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker auth
+        run: gcloud auth configure-docker asia-northeast3-docker.pkg.dev --quiet
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t $IMAGE:${{ github.sha }} \
+            -t $IMAGE:latest \
+            ./backend
+
+      - name: Push image
+        run: docker push --all-tags $IMAGE
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy $SERVICE_NAME \
+            --image "$IMAGE:${{ github.sha }}" \
+            --region $REGION \
+            --platform managed \
+            --allow-unauthenticated \
+            --port 8000 \
+            --memory 1Gi \
+            --cpu 1 \
+            --min-instances 0 \
+            --max-instances 5 \
+            --concurrency 40 \
+            --timeout 120 \
+            --set-env-vars "^|^OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|LLM_PROVIDER=openai|LLM_MODEL=gpt-4o-mini|CORS_ORIGINS=https://hdhmarketfrontier.com,https://www.hdhmarketfrontier.com,https://hdhmarketfrontier-816338366615.asia-northeast3.run.app"
+
+      - name: Get service URL
+        run: |
+          URL=$(gcloud run services describe $SERVICE_NAME \
+            --region $REGION --format='value(status.url)')
+          echo "✅ Backend deployed: $URL"

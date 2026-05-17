@@ -1,0 +1,821 @@
+{
+  "exchange": "CME",
+  "agreement_type": "information",
+  "agreement_title": "CME Information License Agreement",
+  "version": "5.01",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": {
+    "grant_type": "limited, non-exclusive, non-transferable, non-sublicensable license",
+    "territory": null,
+    "sublicensable": false,
+    "transferable": false,
+    "exclusive": false,
+    "description": "License to: (a) receive Information from CME and Data Provider; (b) use Information as permitted in Schedules; and (c) create limited derivative works based on Information solely for internal business purposes, provided derivative works may only be disclosed internally and not distributed to third parties without prior written CME consent. Separate license required for derivative works beyond this scope."
+  },
+  "data_categories": [
+    {
+      "category": "real_time",
+      "description": "Information made available within 10 minutes of initial transmission by the originator.",
+      "timing_constraint": "within 10 minutes",
+      "delay_period": null
+    },
+    {
+      "category": "delayed",
+      "description": "Information made available more than 10 minutes but less than 8 hours after initial transmission.",
+      "timing_constraint": "10 min to 8 hours",
+      "delay_period": null
+    },
+    {
+      "category": "historical",
+      "description": "Information that is not Real Time or Delayed, first accessed at least 8 hours after initial transmission.",
+      "timing_constraint": "8+ hours after transmission",
+      "delay_period": null
+    }
+  ],
+  "use_policies": [
+    {
+      "classification": "permitted",
+      "description": "Receive Information from CME and Data Provider.",
+      "conditions": [
+        "Subject to Information Policies and Agreement terms"
+      ],
+      "source_section": "2.1(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information as permitted in the Schedules.",
+      "conditions": [
+        "As specified in Schedules"
+      ],
+      "source_section": "2.1(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "conditional",
+      "description": "Create limited derivative works based on Information solely for internal business purposes.",
+      "conditions": [
+        "Internal disclosure only",
+        "No distribution to third parties without prior written CME consent",
+        "Separate license required for derivative works beyond this scope",
+        "Must comply with Information Policies"
+      ],
+      "source_section": "2.1(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Copy, modify, reverse engineer, reverse assemble or reverse compile the Information or any part thereof.",
+      "conditions": [],
+      "source_section": "2.2(a)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "License, sublicense, transfer, sell, resell, publish, reproduce, or otherwise distribute or redistribute the Information.",
+      "conditions": [],
+      "source_section": "2.2(b)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use Information in the creation, distribution, calculation, issuance, settlement or maintenance of any derivative work including but not limited to: financial products, futures contracts, options on futures, synthetic instruments, indexes, index-linked instruments, ETPs (ETFs, ETNs), quotes, price assessments, spot or amalgamated prices/values, ratios, curves, surfaces, charts, certificates, warrants, CFDs and other leveraged products, ETP values (IOPV, NAV/iNAV), or any analytical reference figures for fund administration, portfolio management, pre/post-trade analytics, risk management, or valuation services.",
+      "conditions": [],
+      "source_section": "2.2(c)",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "permitted",
+      "description": "Use Information only for internal business purposes.",
+      "conditions": [
+        "Except as expressly permitted under the Agreement"
+      ],
+      "source_section": "2.3",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Text and data mining as defined in EU Directive 2019/790.",
+      "conditions": [],
+      "source_section": "3.1",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    },
+    {
+      "classification": "prohibited",
+      "description": "Use or access Information for any illegal purpose.",
+      "conditions": [],
+      "source_section": "2.4",
+      "use_context": null,
+      "applicable_user_categories": [],
+      "applicable_product_families": []
+    }
+  ],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": {
+    "payment_terms": "Payment within 30 days of date of invoice issued by CME.",
+    "late_penalty": "Daily interest on overdue Fees at lower of 1.5% per month or maximum permitted by law.",
+    "escalation": "",
+    "refund": "If Licensee terminates, Fees paid in advance retained by CME. If CME terminates under 5.2(a) or 5.6, or is breaching party, or Licensee terminates under 5.3, advance Fees for post-termination period refunded.",
+    "tax": "Fees exclusive of applicable taxes, fees or charges (sales, distribution, use, VAT, etc. except taxes on CME net income). Licensee responsible.",
+    "pro_rata": "",
+    "unit_of_count": "Device (default). If a Device accesses multiple Services, each access counts as one Unit of Count.",
+    "reporting_requirements": "Licensee must report all Units of Count that have the ability to access Information.",
+    "fee_lines": [],
+    "fee_waivers": []
+  },
+  "compliance_obligations": [
+    {
+      "type": "internal_controls",
+      "description": "All Licensee Group entities must maintain effective Internal Controls at all times.",
+      "duration": "",
+      "details": [
+        "Identify ability to access Information",
+        "Permit access using defined Unit of Count",
+        "Prevent unauthorized access to Information",
+        "Retain auditable records",
+        "Licensee responsible for Fees for all Units of Count with ability to access, whether Internal Controls used or not",
+        "Must maintain auditable evidence of Internal Controls operation throughout Term"
+      ]
+    },
+    {
+      "type": "reporting",
+      "description": "All access to Information must be identified and recorded using Unit of Count per Device.",
+      "duration": "",
+      "details": [
+        "Unless stated otherwise in Schedules"
+      ]
+    },
+    {
+      "type": "attribution",
+      "description": "Information must not be misrepresented and must include proper attribution.",
+      "duration": "",
+      "details": [
+        "Legend: \"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+        "Trademarks/proprietary notices transmitted with Information must not be amended",
+        "Delayed Information must be clearly labelled with period of delay",
+        "Comply with other reasonable display requirements from CME Group"
+      ]
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME of any unlicensed activity relating to Information and immediately implement remedial actions.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "notification",
+      "description": "Licensee must promptly notify CME in writing if it becomes aware of non-compliance by any Licensee Group entity.",
+      "duration": "",
+      "details": []
+    },
+    {
+      "type": "record_keeping",
+      "description": "Maintain complete and accurate books and records relating to all Units of Count and Internal Controls.",
+      "duration": "During Term and 24 months thereafter, for most recent 5-year period.",
+      "details": []
+    },
+    {
+      "type": "audit",
+      "description": "CME may audit at any Licensee Group location during business hours.",
+      "duration": "During Term and up to 24 months following termination.",
+      "details": [
+        "Once per 12-month period on no less than 30 days' notice",
+        "Without advance notice if CME suspects material breach",
+        "Audit info treated confidentially, used only for compliance verification",
+        "Outstanding Fees from audit due within 30 days",
+        "CME may appoint independent auditor at Licensee's cost if records inadequate",
+        "Underpayment >=5% means Licensee bears audit costs"
+      ]
+    },
+    {
+      "type": "personal_data",
+      "description": "Licensee must collect, hold, process and provide Personal Data in accordance with all applicable laws.",
+      "duration": "",
+      "details": [
+        "Must obtain valid consents or satisfy applicable legal basis for data processing",
+        "Must ensure cross-border transfers satisfy applicable laws",
+        "Must make individuals aware of CME Group's data processing (Privacy Center)",
+        "Subject to CME Group's Data Processing Addendum"
+      ]
+    },
+    {
+      "type": "confidentiality",
+      "description": "Confidential Information held in confidence, not disclosed without consent except to CME Group, CME licensors, Licensee Group, and their agents/advisors under similar confidentiality provisions.",
+      "duration": "",
+      "details": [
+        "Standard exceptions: publicly available, already known, independently developed, becomes public through no fault, rightfully known from another source, required by law/regulation"
+      ]
+    },
+    {
+      "type": "indemnification",
+      "description": "Licensee indemnifies CME Group entities against all Claims and Damages from access/use of Information or breach of warranties, except CME willful misconduct.",
+      "duration": "",
+      "details": []
+    }
+  ],
+  "termination_provisions": [
+    {
+      "trigger": "convenience",
+      "initiated_by": "either",
+      "notice_period": "30 days written notice",
+      "consequences": ""
+    },
+    {
+      "trigger": "liquidation",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If other party enters liquidation, has receiver appointed, or presents winding-up petition."
+    },
+    {
+      "trigger": "material_breach_irremediable",
+      "initiated_by": "either",
+      "notice_period": "Immediate on written notice",
+      "consequences": "Irremediable breaches include: misrepresentation of Information, failure to use effective Internal Controls, failure to prevent unauthorized use/distribution."
+    },
+    {
+      "trigger": "breach",
+      "initiated_by": "either",
+      "notice_period": "30 days to remedy after written notice",
+      "consequences": "If other party fails to remedy material breach within 30 days."
+    },
+    {
+      "trigger": "information_change",
+      "initiated_by": "licensee",
+      "notice_period": "30 days from date change takes effect",
+      "consequences": "If changes to Information significantly alter its nature or materially reduce quality."
+    },
+    {
+      "trigger": "sublicense_change",
+      "initiated_by": "cme",
+      "notice_period": "Immediate on written notice",
+      "consequences": "If CME's rights to sublicense Information substantially change, or if third-party source rights substantially change."
+    }
+  ],
+  "wind_down": null,
+  "redistribution_restrictions": [
+    {
+      "description": "No distribution or redistribution of Information or any portion thereof in any manner.",
+      "exceptions": [
+        "Limited derivative works for internal business purposes only (with CME consent for external distribution)"
+      ],
+      "service_provider_rules": []
+    }
+  ],
+  "attribution_requirements": [
+    {
+      "legend_text": "\"The market data, and all rights in and to it, are the property of Chicago Mercantile Exchange Inc. or its licensors as applicable. All rights reserved, except as expressly licensed by Chicago Mercantile Exchange Inc.\"",
+      "trademark_rules": "Any trademarks or proprietary notices transmitted with the Information must not be amended.",
+      "delay_labeling": "Delayed Information must be clearly labelled with the period of delay.",
+      "display_conditions": [
+        "Legend must be used to credit CME as source of Information",
+        "If not possible to use legend alongside Information, permitted recipients must receive and acknowledge the legend",
+        "Information must not be misrepresented or used to create false/misleading impressions as to origin or value"
+      ]
+    }
+  ],
+  "internal_control_requirements": [
+    {
+      "description": "Electronic systems, network configurations, rules, procedures and policies that satisfy CME requirements.",
+      "requirements": [
+        "Identify the ability to access Information",
+        "Permit access to Information using a defined Unit of Count",
+        "Prevent any unauthorized access to Information",
+        "Retain auditable records of the foregoing",
+        "Fee liability applies to all Units with ability to access, regardless of whether Internal Controls were used",
+        "Must assist CME with prevention, identification and curtailing of unlicensed activity",
+        "Must maintain auditable evidence of Internal Controls throughout Term"
+      ]
+    }
+  ],
+  "access_entitlement_requirements": [],
+  "liability": {
+    "liability_cap": "Lesser of $1,000,000 USD or Fees paid in 12 months preceding the event.",
+    "cap_amount": "$1,000,000",
+    "exclusions": [
+      "No liability for delay, inaccuracies, errors, omissions, interruptions in Information",
+      "No liability for loss from unauthorized access or misuse",
+      "No consequential, indirect, incidental, special, exemplary or lost profit damages",
+      "Information provided 'AS IS' at Licensee's sole risk",
+      "No representations/warranties except as expressly stated (merchantability, fitness, accuracy, etc. disclaimed)"
+    ],
+    "indemnification": "Bilateral: CME indemnifies Licensee for IP infringement claims (non-patent) for CME-owned Information used in compliance, subject to exceptions (derivative works, combination with non-CME products, breach). Licensee indemnifies CME Group for all Claims from access/use of Information or breach, except CME willful misconduct.",
+    "ip_indemnification": ""
+  },
+  "dispute_resolution": {
+    "governing_law": "State of Illinois and federal laws of the United States",
+    "arbitration_body": "American Arbitration Association (Commercial Arbitration Rules)",
+    "venue": "Chicago, Illinois",
+    "language": "English",
+    "negotiation_period": "",
+    "court_jurisdiction": ""
+  },
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "1",
+      "title": "",
+      "text": ". Distribution Packages",
+      "page": 1
+    },
+    {
+      "number": "1.1",
+      "title": "",
+      "text": "Real Time Information, Delayed Information and Historical Information\nDistribution Package Use\nFee/Fee Basis\nReporting\nFrequency/Unit\nof Count\nEffectiv\ne Date\n* Fees for Distribution Packages marked * are displayed in the table below\nDescription\nFee Details\nReport\nProcessing\nFee",
+      "page": 1
+    },
+    {
+      "number": "1.2",
+      "title": "",
+      "text": "Real Time Benchmark Information, Delayed Benchmark Information, and Historical Benchmark Information\nBenchmark Information\nDistribu\ntion\nPackage\nUse\nFee/Fee Basis\nReporting\nFrequency/Unit\nof Count\nEffectiv\ne Date\n* Fees for Distribution Packages marked * are displayed in the table below\nFee Details\nDescriptio\nn\nDefinitions\nAs Needed: a reporting frequency where Licensee is required to report the details set out in Schedule 3 only when a change in the\nability to access Information on a Unit of Count occurs (is added or removed).  Such reports must be submitted within the month\nthat the change occurred.\nAutomated Trading System: any system or software operated by Licensee Group entity that generates and/or routes orders\nelectronically with no, or only de minimis, human action involved in generating, sending and/or verifying orders.\nBenchmark Information: Information designated by CME as benchmark information in the Information Policies and as set out\nin section 1.2.\nDelayed Benchmark Information: Benchmark Information that is made available more than twenty-four (24) hours, but not\nmore than (7) days, after initial publication of the index/benchmark.\nDelayed End of Day Index: The End of Day Index that is made available more than twenty-four (24) hours but not more than\nseven (7) days after it is calculated.\nHistorical  End of Day Index: The End of Day Index that is made available more than seven (7) Days after it is calculated\nDelayed Intraday Index: The Intraday Index that is made available more than ten (10) minutes, but less than eight (8) hours\nafter initial calculation.\nDirect Licensee Display Device: a Device that is used to display Information to employees of Direct Licensee that is not a\nDirect Licensee Wallboard.\nDirect Licensee: a party who has entered into an agreement with CME, whereby it is authorized to receive and use\nInformation.\nDirect Licensee Feed Distribution: Licensee provision of a feed, connection and/or access point to Information to an authorized\nand pre-approved Direct Licensee.\nDirect Licensee Wallboard: a large, fixed unit of display equipment, that receives and displays Information and is viewable by\nan audience enclosed within a Direct Licensee location.\nE-mini: Information limited to contracts named \"E-mini.\"\nEnd of Day Index: The official index value calculated using settlement prices, as per the applicable methodology.\nHistorical Benchmark Information: Benchmark Information that is made available more than 7 days after initial publication\nLate submission of reports, or submission of reports via any other means than the specified electronic\nreporting system, will result in Licensee being charged the monthly Report Processing Fee.\nUSD 3,000.00 /Flat /Month\nReport\nProcessing\nFee\nof the index/benchmark.\nHistorical Intraday Index: The Intraday Index that is not Real Time Intraday Index or Delayed Intraday Index, that is made\navailable at least eight (8) hours after initial publication of the applicable Information.\nInformation Board: any physical Device that displays Information along with information from other sources that is publicly\naccessible which may include lobby displays, elevator displays and marquees.\nIntraday Index: The index values that are calculated during the product calculation window as defined in the calculation guide,\nusing real time trading data.\nLicensee Information Board: an Information Board located at a Licensee Group location on which a Licensee Group entity\ndirectly controls the display of Delayed Information.\nLicensee Website: Website on which a Licensee Group entity directly controls the display of Information pursuant to the terms of\nthis Agreement.\nManaged User Non-Display: a Service authorized by CME that facilitates the Non-Display Use of Information as provided by\nLicensee Group in a Service for internal use by a Subscriber who is an individual natural person.\nMarket Depth: Information that includes all market data messages required to recreate the order book: five to ten orders deep in\nfutures markets and three orders deep in options markets, as well as trade data for all CME Globex-traded products\ne.g. Information that includes Top of Book.\nMobile Application: software that is available for use on a mobile device (such as a smartphone or tablet) that is running a mobile\noperating system (such as Android or iOS).\nNon-Display Use: non-viewable use of Information in any system, process, program, machine or calculation other than in order to\ndisplay or distribute Information for display. Such use may include, but is not limited to, calculation of P&L, portfolio valuation, order\nprocessing, use within Automated Trading Systems and automated order routing.\nNon-Professional: (i) an individual, natural person; or (ii) certain small business entities (limited liability companies,\npartnerships, trusts or corporations).\nOrder Routing Device: a trading terminal entitled to receive Real-Time Information and capable of routing orders to the CME\nGlobex platform.\nReal Time Benchmark Information: Benchmark Information that is made available within 24 hours of initial publication of the\nindex/benchmark\nReal Time Intraday Index: The Intraday Index that is made available within ten (10) minutes of initial calculation.\nSemi-Automated Trading System: any tool or functionality deployed on a display Device, by an individual user, which is used to\naugment manual trading by automating the trading decision process and routing such automated orders\nSubscriber: any party, other than a Direct Licensee receiving Information from any Licensee Group entity directly or through a\nService Facilitator under the terms of a Subscriber Addendum.\nSubscriber Addendum: a written agreement in the form of CME’s template which is set out at the Agreements & Schedules\nsection of the following: https://www.cmegroup.com/market-data/license-data/market-data-policy-education-center.html\nbetween Licensee Group and Subscriber Group for receipt of, use of, and access to Information by any Subscriber Group entity\nin accordance with this Agreement.\nSubscriber Display Device: a Device that is used to display Information to staff of Subscriber Group entity, that is not a\nSubscriber Wallboard.\nSubscriber Feed Distribution: Licensee Group provision of a feed, connection and/or access point to Information, to any\nSubscriber location. Subscriber manages entitlements and permissions to access Information from this feed, connection and/or\naccess point.\nSubscriber Group: Subscriber and Subscriber Affiliates that receive Information directly or indirectly from Licensee Group\nunder the terms of a Subscriber Addendum.\nSubscriber Information Board: an Information Board located at a Subscriber Group entity location on which a Licensee\nGroup entity directly controls the display of Information.\nSubscriber Wallboard: a large fixed unit of display equipment, that receives and displays Information and is viewable by an\naudience enclosed within a Subscriber Group location.\nSubscriber Website: a Website owned by a Subscriber Group entity that displays (including, without limitation, through linking or\nframing or both) frames or links to permitted Information residing on a Licensee Group domain or a domain hosted and controlled\nby Licensee Group.\nTop of Book: Information that includes the top bid, bid volume, ask, ask volume, last trade price, and last trade volume of the\norder book.\nTelevision Distribution: visual display of Information to the public via television broadcast which can include display on streaming\nmedia players.\nWebsite: a URL, or group of URLs, with a single commercial brand or identity, through which  Information is publicly accessible\npursuant to the terms of this Agreement.",
+      "page": 1
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ". Information Distribution License and Fees",
+      "page": 5
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": "Subject to the terms and conditions of the Agreement, including but not limited to payment of the relevant Fees,\nCME grants Licensee Group, a limited non-exclusive, non-transferable non-sublicensable (except as set forth herein)\nlicense during the Term, to distribute the Information contained in the Distribution Packages identified in section 1 of\nthis Schedule through the Service(s) to Direct Licensees and Subscribers as applicable.",
+      "page": 5
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": "Distribution License Fees are prorated in the first calendar year based on the month in which the right to distribute\nInformation pursuant to section 2.1 of this Schedule 5, was approved by CME. The Distribution License Fees are\ncharged on an annual basis.",
+      "page": 5
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": "[Reserved]",
+      "page": 5
+    },
+    {
+      "number": "2.4",
+      "title": "",
+      "text": "For the avoidance of doubt, no Licensee Group entity may distribute Historical Information or Historical Benchmark\nInformation unless the relevant Historical Information or Historical Benchmark Information Distribution Package has been\nlicensed in section 1 of this Schedule.",
+      "page": 5
+    },
+    {
+      "number": "2.5",
+      "title": "",
+      "text": "Licensee must report all Units of Count that have the ability to access Information where a reporting obligation is\nspecified in section 1 of this Schedule.  Unless otherwise set out within this Schedule 5, Licensee should report the\nUnits of count with the ability to access Information in the same way as set out in Schedule 3, Reporting on a per\nDevice Unit of Count.",
+      "page": 5
+    },
+    {
+      "number": "2.6",
+      "title": "",
+      "text": "If (a) CME determines there are Units of Count within Subscriber Group, that have not been reported by Licensee,\nand (b) Licensee cannot demonstrate to CME’s reasonable satisfaction that Licensee Group did comply with its\nobligations under section 6.1, section 6.2, section 6.3, section 6.4 and section 6.5 of this Schedule, then Licensee\nshall be jointly and severally liable to CME, for the unreported Subscriber Group Units of Count and CME may, at\nCME’s sole discretion , invoice Licensee for such underreported Subscriber Group Units of Count and Licensee\nagrees that is shall pay such invoice within thirty (30) Days from the date of the invoice issued by CME.",
+      "page": 6
+    },
+    {
+      "number": "2.7",
+      "title": "",
+      "text": "Licensee Group shall not distribute or permit distribution of Information to any entity: located in any country subject to\ncomprehensive sanctions by the Office of Foreign Assets Control; and/or identified on the U.S. Department of the\nTreasury’s Specially Designated Nationals and Blocked Persons List.  Licensee Group represents and warrants to\nCME that any distribution of Information will be in compliance with applicable laws and regulations (except to the\nextent doing so would place either party in contravention of applicable U.S. law and regulations).  CME may suspend\nor terminate receipt or display of Information by any party if CME has reason to believe that any Licensee Group entity\n(or any of its Subscribers) is breaching or failing to comply with this provision or any other applicable law, regulation or\nrule.",
+      "page": 6
+    },
+    {
+      "number": "2.8",
+      "title": "",
+      "text": "Licensee will terminate all distribution of Information by any Licensee Group entity to any Direct Licensee, Subscriber,\nor other recipient of any Information immediately upon receipt of written notice from CME or on such other date as\nmay be set forth in the notice. This obligation survives termination of this Agreement.",
+      "page": 6
+    },
+    {
+      "number": "2.9",
+      "title": "",
+      "text": "Licensee shall promptly notify CME in writing of any third party that is using or desires to use Information for Non-\nDisplay Use.",
+      "page": 6
+    },
+    {
+      "number": "2.10",
+      "title": "",
+      "text": "The Fees payable under this Schedule are set forth in section 1.",
+      "page": 6
+    },
+    {
+      "number": "2.11",
+      "title": "",
+      "text": "Licensee Group shall be free to establish and alter the prices charged to Subscribers for the supply of Information and of\ntheir Service(s), provided that such prices do not misrepresent Fees charged by CME to Licensee in accordance with this\nAgreement.",
+      "page": 6
+    },
+    {
+      "number": "2.12",
+      "title": "",
+      "text": "All Fees payable under this Schedule 5 will automatically increase, on an annual basis, from January 1 of each\ncalendar year by a percentage amount based on inflation measured by the consumer price index data collected and\npublished by the International Monetary Fund, provided that CME may choose to waive one or more annual Fee\nincreases.",
+      "page": 6
+    },
+    {
+      "number": "2.13",
+      "title": "",
+      "text": "As of the Schedule 5 Effective Date, this Schedule 5 supersedes every prior Schedule 5 executed between the\nparties.",
+      "page": 6
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": ". Direct Licensee Distribution",
+      "page": 6
+    },
+    {
+      "number": "3.1",
+      "title": "",
+      "text": "Licensee shall promptly notify CME in writing of any third party that desires to receive Information from a Licensee\nGroup entity that does not wish to become or may not become, based on the Distribution Packages identified in section",
+      "page": 6
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "of this Schedule, a Subscriber. Any such third party must be licensed with CME to become a Direct Licensee.\n(a)\nDirect Licensee Feed Distribution  is only permitted once Licensee has received written authorization from\nCME that the relevant third party is a Direct Licensee. If such third party receives or redistributes Information\nreceived from a Licensee Group entity prior to Licensee obtaining such written authorization from CME, in\naddition to all other applicable remedies, Licensee will be responsible for paying CME all fees that otherwise\nwould have been payable by the third party, if such third party were a Direct Licensee.\n(b)\nLicensee shall notify CME in writing in advance of any Direct Licensee of any Licensee Group entity that\nceases to receive Information from such Licensee Group entity.",
+      "page": 6
+    },
+    {
+      "number": "3.2",
+      "title": "",
+      "text": "Licensee or relevant Licensee Group entity must not permit any Subscriber Group entity to redistribute\nInformation outside Subscriber Group except as otherwise permitted in this Schedule.",
+      "page": 6
+    },
+    {
+      "number": "3.3",
+      "title": "",
+      "text": "Licensee Group shall not distribute Information to any Subscriber, other than a Non-Professional Subscriber, for use\nin an Automated Trading System and/or a Semi-Automated Trading System, unless such Subscriber has entered\ninto and maintains a license agreement directly with CME for such use.",
+      "page": 6
+    },
+    {
+      "number": "3.4",
+      "title": "",
+      "text": "Licensee Group may distribute Information to Direct Licensees who are participating in a CME program (each a\n“Program Participant”) that results in an adjustment to the fees applied by CME to a Program Participant . CME will\nnotify Licensee of (i) the date a Program Participant joins a CME program (the “Program Effective Date”) and (ii) any\nadjustments to Fees payable by Licensee to CME with respect to a Program Participant from the Program Effective\nDate.  Unless otherwise advised by CME in writing, Licensee will continue to report to CME a Program Participant’s\nability to access the Information in each ‘Distribution Package’ per the Unit of Count set out in section 1 of this\nSchedule.",
+      "page": 7
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": ". Subscriber Display Devices",
+      "page": 7
+    },
+    {
+      "number": "4.1",
+      "title": "",
+      "text": "Licensee Group may permit a Subscriber to access the Information contained in the Subscriber Display Device\nDistribution Packages identified in section 1 of this Schedule, for display on one or more Subscriber Display Devices,\nsubject to the following terms;\n(a)\nPayment of the relevant Annual Information Distribution License Fee and per Subscriber Display Device\nFees, per Distribution Package; and\n(b)\nLicensee must report each Subscriber Display Device that has the ability to access the Information per the\nUnit of Count identified in the Distribution Packages in section 1 of this Schedule on a monthly basis.",
+      "page": 7
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": ". Direct Licensee Display Device",
+      "page": 7
+    },
+    {
+      "number": "5.1",
+      "title": "",
+      "text": "Licensee Group may permit a Direct Licensee to access the Information contained in the Direct Licensee Display\nDevice Packages identified in section 1 of this Schedule, for display on one or more Direct Licensee Display Devices,\nsubject to the following terms;\n(a)\nPayment of the relevant Fees by Licensee\n(b)\nLicensee must report each Direct Licensee Display Device that has the ability to access the Information\nper the Unit of Count identified in the Distribution Packages in section 1 of this Schedule on a monthly\nbasis.\n(c)\nLicensee has received written authorization from CME that the relevant third party is a Direct\nLicensee. If such third party receives Information from a Licensee Group entity prior to Licensee\nobtaining such written authorization, in addition to all other applicable remedies, Licensee will be\nresponsible for paying CME all fees that otherwise would have been payable if such third party were\na Direct Licensee.\n(d)\nLicensee shall notify CME in writing in advance of any Direct Licensee that ceases to receive\nInformation from such Licensee Group entity.",
+      "page": 7
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": ". Subscriber Addendum",
+      "page": 7
+    },
+    {
+      "number": "6.1",
+      "title": "",
+      "text": "Subject to section 6.2 below, Licensee will ensure and warrants to CME that, before distributing Information, the CME\ntemplate Subscriber  Addendum will be entered into, covering Subscriber Group’s access to Information distributed by\nLicensee Group to Subscriber.",
+      "page": 7
+    },
+    {
+      "number": "6.2",
+      "title": "",
+      "text": "CME and Licensee agree that the CME template Subscriber  Addendum has not been reviewed by CME for compliance\nwith the local legal requirements of every jurisdiction (including but not limited to in respect of any applicable consumer\nprotection rights).  The parties agree that the Licensee is responsible for ensuring that the Subscriber Addendum\ncomplies with any such applicable legal requirements prior to the distribution of Information.  If in order to comply with\napplicable legal requirements, the Subscriber Addendum is subject to a change in its terms, then the Licensee will\nmake such amendments and will notify CME prior to the execution of the amended Subscriber Addendum along with\nevidence substantiating the change.  Subject to the compliance with the aforementioned notification requirement, CME\nagrees that any amendments to the Subscriber Addendum for the sole purposes of compliance with applicable legal\nrequirements, will not be deemed to be a breach of section 6.1.",
+      "page": 7
+    },
+    {
+      "number": "6.3",
+      "title": "",
+      "text": "Licensee will make all reasonable efforts to ensure that Subscriber Group complies with the terms of the Subscriber\nAddendum, including but not limited to, CME’s Information Policies (as they relate to Subscribers) and requirements\naround the Internal Controls and reporting Units of Count within Subscriber Group that are entitled to access\nInformation.",
+      "page": 7
+    },
+    {
+      "number": "6.4",
+      "title": "",
+      "text": "Licensee shall notify CME promptly in writing, if any entity within Licensee Group becomes aware of or has reasonable\nsuspicion to believe that any Subscriber Group entity has failed to comply with the terms and conditions of the\nSubscriber Addendum.  If CME or Licensee suspect non-compliance, Licensee shall work with CME to resolve the\nnon-compliance.",
+      "page": 8
+    },
+    {
+      "number": "6.5",
+      "title": "",
+      "text": "CME reserves the right to amend the content of the template Subscriber Addendum on ninety (90) Days written notice\nto Licensee (or sooner if, in CME’s sole opinion, the amendment is to comply with CME’s legal and regulatory\nrequirements) and Licensee shall notify Subscriber Group in writing of such changes to the template Subscriber\nAddendum, as soon as is reasonably practical after CME’s notification of the changes.  Licensee shall implement any\nsuch changes to the Subscriber Addendum within the ninety (90) Days’ notice period, or sooner as set out by CME, if\nthe change is required to comply with CME’s legal and regulatory obligations.",
+      "page": 8
+    },
+    {
+      "number": "6.6",
+      "title": "",
+      "text": "Upon request, Licensee shall disclose to CME, any such Subscriber Addendum, so that CME may verify Licensee’s\ncompliance with the terms of this Schedule and Licensee shall procure the agreement from Subscriber for such\ndisclosure to CME if necessary.",
+      "page": 8
+    },
+    {
+      "number": "6.7",
+      "title": "",
+      "text": "CME reserves the right to enter into a direct agreement with any Subscriber in relation to Information received from\nany Licensee Group entity and CME shall notify Licensee if it exercises such right in relation to any Subscriber.",
+      "page": 8
+    },
+    {
+      "number": "6.8",
+      "title": "",
+      "text": "At CME’s sole discretion, or on application by Licensee or in the context of a direct agreement between CME and\nSubscriber, CME may elect to extend the definition of “Subscriber Group” in the case of individual Subscribers to\ninclude members of co-operative or professional associations or other corporate structures that function commercially\nas a single group.",
+      "page": 8
+    },
+    {
+      "number": "6.9",
+      "title": "",
+      "text": "Fees for Subscriber Feed Distribution of Real Time and Delayed Information will be charged per Subscriber location\nper Distribution Package per month.  Fees for Subscriber Feed Distribution of Historical Information will be charged\nper year and are prorated in the first calendar year based on the month in which the right to distribute the Historical\nInformation, pursuant to this Schedule 5, was approved by CME.  Licensee must report Subscriber Feed Distribution\nof Real Time, Delayed and Historical Information per the Unit of Count identified in the Distribution Packages in section",
+      "page": 8
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": "of this Schedule on a monthly basis.  Use of Benchmark Information in Subscriber Feed Distribution is not permitted.",
+      "page": 8
+    },
+    {
+      "number": "6.10",
+      "title": "",
+      "text": "Licensee Group may distribute Information to Subscribers who are participating in a CME program (each a “Program\nParticipant”) that results in an adjustment to the fees applied by CME to a Program Participant. CME will notify\nLicensee of (i) the date a Program Participant joins a CME program (the “Program Effective Date”) and (ii) any\nadjustments to Fees payable by Licensee to CME with respect to a Program Participant from the Program Effective\nDate.  Unless otherwise advised by CME in writing, Licensee will continue to report to CME a Program Participant’s\nability to access the Information in each ‘Distribution Package’ per the Unit of Count set out in section 1 of this Schedule.",
+      "page": 8
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": ". Website Display",
+      "page": 8
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": "Subject to section 7.3, each Licensee Group entity may only display the Delayed Information or the Benchmark\nInformation,  in the Website Display Distribution Packages identified in section 1 of this Schedule on a publicly accessible\nLicensee Website or distribute to Subscribers for display on a publicly accessible Subscriber Website in each case where\naccess to Information does not require user registration, subject to the following terms:\n(a)\nPayment of the relevant Annual Information Distribution License Fees, Licensee Website Fees and Subscriber\nWebsite Fees, per Distribution Package as applicable;\n(b)\nLicensee will report the URL of each Licensee Website and Subscriber Website displaying the Information added\nor removed during the month in which it was added or removed as applicable and such other information as may\nbe required by CME with respect to the Licensee Website or Subscriber Website on a per Distribution Package\nbasis;\n(c)\nLicensee shall ensure that both Licensee Website and Subscriber Website contain the following notification on any\npage containing the Information: \"The market data (\"Information\") contained herein: (i) includes the proprietary\ninformation of Chicago Mercantile Exchange Inc. or its licensors, as applicable ; (ii) may not be copied, sold or further\ndisseminated except as specifically authorized; (iii) does not constitute investment advice; (iv) is provided solely for\ninformational purposes; (v) is not used for any commercial purpose; and (vi) is not warranted to be complete,\naccurate or timely. You may not develop or create any derivative work or other product that uses, is based on, or is\ndeveloped in connection with any of the Information (including, without limitation, proprietary data, settlement data\nor indices) available on this site. In addition to the forgoing, to the fullest extent permitted by law, use of such\nInformation (including associated metadata) in any manner for any machine learning and/or artificial intelligence,\nincluding without limitation for the purposes of training, coding, or development of artificial intelligence technologies,\ntools, or solutions or machine learning language models, or otherwise for the purposes of using or in connection\nwith the use of such technologies, tools, or models to generate any information, material, data, derived works,\ncontent, or output, is expressly prohibited\";\n(d)\nNo Licensee Group entity nor Subscriber Group entity may display or distribute Real-Time Information, Real-\nTime Benchmark Information or Real-Time Intraday Index on a publicly accessible Website at any time;\n(e)\nWhen displaying the Historical Benchmark Information or the Historical Intraday Index contained within the\nWebsite Display Distribution Packages identified in section 1 of this Schedule, Licensee will (on behalf of\nLicensee Group) ensure that such Information (i) is not machine readable, (ii) is not able to be downloaded, and\n(iii) is only displayed in graphical format; and\n(f)\nWhen displaying the Delayed Benchmark Information or the Delayed Intraday Index contained within the Website\nDisplay Distribution Packages identified in section 1 of this Schedule, Licensee will (on behalf of License Group)\nensure that such Information (i) is not machine readable, and (ii) is not able to be downloaded.",
+      "page": 8
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": "For the CME CF Cryptocurrency Indices Distribution Packages only, the Licensee Group may also display Real\nTime Information on Licensee Website.",
+      "page": 9
+    },
+    {
+      "number": "7.3",
+      "title": "",
+      "text": "Notwithstanding the restriction in section 7.1(d) above, if the Website Display Distribution Package includes Event\nContract Information, the Licensee Website or Subscriber Website (or any Mobile Application version of the same)\nis permitted to show Real-Time Event Contract Information. However, in all instances, the Last Trade Price must be\nDelayed Information, and not Real-Time Information. If the Mobile Application version of the Licensee Website\nrequires a login or other registration details to access the Event Contract Information, then the Last Trade Price can\nbe displayed as Real-Time Information and the Mobile Application will be considered by CME as a Device and not a\nLicensee Website and applicable Device Fees will be charged.",
+      "page": 9
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": ".\nNon-Professional Subscriber Fees",
+      "page": 9
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": "Non-Professional Subscriber Fees apply only to Information that is not Benchmark Information and only where a Subscriber\nis a Non-Professional and meets the following criteria:\n(a)\nhas an active futures trading account;\n(b)\nis an individual, natural person or a small business entity;\n(c)\nis not a member, or holder or lessee of any type of membership of any exchange;\n(d)\nis not registered or qualified as a professional trader or investment adviser with any stock, commodities or\nfutures exchange or contract market, or with any financial regulatory authority;\n(e)\nis not acting on behalf of an institution that engages in brokerage, banking, investment, or financial activities;\nand\ncan access Information via a maximum of two Order Routing Devices, provided by Licensee Group.",
+      "page": 9
+    },
+    {
+      "number": "8.2",
+      "title": "",
+      "text": "In addition to section 8.1 above, for Non-Professional Subscriber Fees to apply the ability to access and the use of\nInformation by a Non-Professional Subscriber must:\n(a)\nbe solely for the Subscriber’s personal or private use;\n(b)\nbe limited to managing the Subscriber’s own assets; and\n(c)\nnot be used in connection with the management of any assets of any third party in any capacity.",
+      "page": 9
+    },
+    {
+      "number": "8.3",
+      "title": "",
+      "text": "Licensee warrants that those Subscribers reported to CME as Non-Professional Subscribers meet the conditions of\nsections 8.1 and 8.2 of this Schedule.",
+      "page": 9
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": ". Trial Access",
+      "page": 10
+    },
+    {
+      "number": "9.1",
+      "title": "",
+      "text": "CME may waive Device Fees for the first consecutive thirty (30) days of a Subscriber’s access to Information other\nthan Benchmark Information on Licensee Group’s Service.",
+      "page": 10
+    },
+    {
+      "number": "10",
+      "title": "",
+      "text": ". Television Distribution",
+      "page": 10
+    },
+    {
+      "number": "10.1",
+      "title": "",
+      "text": "Licensee Group may distribute Information contained in the Television Distribution Packages identified in\nsection 1 of this Schedule via Television Distribution",
+      "page": 10
+    },
+    {
+      "number": "10.2",
+      "title": "",
+      "text": "On or before September 10 of each calendar year, Licensee will report the monthly average number of viewers of the\nlicensed program during the twelve (12) month period ending on August 31 of that calendar year utilizing a ratings\nagency acceptable to CME.",
+      "page": 10
+    },
+    {
+      "number": "11",
+      "title": "",
+      "text": ". Managed User Non-Display",
+      "page": 10
+    },
+    {
+      "number": "11.1",
+      "title": "",
+      "text": "Each Licensee Group entity may distribute Information other than Benchmark Information contained in the Managed\nUser Non-Display Distribution Packages identified in section 1 of this Schedule for Managed User Non- Display.",
+      "page": 10
+    },
+    {
+      "number": "11.2",
+      "title": "",
+      "text": "Licensee must provide such Subscribers with the means to route automated orders to one or more CME Group\nmarkets; and the Subscriber Addendum with such Subscriber must limit Subscriber’s use of Information in accordance\nwith this section 11.",
+      "page": 10
+    },
+    {
+      "number": "11.3",
+      "title": "",
+      "text": "Viewable display and distribution of Information by the Subscriber and the creation of derivative works based on the\nInformation are not permitted under the Managed User Non-Display license.",
+      "page": 10
+    },
+    {
+      "number": "12",
+      "title": "",
+      "text": ". Reserved",
+      "page": 10
+    },
+    {
+      "number": "13",
+      "title": "",
+      "text": ". Mobile Application",
+      "page": 10
+    },
+    {
+      "number": "13.1",
+      "title": "",
+      "text": "Subject to section 13.5 and 13.6 each Licensee Group entity may only access the Delayed Information or the Benchmark\nInformation, contained in the Mobile Application Distribution Packages identified in section 1 of this Schedule within a\nMobile Application for use on wireless devices including tablets and smartphones. The Mobile Application must be a\nfixture on the wireless device for direct access to Information rather than accessing Information via the mobile device’s\nInternet browser.",
+      "page": 10
+    },
+    {
+      "number": "13.2",
+      "title": "",
+      "text": "Licensee will report each Mobile Application displaying the Information added or removed during the month in which it\nwas added or removed as applicable and such other information as may be required by CME with respect to the Mobile\nApplication on a per Distribution Package basis.",
+      "page": 10
+    },
+    {
+      "number": "13.3",
+      "title": "",
+      "text": "Mobile Application Fees are prorated in the calendar year in which the Mobile Application was reported as added.",
+      "page": 10
+    },
+    {
+      "number": "13.4",
+      "title": "",
+      "text": "Mobile Applications marketed under the same product name with similar features are considered a single Mobile\nApplication independent of number of mobile Operating Systems (OS) (i.e. iOS and Android).",
+      "page": 10
+    },
+    {
+      "number": "13.5",
+      "title": "",
+      "text": "When displaying the Historical Benchmark Information or the Historical Intraday Index  contained within the Mobile\nApplication Distribution Packages identified in section 1 of this Schedule, Licensee will (on behalf of Licensee Group)\nensure that such Information (i) is not machine readable, (ii) is not able to be downloaded, and (iii) is only displayed in\ngraphical format.",
+      "page": 10
+    },
+    {
+      "number": "13.6",
+      "title": "",
+      "text": "When displaying the Delayed Benchmark Information or the Delayed Intraday Index contained within the Mobile\nApplication Distribution Packages identified in section 1 of this Schedule, Licensee will ensure that such Information (i)\nis not machine readable, and (ii) is not able to be downloaded.",
+      "page": 10
+    },
+    {
+      "number": "14",
+      "title": "",
+      "text": ". Information Board",
+      "page": 11
+    },
+    {
+      "number": "14.1",
+      "title": "",
+      "text": "Each Licensee Group entity may only access the Delayed Information or l Benchmark Information contained in the\nInformation Board Distribution Packages identified in section 1 of this Schedule for display on an Information Board\nsubject to the following terms;\n(a)\nPayment of the relevant (i) Annual Information Distribution License; and (ii) per Licensee Information Board\nand/or per Subscriber Information Board Fees per Distribution Package;\n(b)\nLicensee must report all ability to access Information for display on an Information Board, Subscriber Information\nBoard or both, per the Unit of Count identified in the Distribution Package in section 1 of this Schedule on a\nmonthly basis;\n(c)\nReal Time Information must not be distributed on a publicly accessible Information Board at any time;\n(d)\nWhen displaying the Historical Benchmark Information or the Historical Intraday Index contained within the\nInformation Board Distribution Packages identified in section 1 of this Schedule, Licensee will ensure that such\nInformation (i) is not machine readable, (ii) is not able to be downloaded, and (iii) is only displayed in graphical\nformat; and\n(e)\nWhen displaying the Delayed Benchmark Information or the Delayed Intraday Index contained within the\nInformation Board Distribution Packages identified in section 1 of this Schedule, Licensee will ensure that such\nInformation (i) is not machine readable, and (ii) is not able to be downloaded.",
+      "page": 11
+    },
+    {
+      "number": "14.2",
+      "title": "",
+      "text": "For the CME Cryptocurrency Distribution Packages identified in section 1 of this Schedule only, the Licensee and\nSubscriber as applicable may display Real Time Information on an Information Board and Subscriber Information Board\nas applicable.",
+      "page": 11
+    },
+    {
+      "number": "15",
+      "title": "",
+      "text": ". GME Distribution Packages\nFees apply to Delayed Information from the GME Distribution Packages when the Delayed Information is updated at intervals\nof one (1) minute or less.",
+      "page": 11
+    },
+    {
+      "number": "16",
+      "title": "",
+      "text": ". Reserved",
+      "page": 11
+    },
+    {
+      "number": "17",
+      "title": "",
+      "text": ". Subscriber Wallboard",
+      "page": 11
+    },
+    {
+      "number": "17.1",
+      "title": "",
+      "text": "Licensee may permit a Subscriber to access the Information other than Benchmark Information contained in the\nSubscriber Wallboard Distribution Packages identified in section 1 of this Schedule, for display on a Subscriber\nWallboard, subject to the following terms;\n(a)\nPayment of the relevant Annual Information Distribution License Fee and per Subscriber Wallboard Fees, per\nDistribution Package; and\n(b)\nLicensee must report all ability to access Information for display on a Subscriber Wallboard per the Unit of\nCount identified in the Distribution Packages in section 1 of this Schedule on a monthly basis.",
+      "page": 11
+    },
+    {
+      "number": "18",
+      "title": "",
+      "text": ". Reserved",
+      "page": 11
+    },
+    {
+      "number": "19",
+      "title": "",
+      "text": ". Direct Licensee Wallboard",
+      "page": 11
+    },
+    {
+      "number": "19.1",
+      "title": "",
+      "text": "Licensee may permit Direct Licensee to access the Information contained in the Direct Licensee Wallboard Distribution\nPackages identified in section 1 of this Schedule, for display on a Direct Licensee Wallboard, subject to the following terms;\n(a)\nPayment of the relevant Annual Information Distribution License Fee;\n(b)\nLicensee must report all ability to access Information display on a Direct Licensee Wallboard, per the Unit of Count\nidentified in the Distribution Packages in section 1 of this Schedule, on a monthly basis;\n(c)\nLicensee has received written authorization from CME that the relevant third party is a Direct Licensee. If such third\nparty receives Information from a Licensee Group entity prior to Licensee obtaining such written authorization, in\naddition to all other applicable remedies, Licensee will be responsible for paying CME all fees that otherwise would\nhave been payable if such third party were a Direct Licensee.\n(d)\nLicensee must notify CME in writing in advance of any Direct Licensee that ceases to receive Information from such\nLicensee Group entity.",
+      "page": 11
+    },
+    {
+      "number": "20",
+      "title": "",
+      "text": ". Semi-Automated Trading System",
+      "page": 12
+    },
+    {
+      "number": "20.1",
+      "title": "",
+      "text": "Except for distribution to a Non-Professional Subscriber, no Licensee Group entity may distribute Information to a\nSubscriber for use in a Semi-Automated Trading Systems unless such Subscriber licenses directly with CME for such\nuse.",
+      "page": 12
+    },
+    {
+      "number": "20.2",
+      "title": "",
+      "text": "Any Subscriber, other than a Non-Professional Subscriber, who wishes to have the ability to access Information within a\nSemi-Automated Trading Systems must license directly with CME.",
+      "page": 12
+    },
+    {
+      "number": "21",
+      "title": "",
+      "text": ". Benchmark Information Restrictions",
+      "page": 12
+    },
+    {
+      "number": "21.1",
+      "title": "",
+      "text": "For the avoidance of doubt no Licensee Group entity may:\n(a)\nprovide Managed Non-Display Use of Benchmark Information;\n(b)\nprovide Subscriber Feed Distribution of Benchmark Information; and\n(c)\nlicense Benchmark Information to a Subscriber for any use other than for display on one or more Devices without\nthe prior written consent of CME.",
+      "page": 12
+    },
+    {
+      "number": "22",
+      "title": "",
+      "text": ". Personal Data\nPersonal Data obtained will be used in accordance with the Privacy Center.   [signature page\nfollows]\nIN WITNESS WHEREOF, each of the Parties has caused this Agreement to be duly executed in\nits name and on its behalf by the officer or representative duly authorized.\nLicensee\nCME\nSignature\nPrint Name\nTitle\nLicensee\nDate of Signature",
+      "page": 12
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}

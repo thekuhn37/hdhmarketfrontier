@@ -1,0 +1,1060 @@
+{
+  "exchange": "LSE",
+  "agreement_type": "fee_schedule",
+  "agreement_title": "LSE Market Data Agreement",
+  "version": "",
+  "definitions": {},
+  "product_families": [],
+  "license_scope": null,
+  "data_categories": [],
+  "use_policies": [],
+  "transformation_requirements": [],
+  "new_original_works": [],
+  "fee_structure": null,
+  "compliance_obligations": [],
+  "termination_provisions": [],
+  "wind_down": null,
+  "redistribution_restrictions": [],
+  "attribution_requirements": [],
+  "internal_control_requirements": [],
+  "access_entitlement_requirements": [],
+  "liability": null,
+  "dispute_resolution": null,
+  "benchmark_licenses": [],
+  "suspension_provisions": [],
+  "subscriber_agreement_requirements": [],
+  "force_majeure": null,
+  "document_priority": [],
+  "sections": [
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "London Stock Exchange Market Data\nSCHEDULE B – MARKET DATA POLICY\n(Applicable for both London Stock Exchange and Turquoise Market Data)\nAnnex to the Terms and Conditions of the London Stock Exchange Market Data Agreement",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "Schedule B – Market Data Policy",
+      "page": 1
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": "Schedule B – Market Data Policy",
+      "page": 2
+    },
+    {
+      "number": "1",
+      "title": "INTRODUCTION",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "1.1",
+      "title": "",
+      "text": ". This Schedule sets out additional rights and responsibilities for the use, redistribution, and display of Data by Customers, Service\nFacilitators, Redistributors, and their End Customers as described in the Price List and Data Product Schedule. Examples of common use\ncases for each type of licence are available on the Exchange website.",
+      "page": 2
+    },
+    {
+      "number": "1.2",
+      "title": "",
+      "text": ". To benefit from the additional rights in this Schedule, an Order Form must be submitted to the relevant Exchange and executed for the\nrelevant Licensable Activity, irrespective of whether a Licensable Activity has Charges associated with it or not.",
+      "page": 2
+    },
+    {
+      "number": "2",
+      "title": "LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.1",
+      "title": "",
+      "text": ". Subject always to the terms of the Limited Licence as set out in the Terms (the core rights granted to a recipient of the Data), Customers\nare permitted to use the Data listed on the Order Form, for the Licensable Activities listed on the Order Form, for the duration of the\nAgreement, in accordance with the rights and restrictions set out in this Schedule. The licence grant for each Licensable Activity is\ncumulative, on a non-exclusive, non-assignable, revocable and worldwide basis.",
+      "page": 2
+    },
+    {
+      "number": "2.2",
+      "title": "",
+      "text": ". The Customer may request to change and/or replace the Order Form with 90 days’ written notice to the relevant Exchange unless such\nnotice is waived by the Exchange. Such adjustment will come into effect on the first day of the calendar month following the end of the\nagreed notice period.",
+      "page": 2
+    },
+    {
+      "number": "2.3",
+      "title": "",
+      "text": ". Unless otherwise approved in writing by the relevant Exchange, the Customer has no additional rights over the Data other than those\nexpressly granted in the Agreement.",
+      "page": 2
+    },
+    {
+      "number": "2.4",
+      "title": ". REDISTRIBUTION LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.4.1",
+      "title": "",
+      "text": ". Where a Redistribution licence(s) is listed on the Order Form, the Customer is granted a licence to:\n2.4.1.1. redistribute the Data to End Customers via Devices in accordance with clause 3 below;\n2.4.1.2. use the Trade Marks to support marketing of the service, and to meet attribution requirements as further described below;\nand\n2.4.1.3. use, store, process and make available the Data as part of the Customer’s services in accordance with the terms of the\nAgreement.",
+      "page": 2
+    },
+    {
+      "number": "2.4.2",
+      "title": "",
+      "text": ". Where a Subsidiary is specifically named on an Order Form, such Subsidiary may use the Data in accordance with the licence set\nout in clause 2.4.1 as if it were a Redistributor, subject to the same rights and restrictions as the Customer.  The Subsidiary shall not\nbe liable to pay a Redistribution Licence Charge in addition to the Redistribution Licence Charges payable by the Customer.",
+      "page": 2
+    },
+    {
+      "number": "2.5",
+      "title": ". DERIVED DATA LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.5.1",
+      "title": "",
+      "text": ". Where a Derived Data licence(s) is listed on the Order Form, the Customer is granted a licence to:\n2.5.1.1. create Derived Data in accordance with the Order Form and clause 4 below; and\n2.5.1.2. use the Trade Marks only as required in documentation linked to creation of Indices/Benchmarks.",
+      "page": 2
+    },
+    {
+      "number": "2.6",
+      "title": ". SERVICE FACILITATOR LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.6.1",
+      "title": "",
+      "text": ". Where a Service Facilitator licence(s) is listed on the Order Form, the Customer is granted a licence to:\n2.6.1.1. act as a Service Facilitator to support licensed Redistribution and/or Derived Data use, in accordance with clause 5 below.",
+      "page": 2
+    },
+    {
+      "number": "2.7",
+      "title": ". NON-DISPLAY AND OTHER APPLICATION LICENCE",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "2.7.1",
+      "title": "",
+      "text": ". Where a Non-Display and/or Other Application licence(s) is listed on the Order Form, the Customer is hereby granted a licence to:\n2.7.1.1. process Data for Non-Display Usage and/or Other Application Usage as indicated on the Order Form, in accordance with\nclause 6.1 and/or 6.2 below.",
+      "page": 2
+    },
+    {
+      "number": "2.8",
+      "title": "",
+      "text": ". Customers with a specific licence for Turquoise market Data do not require a separate licence for Turquoise Europe market Data for the\nsame activity. If only Turquoise Europe market Data is permissioned or being used for a Licensable Activity, the respective licence for\nTurquoise Europe market Data applies.",
+      "page": 2
+    },
+    {
+      "number": "3",
+      "title": "REDISTRIBUTION POLICY",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1",
+      "title": ". GENERAL REDISTRIBUTION POLICIES",
+      "text": "",
+      "page": 2
+    },
+    {
+      "number": "3.1.1",
+      "title": "",
+      "text": ". Where a redistribution licence is held for a specific level of a Data Product for Real Time Data, the following rights to redistribute are\nalso included, without incurring additional Licence Charges:\nSchedule B – Market Data Policy",
+      "page": 2
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3",
+      "title": "",
+      "text": "3.1.1.1. For UK market Data and International market Data, the right to redistribute Delayed Data of the same Data Product at the\nsame level on a single Website, where such Data constitutes Display Data and such redistribution is on the same, or similar\nbusiness service to the licence held for the Real Time Data redistribution.\n3.1.1.2. For Turquoise market Data, the right to redistribute Delayed Data of the same Data Product at the same level, where such\nData constitutes Display Data and such redistribution is on the same, or similar business service to the licence held for the\nReal Time Data redistribution.\n3.1.1.3. For all Data, the right to redistribute Delayed Data of the same Product at the same level where such Data is not delivered\nthrough uncontrolled delivery mechanisms until such Data is considered After Midnight Data. At the point that Data delivered\nvia uncontrolled delivery mechanisms becomes After Midnight Data, the Historical Redistribution licence may apply.\n3.1.1.4. For all Data, the right to redistribute After Midnight Data, where such redistribution does not require a Historical Redistribution\nlicence.",
+      "page": 3
+    },
+    {
+      "number": "3.1.2",
+      "title": "",
+      "text": ". Where a Historical Redistribution licence is required, Licence Charges are always applicable irrespective of other licences held.",
+      "page": 3
+    },
+    {
+      "number": "3.1.3",
+      "title": "",
+      "text": ". Where a licence to redistribute a Level 2 Data Product is listed on the Order Form, the right to redistribute the Level 1 Data of the\nsame Data Product is included, without incurring additional Licence Charges for such redistribution. Licence Charges for all other\nredistribution licences are separately chargeable unless explicitly stated in this clause 3.",
+      "page": 3
+    },
+    {
+      "number": "3.1.4",
+      "title": "",
+      "text": ". Where a licence to redistribute a Level 1 or Level 2 Data Product is listed on the Order Form, the Customer may redistribute such\nData Product via a wallboard or similar Device without incurring any Data Charges, where such arrangement has been approved by\nthe Exchange in writing.",
+      "page": 3
+    },
+    {
+      "number": "3.1.5",
+      "title": "",
+      "text": ". Analytics Service Data is available for each Data Product licensed by the Redistributor and can be provided to Customers and End\nCustomers subject to the Price List and Data Product Schedule.",
+      "page": 3
+    },
+    {
+      "number": "3.1.6",
+      "title": "",
+      "text": ". The Redistributor shall ensure operational controls, described in Reporting and Audit Schedule, are in place to ensure compliance\nwith this Agreement.",
+      "page": 3
+    },
+    {
+      "number": "3.1.7",
+      "title": "",
+      "text": ". Customer’s access to Real Time Data must be password protected, unless otherwise specified within specific policy guidance\napplicable to a certain licence.",
+      "page": 3
+    },
+    {
+      "number": "3.1.8",
+      "title": "",
+      "text": ". The Redistributor shall ensure that its contracts with its End Customers give it all necessary rights to control and monitor Data use,\nincluding the right to verify compliance.",
+      "page": 3
+    },
+    {
+      "number": "3.1.9",
+      "title": "",
+      "text": ". The Redistributor shall make the contents of this Schedule available to its End Customers and to make all reasonable efforts to\ncommunicate all policy changes to such End Customers.",
+      "page": 3
+    },
+    {
+      "number": "3.1.10",
+      "title": "",
+      "text": ". Any redistribution of Data of any delay class via datafeed should be reported to the Exchange in accordance with the Reporting and\nAudit Schedule. Sub-vending of Data to other Redistributors, and use of redistribution Service Facilitators as further described below\nshould be approved in writing by the Exchange prior to entitlement.",
+      "page": 3
+    },
+    {
+      "number": "3.1.11",
+      "title": "",
+      "text": ". Redistributors should use all commercially and technically reasonable efforts to clearly state and display on their products that the\nExchange is the original source of the Data.",
+      "page": 3
+    },
+    {
+      "number": "3.2",
+      "title": ". PRIVATE INVESTOR LICENCES",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3.2.1",
+      "title": "",
+      "text": ". Private Investor Redistribution Licence Charges are applicable where Data is solely provided to Private Investors and no Professional\nUsers. For the avoidance of doubt, where a Redistributor is licensed to provide a Data Product to Professional Users, the same Data\nProduct can be provided to Private Investors with no additional Licence Charge payable. If the Customer cannot verify Private\nInvestor status for each individual End Customer, the applicable licence for Professional Users applies.",
+      "page": 3
+    },
+    {
+      "number": "3.2.2",
+      "title": "",
+      "text": ". A Private Investor is an End Customer who is not required to be regulated or supervised by a body concerned with the regulation or\nsupervision of investment or financial services and who meets all the conditions set out below:\n3.2.2.1. The End Customer subscribes (i.e., registers and pays) in a personal capacity;\n3.2.2.2. The End Customer is not currently registered or qualified as a professional securities trader or investment adviser with any\nnational or state exchange, regulatory authority, professional association or recognised professional body;\n3.2.2.3. The End Customer does not currently act in any capacity as an investment adviser, regardless of if they have previously been\nqualified to do so;\n3.2.2.4. The End Customer uses the service solely in relation to the management of their personal funds;\n3.2.2.5. The End Customer does not redistribute, republish, or otherwise provide any Data from the service to any third party in any\nmanner or use or process Data for any commercial purpose; and\n3.2.2.6. The Data Charge is designed to cover individuals and will be maintained in the End Customer’s name and not in the company\nname – the exception to this would be a share club operating on a non-professional basis.",
+      "page": 3
+    },
+    {
+      "number": "3.2.3",
+      "title": "",
+      "text": ". Where individuals are unable to meet the criteria at points 3.2.2.2 and 3.2.2.3  but would like access to Data solely in relation to the\nmanagement of their personal funds, the Redistributor should consult with the Exchange to confirm whether Private Investor status\nis applicable. The Redistributor will be asked to supply satisfactory evidence that the individual concerned is indeed acting in a\npersonal capacity in respect of the management of their personal funds, and if agreement is not made in advance, Private Investor\nstatus does not apply. Individuals acting on behalf of professionally managed family offices and family investment funds shall not be\nclassified as Private Investors.",
+      "page": 3
+    },
+    {
+      "number": "3.2.4",
+      "title": "",
+      "text": ". The Exchange reserves the right to levy Data Charges for Professional Users where End Customers are reported as Private Investors\nbut do not meet the conditions for Private Investors set out in 3.2.2.",
+      "page": 3
+    },
+    {
+      "number": "3.2.5",
+      "title": "",
+      "text": ". The Redistributor must obtain reasonable proof that the End Customer is eligible to be considered a Private Investor as set out in",
+      "page": 3
+    },
+    {
+      "number": "3.2.2",
+      "title": "",
+      "text": "above prior to any Data entitlement. As a minimum, the Redistributor should obtain an executed declaration of Private Investor\nstatus from the End Customer, which sets out the eligibility criteria as set out in 3.2.2 and include an affirmation that the End Customer\nmeets these criteria. The Private Investor Data Charge is only applicable for the dates covered in such declaration.",
+      "page": 3
+    },
+    {
+      "number": "3.2.6",
+      "title": "",
+      "text": ". The Exchange reserves the right to contact or request the Redistributor to contact those reported as Private Investors to confirm\ntheir eligibility, and the Redistributor must communicate this to End Customers.",
+      "page": 3
+    },
+    {
+      "number": "3.3",
+      "title": ". DELAYED DATA AND AFTER MIDNIGHT DATA LICENCES",
+      "text": "",
+      "page": 3
+    },
+    {
+      "number": "3.3.1",
+      "title": "",
+      "text": ". Delayed Data and After Midnight Data redistribution licences are required by any entity, including Service Facilitators, allowing End\nCustomers to access Delayed Data, or After Midnight Data via certain delivery mechanisms.",
+      "page": 3
+    },
+    {
+      "number": "3.3.2",
+      "title": "",
+      "text": ". For UK market Data and International market Data, Delayed Data Licence Charges apply per Website. The per Website Delayed\nData Licence Charge applies to average sized portals (as determined by the Exchange), and Enterprise licensing is required for\nSchedule B – Market Data Policy",
+      "page": 3
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "4",
+      "title": "",
+      "text": "larger, global distribution channels. For the avoidance of doubt, a single Website may have numerous 'domain suffixes' such as\n\".co.uk\", \".com\".",
+      "page": 4
+    },
+    {
+      "number": "3.3.3",
+      "title": "",
+      "text": ". For Turquoise market Data, Delayed Data Licence Charges apply on an enterprise basis.",
+      "page": 4
+    },
+    {
+      "number": "3.3.4",
+      "title": "",
+      "text": ". Where a Delayed Data and/or After Midnight licence for UK market Data is listed on the Order Form, the Customer may redistribute\nthe same level of Data for International market Data at no additional cost.",
+      "page": 4
+    },
+    {
+      "number": "3.3.5",
+      "title": "",
+      "text": ". For all Data, a Delayed Data licence includes the right to redistribute After Midnight Data of the same level of the same Data Product,\nwhere such redistribution does not require a Historical Redistribution licence (see 3.4 below).",
+      "page": 4
+    },
+    {
+      "number": "3.3.6",
+      "title": "",
+      "text": ". For all Data, After Midnight Data Redistribution Licence Charges apply where Data is delivered to End Customers using controlled\ndelivery mechanisms which are not covered under the Historical Redistribution licence (see 3.4 below).",
+      "page": 4
+    },
+    {
+      "number": "3.3.7",
+      "title": "",
+      "text": ". The Delayed Data and After Midnight Data Licence Charges are always due by a Redistributor (including Service Facilitators) where\nthe Redistributor charges for the redistribution of Data, including a general charge for accessing its services.",
+      "page": 4
+    },
+    {
+      "number": "3.3.8",
+      "title": "",
+      "text": ". Where approved in writing in advance by the Exchange, Redistribution Licence Charges are waived for Customers who in the\nExchange’s absolute opinion redistribute:\n3.3.8.1. After Midnight Data Licence Charges for journalistic purposes;\n3.3.8.2. After Midnight Data Licence Charges to Private Investor End Customers for the sole purpose of managing the holdings of the\nEnd Customer; or\n3.3.8.3. Delayed Data and/or After Midnight Data Licence Charges for educational purposes.",
+      "page": 4
+    },
+    {
+      "number": "3.4",
+      "title": ". HISTORICAL REDISTRIBUTION LICENCES",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.4.1",
+      "title": "",
+      "text": ". The Historical Redistribution licence applies to any entity (including Service Facilitators) providing After Midnight Data to End\nCustomers via certain delivery methods.",
+      "page": 4
+    },
+    {
+      "number": "3.4.2",
+      "title": "",
+      "text": ". Licensable delivery methods are those which are not permissioned on a per Device or Unique User ID basis. Examples of such\ndelivery methods include datafeeds, cloud-based delivery, SFTP and CSV files.",
+      "page": 4
+    },
+    {
+      "number": "3.4.3",
+      "title": "",
+      "text": ". The Historical Redistribution licence always applies in addition to all other licences, including but not limited to Real Time Data\nredistribution licences, Delayed Data redistribution licences and/or After Midnight redistribution licences.",
+      "page": 4
+    },
+    {
+      "number": "3.5",
+      "title": ". PER PRICE REQUEST LICENCE",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.5.1",
+      "title": "",
+      "text": ". Where the Per Price Request licence is listed on the Order Form, End Customers can request a real time Level 1 price at a chosen\npoint in time through an interactive Data delivery channel. A single price request can constitute one or all Level 1 service components\ne.g., all Level 1 components including best bid & offer or just one component, e.g., the last trade.",
+      "page": 4
+    },
+    {
+      "number": "3.5.2",
+      "title": "",
+      "text": ". Under the Per Price Request licence, the first 300,000 price requests are included in the Licence Charge. Any subsequent requests\nare subject to the Per Price Request Data Charges on the Price List and Data Product Schedule. The licence and therefore initial\nprice request allowance resets annually.",
+      "page": 4
+    },
+    {
+      "number": "3.5.3",
+      "title": "",
+      "text": ". Per Price Request Data cannot be automatically refreshed on screen. If the Data is automatically refreshed on screen, standard\nLicence Charges and Data Charges apply. Each individual request must be recorded, whether the access is ad hoc or pre-\nprogrammed (e.g., every hour).",
+      "page": 4
+    },
+    {
+      "number": "3.5.4",
+      "title": "",
+      "text": ". Broadcast of a single request to multiple Devices or Unique User IDs is not permitted unless the Redistributor has the facility to count\nthe number of receivers for the request. One price disseminated to 150 Devices is counted as 150 requests. The formula applicable\nunder this scenario is:\nNumber of total price requests = number of prices x number of Devices / Unique User IDs.",
+      "page": 4
+    },
+    {
+      "number": "3.6",
+      "title": ". TV TICKER LICENCE",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.6.1",
+      "title": "",
+      "text": ". Where the TV Ticker licence is listed on the Order Form, Customer may redistribute the Data via TV Devices, with the End Customers\ntechnically unable to onward redistribute the Data.",
+      "page": 4
+    },
+    {
+      "number": "3.6.2",
+      "title": "",
+      "text": ". Individual quotes should be visible for a maximum of five seconds.",
+      "page": 4
+    },
+    {
+      "number": "3.6.3",
+      "title": "",
+      "text": ". The respective Data Charge applies per one thousand TV Devices, reportable in accordance with the Reporting and Audit Schedule.",
+      "page": 4
+    },
+    {
+      "number": "3.7",
+      "title": ". LIVE TICKER FOR ISSUERS LICENCE",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.7.1",
+      "title": "",
+      "text": ". Where the Live Ticker licence is listed in the Order Form and the Customer is listed on the LSE (“Issuers”), the Customer’s own\nshare price may be provided as Real Time Data. The Live Ticker for Issuers Licence Charge applies, and such redistribution of the\nIssuer’s own share price is not subject to Data Charges.",
+      "page": 4
+    },
+    {
+      "number": "3.8",
+      "title": ". INVESTOR RELATIONS LICENCE",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.8.1",
+      "title": "",
+      "text": ". Where the Investor Relations licence is listed on the Order Form, Issuers can provide up to 4 Delayed Data share prices of relevant\nsecurities listed on the LSE (in addition to the listed company’s own share price) to allow them to enrich their investor relations\nWebsite subject to the following conditions:\n3.8.1.1. The Customer shall pay the Investor Relations Licence Charges per Website as set forth in the Price List and Data Product\nSchedule;\n3.8.1.2. The Exchanges determine that the securities are relevant to the Customer’s investor relations Website; and\n3.8.1.3. The Customer must report to the Exchange the URL and name of the investor relations Websites on which the securities\nprices are displayed.",
+      "page": 4
+    },
+    {
+      "number": "3.9",
+      "title": ". LAST TRADE PRICE LICENCE",
+      "text": "",
+      "page": 4
+    },
+    {
+      "number": "3.9.1",
+      "title": "",
+      "text": ". Where the Last Trade Price licence is listed on the Order Form, Redistributor may broadcast limited, Real Time Data via the specified\nnumber of 'open access' Websites to Private Investors without incurring Data Charges. Where the Enterprise licence is listed, the\nRedistributor can provide Last Trade Price Data via an unlimited number of Websites.\nSchedule B – Market Data Policy",
+      "page": 4
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "5",
+      "title": "",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "3.9.2",
+      "title": "",
+      "text": ". The Exchange must approve operational controls put in place by the Redistributor prior to incorporation of Last Trade Price Data in\ntheir services, as well as Website functionality, to ensure effective compliance. The scope of such approval is limited to the specific\nfunctionality presented at that time.",
+      "page": 5
+    },
+    {
+      "number": "3.9.3",
+      "title": "",
+      "text": ". The Last Trade Price Data consists solely of Real Time Data for:\n3.9.3.1. instrument name;\n3.9.3.2. instrument identifier(s) – e.g., ISIN and/or SEDOL;\n3.9.3.3. last traded price for that instrument;\n3.9.3.4. volume of shares traded in that transaction; and\n3.9.3.5. time of the trade.",
+      "page": 5
+    },
+    {
+      "number": "3.9.4",
+      "title": "",
+      "text": ". The Last Trade Price licence:\n3.9.4.1. restricts the dissemination of Last Trade Price Data within limited Website data services technically controlled by the\nRedistributor;\n3.9.4.2. only permits interactive functionality using Last Trade Price Data contained within those Website services;\n3.9.4.3. does not permit the redistribution of Last Trade Price Data to Professional Users; and\n3.9.4.4. does not permit the onward dissemination or exporting of Data via API or any other redistribution channel.",
+      "page": 5
+    },
+    {
+      "number": "3.9.5",
+      "title": "",
+      "text": ". Published pricing relates to average sized media portals and Websites. For the avoidance of doubt, a single Website may have\nnumerous 'domain suffixes' such as \".co.uk\", \".com\".",
+      "page": 5
+    },
+    {
+      "number": "3.10",
+      "title": ". ENTERPRISE INTERNAL USE LICENCE FOR JOURNALISTIC PURPOSES",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "3.10.1",
+      "title": "",
+      "text": ". Where the Enterprise Internal Use licence for Journalistic Purposes is listed on the Order Form, the Customer may provide UK\nmarket Data and/or International market Data to an unlimited number of users who are eligible personnel within the Customer entity\nor any Subsidiaries listed on the Order Form, without monthly reporting obligations or incurring additional Data Charges. Eligible\npersonnel are employees of the Customer whose sole purpose in using the Data is the preparation of journalism and journalistic\ncontent, including, but not limited to, journalists and editors.",
+      "page": 5
+    },
+    {
+      "number": "3.10.2",
+      "title": "",
+      "text": ". Customers must report the number of users of each Data Product at each level once on an annual basis, with the timing and format\nof the report to be agreed in advance with the Exchange.",
+      "page": 5
+    },
+    {
+      "number": "4",
+      "title": "DERIVED DATA POLICY",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "4.1",
+      "title": ". CALCULATION AND REDISTRIBUTION OF INDICES/BENCHMARKS LICENCE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "4.1.1",
+      "title": "",
+      "text": ". Where the Calculation and Redistribution of Indices/Benchmarks licence (“Indices/Benchmarks licence”) is listed on the Order Form,\nthe Customer may use the Data to calculate and redistribute Indices/Benchmarks, irrespective of whether the Derived Data creation\nuses Real Time Data, Delayed Data or After Midnight Data.",
+      "page": 5
+    },
+    {
+      "number": "4.1.2",
+      "title": "",
+      "text": ". Charges apply per the respective banding defined in the Price List and Data Product Schedule based on the Number of End\nCustomers selected on the Order Form. The Customer must report to the Exchange any changes to the number of End Customers\nwhich results in a change in the banding.",
+      "page": 5
+    },
+    {
+      "number": "4.1.3",
+      "title": "",
+      "text": ". Where the Customer outsources the calculation of Indices/Benchmarks to a third party, Licence Charges set out in the Price List and\nData Product Schedule apply to both the Customer and the third party, based on the number of End Customers of each party.",
+      "page": 5
+    },
+    {
+      "number": "4.1.4",
+      "title": "",
+      "text": ". Enterprise Charges apply where penultimate banding is exceeded, or Customer cannot provide satisfactory evidence that a lower\nband is applicable.",
+      "page": 5
+    },
+    {
+      "number": "4.1.5",
+      "title": "",
+      "text": ". Indices/Benchmarks created do not attract Data Charges where the appropriate licence is held.",
+      "page": 5
+    },
+    {
+      "number": "4.1.6",
+      "title": "",
+      "text": ". For the avoidance of doubt, the right to redistribute the raw, underlying Data is subject to a separate licence for the respective delay.",
+      "page": 5
+    },
+    {
+      "number": "4.2",
+      "title": ". CALCULATION AND REDISTRIBUTION OF DERIVED DATA OTHER THAN INDICES/BENCHMARKS LICENCE",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "4.3",
+      "title": "",
+      "text": ". Where the Calculation and Redistribution of Derived Data other than Indices/Benchmarks licence is listed on the Order Form, the\nCustomer may use the Data to create and redistribute Derived Data which is not:",
+      "page": 5
+    },
+    {
+      "number": "4.3.1",
+      "title": "",
+      "text": ". Calculation and/or redistribution of Indices/Benchmarks; or",
+      "page": 5
+    },
+    {
+      "number": "4.3.2",
+      "title": "",
+      "text": ". Use of Data in connection with operation of an ATP, as further detailed below\nirrespective of whether the Derived Data creation uses Real Time Data, Delayed Data or After Midnight Data.",
+      "page": 5
+    },
+    {
+      "number": "4.4",
+      "title": "",
+      "text": ". The licence for Calculation and Redistribution of Derived Data other than Indices/Benchmarks provided solely to Private Investors\ndoes not attract any Licence Charges, where the Customer technically controls redistribution of the Derived Data other than\nIndices/Benchmarks and can ensure that Professional Users cannot access such Derived Data.",
+      "page": 5
+    },
+    {
+      "number": "4.5",
+      "title": "",
+      "text": ". Charges apply per the respective banding defined in the Price List and Data Product Schedule based on the number of End Customers\nselected on the Order Form. The Customer must report to the Exchange any changes to the number of End Customers which results\nin a change in the banding.",
+      "page": 5
+    },
+    {
+      "number": "4.6",
+      "title": "",
+      "text": ". Enterprise licences apply where penultimate banding is exceeded, or Customer cannot provide satisfactory evidence that a lower\nband is applicable.",
+      "page": 5
+    },
+    {
+      "number": "4.7",
+      "title": "",
+      "text": ". Derived Data other than Indices/Benchmarks created does not attract Data Charges where the appropriate licence is held.",
+      "page": 5
+    },
+    {
+      "number": "4.8",
+      "title": "",
+      "text": ". For the avoidance of doubt, the right to redistribute the raw, underlying Data is subject to a separate licence for the respective delay.",
+      "page": 5
+    },
+    {
+      "number": "4.9",
+      "title": ". ALTERNATIVE TRADING PLATFORM (ATP) LICENCES",
+      "text": "",
+      "page": 5
+    },
+    {
+      "number": "4.9.1",
+      "title": "",
+      "text": ". Where an Alternative Platform licence is listed on the Order Form, the Customer may use Data or Derived Data in connection with\nthe operation of an ATP, whether this is a Raw Data ATP or Derived Data ATP.",
+      "page": 5
+    },
+    {
+      "number": "4.9.2",
+      "title": "",
+      "text": ". Customers operating or offering a Raw Data ATP are charged an annual Raw Data ATP Charge, payable in addition to the applicable\nRedistribution Licence Charges and Data Charges set out in the Price List and Data Product Schedule.\nSchedule B – Market Data Policy",
+      "page": 5
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "6",
+      "title": "",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "4.9.3",
+      "title": "",
+      "text": ". Customers operating or offering a Derived Data ATP are charged a Base Annual Charge and an Additional Annual Charge dependent\non the number of Natural Users with access to, or trading on the Derived Data ATP, where such number of Natural Users exceeds",
+      "page": 6
+    },
+    {
+      "number": "500",
+      "title": "",
+      "text": ".",
+      "page": 6
+    },
+    {
+      "number": "4.9.4",
+      "title": "",
+      "text": ". If a Customer offers or operates both a Raw Data ATP and a Derived Data ATP, or one or more ATPs permitting trading instruments\nbased on, or linked to, both the Data and the Derived Data, the following Charges will apply, as set out in the Price List and Data\nProduct Schedule:\n4.9.4.1. the applicable Raw Data ATP Charge or Derived Data ATP Base Annual Charge, whichever is higher;\n4.9.4.2. the applicable Redistribution Licence Charge;\n4.9.4.3. the applicable Data Charges; and\n4.9.4.4. where the number of Natural Users exceeds 500, the Derived Data Additional Annual Charge.",
+      "page": 6
+    },
+    {
+      "number": "5",
+      "title": "SERVICE FACILITATION POLICY",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "5.1",
+      "title": ". REDISTRIBUTION SERVICE FACILITATOR LICENCES",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "5.1.1",
+      "title": "",
+      "text": ". Redistributors can appoint Service Facilitators to sell and/or deliver Real Time Data in a closed user group environment\n(“Redistribution Service Facilitator”). To be deemed eligible, the following criteria must be met (unless otherwise approved in writing\nby the Exchange):\n5.1.1.1. The Redistributor must contract directly with the End Customer in respect of the Data delivery, and such contract must be in\nplace prior to Data enablement;\n5.1.1.2. The Redistributor is wholly responsible for compliance with the Reporting Schedule and the Audit Schedule;\n5.1.1.3. The Redistributor must allocate Unique User IDs;\n5.1.1.4. The Redistribution Service Facilitator is permitted to modify and/or database the Data, solely where such use is always in\nsupport of the Redistributor’s provision of Data to its End Customers;\n5.1.1.5. The Redistribution Service Facilitator is forbidden in its contract with the Redistributor from providing Data to any customers\nwho are not customers of the Redistributor (other than as an approved Redistribution Service Facilitator for other\nRedistributors or as a Redistributor in its own right);\n5.1.1.6. The Redistribution Service Facilitator, in its contract with the Redistributor, agrees to the same terms as the Redistributor in\nrespect of market data audits, and is also subject to audit by the Redistributor;\n5.1.1.7. Where the Brand on the Data service is exclusively that of the Redistributor, and 5.1.1.1 - 5.1.1.6 are met, no additional\nlicensing is required. Where the Brand is not exclusively of the Redistributor, and 5.1.1.1- 5.1.1.6 are met, Redistribution\nService Facilitator Licence Charges apply for each Data Product for each Redistribution Service Facilitator, and such\nRedistribution Service Facilitator must be listed on the Order Form.",
+      "page": 6
+    },
+    {
+      "number": "5.1.2",
+      "title": "",
+      "text": ". If a Redistribution Service Facilitator delivers Data via a datafeed to an End Customer on behalf of the Redistributor, it is the\nresponsibility of the Redistributor to acquire monthly honesty declarations from each End Customer; the Redistributor is ultimately\nliable if their appointed Service Facilitator(s) fail to meet any of the above criteria.",
+      "page": 6
+    },
+    {
+      "number": "5.1.3",
+      "title": "",
+      "text": ". The Exchange reserves the right to refuse to grant approval if they believe the Redistribution Service Facilitator does not satisfactorily\nfulfil the above criteria.",
+      "page": 6
+    },
+    {
+      "number": "5.2",
+      "title": ". DERIVED DATA WHITE LABEL LICENCES",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "5.2.1",
+      "title": "",
+      "text": ". The Customer may use Service Facilitators to extend redistribution of Data created through the operation of a Derived Data ATP\n(“Derived Data White Label”), and any such Derived Data White Labels must be listed on the Order Form.",
+      "page": 6
+    },
+    {
+      "number": "5.2.2",
+      "title": "",
+      "text": ". Such Derived Data White Labels are permitted to receive Data from the Derived Data ATP either within a display Device, or API,\nand they can rebrand or change the “look and feel” of that Derived Data ATP so that it appears to the End Customers as if it is\noperated or managed by the Derived Data White Label.",
+      "page": 6
+    },
+    {
+      "number": "5.2.3",
+      "title": "",
+      "text": ". Prior to employing a Derived Data White Label, the Customer must receive written approval from the Exchange.",
+      "page": 6
+    },
+    {
+      "number": "5.2.4",
+      "title": "",
+      "text": ". In addition to the Derived Data ATP Charges, the Customer shall pay a fixed Charge in respect of each Derived Data White Label\nspecified in the Price List and Data Product Schedule.",
+      "page": 6
+    },
+    {
+      "number": "5.2.5",
+      "title": "",
+      "text": ". For the avoidance of doubt, Customers operating a Raw Data ATP are subject to the above provisions in respect of Redistribution\nService Facilitators.",
+      "page": 6
+    },
+    {
+      "number": "6",
+      "title": "NON-DISPLAY AND OTHER APPLICATION POLICIES",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "6.1",
+      "title": ". NON-DISPLAY USAGE LICENCE",
+      "text": "",
+      "page": 6
+    },
+    {
+      "number": "6.1.1",
+      "title": "",
+      "text": ". A licence is required for all trading-based activity Non-Display Usage of Real Time Data.",
+      "page": 6
+    },
+    {
+      "number": "6.1.2",
+      "title": "",
+      "text": ". Non-Display Licence Charges are applicable based on the Data Product consumed, the level of such Data Product, and the number\nof entitlements, for each category of Non-Display Usage. Where the number of entitlements to applications cannot be accurately\ndetermined or monitored, the enterprise banding should be applied.",
+      "page": 6
+    },
+    {
+      "number": "6.1.3",
+      "title": "",
+      "text": ". For Turquoise market Data, Charges are available per market segment, as detailed in the Price List and Data Product Schedule.",
+      "page": 6
+    },
+    {
+      "number": "6.1.4",
+      "title": "",
+      "text": ". Charges are applied for all Data Products and all levels of Data unless it is established to the satisfaction of the Exchange that only\nspecific Data Products and/or levels of Data are being used.",
+      "page": 6
+    },
+    {
+      "number": "6.1.5",
+      "title": "",
+      "text": ". Non-Display Usage Licence Charges are applicable based on the number of entitlements to applications using Real Time Data for\nNon-Display Usage. Where Level 2 Data is being used and the maximum number of applications within the banding has not been\nreached, Level 1 Data of the same Data Product may be used for the remaining number of applications within the banding without\nincurring any additional Licence Charges.\nSchedule B – Market Data Policy",
+      "page": 6
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7",
+      "title": "",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "6.1.6",
+      "title": "",
+      "text": ". For the avoidance of doubt, Non-Display Usage includes, but is not limited to automated trading, semi-automated trading and Non-\nDisplay Usage within hosted environments. Further examples of Non-Display Usage can be found on the Exchange website.",
+      "page": 7
+    },
+    {
+      "number": "6.1.7",
+      "title": "",
+      "text": ". The categories of Non-Display Usage are as follows:\nPrincipal\nCustomers whose internal Non-Display Usage is for the purpose of (or includes) trading-based activities as ‘principal’,\non such Customer’s own account\nClient Facilitation\nCustomers whose internal Non-Display Usage is for the purpose of (or includes) trading-based activities to facilitate\ncustomer business\nTrading Platforms\nCustomers whose Non-Display Usage is for the purpose of (or includes) the operation of trading platforms including but\nnot restricted to systematic internalisers/multilateral trading facilities",
+      "page": 7
+    },
+    {
+      "number": "6.1.8",
+      "title": "",
+      "text": ". Data Charges apply in conjunction with Non-Display Usage Licence Charges where Data is redistributed in conjunction with Non-\nDisplay Usage of the Data.",
+      "page": 7
+    },
+    {
+      "number": "6.2",
+      "title": ". OTHER APPLICATION USAGE LICENCE",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "6.2.1",
+      "title": "",
+      "text": ". A licence is required for all Other Application Usage of Real Time Data. Other Application Usage refers to any non-trading activities\nusing the Data for purposes other than simple display, including all other activities not covered by any other licence set out in this\npolicy document.",
+      "page": 7
+    },
+    {
+      "number": "6.2.2",
+      "title": "",
+      "text": ". Other Application Licence Charges are applicable based on the Data Product consumed, the level of such Data Product, and the\nnumber of entitlements. Where the number of entitlements to applications cannot be accurately determined or monitored, the\nenterprise banding should be applied.",
+      "page": 7
+    },
+    {
+      "number": "6.2.3",
+      "title": "",
+      "text": ". Other Application Usage Charges are applicable based on the number of entitlements to applications using Real Time Data for Other\nApplication Usage. Where Level 2 Data is being used and the maximum number of applications within the banding has not been\nreached, Level 1 Data of the same Data Product may be used for the remaining number of applications within the banding without\nincurring any additional Charges.",
+      "page": 7
+    },
+    {
+      "number": "6.2.4",
+      "title": "",
+      "text": ". Data Charges apply in conjunction with Other Application Usage Licence Charges where Data is redistributed in conjunction with\nthe Other Application Usage of the Data.",
+      "page": 7
+    },
+    {
+      "number": "7",
+      "title": "DATA CHARGES POLICY",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7.1",
+      "title": "",
+      "text": ". Level 2 Data Charges include the receipt of Level 1 Data and Level 1 Data Charges include the receipt of Post-trade Data.",
+      "page": 7
+    },
+    {
+      "number": "7.2",
+      "title": "",
+      "text": ". If Level 1 or 2 Data is delayed by 15 minutes or more prior to dissemination and display, Data Charges are not payable, subject to the\nRedistributor holding a Delayed Data, After Midnight Data or Historical Redistribution licence, or a Real Time Data Redistribution licence\nwhich includes rights to redistribute on the relevant channels.",
+      "page": 7
+    },
+    {
+      "number": "7.3",
+      "title": ". REPORTING REQUIREMENTS",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7.3.1",
+      "title": "",
+      "text": ". Data Charges are applicable under certain redistribution policies. Customers are required to report to the Exchange in the format,\non the frequency and with the content for each policy as specified in Schedule C.",
+      "page": 7
+    },
+    {
+      "number": "7.3.2",
+      "title": "",
+      "text": ". The Exchange reserves the right to request and obtain on reasonable notice such additional reports as may be required from time\nto time to monitor the Customer’s use of Data and compliance with this Agreement.",
+      "page": 7
+    },
+    {
+      "number": "7.4",
+      "title": ". REDISTRIBUTOR DATA CHARGES TO END CUSTOMERS",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7.4.1",
+      "title": "",
+      "text": ". Redistributors will often seek to pass through each Exchange’s Data Charges to End Customers, including as part of a Redistributors’\nown charges. Redistributors are free to set their own prices for their End Customers for accessing Data, however they must not\ncommunicate such pricing or price changes in any manner which would mislead End Customers as to the Charges set by each\nExchange.  Where a Redistributor sets their own price for the provision of Data to their End Customers, it must make it clear that\nthis is not the price set by the Exchange.",
+      "page": 7
+    },
+    {
+      "number": "7.5",
+      "title": ". MEMBER DATA CHARGES",
+      "text": "",
+      "page": 7
+    },
+    {
+      "number": "7.5.1",
+      "title": "",
+      "text": ". Members are eligible for discounted Data Charges as outlined in the Price List and Data Product Schedule in respect of the following\nData Products:\n7.5.1.1. UK market Data Level 2;\n7.5.1.2. UK market Data Level 1;\n7.5.1.3. International market Level 2; and\n7.5.1.4. International market Level 1.",
+      "page": 7
+    },
+    {
+      "number": "7.5.2",
+      "title": "",
+      "text": ". Eligibility of Member firms for Member Data Charges only relates to business conducted by a Member at specific locations registered\nin advance with the Exchange.  It is the responsibility of the Member compliance team to provide at least 21 days advance written\nnotification, of such locations, and any changes, to marketdatareporting@lseg.com. Member Data Charges do not apply\nretrospectively to any locations that have not been notified to the Exchange with the appropriate notice.",
+      "page": 7
+    },
+    {
+      "number": "7.5.3",
+      "title": "",
+      "text": ". Member Data Charges are applicable for Member receipt of Data and does not apply to redistribution of the Data outside of such\nMember firm.",
+      "page": 7
+    },
+    {
+      "number": "7.5.4",
+      "title": "",
+      "text": ". A monthly list of eligible Member locations for discounted Member Data Charges is published on the London Stock Exchange’s\nwebsite. The Redistributor is responsible for ensuring only eligible Members are subject to the discounted Data Charges.\nSchedule B – Market Data Policy",
+      "page": 7
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "8",
+      "title": "",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "7.6",
+      "title": ". FREE TRIALS",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "7.6.1",
+      "title": "",
+      "text": ". A Redistributor may grant a one-off, single free trial of 30 days during which no Data Charges will apply. This will apply:\n7.6.1.1. Per Natural User for display Devices;\n7.6.1.2. Per End Customer location for Data delivered via datafeed.",
+      "page": 8
+    },
+    {
+      "number": "7.6.2",
+      "title": "",
+      "text": ". The Redistributor must submit a Report to the Exchange for any free trial access provided throughout the month in accordance with\nthe Reporting Schedule.",
+      "page": 8
+    },
+    {
+      "number": "7.6.3",
+      "title": "",
+      "text": ". The Exchange must approve in writing the contractual and technical controls put in place by any Redistributor prior to commencement\nof offering of free trials. These controls must prevent any misuse of free trial Data, including but not limited to: (i) preventing recurring\nfree trials, (ii) limiting the free trial to 30 days per Professional User or Private Investor End Customer, and (iii) ensuring that\nappropriate terms and conditions are in place to govern the free trial period.",
+      "page": 8
+    },
+    {
+      "number": "7.6.4",
+      "title": "",
+      "text": ". Prior written permission must be sought from the Exchange for free trial Data to be delivered via datafeed.",
+      "page": 8
+    },
+    {
+      "number": "7.6.5",
+      "title": "",
+      "text": ". Redistributors granting free trial periods to Private Investors must ensure that such free trials are restricted to those Private Investor\nEnd Customers who complete a declaration, in advance, stating that they are eligible as per the Private Investor criteria (see section",
+      "page": 8
+    },
+    {
+      "number": "3.2.2",
+      "title": "",
+      "text": ").",
+      "page": 8
+    },
+    {
+      "number": "7.7",
+      "title": ". DISASTER SITES",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "7.7.1",
+      "title": "",
+      "text": ". Devices and Unique User IDs at disaster sites do not attract Data Charges if they are intended for use by End Customers who pay\nData Charges for the respective Data Product at their live site, and if the Devices are never used concurrently with Devices at the\nlive site.",
+      "page": 8
+    },
+    {
+      "number": "7.7.2",
+      "title": "",
+      "text": ". Should an End Customer switch from its live to its disaster site, the Devices at the disaster site become liable for Data Charges.\nDisaster sites should not have greater access to Data than would be expected at the primary site and the number of Devices or\nUnique User IDs with access to Data should not exceed the primary site.",
+      "page": 8
+    },
+    {
+      "number": "7.7.3",
+      "title": "",
+      "text": ". A company whose primary function is to provide emergency dealing facilities for another, separate, company should report Data\nusage in accordance with this Agreement to the Redistributor supplying the Data, as and when the emergency facilities are being\nused.",
+      "page": 8
+    },
+    {
+      "number": "7.8",
+      "title": ". OTHER FREE OF CHARGE DATA USE",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "7.8.1",
+      "title": "",
+      "text": ". Data Charges are waived where the Customer can demonstrate to the Exchange’s satisfaction that Devices are used for the sole\npurposes of systems monitoring (technical provision of Real Time Data and not part of a commercial or other business function),\nsystems development, marketing or training, or educational purposes by academic institutions, provided that the Exchange has\nagreed in writing, in advance, that the number of such Devices is reasonable. Customer must be able to demonstrate, on request,\nthat these Devices are being used and have only been used, for the above purposes in support of redistribution of the Data.\nRedistributors must ensure that Data is only provided to those internal users who support redistribution services related to the\nExchange, and such fee-waived used must not exceed 10% of the reported fee-liable Devices. Data use which would not qualify for\nthis policy concession includes but is not limited to:\n7.8.1.1. Non-technical customer support, including the dissemination of Data via the phone;\n7.8.1.2. Journalism; and\n7.8.1.3. The provision of financial advice.",
+      "page": 8
+    },
+    {
+      "number": "7.8.2",
+      "title": "",
+      "text": ". The Exchange reserves the right to request and obtain on reasonable notice reports of any free of charge Devices as may be required\nfrom time to time to monitor the Customer’s compliance with this Agreement.",
+      "page": 8
+    },
+    {
+      "number": "8",
+      "title": "DEFINITIONS",
+      "text": "",
+      "page": 8
+    },
+    {
+      "number": "8.1",
+      "title": "",
+      "text": ". In this Agreement, unless the context requires otherwise, the following words shall have the following meanings. Please refer to the Terms,\nOrder Form and the other Schedules for other defined terms used in this Schedule but not defined herein:\nAfter Midnight Data\nmeans Data distributed after 23:59 on the day that it is disseminated.\nATP\nmeans an alternative trading platform, including trading/betting platforms, platforms for contracts for\ndifference (CFD), binary options, spread betting instruments and similar instruments.\nBrand\nmeans a specific client identity that can include but is not limited to: client name, logo, product name, ‘look\nand feel’, and URL.\nData Charges\nmeans Charges identified as such in Schedule A.\nDelayed Data\nmeans Data made available 15 minutes after publication, but before midnight on the day of its original\npublication.\nDevice\nmeans any terminal (fixed or portable), display unit, or any other piece of apparatus which may receive or\ndisplay (whether concurrently or otherwise) the Data, whether in whole or in part.\nDerived Data\nmeans any and all data created or derived from, or on the basis of, the Data using calculations, computations\nor any other mathematical or other manipulations or processes applied to the Data and that cannot be (i)\nreverse engineered back to the Data or (ii) used as a replacement or substitute for the Data.\nSchedule B – Market Data Policy",
+      "page": 8
+    },
+    {
+      "number": "01",
+      "title": "January 2025",
+      "text": "",
+      "page": 9
+    },
+    {
+      "number": "9",
+      "title": "",
+      "text": "Derived Data ATP\nmeans an ATP permitting trading of instruments the price or value of which is based on, or linked to, the\nDerived Data.\nDisplay Data\nmeans the Data provided or used through the support of a monitor or a screen and that is human readable.\nEnd Customer\nmeans any party that receives or has access to the Data, Indices/Benchmarks based on the Data or Derived\nData, including delivered via ATP either directly from the Customer or via one or more Redistributors or a\nthird party.\nIndices/Benchmarks\nmeans an index as defined under the UK Benchmarks Regulation, or equivalent regulation.\nLicence Charges\nmeans Charges identified as such in Schedule A.\nMember\nmeans an entity which is also a member of an Exchange and party to the relevant membership agreement.\nNatural User\nmeans a unique user with display access to Data.\nNon-Display Usage\nmeans the access, processing or use of Real Time Data for purposes other than displaying or disseminating\nsuch Data as further described below.\nNon-Professional\nCustomer\nmeans a Unique User ID who does not meet the definition of Professional Customer.\nOther Application\nUsage\nmeans the use of Real Time Data within applications covering one or more non- trading-based activities\nincluding but not limited to: risk management; quantitative analysis; fund administration; portfolio\nmanagement.\nPrivate Investor\nin relation to Turquoise Europe market Data, means a ‘Non-Professional Customer’ as defined in this Schedule\nB.\nin relation to all other Data products, means a Unique User ID who meets the requirements in 3.2.2 above.\nProfessional\nCustomer\nmeans a customer who uses market data to carry out a regulated financial service or regulated financial\nactivity or to provide a service for third parties, or who is considered to be a large undertaking, i.e. meeting\ntwo of the following size requirements on a company basis: (i) balance sheet total of EUR 20 000 000 (ii) net\nturnover of EUR 40 000 000 (iii) own funds of EUR 2 000 000.\nProfessional User\nin relation to Turquoise Europe market Data, means a ‘Professional Customer’ as defined in this Schedule B.\nin relation to all other Data products, means a Unique User ID which does not meet the requirements to be\nconsidered a Private Investor.\nRaw Data ATP\nmeans an ATP permitting trading of instruments the price or value of which is based on, or linked to, the\nData or any data that can be reversed-engineered back to the Data.\nReal Time Data\nmeans all Data delivered with a delay of less than fifteen minutes after publication.\nRedistributor\nmeans a Customer authorised by an Exchange to disseminate or redistribute the Data externally.\nRedistribution\nLicence Charges\nmeans redistribution Charges set out in the Price List and Data Product Schedule.\nService Facilitator\nmeans an entity appointed by a Customer that has been approved by an Exchange to facilitate the delivery\nof Data to:",
+      "page": 9
+    },
+    {
+      "number": "1",
+      "title": "",
+      "text": ".\na Redistributor’s End Customers; or",
+      "page": 9
+    },
+    {
+      "number": "2",
+      "title": "",
+      "text": ".\nadditional End Customers of a Derived Data ATP.\nUnique User ID or\nDevice ID\nmeans a unique set of logon information which controls access to Data on a user or Device basis.\nWebsite\nmeans a website or a web platform with its own individuality, to be intended as, inter alia, specific domain\nname/URL and/or contents and/or Brand.",
+      "page": 9
+    }
+  ],
+  "schema_version": "1.0",
+  "custom_attributes": {},
+  "custom_concepts": [],
+  "raw_annotations": []
+}
