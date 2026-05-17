@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
-import { X, Upload, Trash2, FileText, AlertTriangle, Loader2, CheckCircle, XCircle, Clock } from 'lucide-react'
+import { X, Upload, Trash2, FileText, AlertTriangle, Loader2, CheckCircle, XCircle, Clock, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import type { DocumentItem, DocumentStatus } from '@/lib/data-license-benchmark/types'
 import { uploadDocument, deleteDocument, getDocumentById } from '@/lib/data-license-benchmark/api'
@@ -61,6 +61,25 @@ export default function DocManagementModal({
   const [isDragOver, setIsDragOver] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [deletingId, setDeletingId] = useState<string | null>(null)
+  const [sortField, setSortField] = useState<'title' | 'exchange' | null>(null)
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
+
+  function toggleSort(field: 'title' | 'exchange') {
+    if (sortField === field) {
+      setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortField(field)
+      setSortDir('asc')
+    }
+  }
+
+  const sortedDocuments = sortField
+    ? [...documents].sort((a, b) => {
+        const valA = (a[sortField] ?? '').toLowerCase()
+        const valB = (b[sortField] ?? '').toLowerCase()
+        return sortDir === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA)
+      })
+    : documents
   const fileInputRef = useRef<HTMLInputElement>(null)
   const pollingRefs = useRef<Map<string, ReturnType<typeof setInterval>>>(new Map())
 
@@ -377,18 +396,32 @@ export default function DocManagementModal({
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-[#E5E7EB] dark:border-white/10 bg-[#F8FAFC] dark:bg-white/3">
-                      {['Title', 'Exchange', 'Agreement Type', 'Status', 'Added', ''].map((h, i) => (
+                      {(['title', 'exchange'] as const).map(field => (
                         <th
-                          key={i}
-                          className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider text-[#9CA3AF] dark:text-slate-500 whitespace-nowrap"
+                          key={field}
+                          onClick={() => toggleSort(field)}
+                          className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider text-[#9CA3AF] dark:text-slate-500 whitespace-nowrap cursor-pointer hover:text-[#4B5563] dark:hover:text-slate-300 select-none"
                         >
+                          <span className="flex items-center gap-1">
+                            {field === 'title' ? 'Title' : 'Exchange'}
+                            {sortField === field
+                              ? sortDir === 'asc'
+                                ? <ArrowUp size={10} className="text-[#38BDF8]" />
+                                : <ArrowDown size={10} className="text-[#38BDF8]" />
+                              : <ArrowUpDown size={10} className="opacity-40" />
+                            }
+                          </span>
+                        </th>
+                      ))}
+                      {['Agreement Type', 'Status', 'Added', ''].map((h, i) => (
+                        <th key={i} className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider text-[#9CA3AF] dark:text-slate-500 whitespace-nowrap">
                           {h}
                         </th>
                       ))}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#F1F5F9] dark:divide-white/5">
-                    {documents.map(doc => (
+                    {sortedDocuments.map(doc => (
                       <tr key={doc.id} className="hover:bg-[#F8FAFC] dark:hover:bg-white/3 transition-colors">
                         <td className="px-3 py-3 max-w-[180px]">
                           <a
