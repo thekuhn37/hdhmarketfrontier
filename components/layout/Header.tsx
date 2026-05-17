@@ -68,11 +68,11 @@ export default function Header() {
       if (session?.user) fetchProfile(session.user.id, session.user.email)
     })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user) {
-        fetchProfile(session.user.id, session.user.email)
-      } else {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT') {
         setCurrentUser(null)
+      } else if (session?.user) {
+        fetchProfile(session.user.id, session.user.email)
       }
     })
 
