@@ -31,10 +31,10 @@ _KNOWN_PATTERNS: list[tuple[tuple[str, ...], str, str]] = [
     (("asx", "product"), "ASX", "product_guide"),
     (("asx", "guide"), "ASX", "product_guide"),
     (("asx", "fee"), "ASX", "fee_schedule"),
-    (("lse", "schedule a"), "LSE", "lse_fee_schedule"),
-    (("lse", "schedule b"), "LSE", "lse_market_data_policy"),
-    (("lse", "policy guidelines"), "LSE", "lse_policy_guidelines"),
-    (("lse", "terms and conditions"), "LSE", "lse_terms_and_conditions"),
+    (("lse", "schedule a"), "LSE", "fee_schedule"),
+    (("lse", "schedule b"), "LSE", "market_data_policy"),
+    (("lse", "policy guidelines"), "LSE", "policy_guidelines"),
+    (("lse", "terms and conditions"), "LSE", "terms_and_conditions"),
 ]
 
 _EXCHANGE_TOKENS = ["CME", "ASX", "LSE", "NASDAQ", "ICE", "HKEX", "SGX", "TMX", "CBOE", "NYSE", "EUREX"]
