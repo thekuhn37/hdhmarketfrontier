@@ -1,8 +1,8 @@
 {
   "exchange": "LSE",
   "agreement_type": "fee_schedule",
-  "agreement_title": "LSE Market Data Agreement",
-  "version": "",
+  "agreement_title": "Schedule A – Price List and Data Products",
+  "version": "January 2025",
   "definitions": {},
   "product_families": [],
   "license_scope": null,
@@ -10,7 +10,745 @@
   "use_policies": [],
   "transformation_requirements": [],
   "new_original_works": [],
-  "fee_structure": null,
+  "fee_structure": {
+    "payment_terms": "Licence Charges: annual, invoiced annually in advance (pro-rated monthly for Initial Term). Data Charges: monthly, invoiced monthly in arrears.",
+    "late_penalty": "Bank of England base rate plus 8% per annum, accrued daily on overdue amounts.",
+    "escalation": "Exchanges reserve the right to amend Charges at their sole discretion in accordance with the Terms.",
+    "refund": "",
+    "tax": "All Charges exclude VAT. Customer responsible for all applicable taxes.",
+    "pro_rata": "",
+    "unit_of_count": "Charges apply per Customer, per Unit of Count, per Data Product, on a cumulative basis. Units of count include: per Device (display), per application (non-display), per End Customer (derived data / historical redistribution), per Website (delayed/per price request), enterprise.",
+    "reporting_requirements": "Data Charges reported in accordance with Reporting and Audit Schedule (Schedule C). Member locations must be pre-registered 21 days in advance.",
+    "fee_lines": [
+      {
+        "description": "UK market Data – Level 2 Real-Time Redistribution (Professional Users)",
+        "unit_of_count": "enterprise",
+        "user_category": "professional",
+        "amount": "£64,391",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 1 Real-Time Redistribution (Professional Users)",
+        "unit_of_count": "enterprise",
+        "user_category": "professional",
+        "amount": "£35,317",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Post-trade Real-Time Redistribution (Professional Users)",
+        "unit_of_count": "enterprise",
+        "user_category": "professional",
+        "amount": "£27,021",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 2 Real-Time Redistribution (Private Investors)",
+        "unit_of_count": "enterprise",
+        "user_category": "non_professional",
+        "amount": "£12,872",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 1 Real-Time Redistribution (Private Investors)",
+        "unit_of_count": "enterprise",
+        "user_category": "non_professional",
+        "amount": "£7,976",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – ETF/ETP Level 2 Real-Time Redistribution",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£26,725",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – AIM Level 2 Real-Time Redistribution",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£26,725",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "International market Data – Level 2 Real-Time Redistribution (Professional Users)",
+        "unit_of_count": "enterprise",
+        "user_category": "professional",
+        "amount": "£32,532",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "International Market Data"
+      },
+      {
+        "description": "International market Data – Level 1 Real-Time Redistribution (Professional Users)",
+        "unit_of_count": "enterprise",
+        "user_category": "professional",
+        "amount": "£17,722",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "International Market Data"
+      },
+      {
+        "description": "Turquoise market Data – Level 2 Real-Time Redistribution",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£34,520",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "Turquoise Market Data"
+      },
+      {
+        "description": "Turquoise market Data – Level 1 Real-Time Redistribution",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£13,809",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "Turquoise Market Data"
+      },
+      {
+        "description": "UK market Data – Level 2 Delayed Redistribution (per Website)",
+        "unit_of_count": "per_venue",
+        "user_category": null,
+        "amount": "£12,777",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 2 Delayed Redistribution (Enterprise)",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£154,350",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 1 Delayed Redistribution (per Website)",
+        "unit_of_count": "per_venue",
+        "user_category": null,
+        "amount": "£5,661",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data – Level 2 After Midnight Redistribution",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£12,777",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK and International market Data – Historical Redistribution (1–10 End Customers)",
+        "unit_of_count": "per_entity",
+        "user_category": null,
+        "amount": "£12,278",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 10,
+            "amount": "£12,278"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": 50,
+            "amount": "£25,555"
+          },
+          {
+            "lower_bound": 51,
+            "upper_bound": null,
+            "amount": "£51,110"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Per Price Request Licence – UK and International market Data",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£5,535",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "TV Ticker Licence – UK and International market Data",
+        "unit_of_count": "per_entity",
+        "user_category": null,
+        "amount": "£5,661",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Enterprise Internal Use for Journalistic Purposes – UK and International market Data",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£378,000",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Live Ticker for Issuers Licence",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£5,661",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": null
+      },
+      {
+        "description": "Investor Relations Licence (per Website)",
+        "unit_of_count": "per_venue",
+        "user_category": null,
+        "amount": "£593",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": null
+      },
+      {
+        "description": "Last Trade Price Licence – UK and International market Data (per Website)",
+        "unit_of_count": "per_venue",
+        "user_category": null,
+        "amount": "£101,706",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Last Trade Price Licence – UK and International market Data (Enterprise)",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£441,000",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Indices/Benchmarks Licence – UK market Data (1–10 End Customers)",
+        "unit_of_count": "per_entity",
+        "user_category": null,
+        "amount": "£11,863",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 10,
+            "amount": "£11,863"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": 50,
+            "amount": "£18,696"
+          },
+          {
+            "lower_bound": 51,
+            "upper_bound": 100,
+            "amount": "£24,924"
+          },
+          {
+            "lower_bound": 101,
+            "upper_bound": 250,
+            "amount": "£37,380"
+          },
+          {
+            "lower_bound": 251,
+            "upper_bound": 400,
+            "amount": "£56,075"
+          },
+          {
+            "lower_bound": 401,
+            "upper_bound": 700,
+            "amount": "£93,444"
+          },
+          {
+            "lower_bound": 701,
+            "upper_bound": null,
+            "amount": "£124,596"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Derived Data other than Indices/Benchmarks – UK market Data (1–10 End Customers)",
+        "unit_of_count": "per_entity",
+        "user_category": null,
+        "amount": "£6,075",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 10,
+            "amount": "£6,075"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": 50,
+            "amount": "£12,781"
+          },
+          {
+            "lower_bound": 51,
+            "upper_bound": 250,
+            "amount": "£38,318"
+          },
+          {
+            "lower_bound": 251,
+            "upper_bound": null,
+            "amount": "£63,855"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Raw Data ATP – UK market Data Level 2",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£87,655",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Raw Data ATP – UK market Data Level 1",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£35,053",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Derived Data ATP – UK market Data Level 2 (Base Fee, up to 500 Natural Users)",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£87,655",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Derived Data ATP White Label Licence (all market Data)",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£6,518",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": null
+      },
+      {
+        "description": "Non-Display (Trading as Principal) – UK market Data Level 2 (1–5 entitlements)",
+        "unit_of_count": "per_application",
+        "user_category": null,
+        "amount": "£40,000",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 5,
+            "amount": "£40,000"
+          },
+          {
+            "lower_bound": 6,
+            "upper_bound": 10,
+            "amount": "£45,000"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": 30,
+            "amount": "£50,000"
+          },
+          {
+            "lower_bound": 31,
+            "upper_bound": null,
+            "amount": "£60,000"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Non-Display (Client Facilitation) – UK market Data Level 2 (1–5 entitlements)",
+        "unit_of_count": "per_application",
+        "user_category": null,
+        "amount": "£40,000",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 5,
+            "amount": "£40,000"
+          },
+          {
+            "lower_bound": 6,
+            "upper_bound": 10,
+            "amount": "£45,000"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": 30,
+            "amount": "£50,000"
+          },
+          {
+            "lower_bound": 31,
+            "upper_bound": null,
+            "amount": "£60,000"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Non-Display (Trading Platform/MTF) – UK market Data Level 2",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£80,333",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Non-Display (Trading Platform/MTF) – UK market Data Level 1",
+        "unit_of_count": "enterprise",
+        "user_category": null,
+        "amount": "£33,661",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "Other Application Usage – UK market Data Level 2 (1–3 entitlements)",
+        "unit_of_count": "per_application",
+        "user_category": null,
+        "amount": "£8,317",
+        "currency": "GBP",
+        "frequency": "annual",
+        "tier_bands": [
+          {
+            "lower_bound": 1,
+            "upper_bound": 3,
+            "amount": "£8,317"
+          },
+          {
+            "lower_bound": 4,
+            "upper_bound": 6,
+            "amount": "£14,966"
+          },
+          {
+            "lower_bound": 7,
+            "upper_bound": 10,
+            "amount": "£23,943"
+          },
+          {
+            "lower_bound": 11,
+            "upper_bound": null,
+            "amount": "£38,416"
+          }
+        ],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data Level 2 Data Charge – Non-Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£180.40",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data Level 1 Data Charge – Non-Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£51.10",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data Level 2 Data Charge – Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£174.93",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "UK market Data Level 1 Data Charge – Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£48.53",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "UK Market Data"
+      },
+      {
+        "description": "International market Data Level 2 Data Charge – Non-Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£97.90",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "International Market Data"
+      },
+      {
+        "description": "International market Data Level 1 Data Charge – Non-Member (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": "professional",
+        "amount": "£28.07",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "International Market Data"
+      },
+      {
+        "description": "Turquoise market Data Level 2 Data Charge (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": null,
+        "amount": "£15.91",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "Turquoise Market Data"
+      },
+      {
+        "description": "Turquoise market Data Level 1 Data Charge (per month, per Device)",
+        "unit_of_count": "per_device",
+        "user_category": null,
+        "amount": "£7.95",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": "Turquoise Market Data"
+      },
+      {
+        "description": "Per Price Request Data Charge (300,001–4,000,000 requests)",
+        "unit_of_count": "per_query",
+        "user_category": null,
+        "amount": "£0.015 per request",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": null
+      },
+      {
+        "description": "Per Price Request Data Charge (4,000,001+ requests)",
+        "unit_of_count": "per_query",
+        "user_category": null,
+        "amount": "£0.008 per request",
+        "currency": "GBP",
+        "frequency": "monthly",
+        "tier_bands": [],
+        "minimum_fee": null,
+        "effective_date": null,
+        "product_family": null
+      }
+    ],
+    "fee_waivers": [
+      {
+        "description": "Order Book for Retail Bonds – Redistribution Licence Charges",
+        "conditions": [],
+        "applies_to": "Order Book for Retail Bonds"
+      },
+      {
+        "description": "TRADEcho – Redistribution Licence Charges",
+        "conditions": [],
+        "applies_to": "TRADEcho"
+      },
+      {
+        "description": "Turquoise market Data – Private Investor Real-Time Redistribution Licence",
+        "conditions": [
+          "Fee waived until 31st December 2025"
+        ],
+        "applies_to": "Turquoise market Data"
+      },
+      {
+        "description": "Turquoise market Data – Level 1 Private Investor Redistribution Licence",
+        "conditions": [
+          "Fee waived until 31st December 2026"
+        ],
+        "applies_to": "Turquoise market Data"
+      },
+      {
+        "description": "Turquoise Europe market Data – Delayed and After Midnight Redistribution",
+        "conditions": [
+          "Fee waived where no commercial benefit is received from redistribution"
+        ],
+        "applies_to": "Turquoise Europe market Data"
+      },
+      {
+        "description": "Private Investor Data Charges – UK, International, Turquoise market Data",
+        "conditions": [],
+        "applies_to": "All data products (Private Investor End Customers)"
+      },
+      {
+        "description": "Turquoise market Data – Other Application Usage Licence",
+        "conditions": [],
+        "applies_to": "Turquoise market Data, Turquoise Europe market Data"
+      },
+      {
+        "description": "Retail Broker Order Book Trading Scheme – Private Investor Real-Time Redistribution",
+        "conditions": [
+          "Eligible participants of the Retail Broker Order Book Trading Scheme only"
+        ],
+        "applies_to": "UK market Data Private Investor Level 2"
+      },
+      {
+        "description": "New Customer Non-Display Usage – 50% discount for first 12 calendar months",
+        "conditions": [
+          "Customer must not have existing or prior Non-Display Usage licence",
+          "Applies from Commencement Date of Order Form"
+        ],
+        "applies_to": "All Non-Display Usage Licences"
+      },
+      {
+        "description": "Member Firms – 12% discount on Level 2 Non-Display Usage Charges",
+        "conditions": [],
+        "applies_to": "UK market Data and International market Data Level 2 Non-Display Usage"
+      }
+    ]
+  },
   "compliance_obligations": [],
   "termination_provisions": [],
   "wind_down": null,

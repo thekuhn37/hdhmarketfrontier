@@ -11,6 +11,7 @@ router = APIRouter(tags=["exchanges"])
 _EXCHANGE_DISPLAY_NAMES: dict[str, str] = {
     "cme": "CME Group",
     "asx": "ASX (Australian Securities Exchange)",
+    "lse": "London Stock Exchange (LSE)",
     "nasdaq": "Nasdaq",
     "ice": "Intercontinental Exchange (ICE)",
     "hkex": "Hong Kong Exchanges and Clearing (HKEX)",
