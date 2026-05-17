@@ -143,17 +143,17 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#0F172A] dark:text-slate-200 font-semibold text-base hover:border-[#38BDF8] dark:hover:border-[#38BDF8] hover:text-[#1E3A5F] dark:hover:text-white transition-all duration-200"
+            >
+              {t('ctaSecondary')}
+            </Link>
+            <Link
               href="/markets"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] font-semibold text-base hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               {t('ctaPrimary')}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white dark:bg-white/5 border border-[#E5E7EB] dark:border-white/10 text-[#0F172A] dark:text-slate-200 font-semibold text-base hover:border-[#38BDF8] dark:hover:border-[#38BDF8] hover:text-[#1E3A5F] dark:hover:text-white transition-all duration-200"
-            >
-              {t('ctaSecondary')}
             </Link>
           </motion.div>
         </div>
