@@ -2,7 +2,7 @@
 
 MCP server (uv run serve) remains independent and fully functional.
 This module adds a REST API layer on top of the same PolicyStore and
-preprocessing pipeline.
+preprocessing pipeline. Deploy trigger: SUPABASE_URL fix 2026-06-05.
 
 Usage:
     uv run api                   # start API server (default port 8000)
