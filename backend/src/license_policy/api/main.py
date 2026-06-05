@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .dependencies.store import init_store
-from .routes import chat, documents, exchanges, export
+from .routes import chat, documents, exchanges, export, meeting_summary
 from .services.document_service import get_document_service
 
 logging.basicConfig(level=logging.INFO)
@@ -66,6 +66,7 @@ app.include_router(exchanges.router, prefix="/api")
 app.include_router(documents.router, prefix="/api")
 app.include_router(chat.router, prefix="/api")
 app.include_router(export.router, prefix="/api")
+app.include_router(meeting_summary.router, prefix="/api")
 
 
 @app.get("/health", tags=["system"])

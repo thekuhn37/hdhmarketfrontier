@@ -61,8 +61,8 @@ jobs:
             --min-instances 0 \
             --max-instances 5 \
             --concurrency 40 \
-            --timeout 120 \
-            --set-env-vars "^|^OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|LLM_PROVIDER=openai|LLM_MODEL=gpt-4o-mini|CORS_ORIGINS=https://hdhmarketfrontier.com,https://www.hdhmarketfrontier.com,https://hdhmarketfrontier-816338366615.asia-northeast3.run.app"
+            --timeout 900 \
+            --set-env-vars "^|^OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|LLM_PROVIDER=openai|LLM_MODEL=gpt-4o-mini|CORS_ORIGINS=https://hdhmarketfrontier.com,https://www.hdhmarketfrontier.com,https://hdhmarketfrontier-816338366615.asia-northeast3.run.app|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|SUPABASE_SERVICE_KEY=${{ secrets.SUPABASE_SERVICE_KEY }}"
 
       - name: Get service URL
         run: |

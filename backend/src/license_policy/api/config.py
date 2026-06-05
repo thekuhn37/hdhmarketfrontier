@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     openai_api_key: str | None = None
     llm_model: str = "claude-sonnet-4-6"
 
+    # Supabase (for meeting summary job tracking)
+    supabase_url: str | None = None
+    supabase_service_key: str | None = None
+
     # Server bind
     api_host: str = "0.0.0.0"
     api_port: int = 8000

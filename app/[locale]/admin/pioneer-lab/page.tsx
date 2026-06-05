@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { Link } from '@/i18n/navigation'
-import { FlaskConical, Briefcase, Building2, LineChart, Compass, BrainCircuit, ChevronRight, Scale } from 'lucide-react'
+import { FlaskConical, Briefcase, Building2, LineChart, Compass, BrainCircuit, ChevronRight, Scale, Mic } from 'lucide-react'
 
 interface Props {
   params: Promise<{ locale: string }>
@@ -23,6 +23,14 @@ const MODULES = [
     description: 'Analyze and benchmark exchange market data license policies with structured evidence, citations, and compliance intelligence.',
     status: 'active' as const,
     href: '/admin/pioneer-lab/data-license-benchmark',
+  },
+  {
+    id: 'meeting-summary',
+    icon: Mic,
+    title: 'Meeting Summary',
+    description: 'Automated conference intelligence pipeline — transcribes audio recordings and generates structured market-data intelligence reports.',
+    status: 'active' as const,
+    href: '/admin/pioneer-lab/meeting-summary',
   },
   {
     id: 'industry-watchlist',
