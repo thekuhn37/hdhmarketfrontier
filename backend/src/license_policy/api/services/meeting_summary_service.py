@@ -15,14 +15,29 @@ logger = logging.getLogger(__name__)
 
 WHISPER_MAX_BYTES = 24 * 1024 * 1024  # 24 MB (OpenAI limit is 25 MB)
 
+SPEAKER_LABEL_PROMPT = """You are given a meeting transcript with timestamps like [MM:SS] or [HH:MM:SS].
+Your job is to reformat it so each speaker's turn is clearly labeled.
+
+Rules:
+- Identify speakers from context clues: names mentioned, introductions, conversational roles
+- Use their real names if mentioned (e.g. "Ian:", "Deokhun:"); otherwise use "Speaker 1:", "Speaker 2:", etc.
+- Place the speaker label at the start of each new speaking turn
+- Include the timestamp before the label: [00:01:23] Ian: ...
+- Group consecutive segments from the same speaker into one block
+- Do NOT change any spoken words — only add/move speaker labels and timestamps
+- Separate each speaker turn with a blank line
+
+Transcript:
+{transcript}"""
+
 SUMMARY_PROMPT = """You are an expert analyst for meetings and conferences.
-You will receive a full transcript. Generate a structured report with these sections:
+You will receive a transcript with speaker labels. Generate a structured report with these sections:
 
 # Executive Summary
-A concise 3–5 sentence overview of the meeting or session, its main purpose, and key outcomes.
+A concise 3–5 sentence overview of the meeting, its main purpose, and key outcomes. Mention participant names/roles if identifiable.
 
 # Key Points & Insights
-Bulleted list of the most important points discussed, insights shared, and conclusions reached.
+Bulleted list of the most important points discussed, insights shared, and conclusions reached. Attribute points to speakers where relevant.
 
 # Action Items
 Bulleted list of specific tasks or follow-ups mentioned. Include who is responsible if mentioned.
@@ -33,7 +48,7 @@ Bulleted list of any decisions, agreements, or resolutions reached.
 If none, write "None identified."
 
 # Notable Quotes
-3–5 notable quotes from the session (verbatim where possible).
+3–5 notable quotes from the session (verbatim). Include the speaker's name before each quote.
 If none, write "None identified."
 
 Use clear, professional language. Do not add sections beyond those listed above.
@@ -67,6 +82,17 @@ class MeetingSummaryService:
                     logger.info("Supabase update OK %s -> %s", job_id, payload.get("status", "?"))
         except Exception as exc:
             logger.error("Supabase update exception for job %s: %s", job_id, exc)
+
+    # ── Speaker labeling ─────────────────────────────────────────────────────
+
+    async def _label_speakers(self, timed_transcript: str) -> str:
+        resp = await self._client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0.0,
+            max_tokens=8000,
+            messages=[{"role": "user", "content": SPEAKER_LABEL_PROMPT.format(transcript=timed_transcript)}],
+        )
+        return resp.choices[0].message.content or timed_transcript
 
     # ── Audio helpers ─────────────────────────────────────────────────────────
 
@@ -137,9 +163,26 @@ class MeetingSummaryService:
                 response_format="verbose_json",
             )
 
-        transcript = whisper_resp.text
         language = getattr(whisper_resp, "language", None)
         duration = getattr(whisper_resp, "duration", None)
+
+        # Format segments with timestamps for speaker labeling
+        segments = getattr(whisper_resp, "segments", None)
+        if segments:
+            timed = "\n".join(
+                f"[{int(s.start // 60):02d}:{int(s.start % 60):02d}] {s.text.strip()}"
+                for s in segments
+            )
+        else:
+            timed = whisper_resp.text
+
+        # Label speakers using GPT-4o
+        logger.info("Job %s: labeling speakers", job_id)
+        try:
+            transcript = await self._label_speakers(timed)
+        except Exception:
+            logger.warning("Job %s: speaker labeling failed, using raw transcript", job_id)
+            transcript = whisper_resp.text
 
         await self._update_job(job_id, {
             "status": "summarizing",
