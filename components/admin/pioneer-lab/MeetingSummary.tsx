@@ -163,16 +163,14 @@ function JobCard({
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <StatusBadge status={job.status} />
-          {!isActive && (
-            <button
-              onClick={handleDelete}
-              disabled={deleting}
-              className="p-1.5 rounded-lg text-[#9CA3AF] hover:text-[#DC2626] hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
-              title="Delete"
-            >
-              {deleting ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
-            </button>
-          )}
+          <button
+            onClick={handleDelete}
+            disabled={deleting}
+            className="p-1.5 rounded-lg text-[#9CA3AF] hover:text-[#DC2626] hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
+            title="Delete"
+          >
+            {deleting ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+          </button>
         </div>
       </div>
 
