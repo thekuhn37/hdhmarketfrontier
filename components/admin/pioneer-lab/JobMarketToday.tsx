@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { LayoutGrid, Table2, Download, RefreshCw, Clock } from 'lucide-react'
+import { LayoutGrid, Table2, Download, RefreshCw, Clock, Trash2 } from 'lucide-react'
 import type { PioneerJobPost } from '@/lib/supabase/types'
 import ComplianceNotice from './ComplianceNotice'
 import JobInputPanel from './JobInputPanel'
@@ -27,6 +27,8 @@ export default function JobMarketToday() {
   const [viewMode, setViewMode] = useState<'card' | 'table'>('card')
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS)
   const [lastFetched, setLastFetched] = useState<Date | null>(null)
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+  const [bulkDeleting, setBulkDeleting] = useState(false)
 
   async function loadJobs() {
     setFetching(true)
@@ -63,6 +65,46 @@ export default function JobMarketToday() {
 
   function handleDelete(id: string) {
     setJobs(prev => prev.filter(j => j.id !== id))
+    setSelectedIds(prev => { const s = new Set(prev); s.delete(id); return s })
+  }
+
+  function handleToggleSelect(id: string) {
+    setSelectedIds(prev => {
+      const s = new Set(prev)
+      s.has(id) ? s.delete(id) : s.add(id)
+      return s
+    })
+  }
+
+  function handleSelectAll() {
+    const allDisplayedSelected = displayed.length > 0 && displayed.every(j => selectedIds.has(j.id))
+    if (allDisplayedSelected) {
+      setSelectedIds(prev => {
+        const s = new Set(prev)
+        displayed.forEach(j => s.delete(j.id))
+        return s
+      })
+    } else {
+      setSelectedIds(prev => {
+        const s = new Set(prev)
+        displayed.forEach(j => s.add(j.id))
+        return s
+      })
+    }
+  }
+
+  async function handleBulkDelete() {
+    if (selectedIds.size === 0) return
+    setBulkDeleting(true)
+    const ids = Array.from(selectedIds)
+    await fetch('/api/pioneer-lab/jobs', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ids }),
+    })
+    setJobs(prev => prev.filter(j => !selectedIds.has(j.id)))
+    setSelectedIds(new Set())
+    setBulkDeleting(false)
   }
 
   const displayed = useMemo(() => {
@@ -169,7 +211,21 @@ export default function JobMarketToday() {
 
       {/* Filters + view toggle */}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <JobFilters filters={filters} onChange={setFilters} />
+        <div className="flex items-center gap-3 flex-wrap">
+          {displayed.length > 0 && (
+            <label className="flex items-center gap-1.5 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={displayed.every(j => selectedIds.has(j.id))}
+                ref={el => { if (el) el.indeterminate = selectedIds.size > 0 && !displayed.every(j => selectedIds.has(j.id)) }}
+                onChange={handleSelectAll}
+                className="w-3.5 h-3.5 rounded cursor-pointer accent-[#38BDF8]"
+              />
+              <span className="text-xs text-[#6B7280] dark:text-slate-400">Select all</span>
+            </label>
+          )}
+          <JobFilters filters={filters} onChange={setFilters} />
+        </div>
         <div className="flex items-center gap-1 border border-[#E5E7EB] dark:border-white/10 rounded-lg p-0.5">
           <button
             onClick={() => setViewMode('card')}
@@ -185,6 +241,31 @@ export default function JobMarketToday() {
           </button>
         </div>
       </div>
+
+      {/* Bulk selection action bar */}
+      {selectedIds.size > 0 && (
+        <div className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20">
+          <span className="text-xs font-medium text-red-700 dark:text-red-400">
+            {selectedIds.size} job{selectedIds.size > 1 ? 's' : ''} selected
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSelectedIds(new Set())}
+              className="text-xs text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white transition-colors"
+            >
+              Clear
+            </button>
+            <button
+              onClick={handleBulkDelete}
+              disabled={bulkDeleting}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-medium transition-all disabled:opacity-50"
+            >
+              <Trash2 size={12} />
+              {bulkDeleting ? 'Deleting...' : `Delete ${selectedIds.size} selected`}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Results */}
       {fetching ? (
@@ -202,11 +283,18 @@ export default function JobMarketToday() {
       ) : viewMode === 'card' ? (
         <div className="grid grid-cols-1 gap-3">
           {displayed.map(j => (
-            <JobResultCard key={j.id} job={j} onUpdate={handleUpdate} onDelete={handleDelete} />
+            <JobResultCard
+              key={j.id}
+              job={j}
+              onUpdate={handleUpdate}
+              onDelete={handleDelete}
+              selected={selectedIds.has(j.id)}
+              onToggleSelect={() => handleToggleSelect(j.id)}
+            />
           ))}
         </div>
       ) : (
-        <JobResultTable jobs={displayed} onUpdate={handleUpdate} />
+        <JobResultTable jobs={displayed} onUpdate={handleUpdate} onDelete={handleDelete} selectedIds={selectedIds} onToggleSelect={handleToggleSelect} />
       )}
     </div>
   )

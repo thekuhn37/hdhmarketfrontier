@@ -19,6 +19,45 @@ WHISPER_MAX_BYTES = 24 * 1024 * 1024  # 24 MB (OpenAI limit is 25 MB)
 # Whisper transcription still runs in parallel; only the LLM report steps queue up.
 _llm_semaphore = asyncio.Semaphore(1)
 
+TITLE_PROMPT = """Based on this meeting transcript, generate a concise, descriptive title.
+
+Requirements:
+- 4-10 words maximum
+- Reflect the actual content (topics discussed, event type, industry)
+- Professional business language, title-case
+- Do NOT use generic titles like "Meeting Recording", "Audio File", "Transcript Result", "Discussion", "Session"
+
+Good examples:
+- AI Adoption in Financial Market Infrastructure
+- WFE Conference – Cloud Data Distribution Trends
+- Exchange Data Business Roundtable
+- Market Data Licensing Strategy Discussion
+
+Output ONLY the title, nothing else.
+
+Transcript:
+{transcript}"""
+
+SHORT_SUMMARY_PROMPT = """Based on this meeting transcript, write a one-line summary.
+
+Requirements:
+- Maximum 100 characters — enforce this strictly
+- Language: Korean if the transcript is primarily in Korean; English otherwise
+- Concise and informative — give quick context without reading the full report
+- Do NOT start with "This meeting" or "In this meeting"
+
+Good examples (Korean):
+- AI 활용 및 시장데이터 사업전략 관련 주요 논의
+- WFE 행사에서 논의된 클라우드 데이터 유통 동향
+
+Good examples (English):
+- Key trends in cloud data distribution for financial markets discussed
+
+Output ONLY the summary line, nothing else.
+
+Transcript:
+{transcript}"""
+
 SPEAKER_LABEL_PROMPT = """You are given a meeting transcript with timestamps like [MM:SS] or [HH:MM:SS].
 Your job is to reformat it so each speaker's turn is clearly labeled.
 
@@ -222,6 +261,27 @@ class MeetingSummaryService:
         )
         return resp.choices[0].message.content or ""
 
+    async def _generate_title(self, transcript: str) -> str:
+        # Use first 3000 chars — enough context, keeps tokens low
+        snippet = transcript[:3000]
+        resp = await self._client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0.2,
+            max_tokens=30,
+            messages=[{"role": "user", "content": TITLE_PROMPT.format(transcript=snippet)}],
+        )
+        return (resp.choices[0].message.content or "").strip()[:200]
+
+    async def _generate_short_summary(self, transcript: str) -> str:
+        snippet = transcript[:3000]
+        resp = await self._client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0.2,
+            max_tokens=60,
+            messages=[{"role": "user", "content": SHORT_SUMMARY_PROMPT.format(transcript=snippet)}],
+        )
+        return (resp.choices[0].message.content or "").strip()[:100]
+
     # ── Audio helpers ─────────────────────────────────────────────────────────
 
     @staticmethod
@@ -323,6 +383,11 @@ class MeetingSummaryService:
                 "updated_at": datetime.utcnow().isoformat(),
             })
 
+            logger.info("Job %s: generating title and short summary", job_id)
+            title, short_summary = await asyncio.gather(
+                self._generate_title(transcript),
+                self._generate_short_summary(transcript),
+            )
             logger.info("Job %s: generating intelligence report", job_id)
             summary = await self._generate_summary(transcript)
             logger.info("Job %s: generating Korean meeting minutes", job_id)
@@ -333,6 +398,8 @@ class MeetingSummaryService:
             "status": "complete",
             "summary": summary,
             "minutes": minutes,
+            "title": title,
+            "short_summary": short_summary,
             "updated_at": datetime.utcnow().isoformat(),
         })
         logger.info("Job %s: complete", job_id)

@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Backend not configured' }, { status: 503 })
   }
 
-  // Parse multipart form
+  // Parse multipart form and read bytes once (shared between storage upload and backend)
   const formData = await req.formData()
   const file = formData.get('file') as File | null
   if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
@@ -31,11 +31,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: `File too large (${Math.round(file.size / 1e6)} MB). Max 200 MB.` }, { status: 413 })
   }
 
-  // Create job row in Supabase
+  const fileBytes = await file.arrayBuffer()
+
   const admin = createSupabaseAdmin(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
   )
+
+  // Create job row in Supabase
   const { data: job, error: insertErr } = await admin
     .from('meeting_summary_jobs')
     .insert({
@@ -52,27 +55,40 @@ export async function POST(req: NextRequest) {
   }
 
   const jobId = job.id as string
+  const storagePath = `${user.id}/${jobId}/${file.name}`
 
-  // Forward file to FastAPI backend — await the 202 acknowledgment (backend processes async)
+  // Build backend form (reuse same bytes)
   const backendForm = new FormData()
-  backendForm.append('file', file)
+  backendForm.append('file', new Blob([fileBytes], { type: file.type || 'audio/mpeg' }), file.name)
   backendForm.append('job_id', jobId)
 
-  try {
-    const backendRes = await fetch(`${BACKEND_URL}/api/meeting-summary/jobs`, {
-      method: 'POST',
-      body: backendForm,
-    })
-    if (!backendRes.ok) {
-      const text = await backendRes.text().catch(() => backendRes.statusText)
-      throw new Error(`Backend ${backendRes.status}: ${text}`)
-    }
-  } catch (err) {
-    console.error('[meeting-summary] Backend dispatch failed:', err)
-    // Mark job as error so the UI doesn't hang
+  // Run storage upload and backend dispatch in parallel
+  const [storageResult, backendResult] = await Promise.allSettled([
+    admin.storage
+      .from('meeting-audio')
+      .upload(storagePath, fileBytes, { contentType: file.type || 'audio/mpeg', upsert: false }),
+    fetch(`${BACKEND_URL}/api/meeting-summary/jobs`, { method: 'POST', body: backendForm }),
+  ])
+
+  // Storage failure is non-fatal — audio player just won't be available
+  if (storageResult.status === 'fulfilled' && !storageResult.value.error) {
+    await admin
+      .from('meeting_summary_jobs')
+      .update({ audio_storage_path: storagePath })
+      .eq('id', jobId)
+  } else if (storageResult.status === 'rejected' || storageResult.value.error) {
+    console.warn('[meeting-summary] Storage upload failed for job', jobId, storageResult.status === 'rejected' ? storageResult.reason : storageResult.value.error)
+  }
+
+  // Backend failure IS fatal
+  if (backendResult.status === 'rejected' || !backendResult.value.ok) {
+    const detail = backendResult.status === 'rejected'
+      ? String(backendResult.reason)
+      : await backendResult.value.text().catch(() => backendResult.value.statusText)
+    console.error('[meeting-summary] Backend dispatch failed:', detail)
     await admin.from('meeting_summary_jobs').update({
       status: 'error',
-      error_message: `Failed to reach processing backend: ${err instanceof Error ? err.message : String(err)}`,
+      error_message: `Failed to reach processing backend: ${detail}`,
     }).eq('id', jobId)
     return NextResponse.json({ error: 'Processing backend unavailable. Please try again.' }, { status: 502 })
   }

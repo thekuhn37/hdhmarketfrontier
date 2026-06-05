@@ -21,9 +21,11 @@ interface Props {
   job: PioneerJobPost
   onUpdate: (id: string, updates: Partial<PioneerJobPost>) => void
   onDelete: (id: string) => void
+  selected?: boolean
+  onToggleSelect?: () => void
 }
 
-export default function JobResultCard({ job, onUpdate, onDelete }: Props) {
+export default function JobResultCard({ job, onUpdate, onDelete, selected, onToggleSelect }: Props) {
   const [expanded, setExpanded] = useState(false)
   const [notes, setNotes] = useState(job.notes ?? '')
   const [status, setStatus] = useState<JobStatus>(job.status)
@@ -66,34 +68,44 @@ export default function JobResultCard({ job, onUpdate, onDelete }: Props) {
         : 'border-[#E5E7EB] dark:border-white/10 hover:shadow-sm hover:border-[#CBD5E1] dark:hover:border-white/20'
     )}>
       {/* Collapsed header */}
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-start gap-3 p-4 text-left"
-      >
-        <ChevronDown size={16} className={cn('mt-0.5 text-[#9CA3AF] flex-shrink-0 transition-transform', expanded && 'rotate-180')} />
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2">
-            <div className="min-w-0">
-              <p className="font-semibold text-sm text-[#0F172A] dark:text-white truncate">{job.position_title || 'Untitled'}</p>
-              <p className="text-xs text-[#4B5563] dark:text-slate-400 truncate">{job.company_name || '—'}</p>
+      <div className="flex items-start gap-2 p-4">
+        {onToggleSelect && (
+          <input
+            type="checkbox"
+            checked={selected ?? false}
+            onChange={onToggleSelect}
+            className="mt-1 w-3.5 h-3.5 flex-shrink-0 rounded cursor-pointer accent-[#38BDF8]"
+          />
+        )}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="flex-1 flex items-start gap-3 text-left min-w-0"
+        >
+          <ChevronDown size={16} className={cn('mt-0.5 text-[#9CA3AF] flex-shrink-0 transition-transform', expanded && 'rotate-180')} />
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <p className="font-semibold text-sm text-[#0F172A] dark:text-white truncate">{job.position_title || 'Untitled'}</p>
+                <p className="text-xs text-[#4B5563] dark:text-slate-400 truncate">{job.company_name || '—'}</p>
+              </div>
+              <div className="flex items-center gap-1.5 flex-shrink-0">
+                <span className={cn('px-2 py-0.5 rounded-full text-[10px] font-medium', STATUS_COLORS[job.status] ?? STATUS_COLORS.new)}>
+                  {JOB_STATUSES.find(s => s.value === job.status)?.label ?? job.status}
+                </span>
+                {score != null && (
+                  <span className={cn('text-xs font-semibold', scoreColor)}>{score}</span>
+                )}
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 flex-shrink-0">
-              <span className={cn('px-2 py-0.5 rounded-full text-[10px] font-medium', STATUS_COLORS[job.status] ?? STATUS_COLORS.new)}>
-                {JOB_STATUSES.find(s => s.value === job.status)?.label ?? job.status}
-              </span>
-              {score != null && (
-                <span className={cn('text-xs font-semibold', scoreColor)}>{score}</span>
-              )}
+            <div className="flex flex-wrap gap-2 mt-1.5">
+              {job.location && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.location}</span>}
+              {job.company_category && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.company_category}</span>}
+              {job.source_platform && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.source_platform}</span>}
+              {job.posted_date && <span className="text-[10px] text-[#9CA3AF] dark:text-slate-600">Posted {job.posted_date}</span>}
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-1.5">
-            {job.location && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.location}</span>}
-            {job.company_category && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.company_category}</span>}
-            {job.source_platform && <span className="text-[10px] text-[#6B7280] dark:text-slate-500">{job.source_platform}</span>}
-            {job.posted_date && <span className="text-[10px] text-[#9CA3AF] dark:text-slate-600">Posted {job.posted_date}</span>}
-          </div>
-        </div>
-      </button>
+        </button>
+      </div>
 
       {/* Expanded detail */}
       {expanded && (

@@ -29,6 +29,27 @@ export async function deleteJob(id: string): Promise<void> {
   if (!res.ok && res.status !== 204) throw new Error('Failed to delete job')
 }
 
+export async function updateJob(id: string, patch: { title?: string; short_summary?: string }): Promise<void> {
+  const res = await fetch(`/api/meeting-summary/update/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(patch),
+  })
+  if (!res.ok) throw new Error('Failed to update')
+}
+
+export async function getAudioUrl(id: string): Promise<string> {
+  const res = await fetch(`/api/meeting-summary/audio/${id}`)
+  if (!res.ok) throw new Error('Audio not available')
+  const body = await res.json() as { url: string }
+  return body.url
+}
+
+export async function deleteAudio(id: string): Promise<void> {
+  const res = await fetch(`/api/meeting-summary/audio/${id}`, { method: 'DELETE' })
+  if (!res.ok && res.status !== 204) throw new Error('Failed to delete audio')
+}
+
 export function downloadMinutes(content: string, stem: string, format: 'txt' | 'md' | 'doc'): void {
   if (format === 'doc') {
     // HTML-wrapped Word document — opens correctly in Word / LibreOffice

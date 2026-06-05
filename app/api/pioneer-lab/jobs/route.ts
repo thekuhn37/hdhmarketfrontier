@@ -25,6 +25,22 @@ export async function GET() {
   return NextResponse.json(data as PioneerJobPost[])
 }
 
+export async function DELETE(req: NextRequest) {
+  const { error, supabase } = await requireAdmin()
+  if (error || !supabase) return NextResponse.json({ error }, { status: error === 'Unauthorized' ? 401 : 403 })
+
+  const { ids } = await req.json() as { ids: string[] }
+  if (!Array.isArray(ids) || ids.length === 0) return NextResponse.json({ error: 'ids required' }, { status: 400 })
+
+  const { error: dbErr } = await supabase
+    .from('pioneer_job_posts')
+    .update({ soft_deleted: true, deleted_at: new Date().toISOString() })
+    .in('id', ids)
+
+  if (dbErr) return NextResponse.json({ error: dbErr.message }, { status: 500 })
+  return NextResponse.json({ success: true, deleted: ids.length })
+}
+
 export async function POST(req: NextRequest) {
   const { error, supabase, userId } = await requireAdmin()
   if (error || !supabase) return NextResponse.json({ error }, { status: error === 'Unauthorized' ? 401 : 403 })

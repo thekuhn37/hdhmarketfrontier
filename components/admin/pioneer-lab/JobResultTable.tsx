@@ -1,6 +1,7 @@
 'use client'
 
-import { ExternalLink, Pencil } from 'lucide-react'
+import { useState } from 'react'
+import { ExternalLink, Trash2 } from 'lucide-react'
 import type { PioneerJobPost, JobStatus } from '@/lib/supabase/types'
 import { JOB_STATUSES } from '@/lib/pioneer-lab/job-extraction'
 import { cn } from '@/lib/utils/cn'
@@ -19,9 +20,14 @@ const STATUS_COLORS: Record<string, string> = {
 interface Props {
   jobs: PioneerJobPost[]
   onUpdate: (id: string, updates: Partial<PioneerJobPost>) => void
+  onDelete: (id: string) => void
+  selectedIds: Set<string>
+  onToggleSelect: (id: string) => void
 }
 
-export default function JobResultTable({ jobs, onUpdate }: Props) {
+export default function JobResultTable({ jobs, onUpdate, onDelete, selectedIds, onToggleSelect }: Props) {
+  const [confirmId, setConfirmId] = useState<string | null>(null)
+
   async function updateStatus(id: string, status: JobStatus) {
     await fetch(`/api/pioneer-lab/jobs/${id}`, {
       method: 'PATCH',
@@ -31,13 +37,35 @@ export default function JobResultTable({ jobs, onUpdate }: Props) {
     onUpdate(id, { status })
   }
 
+  async function deleteRow(id: string) {
+    await fetch(`/api/pioneer-lab/jobs/${id}`, { method: 'DELETE' })
+    onDelete(id)
+    setConfirmId(null)
+  }
+
   if (!jobs.length) return null
+
+  const allSelected = jobs.length > 0 && jobs.every(j => selectedIds.has(j.id))
+  const someSelected = jobs.some(j => selectedIds.has(j.id))
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#E5E7EB] dark:border-white/10">
       <table className="w-full text-xs">
         <thead className="bg-[#F8FAFC] dark:bg-[#0F172A] border-b border-[#E5E7EB] dark:border-white/10 sticky top-0">
           <tr>
+            <th className="px-3 py-2.5">
+              <input
+                type="checkbox"
+                checked={allSelected}
+                ref={el => { if (el) el.indeterminate = someSelected && !allSelected }}
+                onChange={() => jobs.forEach(j => {
+                  const shouldSelect = !allSelected
+                  const isSelected = selectedIds.has(j.id)
+                  if (shouldSelect !== isSelected) onToggleSelect(j.id)
+                })}
+                className="w-3.5 h-3.5 rounded cursor-pointer accent-[#38BDF8]"
+              />
+            </th>
             {['Company', 'Position', 'Category', 'Location', 'Posted', 'Closing', 'Score', 'Status', 'Source', 'Actions'].map(h => (
               <th key={h} className="text-left px-3 py-2.5 font-semibold text-[#6B7280] dark:text-slate-400 whitespace-nowrap">{h}</th>
             ))}
@@ -52,7 +80,23 @@ export default function JobResultTable({ jobs, onUpdate }: Props) {
               : 'text-red-600 dark:text-red-400'
 
             return (
-              <tr key={j.id} className="bg-white dark:bg-[#0F172A] hover:bg-[#F8FAFC] dark:hover:bg-white/[0.02] transition-colors">
+              <tr
+                key={j.id}
+                className={cn(
+                  'transition-colors',
+                  selectedIds.has(j.id)
+                    ? 'bg-red-50 dark:bg-red-500/5'
+                    : 'bg-white dark:bg-[#0F172A] hover:bg-[#F8FAFC] dark:hover:bg-white/[0.02]'
+                )}
+              >
+                <td className="px-3 py-2.5">
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.has(j.id)}
+                    onChange={() => onToggleSelect(j.id)}
+                    className="w-3.5 h-3.5 rounded cursor-pointer accent-[#38BDF8]"
+                  />
+                </td>
                 <td className="px-3 py-2.5 font-medium text-[#0F172A] dark:text-white max-w-[120px] truncate">{j.company_name || '—'}</td>
                 <td className="px-3 py-2.5 text-[#4B5563] dark:text-slate-300 max-w-[160px]">
                   <p className="truncate">{j.position_title || '—'}</p>
@@ -88,6 +132,25 @@ export default function JobResultTable({ jobs, onUpdate }: Props) {
                       >
                         <ExternalLink size={12} />
                       </a>
+                    )}
+                    {confirmId === j.id ? (
+                      <>
+                        <button
+                          onClick={() => deleteRow(j.id)}
+                          className="px-1.5 py-0.5 rounded text-[10px] bg-red-600 text-white hover:bg-red-700"
+                        >Yes</button>
+                        <button
+                          onClick={() => setConfirmId(null)}
+                          className="px-1.5 py-0.5 rounded text-[10px] border border-[#E5E7EB] dark:border-white/10 text-[#4B5563] dark:text-slate-400 hover:bg-[#F8FAFC] dark:hover:bg-white/5"
+                        >No</button>
+                      </>
+                    ) : (
+                      <button
+                        onClick={() => setConfirmId(j.id)}
+                        className="p-1 rounded text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
+                      >
+                        <Trash2 size={12} />
+                      </button>
                     )}
                   </div>
                 </td>

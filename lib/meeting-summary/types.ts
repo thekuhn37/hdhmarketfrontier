@@ -10,6 +10,10 @@ export interface MeetingSummaryJob {
   transcript: string | null
   summary: string | null
   minutes?: string | null
+  title?: string | null
+  short_summary?: string | null
+  audio_storage_path?: string | null
+  audio_deleted?: boolean
   language_detected: string | null
   error_message: string | null
   created_at: string
