@@ -58,10 +58,15 @@ class MeetingSummaryService:
             "Content-Type": "application/json",
             "Prefer": "return=minimal",
         }
-        async with httpx.AsyncClient(timeout=15) as client:
-            resp = await client.patch(url, json=payload, headers=headers)
-            if resp.status_code not in (200, 204):
-                logger.error("Supabase update failed %s: %s", resp.status_code, resp.text)
+        try:
+            async with httpx.AsyncClient(timeout=15) as client:
+                resp = await client.patch(url, json=payload, headers=headers)
+                if resp.status_code not in (200, 204):
+                    logger.error("Supabase update failed %s %s: %s", resp.status_code, job_id, resp.text)
+                else:
+                    logger.info("Supabase update OK %s -> %s", job_id, payload.get("status", "?"))
+        except Exception as exc:
+            logger.error("Supabase update exception for job %s: %s", job_id, exc)
 
     # ── Audio helpers ─────────────────────────────────────────────────────────
 
@@ -122,7 +127,7 @@ class MeetingSummaryService:
             audio_path = compressed
 
         # 3. Transcription
-        await self._update_job(job_id, {"status": "transcribing", "updated_at": "now()"})
+        await self._update_job(job_id, {"status": "transcribing", "updated_at": datetime.utcnow().isoformat()})
         logger.info("Job %s: transcribing with Whisper", job_id)
 
         with audio_path.open("rb") as f:

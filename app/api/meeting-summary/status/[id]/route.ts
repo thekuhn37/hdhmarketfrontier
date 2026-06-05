@@ -24,9 +24,12 @@ export async function GET(_req: NextRequest, { params }: Props) {
     .from('meeting_summary_jobs')
     .select('*')
     .eq('id', id)
-    .eq('user_id', user.id)
     .single()
 
-  if (error || !data) return NextResponse.json({ error: 'Job not found' }, { status: 404 })
+  if (error) {
+    console.error('[meeting-summary/status] Supabase error:', error.code, error.message)
+    return NextResponse.json({ error: 'Job not found', detail: error.message }, { status: 404 })
+  }
+  if (!data) return NextResponse.json({ error: 'Job not found' }, { status: 404 })
   return NextResponse.json(data as MeetingSummaryJob)
 }
