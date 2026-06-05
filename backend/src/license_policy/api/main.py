@@ -21,6 +21,7 @@ from .config import settings
 from .dependencies.store import init_store
 from .routes import chat, documents, exchanges, export, meeting_summary
 from .services.document_service import get_document_service
+from .services.gcs_storage import init_gcs
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -29,6 +30,9 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # ── Startup ──────────────────────────────────────────────────
+    logger.info("Initialising GCS storage…")
+    init_gcs(settings.gcs_bucket_name)
+
     logger.info("Initialising PolicyStore…")
     init_store()
 

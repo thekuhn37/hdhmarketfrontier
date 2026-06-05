@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     supabase_url: str | None = None
     supabase_service_key: str | None = None
 
+    # GCS (for persistent DLB document storage across Cloud Run restarts)
+    gcs_bucket_name: str | None = None
+
     # Server bind
     api_host: str = "0.0.0.0"
     api_port: int = 8000

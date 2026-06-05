@@ -18,6 +18,7 @@ from pathlib import Path
 from ..config import DATA_PROCESSED, DATA_RAW, PROJECT_ROOT, REGISTRY_PATH
 from ..dependencies.store import load_file_into_store, refresh_store
 from ..schemas.documents import DocumentRecord, DocumentStatus
+from .gcs_storage import get_gcs
 
 logger = logging.getLogger(__name__)
 
@@ -81,6 +82,13 @@ class DocumentService:
         """Sync the registry with data/raw/ and data/processed/."""
         DATA_RAW.mkdir(parents=True, exist_ok=True)
         DATA_PROCESSED.mkdir(parents=True, exist_ok=True)
+
+        # Pull any files uploaded via the web UI that live in GCS but not in the image
+        gcs = get_gcs()
+        if gcs:
+            n = gcs.sync_to_local(DATA_RAW, DATA_PROCESSED)
+            if n:
+                logger.info("GCS sync: downloaded %d file(s) to local data/", n)
 
         processed_index = self._scan_processed()
         raw_pdfs = sorted(DATA_RAW.glob("*.pdf"))
@@ -151,6 +159,11 @@ class DocumentService:
         dest = DATA_RAW / safe_name
         await asyncio.to_thread(dest.write_bytes, content)
 
+        # Persist raw PDF to GCS immediately so it survives container restarts
+        gcs = get_gcs()
+        if gcs:
+            await asyncio.to_thread(gcs.upload_raw, dest)
+
         exchange, agreement_type = _detect_from_filename(safe_name)
 
         async with self._lock:
@@ -207,6 +220,11 @@ class DocumentService:
                 rec.error = None
                 self._save_registry()
 
+            # Persist processed JSON to GCS so it loads on next container start
+            gcs = get_gcs()
+            if gcs:
+                await asyncio.to_thread(gcs.upload_processed, json_path)
+
             load_file_into_store(json_path)
             logger.info("Processed %s → %s", rec.filename, json_name)
 
@@ -236,7 +254,7 @@ class DocumentService:
     # ------------------------------------------------------------------
 
     async def delete_document(self, doc_id: str) -> None:
-        """Remove PDF, processed JSON, and registry entry."""
+        """Remove PDF, processed JSON, registry entry, and GCS copies."""
         async with self._lock:
             rec = self._registry.get(doc_id)
             if rec is None:
@@ -253,6 +271,13 @@ class DocumentService:
 
             del self._registry[doc_id]
             self._save_registry()
+
+        # Remove from GCS too
+        gcs = get_gcs()
+        if gcs:
+            await asyncio.to_thread(gcs.delete_raw, rec.filename)
+            if rec.processed_path:
+                await asyncio.to_thread(gcs.delete_processed, Path(rec.processed_path).name)
 
         refresh_store()
 
