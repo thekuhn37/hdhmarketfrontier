@@ -632,6 +632,8 @@ export default function MeetingSummary() {
   const [uploadCount, setUploadCount] = useState(0)
   const [uploadError, setUploadError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
+  const [refreshError, setRefreshError] = useState<string | null>(null)
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const activeJobs = jobs.filter(j => ACTIVE_STATUSES.includes(j.status))
@@ -641,11 +643,24 @@ export default function MeetingSummary() {
       const list = await listJobs()
       setJobs(list)
     } catch {
-      // silent
+      // silent on initial load — page still shows empty state
     } finally {
       setLoading(false)
     }
   }, [])
+
+  const handleRefresh = async () => {
+    setRefreshing(true)
+    setRefreshError(null)
+    try {
+      const list = await listJobs()
+      setJobs(list)
+    } catch (err) {
+      setRefreshError(err instanceof Error ? err.message : 'Failed to refresh')
+    } finally {
+      setRefreshing(false)
+    }
+  }
 
   useEffect(() => { loadJobs() }, [loadJobs])
 
@@ -749,10 +764,23 @@ export default function MeetingSummary() {
               </span>
             )}
           </h2>
-          <button onClick={loadJobs} className="flex items-center gap-1.5 text-xs text-[#6B7280] hover:text-[#38BDF8] transition-colors">
-            <RefreshCw size={12} /> Refresh
+          <button
+            onClick={handleRefresh}
+            disabled={refreshing}
+            className="flex items-center gap-1.5 text-xs text-[#6B7280] hover:text-[#38BDF8] disabled:opacity-50 transition-colors"
+          >
+            <RefreshCw size={12} className={refreshing ? 'animate-spin' : ''} />
+            {refreshing ? 'Refreshing…' : 'Refresh'}
           </button>
         </div>
+
+        {refreshError && (
+          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20">
+            <AlertCircle size={14} className="text-red-500 flex-shrink-0" />
+            <p className="text-xs text-red-600 dark:text-red-400">Refresh failed: {refreshError}</p>
+            <button onClick={() => setRefreshError(null)} className="ml-auto text-red-400 hover:text-red-600"><X size={13} /></button>
+          </div>
+        )}
 
         {loading ? (
           <div className="flex justify-center py-12"><Loader2 size={24} className="animate-spin text-[#9CA3AF]" /></div>
