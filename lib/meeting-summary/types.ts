@@ -9,6 +9,7 @@ export interface MeetingSummaryJob {
   status: JobStatus
   transcript: string | null
   summary: string | null
+  minutes: string | null
   language_detected: string | null
   error_message: string | null
   created_at: string

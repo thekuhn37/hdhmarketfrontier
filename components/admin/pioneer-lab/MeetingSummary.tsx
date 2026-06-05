@@ -10,7 +10,8 @@ import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils/cn'
 import {
   uploadAudio, getJobStatus, listJobs, deleteJob,
-  downloadText, formatDuration, formatFileSize,
+  downloadText, downloadMinutes, printMinutesPdf,
+  formatDuration, formatFileSize,
 } from '@/lib/meeting-summary/api'
 import type { MeetingSummaryJob, JobStatus } from '@/lib/meeting-summary/types'
 
@@ -50,14 +51,81 @@ function StatusBadge({ status }: { status: JobStatus }) {
 
 function MarkdownSection({ content }: { content: string }) {
   return (
-    <div className="space-y-3 text-sm text-[#374151] dark:text-slate-300 leading-relaxed">
+    <div className="space-y-2 text-sm text-[#374151] dark:text-slate-300 leading-relaxed">
       {content.split('\n').map((line, i) => {
-        if (line.startsWith('# ')) return <h2 key={i} className="text-base font-bold text-[#0F172A] dark:text-white mt-4 first:mt-0">{line.slice(2)}</h2>
+        if (line.startsWith('# '))  return <h2 key={i} className="text-base font-bold text-[#0F172A] dark:text-white mt-4 first:mt-0">{line.slice(2)}</h2>
         if (line.startsWith('## ')) return <h3 key={i} className="text-sm font-semibold text-[#0F172A] dark:text-white mt-3">{line.slice(3)}</h3>
-        if (line.startsWith('- ') || line.startsWith('• ')) return <div key={i} className="flex gap-2"><span className="text-[#38BDF8] flex-shrink-0 mt-0.5">•</span><span>{line.slice(2)}</span></div>
+        if (line.startsWith('### ')) return <h4 key={i} className="text-xs font-semibold text-[#0F172A] dark:text-slate-200 mt-2 uppercase tracking-wide">{line.slice(4)}</h4>
+        if (line === '---') return <hr key={i} className="border-[#E5E7EB] dark:border-white/10 my-2" />
+        if (line.startsWith('○ ')) return <div key={i} className="flex gap-2 mt-2"><span className="text-[#38BDF8] font-bold flex-shrink-0">○</span><span className="font-medium text-[#0F172A] dark:text-white">{line.slice(2)}</span></div>
+        if (line.startsWith('- ') || line.startsWith('• ')) return <div key={i} className="flex gap-2 pl-4"><span className="text-[#38BDF8] flex-shrink-0 mt-0.5">–</span><span>{line.slice(2)}</span></div>
+        if (line.match(/^\d+\. /)) return <div key={i} className="flex gap-2 pl-4"><span className="text-[#6B7280] flex-shrink-0 font-mono text-xs mt-0.5">{line.match(/^(\d+)\./)?.[1]}.</span><span>{line.replace(/^\d+\.\s*/, '')}</span></div>
         if (line.trim() === '') return <div key={i} className="h-1" />
         return <p key={i}>{line}</p>
       })}
+    </div>
+  )
+}
+
+function MinutesCard({ job }: { job: MeetingSummaryJob }) {
+  const [open, setOpen] = useState(true)
+  const stem = `Korean_Meeting_Minutes_${job.created_at.slice(0, 10).replace(/-/g, '')}`
+
+  if (!job.minutes) return null
+
+  return (
+    <div className="border-t border-[#F1F5F9] dark:border-white/5">
+      <button
+        onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold text-[#0F172A] dark:text-white">국문 회의록</span>
+          <span className="text-[10px] font-medium text-[#7C3AED] bg-[#F5F3FF] dark:bg-purple-500/10 dark:text-purple-400 px-2 py-0.5 rounded-full">KO</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          {/* TXT */}
+          <button
+            onClick={e => { e.stopPropagation(); downloadMinutes(job.minutes!, stem, 'txt') }}
+            className="flex items-center gap-1 text-[10px] text-[#6B7280] hover:text-[#38BDF8] transition-colors px-2 py-1 rounded-md hover:bg-[#F0F9FF] dark:hover:bg-[#38BDF8]/10"
+            title="Download TXT"
+          >
+            <Download size={11} /> .txt
+          </button>
+          {/* MD */}
+          <button
+            onClick={e => { e.stopPropagation(); downloadMinutes(job.minutes!, stem, 'md') }}
+            className="flex items-center gap-1 text-[10px] text-[#6B7280] hover:text-[#38BDF8] transition-colors px-2 py-1 rounded-md hover:bg-[#F0F9FF] dark:hover:bg-[#38BDF8]/10"
+            title="Download Markdown"
+          >
+            <Download size={11} /> .md
+          </button>
+          {/* DOCX */}
+          <button
+            onClick={e => { e.stopPropagation(); downloadMinutes(job.minutes!, stem, 'doc') }}
+            className="flex items-center gap-1 text-[10px] text-[#6B7280] hover:text-[#7C3AED] transition-colors px-2 py-1 rounded-md hover:bg-[#F5F3FF] dark:hover:bg-purple-500/10"
+            title="Download as Word document"
+          >
+            <Download size={11} /> .doc
+          </button>
+          {/* PDF */}
+          <button
+            onClick={e => { e.stopPropagation(); printMinutesPdf(job.minutes!, stem) }}
+            className="flex items-center gap-1 text-[10px] text-[#6B7280] hover:text-[#7C3AED] transition-colors px-2 py-1 rounded-md hover:bg-[#F5F3FF] dark:hover:bg-purple-500/10"
+            title="Print / Save as PDF"
+          >
+            <Download size={11} /> PDF
+          </button>
+          {open ? <ChevronUp size={14} className="text-[#9CA3AF]" /> : <ChevronDown size={14} className="text-[#9CA3AF]" />}
+        </div>
+      </button>
+      {open && (
+        <div className="px-5 pb-5">
+          <div className="bg-[#FAFAFA] dark:bg-white/5 rounded-xl p-4 border border-[#F5F3FF] dark:border-purple-500/10 max-h-[600px] overflow-y-auto">
+            <MarkdownSection content={job.minutes} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -221,6 +289,9 @@ function JobCard({
               </div>
             )}
           </div>
+
+          {/* Korean Meeting Minutes */}
+          <MinutesCard job={job} />
 
           {/* Transcript */}
           <div className="border-t border-[#F1F5F9] dark:border-white/5">

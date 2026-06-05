@@ -1,8 +1,8 @@
 """Meeting Summary service: transcription via OpenAI Whisper + GPT-4o report."""
 from __future__ import annotations
 
+import asyncio
 import logging
-import os
 import subprocess
 import tempfile
 from datetime import datetime
@@ -56,6 +56,108 @@ Use clear, professional language. Do not add sections beyond those listed above.
 Transcript:
 {transcript}"""
 
+MINUTES_PROMPT = """당신은 공공기관 및 금융거래소 수준의 회의록 작성 전문가입니다.
+아래 회의 트랜스크립트를 바탕으로 한국어 공식 회의록을 작성하십시오.
+
+[작성 원칙]
+1. 모든 내용은 한국어로 작성하십시오.
+2. 단, 인명·기업명·제품명·서비스명·기술명·규정명·기관명은 원어 표기를 유지하십시오.
+   (예: Nasdaq, Bloomberg, CME Group, AWS, OpenAI, KRX 등)
+3. 서술체·에세이·스토리텔링 방식을 절대 사용하지 마십시오.
+4. 한국거래소(KRX), 금융위원회, 중앙은행 등 공공기관 보고서 형식으로 작성하십시오.
+5. 불확실한 정보에는 다음 표기 중 하나를 반드시 사용하십시오:
+   확인 필요 / 확실하지 않음 / 추정 / 참석자 추정 / 기업명 확인 필요 / 발언자 확인 필요
+6. 모호하거나 불명확한 발언은 해당 내용을 ( ) 안에 인용하여 표기하십시오.
+7. 확인된 사실만 기재하고 절대 사실을 지어내지 마십시오.
+
+[출력 형식 — 반드시 이 순서와 헤딩을 유지하십시오]
+
+## 제목
+간결한 비즈니스 스타일 제목 (한 줄)
+
+---
+
+## 일시
+트랜스크립트에서 확인 가능 시 기재, 불명확 시: 확인 필요
+
+---
+
+## 회의명
+트랜스크립트에서 확인 가능 시 기재, 불명확 시: 확인 필요
+
+---
+
+## 참석자 명단
+
+○ 참석자
+- 이름 (소속)
+- 이름 (소속)
+
+불확실한 경우: "일부 참석자 확인 필요" 또는 "(참석자 추정)" 표기
+
+---
+
+## 주제
+
+○ 주요 논의 주제
+1. [주제 1]
+2. [주제 2]
+3. [주제 3]
+
+---
+
+## 요약
+
+○ 주요 논의사항
+- [핵심 사항 1]
+- [핵심 사항 2]
+- [핵심 사항 3]
+
+5~15개 항목으로 작성하십시오.
+
+---
+
+## 주요내용
+
+각 주제별로 아래 구조를 반복 적용하십시오:
+
+### 1. [주제명]
+
+○ 논의 내용
+- [내용]
+
+○ 주요 의견
+- [의견]
+
+○ 시사점
+- [시사점]
+
+---
+
+## 결론
+
+○ 주요 결론
+- [결론 1]
+- [결론 2]
+
+5~10개 항목으로 작성하십시오.
+
+---
+
+## 시사점
+
+각 관련 기관/업계 관점에서 시사점을 도출하십시오:
+
+○ [관점 명칭] 관점
+- [시사점]
+
+(예시 관점: KRX 관점, 시장데이터 산업 관점, 사업전략 관점 등 — 회의 내용에 맞게 조정)
+
+---
+
+트랜스크립트:
+{transcript}"""
+
 
 class MeetingSummaryService:
     def __init__(self, openai_api_key: str, supabase_url: str, supabase_service_key: str) -> None:
@@ -83,7 +185,7 @@ class MeetingSummaryService:
         except Exception as exc:
             logger.error("Supabase update exception for job %s: %s", job_id, exc)
 
-    # ── Speaker labeling ─────────────────────────────────────────────────────
+    # ── Speaker labeling ──────────────────────────────────────────────────────
 
     async def _label_speakers(self, timed_transcript: str) -> str:
         resp = await self._client.chat.completions.create(
@@ -93,6 +195,26 @@ class MeetingSummaryService:
             messages=[{"role": "user", "content": SPEAKER_LABEL_PROMPT.format(transcript=timed_transcript)}],
         )
         return resp.choices[0].message.content or timed_transcript
+
+    # ── Report generation ─────────────────────────────────────────────────────
+
+    async def _generate_summary(self, transcript: str) -> str:
+        resp = await self._client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0.2,
+            max_tokens=4000,
+            messages=[{"role": "user", "content": SUMMARY_PROMPT.format(transcript=transcript)}],
+        )
+        return resp.choices[0].message.content or ""
+
+    async def _generate_minutes(self, transcript: str) -> str:
+        resp = await self._client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0.1,
+            max_tokens=6000,
+            messages=[{"role": "user", "content": MINUTES_PROMPT.format(transcript=transcript)}],
+        )
+        return resp.choices[0].message.content or ""
 
     # ── Audio helpers ─────────────────────────────────────────────────────────
 
@@ -176,7 +298,7 @@ class MeetingSummaryService:
         else:
             timed = whisper_resp.text
 
-        # Label speakers using GPT-4o
+        # 4. Label speakers
         logger.info("Job %s: labeling speakers", job_id)
         try:
             transcript = await self._label_speakers(timed)
@@ -192,25 +314,18 @@ class MeetingSummaryService:
             "updated_at": datetime.utcnow().isoformat(),
         })
 
-        # 4. Summarization
-        logger.info("Job %s: summarizing with GPT-4o", job_id)
-        chat_resp = await self._client.chat.completions.create(
-            model="gpt-4o",
-            temperature=0.2,
-            max_tokens=4000,
-            messages=[
-                {
-                    "role": "user",
-                    "content": SUMMARY_PROMPT.format(transcript=transcript),
-                }
-            ],
+        # 5. Generate Intelligence Report + Korean Meeting Minutes in parallel
+        logger.info("Job %s: generating report and Korean minutes in parallel", job_id)
+        summary, minutes = await asyncio.gather(
+            self._generate_summary(transcript),
+            self._generate_minutes(transcript),
         )
-        summary = chat_resp.choices[0].message.content or ""
 
-        # 5. Store final result
+        # 6. Store final result
         await self._update_job(job_id, {
             "status": "complete",
             "summary": summary,
+            "minutes": minutes,
             "updated_at": datetime.utcnow().isoformat(),
         })
         logger.info("Job %s: complete", job_id)
