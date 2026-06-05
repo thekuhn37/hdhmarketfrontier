@@ -511,7 +511,7 @@ function JobCard({
         </div>
       )}
 
-      {/* ── Title + Short summary ──────────────────────────────── */}
+      {/* ── Title + Short summary + audio delete ──────────────── */}
       {job.status === 'complete' && (
         <div className="px-5 pb-4 space-y-2.5">
           <EditableField
@@ -524,10 +524,32 @@ function JobCard({
           <EditableField
             label="Summary"
             value={job.short_summary}
-            placeholder="Click to add a one-line summary…"
-            maxLength={100}
+            placeholder="Click to add a summary…"
+            maxLength={250}
             onSave={handleSaveShortSummary}
           />
+          {/* Delete Audio — right-aligned, below Summary */}
+          {hasAudio && (
+            <div className="flex justify-end pt-0.5">
+              {showAudioDeleteConfirm ? (
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-[#6B7280] dark:text-slate-400">Delete original audio?</span>
+                  <button onClick={() => setShowAudioDeleteConfirm(false)} className="text-xs text-[#6B7280] hover:text-[#374151] px-2.5 py-1 rounded-lg hover:bg-[#F1F5F9] dark:hover:bg-white/10 transition-colors">Cancel</button>
+                  <button onClick={handleDeleteAudio} disabled={deletingAudio} className="text-xs font-medium text-red-600 hover:text-red-700 px-2.5 py-1 rounded-lg bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors flex items-center gap-1.5">
+                    {deletingAudio ? <Loader2 size={11} className="animate-spin" /> : <Trash2 size={11} />}
+                    Delete Audio
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowAudioDeleteConfirm(true)}
+                  className="flex items-center gap-1.5 text-xs text-[#9CA3AF] hover:text-red-500 transition-colors"
+                >
+                  <Trash2 size={11} /> Delete Audio File
+                </button>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -592,32 +614,6 @@ function JobCard({
             )}
           </div>
 
-          {/* Audio-only delete — bottom of complete card */}
-          {hasAudio && (
-            <div className="border-t border-[#F1F5F9] dark:border-white/5 px-5 py-3">
-              {showAudioDeleteConfirm ? (
-                <div className="flex items-center gap-3 flex-wrap">
-                  <p className="text-xs text-[#374151] dark:text-slate-300">
-                    Delete original audio? Transcript and reports will remain.
-                  </p>
-                  <div className="flex gap-2 ml-auto">
-                    <button onClick={() => setShowAudioDeleteConfirm(false)} className="text-xs text-[#6B7280] hover:text-[#374151] px-3 py-1.5 rounded-lg hover:bg-[#F1F5F9] dark:hover:bg-white/10 transition-colors">Cancel</button>
-                    <button onClick={handleDeleteAudio} disabled={deletingAudio} className="text-xs font-medium text-red-600 hover:text-red-700 px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors flex items-center gap-1.5">
-                      {deletingAudio ? <Loader2 size={11} className="animate-spin" /> : <Trash2 size={11} />}
-                      Delete Audio
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setShowAudioDeleteConfirm(true)}
-                  className="flex items-center gap-1.5 text-xs text-[#9CA3AF] hover:text-red-500 transition-colors"
-                >
-                  <Trash2 size={12} /> Delete Audio File
-                </button>
-              )}
-            </div>
-          )}
         </div>
       )}
     </div>

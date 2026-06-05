@@ -38,22 +38,22 @@ Output ONLY the title, nothing else.
 Transcript:
 {transcript}"""
 
-SHORT_SUMMARY_PROMPT = """Based on this meeting transcript, write a one-line summary.
+SHORT_SUMMARY_PROMPT = """Based on this meeting transcript, write a concise summary.
 
 Requirements:
-- Maximum 100 characters — enforce this strictly
+- Maximum 250 characters — enforce this strictly
 - Language: Korean if the transcript is primarily in Korean; English otherwise
-- Concise and informative — give quick context without reading the full report
+- Cover the main topic and 2-3 key points discussed
 - Do NOT start with "This meeting" or "In this meeting"
 
 Good examples (Korean):
-- AI 활용 및 시장데이터 사업전략 관련 주요 논의
-- WFE 행사에서 논의된 클라우드 데이터 유통 동향
+- AI 활용 및 시장데이터 사업전략 관련 주요 논의. Bloomberg, Refinitiv 등 주요 데이터 벤더의 가격 정책 변화와 KRX의 대응 방안 검토.
+- WFE 행사에서 논의된 클라우드 데이터 유통 동향 및 실시간 데이터 라이선싱 전략.
 
 Good examples (English):
-- Key trends in cloud data distribution for financial markets discussed
+- Key discussion on cloud data distribution in financial markets. Covered real-time licensing models, vendor pricing shifts, and exchange data monetization strategies.
 
-Output ONLY the summary line, nothing else.
+Output ONLY the summary, nothing else.
 
 Transcript:
 {transcript}"""
@@ -277,10 +277,10 @@ class MeetingSummaryService:
         resp = await self._client.chat.completions.create(
             model="gpt-4o",
             temperature=0.2,
-            max_tokens=60,
+            max_tokens=150,
             messages=[{"role": "user", "content": SHORT_SUMMARY_PROMPT.format(transcript=snippet)}],
         )
-        return (resp.choices[0].message.content or "").strip()[:100]
+        return (resp.choices[0].message.content or "").strip()[:250]
 
     # ── Audio helpers ─────────────────────────────────────────────────────────
 

@@ -18,7 +18,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
   const body = await req.json() as { title?: string; short_summary?: string }
   const patch: Record<string, string | null> = {}
   if ('title' in body) patch.title = typeof body.title === 'string' ? body.title.trim().slice(0, 200) : null
-  if ('short_summary' in body) patch.short_summary = typeof body.short_summary === 'string' ? body.short_summary.trim().slice(0, 100) : null
+  if ('short_summary' in body) patch.short_summary = typeof body.short_summary === 'string' ? body.short_summary.trim().slice(0, 250) : null
   if (Object.keys(patch).length === 0) return NextResponse.json({ error: 'Nothing to update' }, { status: 400 })
   patch.updated_at = new Date().toISOString()
 
