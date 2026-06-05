@@ -415,7 +415,7 @@ export default function MeetingSummary() {
   // ─────────────────────────────────────────────────────────────────────────
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 pb-24">
 
       {/* Back nav */}
       <Link href="/admin/pioneer-lab" className="inline-flex items-center gap-1.5 text-xs text-[#6B7280] dark:text-slate-400 hover:text-[#38BDF8] transition-colors">
