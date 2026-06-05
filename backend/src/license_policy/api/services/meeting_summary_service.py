@@ -161,7 +161,9 @@ MINUTES_PROMPT = """당신은 공공기관 및 금융거래소 수준의 회의�
 
 class MeetingSummaryService:
     def __init__(self, openai_api_key: str, supabase_url: str, supabase_service_key: str) -> None:
-        self._client = AsyncOpenAI(api_key=openai_api_key)
+        # max_retries=6: automatically waits and retries on 429 rate-limit errors
+        # (OpenAI SDK honours the Retry-After header, so it waits exactly as long as needed)
+        self._client = AsyncOpenAI(api_key=openai_api_key, max_retries=6)
         self._supabase_url = supabase_url.rstrip("/")
         self._supabase_key = supabase_service_key
 
@@ -314,12 +316,12 @@ class MeetingSummaryService:
             "updated_at": datetime.utcnow().isoformat(),
         })
 
-        # 5. Generate Intelligence Report + Korean Meeting Minutes in parallel
-        logger.info("Job %s: generating report and Korean minutes in parallel", job_id)
-        summary, minutes = await asyncio.gather(
-            self._generate_summary(transcript),
-            self._generate_minutes(transcript),
-        )
+        # 5. Generate Intelligence Report then Korean Meeting Minutes sequentially
+        # (sequential avoids doubling token burst when multiple jobs run at once)
+        logger.info("Job %s: generating intelligence report", job_id)
+        summary = await self._generate_summary(transcript)
+        logger.info("Job %s: generating Korean meeting minutes", job_id)
+        minutes = await self._generate_minutes(transcript)
 
         # 6. Store final result
         await self._update_job(job_id, {
