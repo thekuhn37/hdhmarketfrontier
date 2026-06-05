@@ -132,13 +132,14 @@ function MinutesCard({ job }: { job: MeetingSummaryJob }) {
 
 // ─── Upload zone ──────────────────────────────────────────────────────────────
 
-function UploadZone({ onUpload, uploading }: { onUpload: (f: File) => void; uploading: boolean }) {
+function UploadZone({ onUpload, uploading, uploadCount }: { onUpload: (files: File[]) => void; uploading: boolean; uploadCount: number }) {
   const [dragOver, setDragOver] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleFile = (f: File | undefined) => {
-    if (!f || uploading) return
-    onUpload(f)
+  const handleFiles = (list: FileList | null) => {
+    if (!list || uploading) return
+    const files = Array.from(list)
+    if (files.length > 0) onUpload(files)
   }
 
   return (
@@ -153,14 +154,15 @@ function UploadZone({ onUpload, uploading }: { onUpload: (f: File) => void; uplo
       onClick={() => inputRef.current?.click()}
       onDragOver={e => { e.preventDefault(); setDragOver(true) }}
       onDragLeave={() => setDragOver(false)}
-      onDrop={e => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files[0]) }}
+      onDrop={e => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files) }}
     >
       <input
         ref={inputRef}
         type="file"
+        multiple
         className="hidden"
         accept=".mp3,.wav,.m4a,.mp4,.aac,.webm,.ogg"
-        onChange={e => handleFile(e.target.files?.[0])}
+        onChange={e => handleFiles(e.target.files)}
       />
       {uploading
         ? <Loader2 size={32} className="text-[#38BDF8] animate-spin" />
@@ -168,10 +170,12 @@ function UploadZone({ onUpload, uploading }: { onUpload: (f: File) => void; uplo
       }
       <div className="text-center">
         <p className="text-sm font-medium text-[#0F172A] dark:text-white">
-          {uploading ? 'Uploading…' : 'Drop audio file or click to browse'}
+          {uploading
+            ? `Uploading ${uploadCount} file${uploadCount > 1 ? 's' : ''}…`
+            : 'Drop audio files or click to browse'}
         </p>
         <p className="text-xs text-[#6B7280] dark:text-slate-400 mt-1">
-          MP3, WAV, M4A, MP4, AAC, WebM · Max 200 MB
+          MP3, WAV, M4A, MP4, AAC, WebM · Max 200 MB · Multiple files supported
         </p>
       </div>
     </div>
@@ -331,6 +335,7 @@ function JobCard({
 export default function MeetingSummary() {
   const [jobs, setJobs] = useState<MeetingSummaryJob[]>([])
   const [uploading, setUploading] = useState(false)
+  const [uploadCount, setUploadCount] = useState(0)
   const [uploadError, setUploadError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -378,31 +383,38 @@ export default function MeetingSummary() {
 
   // ── Upload handler ───────────────────────────────────────────────────────
 
-  const handleUpload = async (file: File) => {
+  const handleUpload = async (files: File[]) => {
     setUploading(true)
+    setUploadCount(files.length)
     setUploadError(null)
-    try {
-      const { job_id } = await uploadAudio(file)
-      // Optimistically add the job
-      setJobs(prev => [{
-        id: job_id,
-        user_id: '',
-        filename: file.name,
-        file_size_bytes: file.size,
-        duration_seconds: null,
-        status: 'queued',
-        transcript: null,
-        summary: null,
-        language_detected: null,
-        error_message: null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      }, ...prev])
-    } catch (err) {
-      setUploadError(err instanceof Error ? err.message : 'Upload failed')
-    } finally {
-      setUploading(false)
-    }
+    const errors: string[] = []
+
+    await Promise.all(files.map(async file => {
+      try {
+        const { job_id } = await uploadAudio(file)
+        setJobs(prev => [{
+          id: job_id,
+          user_id: '',
+          filename: file.name,
+          file_size_bytes: file.size,
+          duration_seconds: null,
+          status: 'queued',
+          transcript: null,
+          summary: null,
+          minutes: null,
+          language_detected: null,
+          error_message: null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        }, ...prev])
+      } catch (err) {
+        errors.push(`${file.name}: ${err instanceof Error ? err.message : 'Upload failed'}`)
+      }
+    }))
+
+    if (errors.length > 0) setUploadError(errors.join(' · '))
+    setUploading(false)
+    setUploadCount(0)
   }
 
   // ── Delete handler ───────────────────────────────────────────────────────
@@ -438,7 +450,7 @@ export default function MeetingSummary() {
 
       {/* Upload zone */}
       <section className="space-y-3">
-        <UploadZone onUpload={handleUpload} uploading={uploading} />
+        <UploadZone onUpload={handleUpload} uploading={uploading} uploadCount={uploadCount} />
         {uploadError && (
           <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20">
             <AlertCircle size={14} className="text-red-500 flex-shrink-0" />
