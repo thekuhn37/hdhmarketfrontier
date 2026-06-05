@@ -86,9 +86,12 @@ class DocumentService:
         # Pull any files uploaded via the web UI that live in GCS but not in the image
         gcs = get_gcs()
         if gcs:
-            n = gcs.sync_to_local(DATA_RAW, DATA_PROCESSED)
-            if n:
-                logger.info("GCS sync: downloaded %d file(s) to local data/", n)
+            try:
+                n = gcs.sync_to_local(DATA_RAW, DATA_PROCESSED)
+                if n:
+                    logger.info("GCS sync: downloaded %d file(s) to local data/", n)
+            except Exception as exc:
+                logger.warning("GCS sync skipped (%s) — continuing with local files only.", exc)
 
         processed_index = self._scan_processed()
         raw_pdfs = sorted(DATA_RAW.glob("*.pdf"))
@@ -162,7 +165,10 @@ class DocumentService:
         # Persist raw PDF to GCS immediately so it survives container restarts
         gcs = get_gcs()
         if gcs:
-            await asyncio.to_thread(gcs.upload_raw, dest)
+            try:
+                await asyncio.to_thread(gcs.upload_raw, dest)
+            except Exception as exc:
+                logger.warning("GCS upload_raw failed (%s) — file saved locally only.", exc)
 
         exchange, agreement_type = _detect_from_filename(safe_name)
 
@@ -223,7 +229,10 @@ class DocumentService:
             # Persist processed JSON to GCS so it loads on next container start
             gcs = get_gcs()
             if gcs:
-                await asyncio.to_thread(gcs.upload_processed, json_path)
+                try:
+                    await asyncio.to_thread(gcs.upload_processed, json_path)
+                except Exception as exc:
+                    logger.warning("GCS upload_processed failed (%s) — JSON saved locally only.", exc)
 
             load_file_into_store(json_path)
             logger.info("Processed %s → %s", rec.filename, json_name)
@@ -275,9 +284,12 @@ class DocumentService:
         # Remove from GCS too
         gcs = get_gcs()
         if gcs:
-            await asyncio.to_thread(gcs.delete_raw, rec.filename)
-            if rec.processed_path:
-                await asyncio.to_thread(gcs.delete_processed, Path(rec.processed_path).name)
+            try:
+                await asyncio.to_thread(gcs.delete_raw, rec.filename)
+                if rec.processed_path:
+                    await asyncio.to_thread(gcs.delete_processed, Path(rec.processed_path).name)
+            except Exception as exc:
+                logger.warning("GCS delete failed (%s) — local files already removed.", exc)
 
         refresh_store()
 
