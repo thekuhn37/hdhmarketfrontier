@@ -15,6 +15,10 @@ logger = logging.getLogger(__name__)
 
 WHISPER_MAX_BYTES = 24 * 1024 * 1024  # 24 MB (OpenAI limit is 25 MB)
 
+# Limits concurrent GPT-4o usage to 1 job at a time across all uploads.
+# Whisper transcription still runs in parallel; only the LLM report steps queue up.
+_llm_semaphore = asyncio.Semaphore(1)
+
 SPEAKER_LABEL_PROMPT = """You are given a meeting transcript with timestamps like [MM:SS] or [HH:MM:SS].
 Your job is to reformat it so each speaker's turn is clearly labeled.
 
@@ -300,28 +304,29 @@ class MeetingSummaryService:
         else:
             timed = whisper_resp.text
 
-        # 4. Label speakers
-        logger.info("Job %s: labeling speakers", job_id)
-        try:
-            transcript = await self._label_speakers(timed)
-        except Exception:
-            logger.warning("Job %s: speaker labeling failed, using raw transcript", job_id)
-            transcript = whisper_resp.text
+        # 4–6. All GPT-4o steps run under a semaphore so concurrent uploads
+        #       queue up rather than all hitting the API at the same time.
+        logger.info("Job %s: waiting for LLM slot", job_id)
+        async with _llm_semaphore:
+            logger.info("Job %s: LLM slot acquired — labeling speakers", job_id)
+            try:
+                transcript = await self._label_speakers(timed)
+            except Exception:
+                logger.warning("Job %s: speaker labeling failed, using raw transcript", job_id)
+                transcript = whisper_resp.text
 
-        await self._update_job(job_id, {
-            "status": "summarizing",
-            "transcript": transcript,
-            "language_detected": language,
-            "duration_seconds": duration,
-            "updated_at": datetime.utcnow().isoformat(),
-        })
+            await self._update_job(job_id, {
+                "status": "summarizing",
+                "transcript": transcript,
+                "language_detected": language,
+                "duration_seconds": duration,
+                "updated_at": datetime.utcnow().isoformat(),
+            })
 
-        # 5. Generate Intelligence Report then Korean Meeting Minutes sequentially
-        # (sequential avoids doubling token burst when multiple jobs run at once)
-        logger.info("Job %s: generating intelligence report", job_id)
-        summary = await self._generate_summary(transcript)
-        logger.info("Job %s: generating Korean meeting minutes", job_id)
-        minutes = await self._generate_minutes(transcript)
+            logger.info("Job %s: generating intelligence report", job_id)
+            summary = await self._generate_summary(transcript)
+            logger.info("Job %s: generating Korean meeting minutes", job_id)
+            minutes = await self._generate_minutes(transcript)
 
         # 6. Store final result
         await self._update_job(job_id, {
