@@ -53,16 +53,29 @@ export async function POST(req: NextRequest) {
 
   const jobId = job.id as string
 
-  // Forward file to FastAPI backend (fire and don't await — FastAPI processes in background)
+  // Forward file to FastAPI backend — await the 202 acknowledgment (backend processes async)
   const backendForm = new FormData()
   backendForm.append('file', file)
   backendForm.append('job_id', jobId)
 
-  // We intentionally don't await this — backend returns 202 immediately and processes async
-  fetch(`${BACKEND_URL}/api/meeting-summary/jobs`, {
-    method: 'POST',
-    body: backendForm,
-  }).catch(err => console.error('[meeting-summary] Backend dispatch failed:', err))
+  try {
+    const backendRes = await fetch(`${BACKEND_URL}/api/meeting-summary/jobs`, {
+      method: 'POST',
+      body: backendForm,
+    })
+    if (!backendRes.ok) {
+      const text = await backendRes.text().catch(() => backendRes.statusText)
+      throw new Error(`Backend ${backendRes.status}: ${text}`)
+    }
+  } catch (err) {
+    console.error('[meeting-summary] Backend dispatch failed:', err)
+    // Mark job as error so the UI doesn't hang
+    await admin.from('meeting_summary_jobs').update({
+      status: 'error',
+      error_message: `Failed to reach processing backend: ${err instanceof Error ? err.message : String(err)}`,
+    }).eq('id', jobId)
+    return NextResponse.json({ error: 'Processing backend unavailable. Please try again.' }, { status: 502 })
+  }
 
   return NextResponse.json({ job_id: jobId })
 }

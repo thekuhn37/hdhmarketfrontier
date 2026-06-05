@@ -5,6 +5,7 @@ import logging
 import os
 import subprocess
 import tempfile
+from datetime import datetime
 from pathlib import Path
 
 import httpx
@@ -94,7 +95,7 @@ class MeetingSummaryService:
             await self._update_job(job_id, {
                 "status": "error",
                 "error_message": "Processing failed. Please try again.",
-                "updated_at": "now()",
+                "updated_at": datetime.utcnow().isoformat(),
             })
         finally:
             for p in tmp_dir.iterdir():
@@ -140,7 +141,7 @@ class MeetingSummaryService:
             "transcript": transcript,
             "language_detected": language,
             "duration_seconds": duration,
-            "updated_at": "now()",
+            "updated_at": datetime.utcnow().isoformat(),
         })
 
         # 4. Summarization
@@ -162,6 +163,6 @@ class MeetingSummaryService:
         await self._update_job(job_id, {
             "status": "complete",
             "summary": summary,
-            "updated_at": "now()",
+            "updated_at": datetime.utcnow().isoformat(),
         })
         logger.info("Job %s: complete", job_id)
