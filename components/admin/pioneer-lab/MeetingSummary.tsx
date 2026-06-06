@@ -429,7 +429,7 @@ function JobCard({
   }
 
   return (
-    <div id={`job-${job.id}`} className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 overflow-hidden">
+    <div id={`job-${job.id}`} className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10">
 
       {/* ── Header ─────────────────────────────────────────────── */}
       <div className="flex items-start gap-3 px-5 py-4">
@@ -488,10 +488,10 @@ function JobCard({
         </div>
       )}
 
-      {/* ── Audio player ───────────────────────────────────────── */}
+      {/* ── Audio player — sticky so it stays visible while reading reports ── */}
       {(hasAudio || job.audio_deleted) && (
-        <div className="px-5 pb-4">
-          <div className="bg-[#F8FAFC] dark:bg-white/5 rounded-xl px-4 py-3 border border-[#E5E7EB] dark:border-white/10 space-y-2">
+        <div className="sticky top-4 z-10 px-5 pb-3 pt-0 bg-white dark:bg-[#0F172A] rounded-2xl">
+          <div className="bg-[#F8FAFC] dark:bg-white/5 rounded-xl px-4 py-3 border border-[#E5E7EB] dark:border-white/10 space-y-2 shadow-sm">
             <div className="flex items-center gap-1.5 text-[11px] text-[#6B7280] dark:text-slate-400">
               <Volume2 size={11} /> Audio
             </div>
