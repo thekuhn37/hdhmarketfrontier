@@ -1,5 +1,18 @@
 import type { MeetingSummaryJob } from './types'
 
+export interface JobIndexItem {
+  id: string
+  title: string | null
+  filename: string
+  status: string
+  created_at: string
+}
+
+export interface JobPage {
+  jobs: MeetingSummaryJob[]
+  total: number
+}
+
 export async function uploadAudio(file: File): Promise<{ job_id: string }> {
   const form = new FormData()
   form.append('file', file)
@@ -17,10 +30,22 @@ export async function getJobStatus(id: string): Promise<MeetingSummaryJob> {
   return res.json() as Promise<MeetingSummaryJob>
 }
 
-export async function listJobs(): Promise<MeetingSummaryJob[]> {
-  const res = await fetch('/api/meeting-summary/jobs')
+export async function listJobs(page = 0): Promise<JobPage> {
+  const res = await fetch(`/api/meeting-summary/jobs?page=${page}`)
   if (!res.ok) throw new Error('Failed to fetch jobs')
-  const body = await res.json() as { jobs: MeetingSummaryJob[] }
+  return res.json() as Promise<JobPage>
+}
+
+export async function searchJobs(q: string, page = 0): Promise<JobPage> {
+  const res = await fetch(`/api/meeting-summary/jobs?q=${encodeURIComponent(q)}&page=${page}`)
+  if (!res.ok) throw new Error('Failed to search')
+  return res.json() as Promise<JobPage>
+}
+
+export async function listJobIndex(): Promise<JobIndexItem[]> {
+  const res = await fetch('/api/meeting-summary/jobs?index=true')
+  if (!res.ok) throw new Error('Failed to fetch index')
+  const body = await res.json() as { jobs: JobIndexItem[] }
   return body.jobs
 }
 
