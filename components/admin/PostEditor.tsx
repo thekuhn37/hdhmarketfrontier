@@ -258,6 +258,16 @@ export default function PostEditor({ mode, initialData, postId }: PostEditorProp
       }
 
       toast.success(publish ? 'Post published!' : 'Draft saved!')
+
+      // Pre-generate Korean and Chinese translations in background — no await, no blocking
+      if (form.language === 'en' && savedPostId) {
+        void fetch('/api/ai/pre-translate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ post_id: savedPostId }),
+        })
+      }
+
       router.push('/admin/posts')
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Save failed')
