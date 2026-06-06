@@ -302,34 +302,44 @@ function SearchBar({ query, onChange, onSearch, onClear, searching, activeQuery 
 function IndexList({ items, loading, onSelect }: {
   items: JobIndexItem[]; loading: boolean; onSelect: (id: string, page: number) => void
 }) {
+  const [open, setOpen] = useState(true)
   const complete = items.filter(i => i.status === 'complete')
 
   return (
     <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E5E7EB] dark:border-white/10 p-4">
-      <div className="flex items-center gap-2 mb-3">
-        <List size={13} className="text-[#9CA3AF]" />
-        <span className="text-[10px] font-semibold text-[#9CA3AF] uppercase tracking-wider">Quick Jump</span>
-      </div>
-      {loading ? (
-        <div className="space-y-2">
-          {[0, 1, 2].map(i => <div key={i} className="h-3 bg-[#F1F5F9] dark:bg-white/5 rounded animate-pulse" />)}
+      <button onClick={() => setOpen(v => !v)} className="w-full flex items-center justify-between gap-2 mb-0 group">
+        <div className="flex items-center gap-2">
+          <List size={13} className="text-[#9CA3AF]" />
+          <span className="text-[10px] font-semibold text-[#9CA3AF] uppercase tracking-wider">Quick Jump</span>
         </div>
-      ) : complete.length === 0 ? (
-        <p className="text-xs text-[#9CA3AF] dark:text-slate-500 italic">No completed records yet</p>
-      ) : (
-        <div className="space-y-0.5 max-h-[60vh] overflow-y-auto">
-          {complete.map(item => {
-            const pos = items.findIndex(i => i.id === item.id)
-            const targetPage = Math.floor(pos / PAGE_SIZE)
-            const label = item.title || item.filename.replace(/\.[^.]+$/, '')
-            return (
-              <button key={item.id} onClick={() => onSelect(item.id, targetPage)}
-                className="w-full text-left text-xs text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white truncate py-1.5 px-2 rounded-lg hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
-                title={label}>
-                {label}
-              </button>
-            )
-          })}
+        {open
+          ? <ChevronUp size={13} className="text-[#9CA3AF] group-hover:text-[#6B7280] transition-colors" />
+          : <ChevronDown size={13} className="text-[#9CA3AF] group-hover:text-[#6B7280] transition-colors" />}
+      </button>
+      {open && (
+        <div className="mt-3">
+          {loading ? (
+            <div className="space-y-2">
+              {[0, 1, 2].map(i => <div key={i} className="h-3 bg-[#F1F5F9] dark:bg-white/5 rounded animate-pulse" />)}
+            </div>
+          ) : complete.length === 0 ? (
+            <p className="text-xs text-[#9CA3AF] dark:text-slate-500 italic">No completed records yet</p>
+          ) : (
+            <div className="space-y-0.5 max-h-[60vh] overflow-y-auto">
+              {complete.map(item => {
+                const pos = items.findIndex(i => i.id === item.id)
+                const targetPage = Math.floor(pos / PAGE_SIZE)
+                const label = item.title || item.filename.replace(/\.[^.]+$/, '')
+                return (
+                  <button key={item.id} onClick={() => onSelect(item.id, targetPage)}
+                    className="w-full text-left text-xs text-[#6B7280] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white truncate py-1.5 px-2 rounded-lg hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
+                    title={label}>
+                    {label}
+                  </button>
+                )
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>
