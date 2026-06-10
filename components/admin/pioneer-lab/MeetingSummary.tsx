@@ -115,9 +115,11 @@ function AudioPlayer({ jobId, audioDeleted }: { jobId: string; audioDeleted: boo
   }
 
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !duration) return
+    if (!audioRef.current || !duration || !isFinite(duration) || duration <= 0) return
     const rect = e.currentTarget.getBoundingClientRect()
-    audioRef.current.currentTime = ((e.clientX - rect.left) / rect.width) * duration
+    if (rect.width <= 0) return
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width))
+    try { audioRef.current.currentTime = ratio * duration } catch { /* ignore DOMException */ }
   }
 
   if (audioDeleted) return <p className="text-[11px] text-[#9CA3AF] dark:text-slate-500 italic">Audio file deleted — transcript and reports preserved</p>
@@ -142,7 +144,7 @@ function AudioPlayer({ jobId, audioDeleted }: { jobId: string; audioDeleted: boo
         </button>
         <div className="flex-1 h-1.5 bg-[#E5E7EB] dark:bg-white/10 rounded-full relative cursor-pointer group" onClick={seek}>
           <div className="h-full bg-[#38BDF8] rounded-full transition-none" style={{ width: `${progress}%` }} />
-          <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-[#38BDF8] rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity" style={{ left: `calc(${progress}% - 6px)` }} />
+          <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-[#38BDF8] rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity" style={{ left: `clamp(0px, calc(${progress}% - 6px), calc(100% - 12px))` }} />
         </div>
         <button onClick={() => skip(10)} disabled={!url} className="flex items-center gap-0.5 text-[10px] text-[#6B7280] hover:text-[#38BDF8] disabled:opacity-40 transition-colors flex-shrink-0" title="Forward 10s">
           10<SkipForward size={12} />

@@ -12,14 +12,6 @@ import { cn } from '@/lib/utils/cn'
 const CATEGORIES = ['Markets', 'Data', 'Infrastructure', 'AI', 'Digital Assets']
 const SORTS = ['Latest', 'Popular', 'Relevance']
 
-const FALLBACK: Post[] = [
-  { id:'1', title:'Understanding Market Structure in Modern Exchanges', slug:'understanding-market-structure', summary:'How modern equity markets have evolved in structure and efficiency.', content:'', thumbnail_url:null, category:'Markets', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:7, view_count:1240, is_featured:true, is_popular:false, published_at:'2025-01-15T00:00:00Z', created_at:'', updated_at:'', tags:[] },
-  { id:'2', title:'Why Market Data Strategy Matters', slug:'why-market-data-strategy-matters', summary:'Market data as strategic asset requiring careful governance.', content:'', thumbnail_url:null, category:'Data', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:6, view_count:980, is_featured:true, is_popular:true, published_at:'2025-01-10T00:00:00Z', created_at:'', updated_at:'', tags:[] },
-  { id:'3', title:'The Hidden Infrastructure Behind Financial Markets', slug:'hidden-infrastructure-financial-markets', summary:'Technology layers that keep global financial markets running.', content:'', thumbnail_url:null, category:'Infrastructure', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:8, view_count:756, is_featured:false, is_popular:true, published_at:'2025-01-05T00:00:00Z', created_at:'', updated_at:'', tags:[] },
-  { id:'4', title:'AI Use Cases in Financial Data Governance', slug:'ai-use-cases-financial-data-governance', summary:'AI transforming how financial institutions govern market data.', content:'', thumbnail_url:null, category:'AI', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:6, view_count:634, is_featured:false, is_popular:true, published_at:'2024-12-28T00:00:00Z', created_at:'', updated_at:'', tags:[] },
-  { id:'5', title:'Tokenization and the Future of Market Infrastructure', slug:'tokenization-future-market-infrastructure', summary:'Digital securities and tokenized assets reshaping markets.', content:'', thumbnail_url:null, category:'Digital Assets', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:7, view_count:512, is_featured:false, is_popular:false, published_at:'2024-12-20T00:00:00Z', created_at:'', updated_at:'', tags:[] },
-]
-
 interface Props {
   initialQuery: string
   initialCategory: string
@@ -71,18 +63,11 @@ export default function SearchClient({ initialQuery, initialCategory }: Props) {
           ...p,
           tags: ((p.tags as { tag: unknown }[]) || []).map((t: { tag: unknown }) => t.tag),
         })) as Post[])
-      } else if (!data || data.length === 0) {
-        // Fallback filter
-        let filtered = [...FALLBACK]
-        if (q.trim()) filtered = filtered.filter(p => p.title.toLowerCase().includes(q.toLowerCase()) || (p.summary || '').toLowerCase().includes(q.toLowerCase()))
-        if (cat) filtered = filtered.filter(p => p.category.toLowerCase() === cat.toLowerCase())
-        setResults(filtered)
+      } else {
+        setResults([])
       }
     } catch {
-      let filtered = [...FALLBACK]
-      if (q.trim()) filtered = filtered.filter(p => p.title.toLowerCase().includes(q.toLowerCase()) || (p.summary || '').toLowerCase().includes(q.toLowerCase()))
-      if (cat) filtered = filtered.filter(p => p.category.toLowerCase() === cat.toLowerCase())
-      setResults(filtered)
+      setResults([])
     }
     setLoading(false)
   }, [pathname, router])

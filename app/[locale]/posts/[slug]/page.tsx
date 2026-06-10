@@ -18,75 +18,8 @@ interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
-// Sample post content for fallback
-const SAMPLE_CONTENT: Record<string, string> = {
-  'understanding-market-structure': `
-<h2>The Evolution of Market Microstructure</h2>
-<p>Modern equity markets have undergone a fundamental transformation over the past two decades. The rise of electronic trading, regulatory reforms, and advances in technology have collectively reshaped how markets operate, how liquidity is formed, and how participants interact with exchanges.</p>
-<p>The fragmentation of equity markets, particularly in the United States and Europe following MiFID II and Reg NMS, has created a complex multi-venue landscape. While competition among venues has reduced explicit trading costs, it has also introduced new challenges around best execution, data fragmentation, and market data costs.</p>
-<h2>Key Structural Dynamics</h2>
-<p>Several forces continue to reshape market structure globally. High-frequency trading has become embedded in liquidity provision, dark pools serve institutional needs for minimizing market impact, and the rise of retail participation through zero-commission platforms has altered order flow dynamics significantly.</p>
-<p>From a data perspective, the complexity of modern market structure has made market data itself a critical infrastructure asset. Understanding consolidated tape economics, the value of proprietary data feeds, and the cost of market data has become essential for any serious financial market participant.</p>
-<h2>Global Implications</h2>
-<p>Asian markets, including Korea's KOSPI and KOSDAQ, have their own structural characteristics shaped by unique regulatory environments, ownership structures, and technology adoption patterns. Understanding these local dynamics is essential for global participants seeking to operate effectively across multiple jurisdictions.</p>
-<p>As markets continue to evolve with the integration of digital assets and potential tokenization of traditional securities, the structural foundations being built today will have long-lasting implications for how capital markets function in the future.</p>
-  `,
-  'why-market-data-strategy-matters': `
-<h2>Market Data as Strategic Asset</h2>
-<p>For decades, market data was treated primarily as a utility — a necessary cost of doing business in financial markets. Today, the paradigm has shifted fundamentally. Market data has become a strategic asset that can define competitive advantage, drive new revenue streams, and enable entirely new business models.</p>
-<p>Exchanges, data vendors, and financial institutions that recognize this shift and invest in coherent data strategies are positioning themselves for long-term relevance. Those that continue to treat data as merely an operational input are falling behind.</p>
-<h2>Components of a Market Data Strategy</h2>
-<p>A robust market data strategy encompasses several interconnected elements: data governance frameworks that ensure quality and consistency, distribution infrastructure that enables efficient delivery across channels, licensing models that align commercial objectives with market needs, and analytics capabilities that transform raw data into actionable intelligence.</p>
-<p>The rise of alternative data — from satellite imagery to social sentiment — has expanded the scope of what constitutes relevant market data. Financial firms that can integrate traditional and alternative data sources into coherent analytical frameworks gain significant informational advantages.</p>
-<h2>The Regulatory Dimension</h2>
-<p>Regulators globally are paying increasing attention to market data pricing and access. The European Union's consolidated tape initiative, debates around data fees in the United States, and similar discussions in Asian markets reflect growing concerns about fair access to market data infrastructure.</p>
-<p>Navigating this regulatory landscape while building sustainable commercial models requires strategic sophistication. The most successful market data businesses will be those that build genuine value for customers while operating with transparency and regulatory alignment.</p>
-  `,
-  'hidden-infrastructure-financial-markets': `
-<h2>The Invisible Foundation</h2>
-<p>When investors execute a trade, they rarely consider the extraordinary complexity of the infrastructure that enables that transaction. From the moment an order is submitted to final settlement, dozens of interconnected systems, protocols, and institutions work in concert to ensure the seamless transfer of securities and funds.</p>
-<p>This infrastructure — exchanges, central counterparty clearinghouses (CCPs), central securities depositories (CSDs), messaging networks, and market data distribution systems — forms the invisible foundation upon which global capital markets operate.</p>
-<h2>Critical Infrastructure Components</h2>
-<p>Central counterparty clearing has become one of the most significant risk management innovations in modern financial history. By interposing between buyer and seller, CCPs fundamentally transform bilateral counterparty risk into centralized and managed risk. However, this concentration also creates systemic importance that requires careful oversight.</p>
-<p>Market connectivity infrastructure — whether through direct market access, co-location services, or network providers like Fixnetix or TNS — has become a competitive battleground. Latency measured in microseconds can determine commercial viability for certain trading strategies.</p>
-<h2>The Data Infrastructure Layer</h2>
-<p>Underlying all of this is a sophisticated market data infrastructure that captures, normalizes, distributes, and stores enormous volumes of market information. Real-time data feeds, historical data archives, analytics platforms, and derived data products form an ecosystem with its own complex economics and competitive dynamics.</p>
-<p>Understanding this infrastructure layer is increasingly important for anyone seeking to operate effectively in modern financial markets, whether as a participant, technology provider, regulator, or researcher.</p>
-  `,
-  'ai-use-cases-financial-data-governance': `
-<h2>AI Transforms Data Operations</h2>
-<p>Artificial intelligence and machine learning are reshaping financial data operations in ways that were unimaginable a decade ago. From automated data quality validation to intelligent routing of market data queries, AI capabilities are being embedded throughout the financial data lifecycle.</p>
-<p>The sheer volume and velocity of financial market data make AI-assisted approaches not just beneficial but increasingly necessary. A major exchange can generate billions of data records per trading day — a scale that requires intelligent automation to manage effectively.</p>
-<h2>Key AI Applications</h2>
-<p>In data governance, machine learning models are being deployed to automatically detect anomalies in market data streams, flag potential quality issues before they propagate through downstream systems, and classify data according to governance frameworks with significantly higher accuracy than rule-based systems.</p>
-<p>Natural language processing is enabling new approaches to unstructured financial data — earnings calls, regulatory filings, news feeds, and research reports can be analyzed at scale to extract structured signals that complement traditional quantitative data.</p>
-<h2>Challenges and Considerations</h2>
-<p>The adoption of AI in financial data governance is not without challenges. Model explainability is particularly critical in regulated environments where decisions must be auditable. Data lineage requirements mean that AI-enhanced data must still maintain clear provenance documentation.</p>
-<p>As AI capabilities continue to advance, the financial data industry will need to develop new standards, frameworks, and best practices to ensure that AI-enhanced data governance remains reliable, auditable, and aligned with evolving regulatory expectations.</p>
-  `,
-  'tokenization-future-market-infrastructure': `
-<h2>The Tokenization Revolution</h2>
-<p>The tokenization of real-world assets represents one of the most significant structural innovations in financial markets in decades. By representing ownership claims on traditional assets — equities, bonds, real estate, commodities — as digital tokens on distributed ledgers, tokenization has the potential to fundamentally reshape market infrastructure.</p>
-<p>Major financial institutions including BlackRock, JPMorgan, and numerous global exchanges are actively developing tokenized asset capabilities. This is no longer an experimental fringe technology but an emerging institutional infrastructure with real capital being deployed.</p>
-<h2>Infrastructure Implications</h2>
-<p>The shift toward tokenized assets creates significant implications for existing market infrastructure. Traditional clearing and settlement processes, which can take T+2 or longer, could be compressed to near-instantaneous settlement through smart contract automation. This has profound implications for collateral efficiency and counterparty risk management.</p>
-<p>Market data infrastructure will also need to evolve. Tokenized assets may trade across multiple chains, protocols, and venues simultaneously, creating new challenges around consolidated pricing, reference data, and regulatory reporting.</p>
-<h2>The Road Ahead</h2>
-<p>Despite the promise, significant challenges remain. Regulatory frameworks for tokenized securities vary significantly across jurisdictions. Interoperability between different blockchain networks and between blockchain-based and traditional infrastructure requires significant technical and standards development work.</p>
-<p>The financial institutions and infrastructure providers that develop deep expertise in tokenized asset markets now will be well-positioned as institutional adoption accelerates in the coming years. The intersection of traditional market infrastructure experience with emerging technology capability will be a key competitive differentiator.</p>
-  `,
-}
-
-const SAMPLE_POSTS: Post[] = [
-  { id:'1', title:'Understanding Market Structure in Modern Exchanges', slug:'understanding-market-structure', summary:'An exploration of how modern equity markets have evolved in structure, fragmentation, and efficiency.', content: SAMPLE_CONTENT['understanding-market-structure'] || '', thumbnail_url:null, category:'Markets', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:7, view_count:1240, is_featured:true, is_popular:false, published_at:'2025-01-15T00:00:00Z', created_at:'', updated_at:'', tags:[{ id:'t1', name:'market-structure', slug:'market-structure', created_at:'' }, { id:'t7', name:'research', slug:'research', created_at:'' }] },
-  { id:'2', title:'Why Market Data Strategy Matters', slug:'why-market-data-strategy-matters', summary:'Market data has evolved from a utility into a strategic asset.', content: SAMPLE_CONTENT['why-market-data-strategy-matters'] || '', thumbnail_url:null, category:'Data', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:6, view_count:980, is_featured:true, is_popular:true, published_at:'2025-01-10T00:00:00Z', created_at:'', updated_at:'', tags:[{ id:'t2', name:'data-strategy', slug:'data-strategy', created_at:'' }] },
-  { id:'3', title:'The Hidden Infrastructure Behind Financial Markets', slug:'hidden-infrastructure-financial-markets', summary:'The technology layers that keep global financial markets running.', content: SAMPLE_CONTENT['hidden-infrastructure-financial-markets'] || '', thumbnail_url:null, category:'Infrastructure', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:8, view_count:756, is_featured:false, is_popular:true, published_at:'2025-01-05T00:00:00Z', created_at:'', updated_at:'', tags:[{ id:'t3', name:'infrastructure', slug:'infrastructure', created_at:'' }] },
-  { id:'4', title:'AI Use Cases in Financial Data Governance', slug:'ai-use-cases-financial-data-governance', summary:'AI is transforming how financial institutions govern and distribute market data.', content: SAMPLE_CONTENT['ai-use-cases-financial-data-governance'] || '', thumbnail_url:null, category:'AI', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:6, view_count:634, is_featured:false, is_popular:true, published_at:'2024-12-28T00:00:00Z', created_at:'', updated_at:'', tags:[{ id:'t4', name:'ai', slug:'ai', created_at:'' }] },
-  { id:'5', title:'Tokenization and the Future of Market Infrastructure', slug:'tokenization-future-market-infrastructure', summary:'Digital securities and tokenized assets reshaping markets.', content: SAMPLE_CONTENT['tokenization-future-market-infrastructure'] || '', thumbnail_url:null, category:'Digital Assets', language:'en', translation_group_id:null, status:'published', author_id:'', source_url:null, seo_title:null, seo_description:null, og_image_url:null, reading_time:7, view_count:512, is_featured:false, is_popular:false, published_at:'2024-12-20T00:00:00Z', created_at:'', updated_at:'', tags:[{ id:'t5', name:'tokenization', slug:'tokenization', created_at:'' }] },
-]
-
 export async function generateStaticParams() {
-  return SAMPLE_POSTS.map(p => ({ slug: p.slug }))
+  return []
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -97,7 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { data } = await supabase.from('posts').select('title, summary, og_image_url, seo_title, seo_description').eq('slug', slug).single()
     post = data as unknown as Post
   } catch {}
-  if (!post) post = SAMPLE_POSTS.find(p => p.slug === slug) || null
   if (!post) return { title: 'Post Not Found' }
   return {
     title: post.seo_title || post.title,
@@ -146,9 +78,7 @@ export default async function PostPage({ params }: Props) {
   } catch {}
 
   if (!post) {
-    post = SAMPLE_POSTS.find(p => p.slug === slug) || null
-    if (!post) notFound()
-    relatedPosts = SAMPLE_POSTS.filter(p => p.category === post!.category && p.slug !== slug).slice(0, 3)
+    notFound()
   }
 
   // Display values — start with originals, then overlay translation if needed
