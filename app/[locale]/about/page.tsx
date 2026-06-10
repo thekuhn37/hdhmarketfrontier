@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
-import { BarChart2, Globe, Network, BrainCircuit, Coins, Database, ArrowRight, Shield } from 'lucide-react'
+import { BarChart2, Globe, Network, BrainCircuit, Coins, Database, ArrowRight, Shield, FileText, Download } from 'lucide-react'
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -78,6 +78,34 @@ export default async function AboutPage({ params }: Props) {
               <p>
                 Discussions, ideas, and collaboration opportunities related to financial markets, market data, infrastructure, technology, and other topics covered on this website are always welcome. Please feel free to connect with me through the <Link href="/contact" className="text-[#0EA5E9] dark:text-[#38BDF8] font-medium hover:underline">contact information provided</Link> or via LinkedIn.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CV Download */}
+      <section className="py-12">
+        <div className="content-width">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 p-6 sm:p-8 rounded-2xl border border-[#E5E7EB] dark:border-white/10 bg-[#F8FAFC] dark:bg-[#1E2A3B]">
+              <div className="w-12 h-12 rounded-xl gradient-navy flex items-center justify-center flex-shrink-0">
+                <FileText size={22} className="text-[#38BDF8]" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-[#0F172A] dark:text-white mb-1">Interested in my professional background?</h3>
+                <p className="text-sm text-[#4B5563] dark:text-slate-400 leading-relaxed">
+                  You can download my latest CV below for a brief overview of my experience in market data strategy, financial market infrastructure, data commercialization, and global industry engagement.
+                </p>
+              </div>
+              <a
+                href="/documents/Deoghoon-Hwang-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] dark:bg-[#38BDF8] text-white dark:text-[#0B1120] font-semibold text-sm hover:bg-[#1E3A5F] dark:hover:bg-[#7DD3FC] transition-colors flex-shrink-0 whitespace-nowrap"
+              >
+                <Download size={16} /> Download CV
+              </a>
             </div>
           </div>
         </div>
