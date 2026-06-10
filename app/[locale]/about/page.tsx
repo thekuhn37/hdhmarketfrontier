@@ -58,7 +58,7 @@ export default async function AboutPage({ params }: Props) {
         <div className="content-width">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-8 tracking-tight">About Me</h2>
-            <p className="text-xl font-semibold text-[#0F172A] dark:text-slate-100 mb-6">Hello, I&apos;m Deoghoon Hwang.</p>
+            <p className="text-xl font-semibold text-[#0F172A] dark:text-slate-100 mb-6">Hello, I&apos;m Deoghoon Hwang. (Harry. D. Hwang)</p>
             <div className="space-y-5 text-[#4B5563] dark:text-slate-300 text-lg leading-relaxed">
               <p>
                 I currently work in the market data and business strategy field at <strong className="font-semibold text-[#0F172A] dark:text-slate-100">Korea Exchange (KRX)</strong>, where I focus on data commercialization, market infrastructure, strategic partnerships, and the evolving role of technology in financial markets.
@@ -67,7 +67,7 @@ export default async function AboutPage({ params }: Props) {
                 My professional interests sit at the intersection of <strong className="font-semibold text-[#0F172A] dark:text-slate-100">markets, data, infrastructure, and technology</strong>. I am particularly interested in how emerging technologies such as artificial intelligence, cloud computing, digital assets, and blockchain are transforming the way financial information is created, distributed, and consumed.
               </p>
               <p>
-                To deepen my understanding of the industry, I have pursued professional and academic development through my roles at KRX and certifications and specialized programs, including <strong className="font-semibold text-[#0F172A] dark:text-slate-100">FINRA&apos;s Securities Industry Essentials (SIE)</strong>, <strong className="font-semibold text-[#0F172A] dark:text-slate-100">FISD&apos;s Financial Information Associate (FIA)</strong>, and <strong className="font-semibold text-[#0F172A] dark:text-slate-100">KAIST&apos;s Blockchain &amp; Digital Assets program</strong>. I continue to explore new developments in AI and financial technology through ongoing study and hands-on projects.
+                To deepen my understanding of the industry, I have pursued professional and academic development through my roles at KRX and certifications and specialized programs, including FINRA&apos;s Securities Industry Essentials (SIE), FISD&apos;s Financial Information Associate (FIA), and KAIST&apos;s Blockchain &amp; Digital Assets program. I continue to explore new developments in AI and financial technology through ongoing study and hands-on projects.
               </p>
               <p>
                 <strong className="font-semibold text-[#0F172A] dark:text-slate-100">HDH Market Frontier</strong> was created as a platform to document my learning journey, share industry insights, and explore the future of financial markets and data services. The views shared here are intended to encourage discussion, exchange ideas, and contribute to a better understanding of the rapidly evolving financial information ecosystem.
