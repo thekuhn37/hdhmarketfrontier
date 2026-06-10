@@ -53,14 +53,55 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Summary */}
+      {/* About Me */}
       <section className="py-20">
         <div className="content-width">
           <div className="max-w-3xl mx-auto">
-            <p className="text-[#4B5563] dark:text-slate-300 text-lg leading-relaxed mb-8">{t('summary')}</p>
-            <blockquote className="border-l-4 border-[#38BDF8] pl-6 py-2">
-              <p className="text-xl font-medium text-[#0F172A] dark:text-slate-100 italic leading-relaxed">{t('missionText')}</p>
-            </blockquote>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] dark:text-white mb-8 tracking-tight">About Me</h2>
+            <p className="text-xl font-semibold text-[#0F172A] dark:text-slate-100 mb-6">Hello, I&apos;m Deoghoon Hwang.</p>
+            <div className="space-y-5 text-[#4B5563] dark:text-slate-300 text-lg leading-relaxed">
+              <p>
+                I currently work in the market data and business strategy field at <strong className="font-semibold text-[#0F172A] dark:text-slate-100">Korea Exchange (KRX)</strong>, where I focus on data commercialization, market infrastructure, strategic partnerships, and the evolving role of technology in financial markets.
+              </p>
+              <p>
+                My professional interests sit at the intersection of <strong className="font-semibold text-[#0F172A] dark:text-slate-100">markets, data, infrastructure, and technology</strong>. I am particularly interested in how emerging technologies such as artificial intelligence, cloud computing, digital assets, and blockchain are transforming the way financial information is created, distributed, and consumed.
+              </p>
+              <p>
+                To deepen my understanding of the industry, I have pursued professional and academic development through my roles at KRX and certifications and specialized programs, including <strong className="font-semibold text-[#0F172A] dark:text-slate-100">FINRA&apos;s Securities Industry Essentials (SIE)</strong>, <strong className="font-semibold text-[#0F172A] dark:text-slate-100">FISD&apos;s Financial Information Associate (FIA)</strong>, and <strong className="font-semibold text-[#0F172A] dark:text-slate-100">KAIST&apos;s Blockchain &amp; Digital Assets program</strong>. I continue to explore new developments in AI and financial technology through ongoing study and hands-on projects.
+              </p>
+              <p>
+                <strong className="font-semibold text-[#0F172A] dark:text-slate-100">HDH Market Frontier</strong> was created as a platform to document my learning journey, share industry insights, and explore the future of financial markets and data services. The views shared here are intended to encourage discussion, exchange ideas, and contribute to a better understanding of the rapidly evolving financial information ecosystem.
+              </p>
+              <p>
+                My long-term goal is to become a global industry leader and entrepreneur with a deep understanding of markets, data, infrastructure, and technology. Until then, this website serves as a place to learn publicly, connect with professionals across the industry, and share perspectives on the trends shaping the future of finance.
+              </p>
+              <p>
+                Discussions, ideas, and collaboration opportunities related to financial markets, market data, infrastructure, technology, and other topics covered on this website are always welcome. Please feel free to connect with me through the <Link href="/contact" className="text-[#0EA5E9] dark:text-[#38BDF8] font-medium hover:underline">contact information provided</Link> or via LinkedIn.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Disclaimer & Copyright Notice */}
+      <section className="py-16 bg-[#F8FAFC] dark:bg-[#0F172A]">
+        <div className="content-width">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-6 tracking-tight">Disclaimer &amp; Copyright Notice</h2>
+            <div className="space-y-4 text-sm text-[#6B7280] dark:text-slate-400 leading-relaxed">
+              <p>
+                The content published on this website reflects my personal views and opinions only and does not represent the views, positions, or policies of my employer or any affiliated organization.
+              </p>
+              <p>
+                This website is intended for educational, informational, and professional discussion purposes. It is not intended to defame any individual or organization, nor should its content be used for unlawful purposes.
+              </p>
+              <p>
+                Unless otherwise stated, all original content on this website is protected by copyright. Sharing with proper attribution and a link to the original source is welcome; however, unauthorized modification, misrepresentation, reproduction, or commercial use of the content is prohibited without prior permission.
+              </p>
+              <p>
+                Some content may be translated, summarized, or enhanced with the assistance of AI tools. While reasonable efforts are made to ensure accuracy, readers should independently verify information before making important professional, financial, legal, or business decisions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
