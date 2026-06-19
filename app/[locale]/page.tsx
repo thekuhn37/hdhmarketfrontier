@@ -12,6 +12,11 @@ interface Props {
   params: Promise<{ locale: string }>
 }
 
+// FeaturedInsight/LatestPosts/PopularPosts are server components that read
+// request cookies through the Supabase server client, so this route must
+// render dynamically rather than be statically prerendered.
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })

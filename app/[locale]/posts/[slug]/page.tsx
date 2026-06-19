@@ -18,9 +18,13 @@ interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
-export async function generateStaticParams() {
-  return []
-}
+// This page reads auth cookies, the current user, and increments view_count on
+// every request, so it must never be statically prerendered. Without this,
+// Next.js attempts an on-demand static render and throws DYNAMIC_SERVER_USAGE
+// (surfacing as a bare 500) the first time an uncached post is requested.
+// (No generateStaticParams: with force-dynamic, posts render on demand at
+// request time, so there is nothing to prebuild.)
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params

@@ -2,6 +2,10 @@ import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 import CategoryPageLayout from '@/components/posts/CategoryPageLayout'
 
+// CategoryPageLayout reads request cookies via the Supabase server client, so
+// this route must render dynamically rather than be statically prerendered.
+export const dynamic = 'force-dynamic'
+
 interface Props {
   params: Promise<{ locale: string }>
   searchParams: Promise<{ page?: string }>

@@ -6,6 +6,11 @@ interface Props {
   params: Promise<{ locale: string }>
 }
 
+// Reads the authenticated user and their role via the Supabase server client
+// (request cookies). force-dynamic applies across the whole /admin route
+// subtree, so no admin page is ever statically prerendered.
+export const dynamic = 'force-dynamic'
+
 export default async function AdminProtectedLayout({ children, params }: Props) {
   const { locale } = await params
   const supabase = await createClient()
